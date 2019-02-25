@@ -13,11 +13,12 @@ class TreeNode:
     def data(self):
         return self.__data
 
+
     @data.setter
     def data(self, data):
         self.__data = data
 
-
+    
     @property
     def left(self):
         return self.__left
@@ -32,7 +33,7 @@ class TreeNode:
     def right(self):
         return self.__right
 
-
+    
     @right.setter
     def right(self, right):
         self.__right = right
@@ -45,7 +46,7 @@ class BinaryTree:
 
     def get_root(self):
         return self.root
-    
+
     
     def set_root(self, r):
         self.root = r
@@ -55,19 +56,18 @@ class BinaryTree:
         new_node = TreeNode()
         return new_node
 
-
     def get_node_data(self, cur):
-        return cur.get_data()
+        return cur.data
 
 
     def set_node_data(self, cur, data):
-        cur.set_data(data)
+        cur.data = data
 
 
     def get_left_sub_tree(self, cur):
         return cur.left
 
-
+    
     def get_right_sub_tree(self, cur):
         return cur.right
 
@@ -79,33 +79,69 @@ class BinaryTree:
     def make_right_sub_tree(self, cur, right):
         cur.right = right
 
+
+    def preorder_traverse(self, cur, func):
+        if not cur:
+            return
+
+        func(cur.data)
+        self.preorder_traverse(cur.left, func)
+        self.preorder_traverse(cur.right, func)
+
+
+    def inorder_traverse(self, cur, func):
+        if not cur:
+            return
+
+
+        self.inorder_traverse(cur.left, func)
+        func(cur.data)
+        self.inorder_traverse(cur.right, func)
+
+
+    def postorder_traverse(self, cur, func):
+        if not cur:
+            return
+
+        
+        self.postorder_traverse(cur.left, func)
+        self.postorder_traverse(cur.right, func)
+        func(cur.data)
+
+
 if __name__ == "__main__":
     bt = BinaryTree()
+
 
     n1 = bt.make_node()
     bt.set_node_data(n1, 1)
 
+
     n2 = bt.make_node()
     bt.set_node_data(n2, 2)
+
 
     n3 = bt.make_node()
     bt.set_node_data(n3, 3)
 
+
     n4 = bt.make_node()
     bt.set_node_data(n4, 4)
+
 
     n5 = bt.make_node()
     bt.set_node_data(n5, 5)
 
+
     n6 = bt.make_node()
     bt.set_node_data(n6, 6)
+
 
     n7 = bt.make_node()
     bt.set_node_data(n7, 7)
 
-    
-    bt.set_root(n1)
 
+    bt.set_root(n1)
 
     bt.make_left_sub_tree(n1, n2)
     bt.make_right_sub_tree(n1, n3)
@@ -117,34 +153,6 @@ if __name__ == "__main__":
 
     bt.make_left_sub_tree(n3, n6)
     bt.make_right_sub_tree(n3, n7)
-
-
-    def preorder_traverse(self, cur, func):
-        if not cur:
-            return
-
-        func(cur, data)
-        self.preorder_traverse(cur.left, func)
-        self.preorder_traverse(cur.right, func)
-
-
-    def inorder_traverse(self, cur, func):
-        if not cur:
-            return
-
-        self.inorder_traverse(self, cur, func)
-        func(cur.data)
-        self.inorder_traverse(cur.right, func)
-
-
-    def postorder_traverse(self, cur, func):
-        if not cur:
-            return
-
-
-        self.postorder_traverse(cur.left, func)
-        self.postordef_traverse(cur.right, func)
-        func(cur.data)
 
 
     f = lambda a: print(a, end=' ')
@@ -160,3 +168,4 @@ if __name__ == "__main__":
 
     bt.postorder_traverse(bt.get_root(), f)
     print()
+
