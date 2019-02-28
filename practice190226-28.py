@@ -81,6 +81,34 @@ class BST:
                 cur.left, rem_node = self.__remove_recursion(cur.left, replace.data)
         
         return cur, rem_node
+    
+    def remove(self, target):
+        self.root, removed_node = self.__remove_recursion(self.root, target)
+        removed_node.left = removed_node.right = None
+
+        return removed_node
+
+    
+    def insert_node(self, node):
+        cur = self.root
+
+        if cur == None:
+            self.root = node
+            return
+
+        while True:
+            parent = cur
+
+            if node.data < cur.data:
+                cur = cur.left
+                if not cur:
+                    parent.left = node
+                    return
+            else:
+                cur = cur.right
+                if not cur:
+                    parent.right = node
+                    return
 
 
 if __name__ == "__main__":
@@ -105,26 +133,6 @@ if __name__ == "__main__":
     print()
 #print 6 3 2 4 5 8 10 9 11
     
-    def insert_node(self, node):
-        cur = self.root
-
-        if cur == None:
-            self.root = node
-            return
-
-        while True:
-            parent = cur
-
-            if node.data < cur.data:
-                cur = cur.left
-                if not cur:
-                    parent.left = node
-                    return
-            else:
-                cur = cur.right
-                if not cur:
-                    parent.right = node
-                    return
                 
 #test2 search() method                
 print("searched data : {}".format(bst.search(8).data))
