@@ -100,6 +100,41 @@ if __name__ == "__main__":
 
     f = lambda x: print(x, end = ' ')
 
-
+#test1
     bst.preorder_traverse(bst.get_root(), f)
     print()
+#print 6 3 2 4 5 8 10 9 11
+    
+    def insert_node(self, node):
+        cur = self.root
+
+        if cur == None:
+            self.root = node
+            return
+
+        while True:
+            parent = cur
+
+            if node.data < cur.data:
+                cur = cur.left
+                if not cur:
+                    parent.left = node
+                    return
+            else:
+                cur = cur.right
+                if not cur:
+                    parent.right = node
+                    return
+                
+#test2 search() method                
+print("searched data : {}".format(bst.search(8).data))
+#print searched data :8
+
+    node = bst.remove(6)
+    node.data = 7
+    bst.insert_node(node)
+
+#test3 insert_node() method
+    bst.preorder_traverse(bst.get_root(), f)
+    print()
+#print 5 3 2 4 8 7 10 9 11
