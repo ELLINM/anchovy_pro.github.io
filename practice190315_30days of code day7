@@ -1,0 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+test_number = int(input())
+
+for i in range(test_number):
+    test_string = input()
+    even = ''
+    odd = ''
+
+    for j in range(len(test_string)):
+        if j % 2 == 0:
+            even += test_string[j]
+        else:
+            odd += test_string[j]
+    print("{} {}".format(even, odd))
+
