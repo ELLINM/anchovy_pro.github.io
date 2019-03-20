@@ -83,10 +83,10 @@ class  Math
 {
 	public static void main(String[] args){
 		int price=4300;
-		int number=2435398;
+		long number=2435398;
 		int mart=13;
 		
-		int average=(price*number)/mart;
+		long average=(price*number)/mart;
 		
 		System.out.println("1인 : "+average+"원");
 	}
