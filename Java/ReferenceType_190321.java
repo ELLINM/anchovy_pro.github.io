@@ -1,3 +1,4 @@
+//ex1
 class Example
 {
 	public static void main(String [] args){
@@ -9,7 +10,7 @@ class Example
 	}
 }
 
-
+//ex2
 import java.util.Scanner;
 
 class Example2
@@ -28,6 +29,7 @@ class Example2
 	}
 }
 
+//ex3
 import java.util.Scanner;
 
 class Example3
@@ -48,7 +50,7 @@ class Example3
 	}
 }
 
-
+//ex4
 import java.util.Scanner;
 
 class Square
@@ -70,5 +72,34 @@ class Square
 		result = width*column;
 		System.out.println("사각형의 넓이는 : " + result + "제곱센티입니다.");
 
+	}
+}
+
+//ex5
+import java.util.Scanner;
+
+class Apple
+{
+	public static void main(String [] args){
+		
+		int apple;
+		int people;
+		int price;
+		int result;
+
+		Scanner ap = new Scanner(System.in);
+
+		System.out.println("사과 갯수 : (개)");
+		apple = ap.nextInt();
+
+		System.out.println("사람 수 : (명)");
+		people = ap.nextInt();
+
+		System.out.println("사과 가격 : (원)");
+		price = ap.nextInt();
+
+		result = (apple*price)/people;
+
+		System.out.println("한사람당 사과가격은 : " + result + "원 입니다");
 	}
 }
