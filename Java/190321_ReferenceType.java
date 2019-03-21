@@ -124,7 +124,7 @@ class Subject
 		System.out.println("두번째 과목 점수를 입력하세요 : (점)");
 		sub2 = sub.nextInt();
 		
-		System.out.println("번째 과목 점수를 입력하세요 : (점)");
+		System.out.println("세번째 과목 점수를 입력하세요 : (점)");
 		sub3 = sub.nextInt();
 
 		average = (sub1 + sub2 + sub3)/3;
