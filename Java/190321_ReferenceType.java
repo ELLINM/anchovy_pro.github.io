@@ -132,3 +132,25 @@ class Subject
 		System.out.println("3과목의 평균점수는 : " + average + "점 입니다.");
 	}
 }
+
+//ex7
+import java.util.Scanner;
+
+class Temp
+{
+	public static void main(String [] args){
+
+		double ft;
+		double result;
+
+		Scanner tp = new Scanner(System.in);
+
+		System.out.println("화씨 온도를 입력해 주세요 : (F)");
+		ft = tp.nextInt();
+		
+		result = (ft - 32)/1.8;
+
+		System.out.println("섭씨 온도는" + result + "(C) 입니다.");
+	}
+
+}
