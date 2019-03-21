@@ -19,7 +19,7 @@ class Example2
 
 		int number;//실수 또는 문자를 입력받기 위해서는 자료형을 변경하면 된다. double number or String str
 
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);  // 문자 입력을 인자로 Scanner 생성
     
     System.out.println("정수를 입력하세요 : ");
 		number = sc.nextInt();//키보드로 부터 정수 입력받기
@@ -101,5 +101,34 @@ class Apple
 		result = (apple*price)/people;
 
 		System.out.println("한사람당 사과가격은 : " + result + "원 입니다");
+	}
+}
+
+//ex6
+import java.util.Scanner;
+
+class Subject
+{
+	public static void main(String [] args){
+
+		int sub1;
+		int sub2;
+		int sub3;
+		int average;
+
+		Scanner sub = new Scanner(System.in);
+
+		System.out.println("첫번째 과목 점수를 입력하세요 : (점)");
+		sub1 = sub.nextInt();
+		
+		System.out.println("두번째 과목 점수를 입력하세요 : (점)");
+		sub2 = sub.nextInt();
+		
+		System.out.println("번째 과목 점수를 입력하세요 : (점)");
+		sub3 = sub.nextInt();
+
+		average = (sub1 + sub2 + sub3)/3;
+
+		System.out.println("3과목의 평균점수는 : " + average + "점 입니다.");
 	}
 }
