@@ -115,7 +115,7 @@ class Subject
 		int sub2;
 		int sub3;
 		int average;
-
+//int 연산 int = int 연산항목중 하나를double형태로 바꿔주면 결과값이 실수를 포함한다.
 		Scanner sub = new Scanner(System.in);
 
 		System.out.println("첫번째 과목 점수를 입력하세요 : (점)");
@@ -127,7 +127,7 @@ class Subject
 		System.out.println("세번째 과목 점수를 입력하세요 : (점)");
 		sub3 = sub.nextInt();
 
-		average = (sub1 + sub2 + sub3)/3;
+		average = (sub1 + sub2 + sub3)/3;//3->3.0
 
 		System.out.println("3과목의 평균점수는 : " + average + "점 입니다.");
 	}
