@@ -1,3 +1,5 @@
+
+//ex1
 class Example {
 
 	public static void main(String[] args) {
@@ -11,7 +13,7 @@ class Example {
 	}
 }
 
-
+//ex2
 class Example {
 
 	public static void main(String[] args) {
@@ -25,6 +27,7 @@ int&double 연산 = 더 큰 타입으로 연산값 출력
 	}
 }
 
+//ex3
 class Example {
 
 	public static void main(String[] args) {
@@ -38,6 +41,7 @@ class Example {
 	}
 }
 
+//ex4
 class Example {
 
 	public static void main(String[] args) {
@@ -51,6 +55,7 @@ class Example {
 	}
 }
 
+//ex5
 class Example {
 
 	public static void main(String[] args) {
@@ -66,7 +71,7 @@ class Example {
 }
 //선대입 후증가
 
-//ex
+//ex6
 class InDecrementOp
 {
 	public static void main(String[] args) {
@@ -79,6 +84,7 @@ class InDecrementOp
 	}
 }
 
+//ex7
 class  Math
 {
 	public static void main(String[] args){
