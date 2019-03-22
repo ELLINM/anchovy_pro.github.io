@@ -43,10 +43,10 @@ class Subject1
 		System.out.println("국어 점수 : ");
 	    kr = cc.nextInt();
 		
-		System.out.println("국어 점수 : ");
+		System.out.println("영어 점수 : ");
 		eng =  cc.nextInt();
 		
-		System.out.println("국어 점수 : ");
+		System.out.println(" 점수 : ");
 		math = cc.nextInt();
 
 		avg = (kr+eng+math)/3.0;
