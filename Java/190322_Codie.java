@@ -60,21 +60,17 @@ class Subject1
 
 class Num5
 {
-	int x, y;
-
-	public Num5(int newX, int newY){
-		
-		x=newX;
-		y=newY;
-	}
-
 	public static void main(String [] args){
-		Num5 n1 = new Num5(100, 200);
-		Num5 n2 = new Num5(200, 100);
+		
+		int x = 100;
+		int y = 200;
 
-        System.out.println("교환 전 : x = " + n1.x + ", y =" + n1.y);
-		System.out.println("교환 후 : x = " + n2.x + ", y =" + n2.y);
+		System.out.println("교환 전 : x=" + x + ", 교환 전 : y=" +y);
 
+		x=y;
+		y=x;
+
+		System.out.println("교환 후 : x=" + x + ", 교환 후 : y=" +y);
 	}
 }
 
@@ -209,3 +205,51 @@ class Bmi
 	}
 }
 
+//ex9
+
+import java.util.Scanner;
+
+class Tax
+{
+	public static void main(String [] args){
+
+	int price;
+
+	Scanner t = new Scanner(System.in);
+
+	System.out.println("제품가격을 입력하세요 : ");
+	price = t.nextInt();
+
+	int tax = price/10;
+	System.out.println("제품의 부가세 : " + tax + "원");
+
+	int cost = price - tax;
+	System.out.println("제품 원가 : " + cost + "원");
+
+	}
+}
+
+//ex10
+
+import java.util.Scanner;
+
+class  Discount
+{
+	public static void main(String[] args) 
+	{
+		
+		int cost;
+		int price;
+
+		Scanner dis = new Scanner(System.in);
+
+		System.out.println("제품의 원가를 입력 : ");
+		cost = dis.nextInt();
+
+		System.out.println("제품의 실제 구매가를 입력 : ");
+		price = dis.nextInt();
+
+		double dc = cost/(cost-price);
+		System.out.println("할인율 : " + dc + "%");
+	}
+}
