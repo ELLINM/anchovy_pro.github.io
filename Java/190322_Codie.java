@@ -57,7 +57,6 @@ class Subject1
 }
 
 //ex3
-
 class Num5
 {
 	public static void main(String [] args){
@@ -67,9 +66,12 @@ class Num5
 
 		System.out.println("교환 전 : x=" + x + ", 교환 전 : y=" +y);
 
-		x=y;
-		y=x;
+		int z = 200;
+		int a = 100;
 
+		x=z;
+		y=a;
+		
 		System.out.println("교환 후 : x=" + x + ", 교환 후 : y=" +y);
 	}
 }
