@@ -66,11 +66,11 @@ class Num5
 
 		System.out.println("교환 전 : x=" + x + ", 교환 전 : y=" +y);
 
-		int z = 200;
-		int a = 100;
+		int z = x;
+		int a = y;
 
-		x=z;
-		y=a;
+		x=a;
+		y=z;
 		
 		System.out.println("교환 후 : x=" + x + ", 교환 후 : y=" +y);
 	}
