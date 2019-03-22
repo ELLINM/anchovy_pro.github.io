@@ -41,7 +41,7 @@ class Subject1
 		Scanner cc = new Scanner(System.in);
 
 		System.out.println("국어 점수 : ");
-	    kr = cc.nextInt();
+		kr = cc.nextInt();
 		
 		System.out.println("영어 점수 : ");
 		eng =  cc.nextInt();
