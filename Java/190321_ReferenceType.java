@@ -2,11 +2,10 @@
 class Example
 {
 	public static void main(String [] args){
-
-	String ex = "가나";
-
-	System.out.println(ex);
-
+		
+		String ex = "가나";
+		
+		System.out.println(ex);
 	}
 }
 
@@ -20,12 +19,11 @@ class Example2
 		int number;//실수 또는 문자를 입력받기 위해서는 자료형을 변경하면 된다. double number or String str
 
 		Scanner sc = new Scanner(System.in);  // 문자 입력을 인자로 Scanner 생성
-    
-    System.out.println("정수를 입력하세요 : ");
+		
+		System.out.println("정수를 입력하세요 : ");
 		number = sc.nextInt();//키보드로 부터 정수 입력받기
 
 		System.out.println(number);
-
 	}
 }
 
@@ -46,7 +44,6 @@ class Example3
 		resurt = rect*rect;
 
 		System.out.println("정사각형의 넓이는 : " + result + "제곱센치입니다.");
-
 	}
 }
 
@@ -71,7 +68,6 @@ class Square
 
 		result = width*column;
 		System.out.println("사각형의 넓이는 : " + result + "제곱센티입니다.");
-
 	}
 }
 
@@ -152,5 +148,4 @@ class Temp
 
 		System.out.println("섭씨 온도는" + result + "(C) 입니다.");
 	}
-
 }
