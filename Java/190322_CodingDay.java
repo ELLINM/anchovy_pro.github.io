@@ -9,6 +9,7 @@ class Goods{
 		int goods;
 		int money;
 		int result;
+		//int price, money, change;이렇게 여러 변수를 한번에 선언 할 수 도 있습니다.
 
 		Scanner cc = new Scanner(System.in);
 
@@ -71,10 +72,35 @@ class Num5{
 
 		x=a;
 		y=z;
-		
+		/*x = 100;
+		y = 200;
+		System.out.println("교환 전 : x=" + x + ", y=" + y);
+		z = x;
+		x = y;
+		y = z;
+		*/
+		System.out.println("교환 후 : x=" + x + ", y=" + y);
 		System.out.println("교환 후 : x=" + x + ", 교환 후 : y=" +y);
 	}
 }
+/*
+문제
+-int형 변수 2개를 선언하고 임의의 값으로 초기화한 후, 각 변수의 값을 서로 교환하시오. 
+
+임의의 값으로 초기화하고 변수의 값을 서로 교환하는 문제입니다. 임의의 값으로 초기화 한다는 말은 임의의 값을 대입하여 시작한다는 말입니다. x,y 값에 각각 100, 200을 대입하였는데요, 변수의 값을 교환한다는 말은, 대입되어 있는 실제 값을 맞 바꾼다는 말입니다. 그렇다면,
+
+x=y;
+y=x;
+
+위와 같이 연산하면 되지 않을까요? 하지만 잘보시면, x=y에서 x의 실제 값이 없어 지는것을 알수 있습니다.
+그래서 소멸전에 임의 변수를 하나 만들어서 저장을 하는것 이죠, 변수 z를 만들어서 말이죠.
+ 
+z = x;   //z에 x값을 임시 저장
+x = y;   //x에 y값 대입
+y = z;   //y에 임시 저장된 x값을 대입
+
+이런 임시로 값을 저장하는 방법은 정렬, 변수 위치 바꾸기 등에서 사용될 수 있으니 유심히 살펴보고 넘어 가도록 합시다.
+*/
 
 //ex4
 
@@ -145,7 +171,12 @@ class Clock{
 
 		int min = sec/60;
 		int hour = sec/3600;
-
+		/*time = input.nextInt();
+		sec = time;
+		hour = sec / 3600;
+		sec = sec % 3600;
+		minute = sec / 60;
+		sec = sec % 60;*/
 		System.out.println(sec + "는" + hour + "시간" + min%(hour*60) + "분" + sec%(min*60) +"초 입니다.");
 	}
 }
@@ -154,7 +185,7 @@ class Clock{
 
 import java.util.Scanner;
 
-class  Money{
+class Money{
 	
 	public static void main(String[] args){
 		
@@ -170,6 +201,15 @@ class  Money{
 		int fc = (price-(fm*50000)-(om*10000))/5000;
 		int c = (price-(fm*50000)-(om*10000)-(fc*5000))/1000;
 		int p = price-(fm*50000)-(om*10000)-(fc*5000)-(c*1000);
+		/*rest = price;
+		n50 = rest / 50000;
+		rest = rest % 50000;
+		n10 = rest / 10000;
+		rest = rest % 10000;
+		n5 = rest / 5000;
+		rest = rest % 5000;
+		n1 = rest / 1000;
+		rest = rest % 1000;*/
 
 		System.out.println(price + " 원은 " + "5만원권 " + fm + " 장 ," + "만원권 " + om + " 장, " + "5천원권 " + fc + " 장, " + "천원권 " + c + "장, 을 지불하고 " + p + " 원이 남았습니다.");
 	}
@@ -216,10 +256,10 @@ class Tax{
 	System.out.println("제품가격을 입력하세요 : ");
 	price = t.nextInt();
 
-	int tax = price/10;
+	double tax = price/10;
 	System.out.println("제품의 부가세 : " + tax + "원");
 
-	int cost = price - tax;
+	double cost = price - tax;
 	System.out.println("제품 원가 : " + cost + "원");
 	}
 }
@@ -228,7 +268,7 @@ class Tax{
 
 import java.util.Scanner;
 
-class  Discount{
+class Discount{
 	
 	public static void main(String[] args){
 		
