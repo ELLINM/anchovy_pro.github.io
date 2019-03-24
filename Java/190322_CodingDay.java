@@ -176,7 +176,8 @@ class Clock{
 		hour = sec / 3600;
 		sec = sec % 3600;
 		minute = sec / 60;
-		sec = sec % 60;*/
+		sec = sec % 60;
+		System.out.println(time + "초는 " + hour + "시간 " + minute + "분 " + sec + "초입니다.");*/
 		System.out.println(sec + "는" + hour + "시간" + min%(hour*60) + "분" + sec%(min*60) +"초 입니다.");
 	}
 }
