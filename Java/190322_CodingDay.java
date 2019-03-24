@@ -2,8 +2,8 @@
 
 import java.util.Scanner;
 
-class Goods
-{
+class Goods{
+	
 	public static void main(String [] args){
 		
 		int goods;
@@ -28,8 +28,8 @@ class Goods
 
 import java.util.Scanner;
 
-class Subject1
-{
+class Subject1{
+	
 	public static void main(String [] args){
 
 		int kr;
@@ -57,8 +57,8 @@ class Subject1
 }
 
 //ex3
-class Num5
-{
+class Num5{
+	
 	public static void main(String [] args){
 		
 		int x = 100;
@@ -80,8 +80,8 @@ class Num5
 
 import java.util.Scanner;
 
-class Change
-{
+class Change{
+	
 	public static void main(String [] args){
 
 		int cm;
@@ -97,7 +97,6 @@ class Change
 		result = cm/inch;
 
 		System.out.println(cm + "Cm = " + result + "inch");
-
 	}
 }
 
@@ -105,8 +104,8 @@ class Change
 
 import java.util.Scanner;
 
-class Volume
-{
+class Volume{
+	
 	public static void main(String [] args){
 
 		int radius;
@@ -125,8 +124,7 @@ class Volume
 
 		double volume = area*height;
 
-		System.out.println("원기둥의 부피는" + volume + "입니다.");
-		
+		System.out.println("원기둥의 부피는" + volume + "입니다.");	
 	}
 }
 
@@ -134,8 +132,8 @@ class Volume
 
 import java.util.Scanner;
 
-class Clock
-{
+class Clock{
+	
 	public static void main(String [] args){
 
 		int sec;
@@ -149,7 +147,6 @@ class Clock
 		int hour = sec/3600;
 
 		System.out.println(sec + "는" + hour + "시간" + min%(hour*60) + "분" + sec%(min*60) +"초 입니다.");
-
 	}
 }
 
@@ -157,10 +154,9 @@ class Clock
 
 import java.util.Scanner;
 
-class  Money
-{
-	public static void main(String[] args) 
-	{
+class  Money{
+	
+	public static void main(String[] args){
 		
 		int price;
 
@@ -176,8 +172,6 @@ class  Money
 		int p = price-(fm*50000)-(om*10000)-(fc*5000)-(c*1000);
 
 		System.out.println(price + " 원은 " + "5만원권 " + fm + " 장 ," + "만원권 " + om + " 장, " + "5천원권 " + fc + " 장, " + "천원권 " + c + "장, 을 지불하고 " + p + " 원이 남았습니다.");
-
-
 	}
 }
 
@@ -185,8 +179,8 @@ class  Money
 
 import java.util.Scanner;
 
-class Bmi
-{
+class Bmi{
+	
 	public static void main(String [] args){
 
 		int kg;
@@ -211,8 +205,8 @@ class Bmi
 
 import java.util.Scanner;
 
-class Tax
-{
+class Tax{
+	
 	public static void main(String [] args){
 
 	int price;
@@ -227,7 +221,6 @@ class Tax
 
 	int cost = price - tax;
 	System.out.println("제품 원가 : " + cost + "원");
-
 	}
 }
 
@@ -235,10 +228,9 @@ class Tax
 
 import java.util.Scanner;
 
-class  Discount
-{
-	public static void main(String[] args) 
-	{
+class  Discount{
+	
+	public static void main(String[] args){
 		
 		int cost;
 		int price;
