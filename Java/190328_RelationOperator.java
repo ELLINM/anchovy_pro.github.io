@@ -1,24 +1,23 @@
 //ex1
 
 class Relation{
-  
-  public static void main(String [] args){
-    
-    boolean result = false;
-    
-    int a = 100;
-    int b = 50;
-    
-    result = a<b;
-    
-    System.out.println(result);
-  }
+	
+	public static void main(String [] args){
+		
+		boolean result = false;
+		
+		int a = 100;
+		int b = 50;
+		
+		result = a<b;
+		System.out.println(result);
+	}
 }
 
 //ex2
 
 class Relation{
-
+	
 	public static void main(String[] args){
 
 		boolean result = false;
@@ -51,3 +50,38 @@ class Relation{
 //(a.euqals(b)); 를 통하여 문자열 비교가 가능함
 
 //ex4
+/*SC마스터에서 출결은 40% IT점수 30%, 일본어 점수 30%이다. 
+출결점수 : 100
+IT점수 : 50
+일본어 점수 : 50
+총점 : 70 수료여부 : true*/
+import java.util.Scanner;
+
+class Relation
+{
+	public static void main(String [] args){
+		
+		int check;
+		int it;
+		int jp;
+
+		Scanner num = new Scanner(System.in);
+
+		System.out.println("출결점수 : ");
+		check = num.nextInt();
+
+		System.out.println("IT 점수 : ");
+		it = num.nextInt();
+
+		System.out.println("일본어 점수 : ");
+		jp = num.nextInt();
+
+		double total = check*0.4 + it*0.3 + jp*0.3;
+
+		boolean result = false;
+		result = total >= 70;
+
+		System.out.println("총점 : " + total + " 수료여부 : " + result);
+	}
+}
+
