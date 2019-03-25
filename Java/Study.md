@@ -34,3 +34,4 @@ Relation Operator
 --------------------------------
 
 + 결과값은 True or False로 나옴
+> a < b, a > b, a == b, a <= b, b >= a
