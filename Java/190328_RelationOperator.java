@@ -74,7 +74,7 @@ class Relation
 		System.out.println("일본어 점수 : ");
 		jp = num.nextInt();
 
-		double total = check*0.4 + it*0.3 + jp*0.3;
+		double total = (check*0.4) + (it*0.3) + (jp*0.3);
 
 		boolean result = false;
 		result = total >= 70;
