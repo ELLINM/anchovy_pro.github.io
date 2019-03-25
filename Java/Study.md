@@ -28,3 +28,9 @@ default => int 0, double 0.0, boolean false
 stack메모리 영역은 생성하지 않아도 사용이 가능함
 
 + 프로그래밍의 흐름은 위에서 아래로 진행 거슬러 올라오지 않는다.
+
+
+Relation Operator
+--------------------------------
+
++ 결과값은 True or False로 나옴
