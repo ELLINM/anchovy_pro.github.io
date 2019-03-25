@@ -36,6 +36,14 @@ Relation Operator
 + 결과값은 True or False로 나옴
 > a < b, a > b, a == b, a <= b, b >= a
 
+Logical Operator
+-----------------------------
+
++논리 연산자는 피연산자가 boolean값을 가진다.
+
++And연산-> A 와 B 두개 모두 참일때 참
+ex) 0 0 -> 0, 1 0 -> 0, 0 1-> 0, 1 1 -> 1
+
 
 System
 ------------------------
