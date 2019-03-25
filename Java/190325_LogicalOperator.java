@@ -148,3 +148,69 @@ class Num
 
 	}
 }
+
+//ex6
+/* 세 과목 점수를 입력 받아, 합격 여부를 출력하시오
+조건 : 한 과목이라도 70점 이상이라면 합격*/
+
+import java.util.Scanner;
+
+class Grade 
+{
+	public static void main(String[] args) 
+	{
+		Scanner input = new Scanner(System.in);
+
+		int fir,sec,thr;
+		boolean result;
+
+		System.out.print("첫번째 과목 : ");
+		fir = input.nextInt();
+
+		System.out.print("두번째 과목 : ");
+		sec = input.nextInt();
+
+		System.out.print("세번째 과목 : ");
+		thr = input.nextInt();
+
+		result = ((fir>=70)||(sec>=70)||(thr>=70));
+
+		System.out.println("합격 여부 : " + result);
+	}
+}
+
+//ex7
+/*국어, 영어, 수학의 점수를 입력 받는다.
+영어는 반드시 80점 이상이어야 통과 하고, 평균은 반드시 70점이 넘어야 한다.
+한과목이라도 50점 이하인 경우는 과락으로 불합격이다.
+평균과 합격 여부를 출력하시오.
+*/
+
+import java.util.Scanner;
+
+class School
+{
+	public static void main(String[] args) 
+	{
+		int kr, eng, math;
+		double total;
+		boolean result;
+
+		Scanner input = new Scanner(System.in);
+
+		System.out.print("국어 점수 : ");
+		kr = input.nextInt();
+
+		System.out.print("영어 점수 : ");
+		eng = input.nextInt();
+
+		System.out.print("수학 점수 : ");
+		math = input.nextInt();
+
+		total = (kr+eng+math)/3.0;
+		result = (total>=70)&&(eng>=80)&&(kr>50)&&(math>50);
+
+		System.out.println("평균 점수 : " + total + "합격 여부 : " + result);
+
+	}
+}
