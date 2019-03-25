@@ -35,3 +35,9 @@ Relation Operator
 
 + 결과값은 True or False로 나옴
 > a < b, a > b, a == b, a <= b, b >= a
+
+
+System
+------------------------
+
+![System](https://javainterviewpoint-7ac9.kxcdn.com/wp-content/uploads/2016/01/JVM-Architecture.png)
