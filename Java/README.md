@@ -1,6 +1,6 @@
 This Repository is Study JAVA
 -----------------------------
-1.Java Stduy File Upload
+1.Java Study File Upload
 
 2.Use only Java
 
