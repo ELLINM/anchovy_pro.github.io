@@ -61,10 +61,8 @@ class Relation
 {
 	public static void main(String [] args){
 		
-		int check;
-		int it;
-		int jp;
-
+		int check,it,jp;
+		
 		Scanner num = new Scanner(System.in);
 
 		System.out.println("출결점수 : ");
