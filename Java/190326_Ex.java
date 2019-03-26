@@ -227,3 +227,58 @@ or
 년도 입력 : 2000
 월 입력 : 2
 해당 월은 29일 입니다.*/
+
+import java.util.Scanner;
+
+class TypeCasting4 
+{
+	public static void main(String[] args) 
+	{
+		int year, month;
+		boolean four, four2, four3;
+
+		Scanner cc = new Scanner(System.in);
+		System.out.print("년도 입력 : ");
+		year = cc.nextInt();
+
+		System.out.print("월 입력 : ");
+		month = cc.nextInt();
+
+		four = year%4==0&&month == 2;
+		four2 = year%4==0&&year%100==0;
+		four3 = year%4==0&&year%100==0&&year%400==0&&month==2;
+
+		String s = four? "해당월은 29일 입니다.":"";
+		String r = four2? "해당월은 31일 입니다.":"";
+		String e = four3? "해당월은 28일 입니다.":"";
+
+		System.out.print(s);
+		System.out.print(r);
+		System.out.println(e);
+	}
+}
+
+/*import java.util.Scanner;
+
+class test4
+{
+	public static void main(String[] args) 
+	{
+		int year,month,day;
+		Scanner sc=new Scanner(System.in);
+
+		System.out.print("년도 입력 :");
+		year=sc.nextInt();
+		System.out.print("월 입력 :");
+		month=sc.nextInt();
+		
+		day=month==1||month==3||month==5||month==7||month==8||month==10||month==12? 31 : 30;
+
+		day=month==2?28:day;
+		day=(year%4==0&&year%100!=0||year%400==0)&&day==28? 29:day;
+
+		System.out.println("해당 월은 "+day+"일 입니다.");
+
+	}
+}
+*/
