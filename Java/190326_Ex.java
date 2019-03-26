@@ -65,7 +65,7 @@ or
 
 import java.util.Scanner;
 
-class TypeCasting2 
+class Slash 
 {
 	public static void main(String[] args) 
 	{
@@ -81,14 +81,20 @@ class TypeCasting2
 		String s = result? "나누어 집니다.":"나누어 지지않습니다.";
 
 		result1 = num%4==0||num%5==0;
-		String r = result1? "나누어 지고,":"나누어 지지 않고.";
+		String r = result1? "나누어 지고,":"나누어 지지 않습니다.";
 
-		result2 = num%4==0;
-		String t = result2? "나누어 집니다.":"나누어 지지 않습니다..";
+		System.out.println("4 와 5로 " + s);
+		System.out.println("4 또는 5로 " + r);
 
-		System.out.println("4와 5로" + s);
-		System.out.println("4 또는 5로" + r);
-		System.out.println("4로" + t);
+		result1 = num%4==0;
+		result2 = num%4==1||num%4==2||num%4==3;
+
+		String g = result1? "4로 나뉘어 집니다.":"";
+		String h = result2? "5로 나뉘어 집니다.":"";
+
+		System.out.print(g);
+		System.out.println(h);
+
 	}
 }
 
@@ -112,7 +118,7 @@ class TypeCasting3
 		System.out.print("정수 입력 : ");
 		num = cc.nextInt();
 
-		sum = (num%10)+((num/10)%10)+((num/110)%10);
+		sum = (num%10)+((num/10)%10)+((num/100)%10);
 
 		System.out.println(sum);
 	}
