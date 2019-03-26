@@ -77,3 +77,4 @@ System
 + 큰 type => 작은 type 변환은 프로그래머가 직접 
 > int a = (int)3.0;
 + 큰것에서 작은것으로 변환 될때는 데이터 손실이 일어난다.
+![Type](http://cfs2.tistory.com/upload_control/download.blog?fhandle=YmxvZzg3MzAxQGZzMi50aXN0b3J5LmNvbTovYXR0YWNoLzQvNDE4LmdpZg%3D%3D)
