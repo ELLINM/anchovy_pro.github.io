@@ -11,3 +11,19 @@ class Bitwise
 		System.out.println(a&b);
 	}
 }
+//비트 연산 & | ^ ~
+
+//ex2
+
+
+class Bitwise
+{
+	public static void main(String[] args) 
+	{
+		
+		byte a = 127;
+
+		System.out.println(a+1);
+	}
+}
+//결과값은 128, 128은 int이기 때문에 자동 형변환이 일어남
