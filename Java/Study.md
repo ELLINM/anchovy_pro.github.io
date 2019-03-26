@@ -49,3 +49,8 @@ System
 ------------------------
 
 ![System](https://javainterviewpoint-7ac9.kxcdn.com/wp-content/uploads/2016/01/JVM-Architecture.png)
+
+Bitwise Operator
+------------------------
+
++ 2진수에 대한 논리연산 각 자릿수마다 2의n승 2의8승의 값이 1일 결루 2의 보수로 표현된 음수 값이다.
