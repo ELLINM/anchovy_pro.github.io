@@ -112,7 +112,7 @@ class TypeCasting3
 		System.out.print("정수 입력 : ");
 		num = cc.nextInt();
 
-		sum = (num%10)+((num/10)%10)+(((num/10)/10)%10);
+		sum = (num%10)+((num/10)%10)+((num/110)%10);
 
 		System.out.println(sum);
 	}
