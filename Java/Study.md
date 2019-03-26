@@ -57,3 +57,8 @@ Bitwise Operator
 > ex) a=20일때 ~a(NOT연산)을 하면 11110101 -> 0001011 2의 보수값 -11
 
 + OverFlow & UnderFlow => Civilization Gandhi 
+
+혼합연산자
+------------------
+
++ +=, -=, *=, /=, %= 등으로 
