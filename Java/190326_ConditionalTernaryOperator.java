@@ -40,7 +40,7 @@ class Ternary
 
 		isEven = num%2 == 0; //짝수임을 판별 짝수 = true, 홀수  = false
 
-		String a = isEven? "짝수 입니다.":"홀수 입니다.";
-		System.out.println(a);
+		String result = isEven? "짝수 입니다.":"홀수 입니다.";
+		System.out.println(result);
 	}
 }
