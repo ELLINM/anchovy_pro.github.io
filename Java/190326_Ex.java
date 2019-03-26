@@ -234,27 +234,22 @@ class TypeCasting4
 {
 	public static void main(String[] args) 
 	{
-		int year, month;
-		boolean four, four2, four3;
+		int year, month, day;
 
 		Scanner cc = new Scanner(System.in);
+		
 		System.out.print("년도 입력 : ");
 		year = cc.nextInt();
 
 		System.out.print("월 입력 : ");
 		month = cc.nextInt();
 
-		four = year%4==0&&month == 2;
-		four2 = year%4==0&&year%100==0;
-		four3 = year%4==0&&year%100==0&&year%400==0&&month==2;
+		day = month==1||month==3||month==5||month==7||month==8||month==10||month==12? 31 : 30;
+		//규칙만 알면 간단하게 공식을 만들수 있음...
+		day=month==2?28:day;
+		day=(year%4==0&&year%100!=0||year%400==0)&&day==28? 29:day;
 
-		String s = four? "해당월은 29일 입니다.":"";
-		String r = four2? "해당월은 31일 입니다.":"";
-		String e = four3? "해당월은 28일 입니다.":"";
-
-		System.out.print(s);
-		System.out.print(r);
-		System.out.println(e);
+		System.out.println("해당 월은 "+day+"일 입니다.");
 	}
 }
 
@@ -272,8 +267,8 @@ class test4
 		System.out.print("월 입력 :");
 		month=sc.nextInt();
 		
-		day=month==1||month==3||month==5||month==7||month==8||month==10||month==12? 31 : 30;
-
+		day=month==1||month==3||month==5||month==7||month==8||month==10||month==12? 31 : 30;
+
 		day=month==2?28:day;
 		day=(year%4==0&&year%100!=0||year%400==0)&&day==28? 29:day;
 
