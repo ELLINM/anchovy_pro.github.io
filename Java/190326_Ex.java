@@ -47,7 +47,21 @@ class Graduate;
 예시)정수 입력 : 16
 4와 5로 나누어 지지 않습니다.
 4또는 5로 나누어지고,
-4로 나누어 집니다.*/
+4로 나누어 집니다.
+
+or
+
+정수 입력 : 13
+
+4와 5로 나누어 지지 않습니다.
+4또는 5로 나누어지지 않습니다.
+
+or
+
+정수 입력 : 20
+
+4와 5로 나누어 집니다.
+4또는 5로 나누어 집니다.*/
 
 import java.util.Scanner;
 
@@ -83,6 +97,26 @@ class TypeCasting2
 예시)
 정수 입력 : 194
 각자릿수의 합 : 14*/
+
+import java.util.Scanner;
+
+class TypeCasting3 
+{
+	public static void main(String[] args) 
+	{
+		int num;
+		int sum;
+		
+		Scanner cc = new Scanner(System.in);
+
+		System.out.print("정수 입력 : ");
+		num = cc.nextInt();
+
+		sum = (num%10)+((num/10))+(num/100);
+
+		System.out.println(sum);
+	}
+}
 
 
 
