@@ -15,7 +15,6 @@ class Bitwise
 
 //ex2
 
-
 class Bitwise
 {
 	public static void main(String[] args) 
@@ -27,3 +26,21 @@ class Bitwise
 	}
 }
 //결과값은 128, 128은 int이기 때문에 자동 형변환이 일어남
+
+//ex3
+
+class BitOp
+{
+	public static void main(String[] args) 
+	{
+		
+		int a=1;
+
+		a+=1;
+		a+=2;
+		a+=3;
+
+		System.out.println(a);
+	}
+}
+// += -= *= /= %=
