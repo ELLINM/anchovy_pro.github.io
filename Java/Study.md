@@ -62,3 +62,9 @@ Bitwise Operator
 ------------------
 
 + +=, -=, *=, /=, %= 등으로 사용
+
+삼항연산자(conditional ternary operator)
+-------------------
+
++ boolean 형 데이터를 반환함
+> String a = true? "참":"거짓" ; 조건식이 true를 반환하게 되면 참이 나오고 false를 반환하면 거짓이 나옴
