@@ -188,7 +188,7 @@ class test3
 {
 	public static void main(String[] args) 
 	{
-
+	
 		int number,digit,decimal,hundreds;
 		Scanner sc=new Scanner(System.in);
 		
