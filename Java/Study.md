@@ -30,13 +30,13 @@ stack메모리 영역은 생성하지 않아도 사용이 가능함
 + 프로그래밍의 흐름은 위에서 아래로 진행 거슬러 올라오지 않는다.
 
 
-Relation Operator
+관계 연산자(Relation Operator)
 --------------------------------
 
 + 결과값은 True or False로 나옴
 > a < b, a > b, a == b, a <= b, b >= a
 
-Logical Operator
+논리 연산자(Logical Operator)
 -----------------------------
 
 + 논리 연산자는 피연산자가 boolean값을 가진다.
@@ -50,7 +50,7 @@ System
 
 ![System](https://javainterviewpoint-7ac9.kxcdn.com/wp-content/uploads/2016/01/JVM-Architecture.png)
 
-Bitwise Operator
+비트연산자(Bitwise Operator)
 ------------------------
 
 + 2진수에 대한 논리연산 각 자릿수마다 2의n승 2의8승의 값이 1일 결루 2의 보수로 표현된 음수 값이다.
@@ -68,3 +68,9 @@ Bitwise Operator
 
 + boolean 형 데이터를 반환함
 > String a = true? "참":"거짓" ; 조건식이 true를 반환하게 되면 참이 나오고 false를 반환하면 거짓이 나옴
+
+형 변환(TypeCasting)
+--------------------------
+
++ 변수의 값을 대입하거나 연산하기위해서는 데이터의 형이 같아야함. 때문에 서로 다른 데이터 형을 연산하기 위해 데이터를 변환해줘야함.
++ 작은 type => 큰 type 변환 가능 반대의 경우는 불가능
