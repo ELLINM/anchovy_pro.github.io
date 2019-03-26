@@ -37,6 +37,34 @@ class Graduate;
 		System.out.println(t);
 	}
 }
+/* A
+import java.util.Scanner;
+
+class test1
+{
+	public static void main(String[] args) 
+	{
+		int major,minor,basic,total;//전공,교양,일반,합계
+		boolean graduate;//졸업 가능 여부
+		String result;//결과값
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.print("전공 이수 학점 :");
+		major=sc.nextInt();
+		System.out.print("교양 이수 학점 :");
+		minor=sc.nextInt();
+		System.out.print("일반 이수 학점 :");
+		basic=sc.nextInt();
+		
+		total=major+minor+basic;
+
+		graduate=total>=140&&major>=70&&((minor+basic)>=80||(minor>=30&&basic>=30));
+		result=graduate?"졸업가능":"졸업 불가능";
+
+		System.out.println(result);
+
+	}
+}*/
 
 //ex2
 /*키보드로 정수를 입력 받아, 
@@ -98,6 +126,36 @@ class Slash
 	}
 }
 
+/*import java.util.Scanner;
+
+class test2
+{
+	public static void main(String[] args) 
+	{
+		int number;
+		String and,or,result;
+		boolean four,five,onlyOne;
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.print("정수입력 :");
+		number=sc.nextInt();
+
+		four=number%4==0;
+		five=number%5==0;
+		onlyOne=(four&&!five)||(!four&&five)?true:false;
+
+		and=four&&five?"4와 5로 나누어 집니다.":"4와 5로 나누어 지지 않습니다.";
+		or=four||five?"4또는 5로 나누어집니다.":"4또는 5로 나누어지지 않습니다.";
+		result=onlyOne&&four?"4로 나누어 집니다.":"";
+		result+=onlyOne&&five?"\n5로 나누어 집니다.":"";
+
+		System.out.println(and);
+		System.out.println(or);
+		System.out.println(result);
+
+	}
+}*/
+
 //ex3
 /*키보드로 0 부터 999까지의 정수를 입력 받은수 각 자릿수의 합한 결과를 출력하는 프로그램을 만드시오.(난이도 중)
 예시)
@@ -124,7 +182,27 @@ class TypeCasting3
 	}
 }
 
+/*import java.util.Scanner;
 
+class test3
+{
+	public static void main(String[] args) 
+	{
+
+		int number,digit,decimal,hundreds;
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.print("0~999까지의 정수입력 :");
+		number=sc.nextInt();
+
+		hundreds=number/100; //100의 자리
+		decimal=number%100/10; //10의 자리
+		digit=number%100%10; //1의 자리
+
+		System.out.println(hundreds+decimal+digit);
+
+	}
+}*/
 
 //ex4
 /*년도와 월을 입력 받아 해당 월이 몇 일인지 출력하여라.(난이도 상)
