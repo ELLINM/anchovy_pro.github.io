@@ -153,3 +153,39 @@ class Pizza
 두번째 점 x좌표 입력:4
 두번째 점 y좌표 입력:4
 점(1,2) 가 원점과 더 가깝습니다.*/
+
+import java.util.Scanner;
+
+class Graph 
+{
+	public static void main(String[] args) 
+	{
+		int a,b,c,d,e;
+		Scanner num=new Scanner(System.in);
+
+		System.out.println("첫번째 점 x좌표 입력:");
+		a=num.nextInt();
+
+		System.out.println("첫번째 점 y좌표 입력:");
+		b=num.nextInt();
+
+		System.out.println("두번째 점 x좌표 입력:");
+		c=num.nextInt();
+
+		System.out.println("두번째 점 y좌표 입력:");
+		d=num.nextInt();
+
+		e=c>a?a:0;
+		e=0;
+
+		e=a>c?c:0;
+		e=0;
+
+		e=d>b?b:0;
+		e=0;
+
+		e=b>d?d:0;
+
+		System.out.println("점 ("+a+","+b+") 가 원점과 더 가깝습니다.");
+	}
+}
