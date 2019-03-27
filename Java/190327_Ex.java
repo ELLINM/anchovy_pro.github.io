@@ -173,17 +173,12 @@ class Graph
 		System.out.println("두번째 점 y좌표 입력:");
 		d=num.nextInt();
 
-		e=c>a?a:0;
-		e=0;
+		double e=(a*b)/2;
+		double f=(c*d)/2;
 
-		e=a>c?c:0;
-		e=0;
+		int i=e>f? c:a;
+		int g=e>f? d:b;
 
-		e=d>b?b:0;
-		e=0;
-
-		e=b>d?d:0;
-
-		System.out.println("점 ("+a+","+b+") 가 원점과 더 가깝습니다.");
+		System.out.println("점 ("+i+","+g+") 가 원점과 더 가깝습니다.");
 	}
 }
