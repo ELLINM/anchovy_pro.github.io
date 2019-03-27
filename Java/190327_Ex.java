@@ -96,3 +96,60 @@ class Big
 //ex4
 /*1세기는 1년부터 100년까지를, 2세기는 101년부터 200년까지 3세기는 201년부터 300년까지 ......
 년도를 입력 받아, 몇세기 인지 출력하시오.(21세기 까지 출력가능)*/
+
+import java.util.Scanner;
+
+class Century 
+{
+	public static void main(String[] args) 
+	{
+		int cen,ad,pa,bc;
+
+		Scanner num = new Scanner(System.in);
+
+		System.out.println("년도 입력 : ");
+		cen = num.nextInt();
+
+		ad = cen/100;
+		pa = ad+1;
+		bc = pa>ad? pa:0;
+
+		System.out.println( bc + "세기 입니다.");
+	}
+}
+
+//ex5
+/*피자 조각 과 사람 수를 입력 받아 한 사람당 몇 조각을 먹을 수 있는지, 강아지가 몇 조각 먹는지 출력하시오. 
+못 먹는 피자는 강아지가 먹게 됩니다.*/
+
+import java.util.Scanner;
+
+class Pizza 
+{
+	public static void main(String[] args) 
+	{
+		int pizza, people,num,num2;
+		Scanner eat = new Scanner(System.in);
+
+		System.out.println("피자 조각 : ");
+		pizza=eat.nextInt();
+
+		System.out.println("사람 수 : ");
+		people=eat.nextInt();
+
+		num=pizza/people;
+		num2=pizza%people;
+
+		System.out.println("한 사람당 : "+num+"조각의 피자를 먹고");
+		System.out.println("강아지는 "+num2+"조각의 남은 피자를 먹습니다.");
+	}
+}
+
+//ex6
+/*1사분면의 좌표 두개를 입력 받은 후, 원점 과 가장 가까운 한가지의 좌표를 출력하시오.
+예시) 
+첫번째 점 x좌표 입력:1
+첫번째 점 y좌표 입력:2
+두번째 점 x좌표 입력:4
+두번째 점 y좌표 입력:4
+점(1,2) 가 원점과 더 가깝습니다.*/
