@@ -99,7 +99,7 @@ class Big
 
 import java.util.Scanner;
 
-class Century 
+class Century
 {
 	public static void main(String[] args) 
 	{
@@ -110,11 +110,9 @@ class Century
 		System.out.println("년도 입력 : ");
 		cen = num.nextInt();
 
-		ad = cen/100;
-		pa = ad+1;
-		bc = pa>ad? pa:0;
+		ad = (cen+99)/100;
 
-		System.out.println( bc + "세기 입니다.");
+		System.out.println( ad + "세기 입니다.");
 	}
 }
 
