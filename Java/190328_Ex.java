@@ -6,6 +6,29 @@
 소의 마릿수 : 2
 총다리의 갯수는 18개 입니다.*/
 
+import java.util.Scanner;
+
+class Animal
+{
+	public static void main(String[] args) 
+	{
+		int chi, cow,chil,cowl,result;
+		Scanner num = new Scanner(System.in);
+		
+		System.out.println("닭은 몇마리 인가요 : ");
+		chi = num.nextInt();
+		
+		System.out.println("소는 몇마리 인가요 : ");
+		cow = num.nextInt();
+
+		chil = chi*2;
+		cowl = cow*4;
+		result = chil + cowl;
+
+		System.out.println("총 다리의 갯수는 "+result+"개 입니다.");
+	}
+}
+
 //ex2
 
 /*값을 3개 입력 받아 입력 받은 첫번째 수가 두번째,세번째 수의 공배수인지의 여부를 출력하시오.
@@ -15,8 +38,52 @@
 정수 입력 :5
 15 은/는 3과 5의 공배수입니다.*/
 
+import java.util.Scanner;
+
+class Number3
+{
+	public static void main(String[] args) 
+	{
+		int num1, num2, num3;
+		Scanner num = new Scanner(System.in);
+		
+		System.out.print("정수 입력 : ");
+		num1 = num.nextInt();
+
+		System.out.print("정수 입력 : ");
+		num2 = num.nextInt();
+
+		System.out.print("정수 입력 : ");
+		num3 = num.nextInt();
+
+		String num4 = num1==num2*num3? num1+"은"+num2+"와"+num3+"의 공배수 입니다.":"";
+		System.out.println(num4);
+	}
+}
+
+
 //ex3
 
 /*세균 A는 30분 마다 원래 개체수의 10%씩 증가하는 박테리아이다. 
 원래 100마리 있었다면 30분후 110마리, 한시간후 120마리 한시간 30분후 130마리.....
 처음 있던 박테리아의 수와 경과시간(분)을 입력 받아 증가한 총 세균의 수를 출력하시오. */
+
+//ex4
+/*약품에서 유통기한이 끝났을 때란, 약품이 스스로 분해되어(산화 등..)
+유효성분이 90% 까지 떨어졌을때를 말한다. 유효약품의 용량(mg)을 입력 받아 
+유통기한이 지나는 시점의 유효성분의 용량을 출력하시오.*/
+
+//ex5
+/*소극장에 10자리의 좌석이 있다.
+이름과 몇번째 자리인지 입력 받아 화면에 출력하시오.
+예시)
+처음엔 빈자리를 보여준다.
+============소극장============
+[] [] [] [] [] [] [] [] [] []
+
+이름입력:김철수
+몇번째자리에 앉습니까? : 2
+
+============소극장============
+[] [김철수] [] [] [] [] [] [] [] []*/
+
