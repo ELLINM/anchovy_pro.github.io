@@ -73,6 +73,25 @@ class Number3
 유효성분이 90% 까지 떨어졌을때를 말한다. 유효약품의 용량(mg)을 입력 받아 
 유통기한이 지나는 시점의 유효성분의 용량을 출력하시오.*/
 
+import java.util.Scanner;
+
+class Medic 
+{
+	public static void main(String[] args) 
+	{
+		int med;
+		Scanner num = new Scanner(System.in);
+
+		System.out.print("약품의 용량을 입력하시오 :");
+		med = num.nextInt();
+
+		double med2 = med-(med*0.1);
+
+		System.out.println("유효성분의 용량은 : "+med2+"mg 입니다.");
+	}
+}
+
+
 //ex5
 /*소극장에 10자리의 좌석이 있다.
 이름과 몇번째 자리인지 입력 받아 화면에 출력하시오.
@@ -87,3 +106,29 @@ class Number3
 ============소극장============
 [] [김철수] [] [] [] [] [] [] [] []*/
 
+//ex6
+/*1평은 가로 1.8181m 세로 1.8181m의 방을 의미
+한다. 방의 가로가 몇 m인지, 세로가 몇 m인지 입력 받아, 평 수를
+출력하시오.*/
+
+import java.util.Scanner;
+
+class Era
+{
+	public static void main(String[] args) 
+	{
+		double width,column,era,era2;
+		Scanner num = new Scanner(System.in);
+
+		System.out.println("가로 길이를 입력하세요. : ");
+		width = num.nextInt();
+		
+		System.out.println("세로 길이를 입력하세요 : ");
+		column = num.nextInt();
+		
+		era = width*column;
+		era2 = era*0.3025;
+
+		System.out.println("방의 넓이는 : "+era2+"평 입니다.");
+	}
+}
