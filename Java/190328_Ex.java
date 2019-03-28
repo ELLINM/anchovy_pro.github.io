@@ -106,6 +106,41 @@ class Medic
 ============소극장============
 [] [김철수] [] [] [] [] [] [] [] []*/
 
+import java.util.Scanner;
+
+class Movie
+{
+	public static void main(String[] args)
+	{
+		int seat;
+		String name,num1,num2,num3,num4,num5,num6,num7,num8,num9,num10;
+
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("=============소극장============="+"\n[] [] [] [] [] [] [] [] [] []");
+
+		System.out.print("이름을 입력하세요 : ");
+		name = input.nextLine();
+		
+		System.out.print("좌석을 입력하세요 : ");
+		seat = input.nextInt();
+
+		num1=seat==1?name:"";
+		num2=seat==2?name:"";
+		num3=seat==3?name:"";
+		num4=seat==4?name:"";
+		num5=seat==5?name:"";
+		num6=seat==6?name:"";
+		num7=seat==7?name:"";
+		num8=seat==8?name:"";
+		num9=seat==9?name:"";
+		num10=seat==10?name:"";
+
+		System.out.println("=============소극장============="+"\n["+num1+"] ["+num2+"] ["+num3+"] ["+num4+"] ["+num5+"] ["+num6+"] ["+num7+"] ["+num8+"] ["+num9+"] ["+num10+"]");
+	}
+}
+
+
 //ex6
 /*1평은 가로 1.8181m 세로 1.8181m의 방을 의미
 한다. 방의 가로가 몇 m인지, 세로가 몇 m인지 입력 받아, 평 수를
@@ -132,3 +167,9 @@ class Era
 		System.out.println("방의 넓이는 : "+era2+"평 입니다.");
 	}
 }
+
+//ex7
+/*사채업자 우지시마에게 3개월 할부로 돈을 빌리려고 한다.
+이자는 1개월당 39.8%의 복리로 계산된다.
+금액을 입력하고, 3개월후 원금+이자의 총 금액을 출력하여라. */
+
