@@ -68,6 +68,32 @@ class Number3
 원래 100마리 있었다면 30분후 110마리, 한시간후 120마리 한시간 30분후 130마리.....
 처음 있던 박테리아의 수와 경과시간(분)을 입력 받아 증가한 총 세균의 수를 출력하시오. */
 
+import java.util.Scanner;
+
+class Science
+{
+	public static void main(String[] args) 
+	{
+		int vir,time;
+		double inc,time1,total;
+
+		Scanner num = new Scanner(System.in);
+		
+		System.out.println("박테리아 입력 : ");
+		vir = num.nextInt();
+
+		System.out.println("시간 입력 : ");
+		time = num.nextInt();
+
+		time1 = vir*(1/300);
+		inc = time*time1;
+		total = vir+inc;
+
+		System.out.println(time+"분 후에"+total+"마리 입니다.");
+	}
+}
+
+
 //ex4
 /*약품에서 유통기한이 끝났을 때란, 약품이 스스로 분해되어(산화 등..)
 유효성분이 90% 까지 떨어졌을때를 말한다. 유효약품의 용량(mg)을 입력 받아 
