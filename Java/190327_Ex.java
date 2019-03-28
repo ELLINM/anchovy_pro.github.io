@@ -182,3 +182,36 @@ class Graph
 		System.out.println("점 ("+i+","+g+") 가 원점과 더 가깝습니다.");
 	}
 }
+
+/*import java.util.Scanner;
+
+class Graph 
+{
+	public static void main(String[] args) 
+	{
+		int a,b,c,d,e,f;
+		Scanner num=new Scanner(System.in);
+
+		System.out.println("첫번째 점 x좌표 입력:");
+		a=num.nextInt();
+
+		System.out.println("첫번째 점 y좌표 입력:");
+		b=num.nextInt();
+
+		System.out.println("두번째 점 x좌표 입력:");
+		c=num.nextInt();
+
+		System.out.println("두번째 점 y좌표 입력:");
+		d=num.nextInt();
+
+		e=a*a+b*b;
+		f=c*c+d*d;
+		
+		result=e==f? "두 점이 원점으로 부터 같은 거리에 있습니다..":"";
+		result=e<f?"점 ("+a+","+b+")이 원점과 더 가깝습니다.":"";
+		result=e>f?"점 ("+c+","+d+")이 원점과 더 가깝습니다.":"";
+
+		System.out.println(result);
+	}
+}
+*/
