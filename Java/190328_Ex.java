@@ -173,3 +173,22 @@ class Era
 이자는 1개월당 39.8%의 복리로 계산된다.
 금액을 입력하고, 3개월후 원금+이자의 총 금액을 출력하여라. */
 
+import java.util.Scanner;
+
+class Bank 
+{
+	public static void main(String[] args) 
+	{
+		double credit,credit1,credit2,credit3;
+		Scanner num = new Scanner(System.in);
+
+		System.out.println("대출금 : ");
+		credit = num.nextInt();
+
+		credit1=credit+credit*0.398;
+		credit2=credit1+credit1*0.398;
+		credit3=credit2+credit2*0.398;
+
+		System.out.println("갚아야 하는 금액 : "+(int)credit3);
+	}
+}
