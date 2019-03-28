@@ -217,6 +217,26 @@ class Bank
 	}
 }
 
+/*import java.util.Scanner;
+
+class Test7
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		int debt;
+		double result,interest=1.398;
+		
+		System.out.print("빌린금액 입력 : ");
+		debt=sc.nextInt();
+
+		result=debt*interest*interest*interest;
+
+		System.out.println("3개월후 갚을 돈 : "+(int)result+"원");
+
+	}
+}*/
+
 //ex8
 /*종합 소득세의 표는 다음과 같다. 과세 표준은 연봉으로 적용한다.
 연봉을 입력받아 2018년 기준의 종합 소득세를 계산하여라.*/
