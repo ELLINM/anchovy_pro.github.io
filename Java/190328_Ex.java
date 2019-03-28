@@ -56,7 +56,7 @@ class Number3
 		System.out.print("정수 입력 : ");
 		num3 = num.nextInt();
 
-		String num4 = num1==num2*num3? num1+"은"+num2+"와"+num3+"의 공배수 입니다.":"";
+		String num4 = num1==num2*num3? num1+"은"+num2+"와"+num3+"의 공배수 입니다.":num1+"은"+num2+"와"+num3+"의 공배수가 아닙니다.";
 		System.out.println(num4);
 	}
 }
@@ -75,7 +75,7 @@ class Science
 	public static void main(String[] args) 
 	{
 		int vir,time;
-		double inc,time1,total;
+		double total;
 
 		Scanner num = new Scanner(System.in);
 		
@@ -85,9 +85,7 @@ class Science
 		System.out.println("시간 입력 : ");
 		time = num.nextInt();
 
-		time1 = vir*(1/300);
-		inc = time*time1;
-		total = vir+inc;
+		total=vir+vir*(0.1*(time/30.0));
 
 		System.out.println(time+"분 후에"+total+"마리 입니다.");
 	}
@@ -223,3 +221,27 @@ class Bank
 /*종합 소득세의 표는 다음과 같다. 과세 표준은 연봉으로 적용한다.
 연봉을 입력받아 2018년 기준의 종합 소득세를 계산하여라.*/
 
+import java.util.Scanner;
+
+class HateTax 
+{
+	public static void main(String[] args) 
+	{
+		double pay;
+		double result;
+
+		Scanner num = new Scanner(System.in);
+		System.out.println("연봉 입력 : ");
+		pay = num.nextInt();
+
+		result=0<pay&&pay<=12000000? pay*0.06:0;
+		result=pay>12000000&&pay<=46000000? pay*0.15-1080000:result;
+		result=pay>46000000&&pay<=88000000? pay*0.24-5220000:result;
+		result=pay>88000000&&pay<=150000000? pay*0.35-14900000:result;
+		result=pay>150000000&&pay<=300000000? pay*0.38-19400000:result;
+		result=pay>300000000&&pay<=500000000? pay*0.4-25400000:result;
+		result=pay>500000000? pay*0.42-35400000:result;
+
+		System.out.println("종합 소득세 : "+(int)result+"원");
+	}
+}
