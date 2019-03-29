@@ -15,6 +15,7 @@ Java Data Type
 >number라는 class를 만들고 아무것도 넣지 않는다면
 default => int 0, double 0.0, boolean false
 
+
 자료의 크기
 -----------------------------
 
@@ -36,6 +37,7 @@ stack메모리 영역은 생성하지 않아도 사용이 가능함
 + 결과값은 True or False로 나옴
 > a < b, a > b, a == b, a <= b, b >= a
 
+
 논리 연산자(Logical Operator)
 -----------------------------
 
@@ -50,6 +52,7 @@ System
 
 ![System](https://javainterviewpoint-7ac9.kxcdn.com/wp-content/uploads/2016/01/JVM-Architecture.png)
 
+
 비트연산자(Bitwise Operator)
 ------------------------
 
@@ -58,16 +61,19 @@ System
 
 + OverFlow & UnderFlow => Civilization Gandhi 
 
+
 혼합연산자
 ------------------
 
 + +=, -=, *=, /=, %= 등으로 사용
+
 
 삼항연산자(conditional ternary operator)
 -------------------
 
 + boolean 형 데이터를 반환함
 > String a = true? "참":"거짓" ; 조건식이 true를 반환하게 되면 참이 나오고 false를 반환하면 거짓이 나옴
+
 
 형 변환(TypeCasting)
 --------------------------
@@ -79,10 +85,12 @@ System
 + 큰것에서 작은것으로 변환 될때는 데이터 손실이 일어난다.
 ![Type](http://cfs2.tistory.com/upload_control/download.blog?fhandle=YmxvZzg3MzAxQGZzMi50aXN0b3J5LmNvbTovYXR0YWNoLzQvNDE4LmdpZg%3D%3D)
 
+
 제어문&반복문
 --------------------------
 
 + 코딩의 효율성을 위해 일정 규칙을 통해 문장을 압축 if, swtich, for 등 다양한 문법들이 존재
+
 
 if(제어문)
 --------------------------
@@ -90,4 +98,5 @@ if(제어문)
 + 영어 뜻 그대로 '만약에~한다면'
 + 연산의 순서를 제어 
 > if구문에 비하면 삼항연산자는 가독성이 떨어짐 또한 여러가지 로직이 한번에 들어갈 수 있음
++ 괄호를 열고 닫는것에 주의 (기본)
 
