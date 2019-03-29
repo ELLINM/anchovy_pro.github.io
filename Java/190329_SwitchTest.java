@@ -78,7 +78,7 @@ class Select
 		int choice = sc.nextInt();
 
 		switch(choice){
-			case 1:
+			case 1://int a = 50; 을 선언 했을때 다른 case에 a의 값을 다른 값을 입력하면 오류가 남.
 				System.out.println(x+y);
 			break;
 			case 2:
