@@ -125,21 +125,27 @@ class Grade2
 		System.out.println("성적을 입력하세요 : ");
 		score = sc.nextInt();
 
-		if(score>=90){
-			System.out.println("A");
-		}
-		else if(score>=80){
-			System.out.println("B");
-		}
-		else if(score>=70){
-			System.out.println("C");
-		}
-		else if(score>=60){
-			System.out.println("D");
-		}
-		else{
-			System.out.println("F");
-		}
+		if(0<score&&score<101){
+			if(score>=90){
+				System.out.println("A");
+				}
+			else if(score>=80){
+				System.out.println("B");
+				}
+			else if(score>=70){
+				System.out.println("C");
+				}
+			else if(score>=60){
+				System.out.println("D");
+				}
+			else{
+				System.out.println("F");
+			}
+		}else
+			System.out.println("점수를 제대로 입력해 주세요.");
 
 	}
 }
+
+//ex6
+/*
