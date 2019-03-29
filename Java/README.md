@@ -1,4 +1,4 @@
-This Repository is Study JAVA
+This Folder is Study JAVA
 -----------------------------
 1.Java Study File Upload
 
