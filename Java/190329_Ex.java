@@ -42,3 +42,52 @@ class Cir
 		}
 	}
 }
+
+//ex2
+/*년도와 월을 입력 받아 해당 월이 몇 일인지 출력하여라.(난이도 상)
+(윤년도 계산하여 포함한다)
+-서력 기원 연수가 4로 나누어떨어지는 해는 윤년으로 한다. (1992년, 1996년, 2004년....)
+-서력 기원 연수가 4, 100으로 나누어떨어지는 해는 평년으로 한다. (1900년, 2100년....)
+-서력 기원 연수가 4, 100, 400으로 나누어떨어지는 해는 윤년으로 둔다. (1600년, 2000년, 2400년)
+예시)
+년도 입력 : 2019
+월 입력 : 3
+해당 월은 31일 입니다.
+or
+년도 입력 : 2019
+입력 : 2
+해당 월은 28일 입니다.
+or
+년도 입력 : 2000
+월 입력 : 2
+해당 월은 29일 입니다.*/
+
+import java.util.Scanner;
+
+class Ad 
+{
+	public static void main(String[] args) 
+	{
+		int year, month;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("년도 입력 : ");
+		year = sc.nextInt();
+
+		System.out.println("월 입력 : ");
+		month = sc.nextInt();
+
+		if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
+			System.out.println("해당 월은 31일 입니다.");
+		}
+		else if(month==4||month==6||month==9||month==11){
+			System.out.println("해당 월은 30일 입니다.");
+		}
+		else if(year%4==0&&year%100!=0||year%400==0){
+			System.out.println("해당 월은 29일 입니다.");
+		}
+		else {
+			System.out.println("해당 월은 28일 입니다.");
+		}
+	}
+}
