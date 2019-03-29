@@ -91,3 +91,44 @@ class Ad
 		}
 	}
 }
+
+//ex3
+//세가지 수를 입력 받아 세가지 수중에 가장 큰수를 출력하시오.
+
+import java.util.Scanner;
+
+class Int
+{
+	public static void main(String[] args) 
+	{
+		int x, y, z;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("첫번째 수 : ");
+		x = sc.nextInt();
+
+		System.out.println("두번째 수 : ");
+		y = sc.nextInt();
+		
+		System.out.println("세번째 수 : ");
+		z = sc.nextInt();
+
+		if (x>y&&x>z){
+			System.out.println(y>z? x+" "+y+" "+z:"");
+			System.out.println(z>y? x+" "+z+" "+y:"");
+		}
+		else if (y>x&&y>z){
+			System.out.println(x>z? y+" "+x+" "+z:"");
+			System.out.println(z>x? y+" "+z+" "+x:"");
+		}
+		else if (z>x&&z>y){
+			System.out.println(x>y? z+" "+x+" "+y:"");
+			System.out.println(y>x? z+" "+y+" "+x:"");
+		}
+		else{
+			System.out.println("동일한 수가 있습니다.");
+		}
+
+	}
+}
+
