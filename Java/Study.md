@@ -121,4 +121,5 @@ switch
     int a = 100;
     }
     System.out.println(a);</pre>
-> 오류가 뜨며 작동하지 
+> 오류가 뜨며 작동하지 않는다.
+
