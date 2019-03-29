@@ -53,3 +53,42 @@ class switchTest
 }
 
 //ex3
+
+import java.util.Scanner;
+
+class Select
+{
+	public static void main(String[] args) 
+	{
+		int x,y;
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("정수를 입력하세요 : ");
+		x = sc.nextInt();
+		System.out.println("정수를 입력하세요 : ");
+		y = sc.nextInt();
+
+		System.out.println("======================");
+		System.out.println("1.덧셈");
+		System.out.println("2.뺄셈");
+		System.out.println("3.나눗셈");
+		System.out.println("4.곱셈");
+		System.out.println("======================");
+		int choice = sc.nextInt();
+
+		switch(choice){
+			case 1:
+				System.out.println(x+y);
+			break;
+			case 2:
+				System.out.println(x-y);
+			break;
+			case 3:
+				System.out.println(x/y);
+			break;
+			case 4:
+				System.out.println(x*y);
+			break;
+		}
+	}
+}
