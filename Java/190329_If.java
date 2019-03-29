@@ -148,4 +148,33 @@ class Grade2
 }
 
 //ex6
-/*
+//(키-100)X0.9    +- 10kg 는 정상
+import java.util.Scanner;
+
+class BmiTest 
+{
+	public static void main(String[] args) 
+	{
+		int kg,cm;
+		double avg;
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("몸무게를 입력해 주세요 : ");
+		kg = sc.nextInt();
+
+		System.out.println("키를 입력해 주세요 : ");
+		cm = sc.nextInt();
+
+		avg = (cm-100)*0.9;
+
+		if(kg>avg+10){
+			System.out.println("무겁습니다.");
+		}
+		else if(kg>=avg-10){
+			System.out.println("적당합니다.");
+		}
+		else{
+			System.out.println("멸치가 따로 없네요");
+		}
+	}
+}
