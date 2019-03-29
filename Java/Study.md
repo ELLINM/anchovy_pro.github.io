@@ -102,7 +102,7 @@ switch
 + switch문은 여러가지 조건을 처리하는데 프로그램 구조나 가독성 면에서 효율적이다.
 > 기본 구조
 > switch(조건값 : int,chr 등){ ->참조형은 올 수 없음(String가능)
->     case 1; 연산자
->       break;
->     case 2;
->       break;
+      case 1; 연산자
+        break;
+      case 2;
+        break;
