@@ -6,4 +6,4 @@ This Folder is Study JAVA
 
 3.Java Class Example Practice
 
-4. Each Folder is Sorted By Date.
+4.Each Folder is Sorted By Date.
