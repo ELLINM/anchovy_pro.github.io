@@ -75,6 +75,10 @@ class Test2
 }
 
 //ex4
+/*시험이 있다. 점수를 입력 받아,
+70점 이상은 합격
+50~69점은 재시험
+50점 미만은 탈락을 출력하시오.*/
 
 import java.util.Scanner;
 
@@ -98,5 +102,44 @@ class Exam
 		else{
 			System.out.println("탈락입니다.");
 		}
+	}
+}
+
+//ex5
+/*점수를 입력 받아 다음과 같이 분류하시오. 
+A 90~100
+B 80~89
+C 70~79
+D 60~69
+그외 F*/
+
+import java.util.Scanner;
+
+class Grade2
+{
+	public static void main(String[] args) 
+	{
+		int score;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("성적을 입력하세요 : ");
+		score = sc.nextInt();
+
+		if(score>=90){
+			System.out.println("A");
+		}
+		else if(score>=80){
+			System.out.println("B");
+		}
+		else if(score>=80){
+			System.out.println("C");
+		}
+		else if(score>=70){
+			System.out.println("D");
+		}
+		else{
+			System.out.println("F");
+		}
+
 	}
 }
