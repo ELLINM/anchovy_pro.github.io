@@ -122,4 +122,9 @@ switch
     }
     System.out.println(a);</pre>
 > 오류가 뜨며 작동하지 않는다.
-
+ <pre>int a;
+ if(sc.nextInt()>100{
+    a = 100;
+    }
+    System.out.println(a);</pre>
+>처럼 선언을 해주고 들어오면 된다. 물론 이 구문은 작동하지 않는다. 
