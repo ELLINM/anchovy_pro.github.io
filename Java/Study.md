@@ -109,7 +109,7 @@ switch
 + 기본 구조
 
 <pre>switch(조건값 : int,chr 등){ ->참조형은 올 수 없음(String가능)
-  case1;연산자
+  case1:연산자
      break;
-  case2;
+  case2:
      break;</pre>
