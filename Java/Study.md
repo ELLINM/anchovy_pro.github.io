@@ -106,4 +106,5 @@ switch
         break;
       case 2;
         break;
-<pre><switch></code1></pre>
+<pre>switch
+  code1</pre>
