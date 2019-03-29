@@ -116,6 +116,13 @@ System
 + 큰것에서 작은것으로 변환 될때는 데이터 손실이 일어난다.
 ![Type](http://cfs2.tistory.com/upload_control/download.blog?fhandle=YmxvZzg3MzAxQGZzMi50aXN0b3J5LmNvbTovYXR0YWNoLzQvNDE4LmdpZg%3D%3D)
 
+JVM의 Garbage Collector
+---------------------------
+> Garbage는 '정리되지 않은 메모리', '유효하지 않은 메모리 주소'
++ Garbage Collector는 메모리가 부족할때 Garbage를 정리해주는 프로그램을 말한다.
++ 자바 어플리케이션의 응답 시간과 성능에 밀접한 관계를 가지게 된다
++ 더이상 사용되지 않는 인스턴스를 찾아 메모리에서 삭제하는 행위를 하게 된다.
+
 
 제어문&반복문
 --------------------------
