@@ -113,3 +113,12 @@ switch
      break;
   case2:
      break;</pre>
+     
+ 선언
+ ----------------
+ if 구문 작성시 변수를 선언하는것은 밖에서 출력 할 수 없다
+ <pre>if(sc.nextInt()>100{
+    int a = 100;
+    }
+    System.out.println(a);</pre>
+> 오류가 뜨며 작동하지 
