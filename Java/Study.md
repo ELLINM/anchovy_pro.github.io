@@ -78,3 +78,16 @@ System
 > int a = (int)3.0;
 + 큰것에서 작은것으로 변환 될때는 데이터 손실이 일어난다.
 ![Type](http://cfs2.tistory.com/upload_control/download.blog?fhandle=YmxvZzg3MzAxQGZzMi50aXN0b3J5LmNvbTovYXR0YWNoLzQvNDE4LmdpZg%3D%3D)
+
+제어문&반복문
+--------------------------
+
++ 코딩의 효율성을 위해 일정 규칙을 통해 문장을 압축 if, swtich, for 등 다양한 문법들이 존재
+
+if(제어문)
+--------------------------
+
++ 영어 뜻 그대로 '만약에~한다면'
++ 연산의 순서를 제어 
+> if구문에 비하면 삼항연산자는 가독성이 떨어짐 또한 여러가지 로직이 한번에 들어갈 수 있음
+
