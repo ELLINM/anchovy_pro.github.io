@@ -101,10 +101,9 @@ switch
 + if 문은 switch 문으로 사용할 수있고 switch 문 또한 if 문으로 사용할 수있다.
 + switch문은 여러가지 조건을 처리하는데 프로그램 구조나 가독성 면에서 효율적이다.
 > 기본 구조
-> switch(조건값 : int,chr 등){ ->참조형은 올 수 없음(String가능)
-      case 1; 연산자
-        break;
-      case 2;
-        break;
-<pre>switch
-  code1</pre>
+
+<pre>switch(조건값 : int,chr 등){ ->참조형은 올 수 없음(String가능)
+  case1;연산자
+  break;
+  case2;
+  break;</pre>
