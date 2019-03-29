@@ -74,6 +74,7 @@ class Select
 		System.out.println("3.나눗셈");
 		System.out.println("4.곱셈");
 		System.out.println("======================");
+		System.out.print("메뉴 선택 : ");
 		int choice = sc.nextInt();
 
 		switch(choice){
@@ -92,3 +93,4 @@ class Select
 		}
 	}
 }
+//지금 수준에서는 순차적으로 컴파일 하면서 오류를 찾아볼것 단계별 오류 
