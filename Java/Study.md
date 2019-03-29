@@ -22,7 +22,7 @@ Variable 선언
 ------------------------
 <pre>(class Name)parameter{
  생성자 body
- }
+ }</pre>
  
  Identifier(식별자)
  -------------------------
