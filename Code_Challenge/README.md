@@ -1,4 +1,4 @@
-This Repository is code challenge of hakerank study
+This Folder is Code Challenge of Hakerank Study
 ------------------------------
 1. Upload every time fix a problem
 
