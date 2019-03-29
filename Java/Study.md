@@ -94,6 +94,10 @@ if(제어문)
 + 연산의 순서를 제어 
 > if구문에 비하면 삼항연산자는 가독성이 떨어짐 또한 여러가지 로직이 한번에 들어갈 수 있음
 + 괄호를 열고 닫는것에 주의 (기본)
+<pre>if(조건문){
+}
+else{
+}
 
 
 switch
@@ -104,6 +108,6 @@ switch
 
 <pre>switch(조건값 : int,chr 등){ ->참조형은 올 수 없음(String가능)
   case1;연산자
-  break;
+     break;
   case2;
-  break;</pre>
+     break;</pre>
