@@ -178,3 +178,80 @@ class BmiTest
 		}
 	}
 }
+
+//ex7
+
+import java.util.Scanner;
+
+class Tax2 
+{
+	public static void main(String[] args) 
+	{
+		double pay,tax;
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("연봉을 입력하세요 :");
+		pay = sc.nextInt();
+		tax = pay*0.6;
+
+		if(pay>500000000){
+			System.out.println(pay*0.42-35400000+"원 입니다.");
+		}
+		else if(pay>300000000){
+			System.out.println(pay*0.4-25400000+"원 입니다.");
+		}
+		else if(pay>150000000){
+			System.out.println(pay*0.38-19400000+"원 입니다.");
+		}
+		else if(pay>88000000){
+			System.out.println(pay*0.35-14900000+"원 입니다.");
+		}
+		else if(pay>46000000){
+			System.out.println(pay*0.24-5220000+"원 입니다.");
+		}
+		else if(pay>12000000){
+			System.out.println(pay*0.15-1080000+"원 입니다.");
+		}
+		else{
+			System.out.println(pay*0.06+"원 입니다.");
+		}
+	}
+}
+
+/*import java.util.Scanner;
+
+class Tax2 
+{
+	public static void main(String[] args) 
+	{
+		double pay,tax;
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("연봉을 입력하세요 :");
+		pay = sc.nextInt();
+
+		if(pay>500000000){
+			tax = pay*0.42-35400000;
+		}
+		else if(pay>300000000){
+			tax = pay*0.4-25400000;
+		}
+		else if(pay>150000000){
+			tax = pay*0.38-19400000;
+		}
+		else if(pay>88000000){
+			tax = pay*0.35-14900000;
+		}
+		else if(pay>46000000){
+			tax = pay*0.24-5220000;
+		}
+		else if(pay>12000000){
+			tax = pay*0.15-1080000;
+		}
+		else{
+			tax = pay*0.06;
+		}
+다 통과 시켜서 프린트 문이라도 줄일 수 
+		System.out.println("종합 소득세는 : "+(int)tax+"원 입니다.");
+	}
+}*/
