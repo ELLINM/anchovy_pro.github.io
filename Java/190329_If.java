@@ -23,6 +23,7 @@ class Iftest
 	}
 }
 
+//ex2
 import java.util.Scanner;
 
 class Iftest
@@ -49,3 +50,6 @@ class Iftest
 		}
 	}
 }
+
+//ex3
+
