@@ -198,5 +198,14 @@ While
 <pre> while (조건식){
   문장
   }</pre>
-+  True or False 값을 가진다.
++ True or False 값을 가진다.
 + True인 경우 문장을 반복수행하며 False인 경우 Loop에서 빠져나온다.
+
+
+While 문의 사용
+---------------------
++ While 문은 조건문이 참인 동안 계속해서 While문 안의 내용을 수행하게 된다. 
+> 하지만 강제로 While문을 빠져나가고 싶을 때가 생기게 된다.
+> While문을 강제로 멈추게 하는 것을 가능하게 해 주는 것이 바로 Break이다.
++ While문의 맨 처음(조건문)으로 돌아가게 하고 싶을 경우
+> Continue문은 While문의 맨 처음으로 돌아가게 하는 명령어이다.
