@@ -114,7 +114,7 @@ class TestNum2
 		Scanner sc = new Scanner(System.in);
 		boolean flag = true; //초기값으로 true
 
-		while (flag)
+		while (flag)//flag가 참일 동안 
 		{
 		System.out.println("====================\n 1.첫번째 수 입력 \n 2.두번째 수 입력 \n 3.덧셈 \n 4.뺄셈 \n 5.곱셈 \n 6.나눗셈 \n 7.프로그램 종료 \n====================");
 		int choice = sc.nextInt();// 메뉴를 제작하고 실행하면 무한반복
@@ -142,7 +142,7 @@ class TestNum2
 				break;
 			case 7:
 				System.out.println("프로그램을 종료합니다.");
-				flag = false;
+				flag = false;//프로그램을 종료할 수 있도록 false값을 줌
 			    	break;
 		}
 		}
