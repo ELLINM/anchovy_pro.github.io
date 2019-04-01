@@ -172,3 +172,29 @@ class TestNum3
 		}
 	}
 }
+
+//ex5
+import java.util.Scanner;
+
+class TestNum4 
+{
+	public static void main(String[] args) 
+	{
+		int num;
+		Scanner sc = new Scanner(System.in);
+
+		boolean num2 = true;
+
+		while (true){
+			System.out.println("정수 입력 : ");
+			num = sc.nextInt();
+
+			if (num>=0&&num<=100)
+			{
+				System.out.println("입력완료");
+				break;
+			}
+			System.out.println("입력오류");
+		}
+	}
+}
