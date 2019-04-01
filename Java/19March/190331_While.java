@@ -3,11 +3,11 @@ class WhileTest
 {
 	public static void main(String[] args) 
 	{
-		int num = 1;
+		int num = 1; //num이 1이다
 
-		while (num <= 100)
+		while (num <= 100) //num이 100보다 작거나 같을동안
 		{
-			System.out.println(num++);
+			System.out.println(num++); //1부터 1을 더해서 출력한다.
 		}
 	}
 }
