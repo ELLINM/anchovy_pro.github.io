@@ -103,14 +103,14 @@ class Grade3
 	}
 }
 
-
+//ex3
 import java.util.Scanner;
 
 class TestNum2
 {
 	public static void main(String[] args) 
 	{
-		int num1 = 0, num2 = 0; //두 변수를 초기화
+		int num1 = 0, num2 = 0; //두 변수를 초기화, 입력하지않고 아래 연산들을 실행 할 수 있기 때문에 초기화를 해줘야함
 		Scanner sc = new Scanner(System.in);
 		boolean flag = true; //초기값으로 true
 
@@ -138,13 +138,37 @@ class TestNum2
 				System.out.println("곱셈 결과 : " + (num1*num2));
 				break;
 			case 6:
-				System.out.println("나눗셈셈 결과 : " + (num1/num2));
+				System.out.println("나눗셈셈 결과 : 몫 : " + (num1/num2) + "나머지 : " + (num1%nu2));
 				break;
 			case 7:
 				System.out.println("프로그램을 종료합니다.");
 				flag = false;
 			    	break;
 		}
+		}
+	}
+}
+
+//ex4
+import java.util.Scanner;
+
+class TestNum3
+{
+	public static void main(String[] args) 
+	{
+		int num1;
+		int num2 =1; //변수를 1로 초기화
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("숫자를 입력하세요 : ");
+		num1 = sc.nextInt();
+
+		while(num2<=num1){ // 2가 1보다 작거나 같을때 조건 명시
+			if (num1%num2 == 0) //약수를 구하는 조건 
+			{
+				System.out.println(num2); //2를 출력
+			}
+			num2++; //2는 1씩 증가하는 
 		}
 	}
 }
