@@ -224,7 +224,7 @@ Do While
 + While문과 기능은 거의 같다.
 + 차이점은 While문은 조건을 먼저 검사하고 반복작업을 수행하는데, Do while문은 먼저 작업을 한번 수행하고 조건 검사를 한다
 + 기본 구조
-<code> do{
+<pre> do{
  statement
- }while(조건식)</code>
+ }while(조건식)</pre>
 + 먼저 실행문이 수행하고 조건 값이 True이면 실행문을 반복 수행하며 거짓이 될때 Loop를 빠져나온다.
