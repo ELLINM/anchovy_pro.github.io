@@ -40,3 +40,65 @@ class Int2
 	}
 }
 
+//ex2
+
+import java.util.Scanner;
+
+class Grade3 
+{
+	public static void main(String[] args) 
+	{
+		int fir, sec, thr, tot, choice;
+		double avg;
+		String x;
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("첫번째 과목 입력 : ");
+		fir = sc.nextInt();
+
+		System.out.println("두번째 과목 입력 : ");
+		sec = sc.nextInt();
+
+		System.out.println("세번째 과목 입력 : ");
+		thr = sc.nextInt();
+
+		System.out.println("=======메뉴 입력==========\n 1.평균 출력\n 2.총점 출력\n 3.학점 출력\n==========================");
+		choice = sc.nextInt();
+		
+		tot = fir + sec + thr;
+		avg = tot/3.0;
+		
+
+		switch(choice){
+			case 1:
+				System.out.println("평균 점수는 : " + avg);
+			break;
+			case 2:
+				System.out.println("총점 : " + tot);
+			break;
+			case 3:
+				if (avg>=90)
+				{
+				System.out.print("학점 : A");
+				}
+				else if (avg>=80)
+				{
+				System.out.print("학점 : B");
+				}
+				else if (avg>=70)
+				{
+				System.out.print("학점 : C");
+				}
+				else if (avg>=60)
+				{
+				System.out.print("학점 : D");
+				}
+				else
+				{
+				System.out.print("학점 : F");
+				}
+			break;
+		}
+	}
+}
