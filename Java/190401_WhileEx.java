@@ -102,3 +102,49 @@ class Grade3
 		}
 	}
 }
+
+
+import java.util.Scanner;
+
+class TestNum2
+{
+	public static void main(String[] args) 
+	{
+		int num1 = 0, num2 = 0; //두 변수를 초기화
+		Scanner sc = new Scanner(System.in);
+		boolean flag = true; //초기값으로 true
+
+		while (flag)
+		{
+		System.out.println("====================\n 1.첫번째 수 입력 \n 2.두번째 수 입력 \n 3.덧셈 \n 4.뺄셈 \n 5.곱셈 \n 6.나눗셈 \n 7.프로그램 종료 \n====================");
+		int choice = sc.nextInt();// 메뉴를 제작하고 실행하면 무한반복
+
+		switch(choice){
+			case 1:
+				System.out.print("첫번째 수 입력 : ");
+				num1 = sc.nextInt();
+				break;
+			case 2:
+				System.out.print("두번째 수 입력 : ");
+				num2 = sc.nextInt();
+				break;
+			case 3:
+				System.out.println("덧셈 결과 : " + (num1+num2));
+				break;
+			case 4:
+				System.out.println("뺄셈 결과 : " + (num1-num2));
+				break;
+			case 5:
+				System.out.println("곱셈 결과 : " + (num1*num2));
+				break;
+			case 6:
+				System.out.println("나눗셈셈 결과 : " + (num1/num2));
+				break;
+			case 7:
+				System.out.println("프로그램을 종료합니다.");
+				flag = false;
+			    break;
+		}
+		}
+	}
+}
