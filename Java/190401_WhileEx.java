@@ -183,10 +183,8 @@ class TestNum4
 		int num;
 		Scanner sc = new Scanner(System.in);
 
-		boolean num2 = true;
-
 		while (true){
-			System.out.println("정수 입력 : ");
+			System.out.println("정수 입력 : ");// While문 안으로 넣어줄것 밖에서 진행되면 입력 오류가 무한 반복됨
 			num = sc.nextInt();
 
 			if (num>=0&&num<=100)
