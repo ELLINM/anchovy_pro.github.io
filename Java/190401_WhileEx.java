@@ -143,7 +143,7 @@ class TestNum2
 			case 7:
 				System.out.println("프로그램을 종료합니다.");
 				flag = false;
-			    break;
+			    	break;
 		}
 		}
 	}
