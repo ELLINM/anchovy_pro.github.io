@@ -13,6 +13,41 @@ class WhileTest
 }
 //무한 루프에 빠짖 않도록 주의 하자 조건을 잘 써줄것
 
+class TestNum
+{
+	public static void main(String[] args) 
+	{
+		int a = 1; //a=1
+
+		while (true) //a가 항상 true일 동안
+		{
+			System.out.println(a++); //a에 1을 더해서 계속 출력한다.
+			if (a==11){ //만약 a가 11이라면
+				break; // 멈춘다
+			}
+		}
+	}
+}
+
+
+class TestNum
+{
+	public static void main(String[] args) 
+	{
+		int a = 1; //a=1
+		boolean flag true;
+
+		while (flag) //
+		{
+			System.out.println(a++); //a에 1을 더해서 계속 출력한다.
+			if (a==11){ //만약 a가 11이라면
+				flag = false;
+			}
+		}
+	}
+}
+
+
 //ex2
 class WhileTest 
 {
