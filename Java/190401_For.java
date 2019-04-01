@@ -29,3 +29,25 @@ class For1
 	}
 }
 //구구단 출력도 가능
+
+
+//ex3
+class For1 
+{
+	public static void main(String[] args) 
+	{
+		int x= 0; //x를 초기화
+
+		for (int i = 1; i<=10; i++)//i는 1 -> 10보다 작거나 같을때까지 1씩 증가한다.
+		{//for (int i = 1; i<=10; i+=2)짝수값을 구할수 있다 
+			/*for (int i = 1; i<=10; i++)
+			{
+			if(i%2==1){
+			x+=1;
+			}
+			}을 사용 같은 값을 구할 수 있음*/
+			x+=i; // x와 i를 더해준다 i는 계속해서 1씩 증가하므로 0이었던 x에 1,2,3...10까지 더해진다.
+		}
+			System.out.println(x);
+	}
+}
