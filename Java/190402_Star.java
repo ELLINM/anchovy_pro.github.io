@@ -1,49 +1,42 @@
-class For1 
+class For1 //반쪽 삼각형 위로 오른쪽
 {
 	public static void main(String[] args) 
 	{		
-		for (int i = 1; i < 10 ; i++)
+		for (int i = 0; i < 5 ; i++) //i가 4까지 반복문을 실행 반복이 진행될 동안 *으 찍음 5에서 i가 반복할때 엔터 열할
 		{
-			for (int j = 0; j < i; j++) //한바퀴 돌때 하나출력 두바퀴째에는 두개 출력
+			for (int j = 0; j <= i; j++) //ex) i가 2일때는 j는 i와 같아지기 위해서 0,1,2 3번을 반복하기 때문에 ***이후 엔터
 			{
-				System.out.print("*"); //문자 변환 필요없이 그냥 출력
+				System.out.print("*"); 
 			}
 			System.out.println();
 		}
 	}
 }
 
-class For1 //줄어드는 별모양
+class For1 //반쪽 삼각형 위로 왼쪽
 {
 	public static void main(String[] args) 
 	{		
-		for (int i = 1; i <= 10 ; i++)
+		for (int i = 0; i < 5 ; i++)
 		{
-			for (int j = 10; j >= i; j--)
+			for (int j = 0; j < 5; j++)
 			{
-				System.out.print("*");
-			}
+				System.out.print((j<(4-i))? " ":"*");
+			}//i가 3일때 j는 5번 반복 => (j<(4-3)) =>  (j<1)이 조건이됨 0일때 true => 공백 => 1,2,3,4는 false이기 때문에 *로 찍히고 엔터
 			System.out.println();
-		}
+		}//i값이 커질수록 공백보다 별의 개수가 많아진다.
 	}
 }
 
-class For1 //반대로 줄
+class For1 //삼각형
 {
 	public static void main(String[] args) 
 	{		
-		for (int i = 1; i < 10 ; i++)
+		for (int i = 0; i < 5 ; i++)
 		{
-			for (int j = 8; j > 0; j--)
+			for (int j = 0; j < (5+i); j++)
 			{
-				if (i<j)
-				{
-					System.out.print(" ");
-				}
-				else
-				{
-					System.out.print("*");
-				}
+
 			}
 			System.out.println(" ");
 		}
