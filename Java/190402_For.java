@@ -95,3 +95,17 @@ class For1
 
 //ex5
 
+class For1 
+{
+	public static void main(String[] args) 
+	{		
+		for (int i = 2; i < 10 ; i++)
+		{
+			System.out.println("======================="); //단구분 바깥 For문이 먼저 반복하므로 먼저 
+			for (int j = 1; j < 10; j++)
+			{
+				System.out.println(i + " * " + j + " = " + i*j);
+			}
+		}
+	}
+}
