@@ -109,3 +109,21 @@ class For1
 		}
 	}
 }
+
+
+//ex6
+
+class For1 
+{
+	public static void main(String[] args) 
+	{		
+		for (int i = 1; i < 10 ; i++)
+		{
+			for (int j = 0; j < i; j++) //한바퀴 돌때 하나출력 두바퀴째에는 두개 출력
+			{
+				System.out.print("*"); //문자 변환 필요없이 그냥 출력
+			}
+			System.out.println();
+		}
+	}
+}
