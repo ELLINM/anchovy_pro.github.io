@@ -149,7 +149,23 @@ class For1
 	}
 }
 	
-	
-	
+
+// 빈 삼각형
+
+class For1 
+{
+	public static void main(String[] args) 
+	{		
+		 for (int i  = 0; i < 5; i++)
+			 {
+			 for (int j = 0; j < (5+i); j++)
+				 {//삼각형 만드는 것과 동일
+				 System.out.print((j==(4-i)||j==(4+i)||i==4)? "*" : " ");
+			 }//조건식에서 삼각형에 테두리를 만족하는 조건들로 출력
+			 System.out.println();
+		 }
+	}
+}
+
 	
 	
