@@ -111,37 +111,5 @@ class For1
 }
 
 
-//ex6
 
-class For1 
-{
-	public static void main(String[] args) 
-	{		
-		for (int i = 1; i < 10 ; i++)
-		{
-			for (int j = 0; j < i; j++) //한바퀴 돌때 하나출력 두바퀴째에는 두개 출력
-			{
-				System.out.print("*"); //문자 변환 필요없이 그냥 출력
-			}
-			System.out.println();
-		}
-	}
-}
-
-class For1 //줄어드는 별모양
-{
-	public static void main(String[] args) 
-	{		
-		for (int i = 1; i <= 10 ; i++)
-		{
-			for (int j = 10; j >= i; j--)
-			{
-				System.out.print("*");
-			}
-			System.out.println();
-		}
-	}
-}
-
-
-//ex7 입력한 숫자에 대한 누적값을 얻어내보자
+//ex6 입력한 숫자에 대한 누적값을 얻어내보자
