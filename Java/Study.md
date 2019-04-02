@@ -264,3 +264,16 @@ For
 --------------------------
 + For문이 중첩될 경우 각각 For문의 변수는 달라야 한다.
 + 안쪽 For문이 바깥쪽 For문보다 많이 반복하게됨 (안쪽 반복 횟수 * 바깥쪽 반복 횟수)
+
+
+scan.nextLine();
+-----------------------------
++ scan.nextInt(); or scan.nextDouble();를 입력후 scan.nextLine(); 을 입력하면 str이 제대로 출력되지 않는다.
+> 즉, nextInt(); 는 엔터 즉, nextLine(); 을 입력받지 않기 때문에
+> nextInt() 를 하고 nextLine(); 호출하면 nextInt()의 enter라고 생각하기 때문에 nextLine()이 skipped 된다.
+> 해결법 : nextInt();와 nextLine(); 사이에 nextLine(); 을 추가하여 enter값을 받게 해준다
+<pre>int num = scan.nextInt();
+ scan.nextLine();
+  String s = scan.nextLine();</pre>
++ next(); 문자 또는 문자열을 공백기준으로 한단어 또는 한 문자씩 입력 받는다.
++ nextLine(); 문자 또는 문장 한 라인 전체를 입력 받는다.
