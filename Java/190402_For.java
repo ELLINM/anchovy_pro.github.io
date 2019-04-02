@@ -113,3 +113,24 @@ class For1
 
 
 //ex6 입력한 숫자에 대한 누적값을 얻어내보자
+
+import java.util.Scanner;
+
+class Plus
+{
+	public static void main(String [] agrs)
+	{
+		int num; //변수 num선언
+		int x = 0; //x를 선언하고 0으로 초기화
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("숫자를 입력하세요");
+		num = sc.nextInt();
+
+		for (int i = 0; i<=num; i++) //i=0부터 num보다 작거나 같을 때가지 증가를 반복
+		{
+			x+=i; //x에 i의 증가를 저장
+		}
+		System.out.println(x); //x를 
+	}
+}
