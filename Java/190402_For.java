@@ -127,3 +127,21 @@ class For1
 		}
 	}
 }
+
+class For1 //줄어드는 별모양
+{
+	public static void main(String[] args) 
+	{		
+		for (int i = 1; i <= 10 ; i++)
+		{
+			for (int j = 10; j >= i; j--)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+//ex7 입력한 숫자에 대한 누적값을 얻어내보자
