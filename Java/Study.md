@@ -293,7 +293,7 @@ Print
 <pre>System.out.println();</pre>
 
 + printf(); 한줄 출력 줄바꿈 없음, 문장을 완성하고 무엇을 삽입하는 형태, 문장을 완성하고 기호를 통해서 완성한다.
-
+<pre>System.out.printf("%s님 환영합니다.",t);</pre>
 > s = string d = decimal %,d 를 사용하게 되면 세자리 마다 쉼표로 자릿수를 구분해줌
 
 > 추가되는 요소에 ,를 붙여가면서 요소를 추가할 수 있음
