@@ -270,11 +270,14 @@ scan.nextLine();
 -----------------------------
 + scan.nextInt(); or scan.nextDouble();를 입력후 scan.nextLine(); 을 입력하면 str이 제대로 출력되지 않는다.
 > 즉, nextInt(); 는 엔터 즉, nextLine(); 을 입력받지 않기 때문에
+
 > nextInt() 를 하고 nextLine(); 호출하면 nextInt()의 enter라고 생각하기 때문에 nextLine()이 skipped 된다.
+
 > 해결법 : nextInt();와 nextLine(); 사이에 nextLine(); 을 추가하여 enter값을 받게 해준다
 <pre>int num = scan.nextInt();
  scan.nextLine();
   String s = scan.nextLine();</pre>
+
 + next(); 문자 또는 문자열을 공백기준으로 한단어 또는 한 문자씩 입력 받는다.
 + nextLine(); 문자 또는 문장 한 라인 전체를 입력 받는다.
 
@@ -285,12 +288,19 @@ Print
 +	System.out.println(); 줄바꿈 기능을 사용할 수 있어 작동함
 + \n을 추가하면 줄바꿈
 <pre>System.out.print("c\n");</pre>
+
 +  기능을 적고 출력을 하면 출력후 줄바꿈이 작동함 println은 자체적으로 줄바꿈기능을 포함
 <pre>System.out.println();</pre>
+
 + printf(); 한줄 출력 줄바꿈 없음, 문장을 완성하고 무엇을 삽입하는 형태, 문장을 완성하고 기호를 통해서 완성한다.
+
 > s = string d = decimal %,d 를 사용하게 되면 세자리 마다 쉼표로 자릿수를 구분해줌
+
 > 추가되는 요소에 ,를 붙여가면서 요소를 추가할 수 있음
+
 > Scanner로 입력받은 값을 넣을 수 있음
+
 > 소수점은 %f = float로 표현 소수점은 이하 6자리 까지 출력 %.2f로 표시할 경우 소수점 이하 두자리 까지 출력
+
 > 0.016을 두자리수 까지 출력한다 했을때 0.02로 반올림 하여 출력함 0.014일경우 0.01로 출력
 
