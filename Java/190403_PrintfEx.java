@@ -113,7 +113,7 @@ class Fish
 			}
 			break;
 		case ("쏘가리"):
-			System.out.println("가져갈수 있습니다.");
+			System.out.println("가져갈수 습니다.");
 			break;
 		case ("꺽치"):
 			if (cm>=10)
