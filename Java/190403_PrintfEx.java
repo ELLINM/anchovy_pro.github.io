@@ -128,3 +128,40 @@ class Fish
 		}
 	}
 }
+
+
+//ex4
+
+import java.util.Scanner;
+
+class Prime
+{
+	public static void main(String[] args) 
+	{
+		int num,counter = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("숫자 입력 : ");
+		num = sc.nextInt();
+
+		if (num==1||num==2) //1과 2는 예외
+		{
+			System.out.println("소수입니다.");
+		}
+		else{
+			for (int i = 1; i<=num; i++) //i는 num보다 작거나 같을때까지 증가
+				{
+				if (num%i==0) //소수가 아닌 수를 구하는 조건
+					{
+					counter++; //num값까지 증가
+					}
+				}
+			if (counter == 2) //counter의 수가 2
+			{
+				System.out.println("소수입니다.");
+			}else{
+				System.out.println("소수가 아닙니다.");
+			}
+		}
+	}
+}
