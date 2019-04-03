@@ -151,9 +151,9 @@ class Prime
 		else{
 			for (int i = 1; i<=num; i++) //i는 num보다 작거나 같을때까지 증가
 				{
-				if (num%i==0) //소수가 아닌 수를 구하는 조건
+				if (num%i==0) //약수의 갯수를 구함
 					{
-					counter++; //num값까지 증가
+					counter++; //위 조건이 만족할때 마다 증가
 					}
 				}
 			if (counter == 2) //counter의 수가 2
