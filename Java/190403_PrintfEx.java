@@ -1,5 +1,4 @@
-//
-
+//ex1
 import java.util.Scanner;
 
 class  Avg
@@ -40,5 +39,29 @@ class  Avg
 				break;
 				}
 		}
+	}
+}
+
+
+//ex2
+import java.util.Scanner;
+
+class AvgNum
+{
+	public static void main(String[] args) 
+	{
+		int tot = 0, num;
+		double avg;
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("몇과목의 점수를 계산하겠습니까?");
+		num = sc.nextInt();
+
+		for (int i = 1; i<=num; i++)
+		{
+			System.out.printf("%d번째 과목 점수 입력 : ",i);
+			tot += sc.nextInt();
+		}
+		System.out.println("평균 점수 : " + (tot/(double)num));
 	}
 }
