@@ -174,6 +174,10 @@ else{
       문장3
 }</pre>
 
++ if와 else if 
+> if는 위 조건이 참일때 실행되고 else if는 위 조건이 false이고 else if가 true일때 실행된다.
+
+
 Switch
 ---------------------------
 + if 문은 switch 문으로 사용할 수있고 switch 문 또한 if 문으로 사용할 수있다.
