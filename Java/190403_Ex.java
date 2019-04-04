@@ -55,13 +55,13 @@ class Meat
 		boolean flag=true; //반복에 필요한 조건값을 선언
 
 		while(flag){ //flag는 true이기 때문에 계속 반복할 수 있도록 해줌
-
+			// while문은 y와 n을 구분하여 출력하기 위함
 		System.out.println("고기 종류를 입력(닭고기/돼지고기/소고기) : ");
 		meatType=sc.nextLine();
 		System.out.println("무게 입력(kg) : ");
 		weight=sc.nextInt();
 
-		switch(meatType){
+		switch(meatType){//구해야하는 값들을 분리하디 위해서 구분이 용이한 meatType으로 구분
 		case "닭고기" :
 				total+=chickenPerKg*weight; //total변수에 무게당 변수의 가격을 저장
 			break;
@@ -74,21 +74,21 @@ class Meat
 		default :
 			System.out.println("ERROR:고기종류를 재대로 입력 하세요.");
 		}
-		sc.nextLine();
-		System.out.println("계속 입력 하시겠습니까?(y/n)");
-		choice=sc.nextLine();
+		sc.nextLine();//위에서 입력받은 Line값이 중첩 되므로 한번더 입력하여 오류를 삭제해준다.
+		System.out.println("계속 입력 하시겠습니까?(y/n)"); //y를 입력하게되면 true이기 때문에 다시 반복
+		choice=sc.nextLine();//n,N을 제외한 모듭값을 입력하여도 가능
 		
-		switch(choice){
+		switch(choice){//n은 false갑이면 여기서 멈추게됨
 		case "n":
 		case "N":
-			flag=false;
+			flag=false; //flag를 false로 선언 하면서 while문이 끝나도록함
 			break;
 		}
 
 
 		}
 		
-		System.out.printf("총 가격 : %,1d 원%n",total);
+		System.out.printf("총 가격 : %,1d 원%n",total);//while문 내부에서 연산된 값들을 더하여 요구값을 
 	}
 }
 
