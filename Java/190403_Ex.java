@@ -44,53 +44,54 @@ class Meat
 
 import java.util.Scanner;
 
-class Meat3
+class Meat
 {
 	public static void main(String[] args) 
-	{
-		String meat,yn;
-		int kg,tot=0;
+	{	
+		int chickenPerKg=3000,porkPerKg=5000,beefPerKg=7000; //입력받는 무게에 대한 연산 비용을 변수로 정장
+		Scanner sc=new Scanner(System.in);
+		int total=0, weight; // 총 가격을 입력받을 변수를 선언하고 초기화,
+		String meatType,choice; //입력받는 문장에 대한 변수 선언
+		boolean flag=true; //반복에 필요한 조건값을 선언
 
-		Scanner sc = new Scanner(System.in);
-		Scanner sc2 = new Scanner(System.in);
-		
-		System.out.println("고기 종류 입력(닭고기/돼지고기/소고기) : ");
-		meat = sc.nextLine();
+		while(flag){ //flag는 true이기 때문에 계속 반복할 수 있도록 해줌
 
-		System.out.println("무게입력 (kg) : ");
-		kg = sc2.nextInt();
+		System.out.println("고기 종류를 입력(닭고기/돼지고기/소고기) : ");
+		meatType=sc.nextLine();
+		System.out.println("무게 입력(kg) : ");
+		weight=sc.nextInt();
 
-		System.out.println("계속 입력하시겠습니까?(y/n)");
-		yn = sc.nextLine();
-
-		while (yn.equals("y"))
-		{
-			System.out.println("고기 종류 입력(닭고기/돼지고기/소고기) : ");
-			meat = sc.nextLine();
-			
-			System.out.println("무게입력 (kg) : ");
-			kg = sc2.nextInt();
-			
-			System.out.println("계속 입력하시겠습니까?(y/n)");
-			yn = sc.nextLine();
-
-			if (yn.equals("n"))
-			{
-				switch (meat)
-				{
-				case "닭고기":
-					tot = kg*3000;
-				case "돼지고기":
-					tot += kg*5000;
-				case "소고기":
-					tot += kg*7000;
-				}
-				System.out.println("총 가격 : " + tot);
-				break;
-			}
+		switch(meatType){
+		case "닭고기" :
+				total+=chickenPerKg*weight; //total변수에 무게당 변수의 가격을 저장
+			break;
+		case "돼지고기" :
+				total+=porkPerKg*weight;
+			break;
+		case "소고기" :
+				total+=beefPerKg*weight;
+			break;
+		default :
+			System.out.println("ERROR:고기종류를 재대로 입력 하세요.");
 		}
+		sc.nextLine();
+		System.out.println("계속 입력 하시겠습니까?(y/n)");
+		choice=sc.nextLine();
+		
+		switch(choice){
+		case "n":
+		case "N":
+			flag=false;
+			break;
+		}
+
+
+		}
+		
+		System.out.printf("총 가격 : %,1d 원%n",total);
 	}
 }
+
 
 //ex3
 
