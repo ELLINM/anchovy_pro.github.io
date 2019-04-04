@@ -61,7 +61,7 @@ stack메모리 영역은 생성하지 않아도 사용이 가능함
 
 + 프로그래밍의 흐름은 위에서 아래로 진행 거슬러 올라오지 않는다.
 
-![Java Data Size](https://www.google.co.kr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwix7NCLp7bhAhUBvLwKHaYuA-oQjRx6BAgBEAU&url=https%3A%2F%2Fdudri63.github.io%2F2019%2F02%2F13%2Fjava3%2F&psig=AOvVaw3o7Vua8UIJ5n6q1kzvHWb4&ust=1554462735256986)
+![Java Data Size](https://t1.daumcdn.net/cfile/tistory/9941E63B5B42224F06?download)
 
 
 관계 연산자(Relation Operator)
