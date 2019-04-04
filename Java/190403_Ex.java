@@ -53,7 +53,7 @@ class Meat
 		int total=0, weight; // 총 가격을 입력받을 변수를 선언하고 초기화,
 		String meatType,choice; //입력받는 문장에 대한 변수 선언
 		boolean flag=true; //반복에 필요한 조건값을 선언
-
+//입출력 구문들은 while 구문 안에서 작동하도록 한다.
 		while(flag){ //flag는 true이기 때문에 계속 반복할 수 있도록 해줌
 			// while문은 y와 n을 구분하여 출력하기 위함
 		System.out.println("고기 종류를 입력(닭고기/돼지고기/소고기) : ");
