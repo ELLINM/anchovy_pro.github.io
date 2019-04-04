@@ -203,7 +203,7 @@ class Money{
 		int c = (price-(fm*50000)-(om*10000)-(fc*5000))/1000;
 		int p = price-(fm*50000)-(om*10000)-(fc*5000)-(c*1000);
 		/*rest = price;
-		n50 = rest / 50000;
+		n50 = rest / 50000; 구하고자 하는 값을 구한후에  다음연산에 필요한 값을 재저장 하는것을 
 		rest = rest % 50000;
 		n10 = rest / 10000;
 		rest = rest % 10000;
