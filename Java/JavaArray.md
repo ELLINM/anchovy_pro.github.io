@@ -77,4 +77,4 @@ Arrays of Objects Initialization(객체 배열의 초기화)
 >ex) Array Initialization 문법 2
  <pre> <Array Variable Name>[0] = new DataType(); </pre>
 
-![Data Type Default Value] (https://i.stack.imgur.com/T4h0h.png)
+![Data Type Default Value](https://i.stack.imgur.com/T4h0h.png)
