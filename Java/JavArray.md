@@ -72,9 +72,9 @@ Arrays of Objects Initialization(객체 배열의 초기화)
 + Arrays of Objects는 Array를 생성하기 위해 new를 이용하여 생성하고 Array내에 Object의 참조값을 할당 하기 위해 Object 생성을 위한 new명령을 해야한다.
 + Arrays of Objects을 Initialization시키지 않을 경우 Object type의 Default Value(기본 값)인 null로 초기화 된다.
 > ex) Array Initialization 문법 1
-<pre><Array Variable Name>[0] = Data;</pre>
+<pre> <Array Variable Name>[0] = Data; </pre>
 
 Array Initialization 문법 2
-<pre> <Array Variable Name>[0] = new DataType();</pre>
+<pre> <Array Variable Name>[0] = new DataType(); </pre>
 
 ![Data Type Default Value] (https://i.stack.imgur.com/T4h0h.png)
