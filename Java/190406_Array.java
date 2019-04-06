@@ -76,8 +76,8 @@ sArray[1] = new String();
 sArray[2] = "text";
 hArray[1] = "new Human();
 	
-//Array 선언, 생성, Initialization를 한번에
-String[] sArray = {"a", "b", "c", "d", "e",};
+/*Array 선언, 생성, Initialization를 한번에
+String[] sArray = {"a", "b", "c", "d", "e",};*/
 
 //Array의 길이가 5인 String Type Array인 sArray를 선언하면서 동시에 각원소들을 주어진 값으로 초기화
 
