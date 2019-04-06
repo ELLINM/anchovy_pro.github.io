@@ -58,10 +58,10 @@ Arrays of Objects의 선언과 생성
 + 선언 : Primitive Type과 Reference Type을 모두 포함하며 선언에서는 아직 기억장소를 할당하지 않고 단순 참조값을 할당하는 역할
 + 생성
 > Array 생성 문법 1 (이미 선언이 되어있는 Array에 대해서)
-<pre>ex) <Array Name> = new <Data Type>[생성 개수];</pre>
+<pre> ex) <Array Name> = new <Data Type>[생성 개수];</pre>
 
 > Array 생성 문법 2 (선언과 함께 생성)
-<pre>ex) <Data Type> [] <Array Name> = new <Data Type>[생성 개수];
+<pre> ex) <Data Type> [] <Array Name> = new <Data Type>[생성 개수];</pre>
 
 + [생성 개수] 에는 생성될 Array의 크기값이 들어가며 Array의 개수를 나타낸다.
 + Array Index는 일반적인 Array와 마찬가지로 0부터 시작한다.
