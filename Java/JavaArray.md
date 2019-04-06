@@ -78,3 +78,5 @@ Arrays of Objects Initialization(객체 배열의 초기화)
  <pre> <Array Variable Name>[0] = new DataType(); </pre>
 
 ![Data Type Default Value](https://i.stack.imgur.com/T4h0h.png)
+
++ Arrays of Objects도 Length 속성을 이용하여 생성한 Array의 개수를 참조하여 사용할 수 있다.
