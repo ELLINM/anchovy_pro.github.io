@@ -108,11 +108,11 @@ public class ArrayTest2// Array 구성
 		pArray[0] = new Person(10, "Soft");
 		pArray[1] = new Person(20, "Engineer");
 		pArray[2] = new Person(30, "Society");
-		//pArray에는 각Index마다 요소들이 들어감
-		//Array의 Index를 이용하여 값을 참조할 수 있다.
+		/*pArray에는 각Index마다 요소들이 들어감
+		Array의 Index를 이용하여 값을 참조할 수 있다.*/
 		System.out.println(pArray[0].name + pArray[1].name + pArray[2].name);
-		//처음에는 각 배열의 이름들이 출력이 됨 SoftEngineerSociety 이후에 배열을 
-		//Array의 length속성을 이용하여 Array를 순회할 수 있다.
+		/*처음에는 각 배열의 이름들이 출력이 됨 SoftEngineerSociety 이후에 배열을 출력하게됨 
+		Array의 length속성을 이용하여 Array를 순회할 수 있다.*/
 		for (int i = 0; i < pArray.length; i++)
 		{/*각 배열을 출력해 주기 위해서 반복문을 사용하여 출력
 		Array의 길이는 3이기 때문에 0,1,2를 출력할 수 있음*/
