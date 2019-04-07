@@ -12,7 +12,7 @@ Array? 배열이란?
 
 Array의 생성
 -----------------
-+ Array를 선언하고 사용하기 위해서는 먼저 Array를 선언하고 new 키워드를 이용하여 메모리에 할당 해주어야 한다.
++ Array를 선언하고 사용하기 위해서는 먼저 Array를 선언하고 **new** 키워드를 이용하여 메모리에 할당 해주어야 한다.
 <pre>배열변수 선언 및 생성 문법
 ex)선언
 <DataType>[]<ArrayName>;
@@ -25,7 +25,7 @@ ex)생성
 ex)선언과 생성
 <DataType>[]<ArrayName> = new <DataType>[생성개수]</pre>
  
-+ Java에서는 배열을 선언할 때 [](Square Bracket)위치가 정해져 있지 않다. 즉 ArrayName의 앞이나 뒤 위치는 중요치않다.
++ Java에서는 배열을 선언할 때 [](Square Bracket)위치가 정해져 있지 않다. 즉 ArrayName의 앞이나 뒤 **위치**는 중요치않다.
 > ex)
 int[] ArrayName = new int[생성 개수];
 int ArrayName[] = new int[생성 개수];
@@ -45,7 +45,7 @@ Array의 사용과 Length
 -------------------
 + Array에 대입한 값을 사용하기 위해서는 Array Initialization와 마찬가지로 Index 번호값을 지정하여 값을 호출한다.
 + 생성된 Array 객체에는 자동을 그 배열의 개수를 저장한 Length라는 속성값이 생긴다.
-> 이말은 곧 생성된 Array객체의 Length속성을 이용 Array의 길이를 알아낼 수 있다.
+> 이말은 곧 생성된 Array객체의 **Length속성을 이용 Array의 길이**를 알아낼 수 있다.
 
 
 Arrays of Objects (객체 배열)의 선언 및 사용
