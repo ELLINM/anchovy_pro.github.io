@@ -26,17 +26,17 @@ class Array3
 {
 	public static void main(String[] args) 
 	{
-		String name;
-		int seat;
+		String name; //입력받을 이름의 변수 선언
+		int seat; //입력받을 좌석의 변수 선언
 		String [] array = new String [10]; //좌석 10개 배열선언
 
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("==========좌석============");
 		
-		for (int i = 1; i<10; i++) 
+		for (int i = 0; i<10; i++) //좌석은 총 10개이기 때문에 0부터 9까지 범위 설정
 		{
-			if (array[i]==null)
+			if (array[i]==null) //각 좌석을 순서대로 지정하고 null값이 들어올경우 공백으로 출력
 			{
 				System.out.print("[  ]");
 			}else{
@@ -53,7 +53,7 @@ class Array3
 		array[seat-1] = name; //좌석에 이름 예약, 배열은 0부터 시작하기 때문에 -1을 해준다.
 		
 		System.out.println("====================================");
-		for(int i=0;i<10;i++){
+		for(int i=0;i<10;i++){ //배열로 지정된 좌석에 입력 번호 대신 이름으로 출력
 			if(array[i]==null){
 			System.out.print("[    ]");
 			}else{
