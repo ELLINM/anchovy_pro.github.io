@@ -29,6 +29,7 @@ class Array3
 		String name; //입력받을 이름의 변수 선언
 		int seat; //입력받을 좌석의 변수 선언
 		String [] array = new String [10]; //좌석 10개 배열선언
+		boolean flag = true;
 
 		Scanner sc = new Scanner(System.in);
 
@@ -43,6 +44,8 @@ class Array3
 				System.out.println("[" + array[i] + "]"); //각 좌석 번호를 배열로 지정
 				}
 		}
+		while (flag) //계속 해서 입력받을 수 있도록 while 구문을 통해서 반복시킴
+		{
 
 		System.out.println("\n예약자 이름 : ");
 		name = sc.next();
@@ -58,10 +61,9 @@ class Array3
 			System.out.print("[    ]");
 			}else{
 			System.out.print("["+array[i]+"]");
-			}
+			}			
 		}
-
 		System.out.println();
-
+		} //이미 예약된 좌석일 경우 다시 입력하게 하려면 어떻게 해야할까
 	}
 }
