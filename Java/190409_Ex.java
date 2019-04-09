@@ -178,6 +178,62 @@ class Seat
 	{
 		Scanner sc = new Scanner(System.in);
 		String phone;
+        	int row, col;
+		String [] seats = new String [100]; //배열의 크기를 설정
+		
+		while (true) // true값을 통하여 계속해서 반복 입력 받을수 있도록함
+		{
+			System.out.println("예약자의 핸드폰 번호를 입력 : ");
+			phone = sc.next();
+			
+			System.out.println("예약좌석을 입력 (1~10행) : ");
+			row = sc.nextInt();
+			
+			System.out.println("예약좌석을 입력 (1~10열) : ");
+			col = sc.nextInt();
+
+		if (seats[(row-1)*10+(col-1)] == null) //예약확인
+		{ //두 수를 입력받기 때문에 순서에 맞는 번호 연산이 필요
+			seats[(row-1)*10+(col-1)] = phone; // 연산된 좌석에는 입력받은 번호가 등록
+		}
+		else
+		{
+			System.out.println("예약된 좌석입니다."); //if 조건을 만족하지 않는다면 예약된 자리이기 때문
+			System.out.println(seats[(row-1)*10+(col-1)]);
+		}
+
+		for (int i = 0; i<100; i++)
+		{
+			if (seats[i] == null)
+			{
+				System.out.print("[]");
+			}
+			else
+			{
+				System.out.print("[o]");
+			}
+				
+			if(((i+1)%10)==0) //좌석을 행과 열로 보이기 위하여 필요
+			{
+				System.out.println();
+			}
+		}
+		}
+	}
+}
+
+
+//ex7 100자리가 다 차면, 종료하게 만드시오.
+
+
+import java.util.Scanner;
+
+class Seat
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		String phone;
         int row, col;
 		String [] seats = new String [100];
 		
@@ -192,7 +248,7 @@ class Seat
 			System.out.println("예약좌석을 입력 (1~10열) : ");
 			col = sc.nextInt();
 
-		if (seats[(row-1)*10+(col-1)] == null) //예약확인
+		if (seats[(row-1)*10+(col-1)] == null)
 		{
 			seats[(row-1)*10+(col-1)] = phone;
 		}
@@ -212,19 +268,19 @@ class Seat
 			{
 				System.out.print("[o]");
 			}
-				
 			if(((i+1)%10)==0)
 			{
 				System.out.println();
 			}
 		}
+		if (seats.equals("[o]"))
+		{
+			System.out.println("시스템을 종료합니다.");
+			System.exit(0);
+		}
 		}
 	}
 }
-
-
-//ex7 100자리가 다 차면, 종료하게 만드시오.
-
 
 
 //ex8 같은 휴대전화는 예약 하지 못하게 하시오.
