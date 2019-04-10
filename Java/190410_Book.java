@@ -13,6 +13,7 @@ class Books
 	{
 		String book;
 		String [] books = new String [50];
+		//counter를 선언하는게 좋았다. 여러 시도중에 counter변수를 선언하기도 했으나 사용법이 잘못되었다.
 
 		Scanner sc = new Scanner(System.in);
 
@@ -23,12 +24,12 @@ class Books
 //책 제목을 입력받는 것까지 수행 그러나 전체 출력을 못함 
 		for (int i = 0; i < 50; i++)
 		{
-			books[i] = book;
-			if (books[i] == null)
+			books[i] = book; // book변수 대입 대신 counter를 증가시키며 받는다. for문 밖으로 뺄것
+			if (books[i] == null) //!= 를 통해 null값이 아닐경우 카운터를 증가시키는것으로 한다.
 			{
 				System.out.print(" ");
 			}
-			else
+			else //else부분을 제거하고 if에서 책리스트를 출력 하도록 한다.
 			{
 				System.out.println("[" + books[i] + "]");
 			}
