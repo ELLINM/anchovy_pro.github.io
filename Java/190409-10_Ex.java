@@ -306,7 +306,7 @@ class Books
 		{
 			System.out.println("책제목을 입력하세요 : ");
 			book = sc.next();
-
+//책 제목을 입력받는 것까지 수행 그러나 전체 출력을 못함 
 		for (int i = 0; i < 50; i++)
 		{
 			books[i] = book;
@@ -355,6 +355,36 @@ class Books
 결과: 10개의 제품중 1개가 불합격입니다. 납품 합니다.
 
 배열로 푼다면 1000개의 index를 보유한 배열을 만들고 값을 입력받는다*/
+
+
+import java.util.Scanner;
+
+class Medic
+{
+	public static void main(String[] args) 
+	{
+		int [] medic = new int [10];
+		int counter = 0;
+		Scanner sc = new Scanner(System.in);
+
+		for (int i = 0; i < medic.length; i++)
+		{
+			System.out.printf("%d번째 제품 품질 입력 (1.합격/2.불합격) : ",i+1);
+			medic[i] = sc.nextInt();
+
+			if (medic[i] == 2)
+			{
+				counter++;
+				if (counter >= 2)
+				{
+					System.out.printf("결과: 10개의 제품중 %d개가 불합격입니다. 1000개 모두 폐기합니다.",counter);
+				}
+				System.out.printf("결과: 10개의 제품중 %d개가 불합격입니다. 납품 합니다.",counter);
+			}
+		}
+	}
+}//입력을 받고 출력을 할 수 있으나 중간에 2를 입력할 경우 문구가 뜨면서 예시처럼 되지 
+
 
 
 /*ex11 한 반에 30명인 학급이 있다. 각 학생의 점수를 입력받아, 학급의 평균을 구하는 프로그램을 만드시오. 
