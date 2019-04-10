@@ -1,4 +1,4 @@
-D제약회사 제품 품질 관리에서는 1000개의 총 제품 수 중에 10개의 제품을 랜덤 샘플 품질 실험을 하여  
+/*D제약회사 제품 품질 관리에서는 1000개의 총 제품 수 중에 10개의 제품을 랜덤 샘플 품질 실험을 하여  
 2개가 품질 불합격을 받는 다면 1000개의 제품을 모두 폐기 하고 있다. 
 10개의 제품 품질 정보를 입력하여 모두 폐기할지, 납품할지 출력하는 프로그램을 만들어라. 프로세스는 반복 될 수 있다.
 
@@ -39,9 +39,9 @@ class Medic
 	public static void main(String[] args) 
 	{
 		int [] medic = new int [10];
-		int counter = 0;
+		int counter = 0; //counter는 while문 안으로 넣어서 
 		Scanner sc = new Scanner(System.in);
-
+//while문으로 반복
 		for (int i = 0; i < medic.length; i++)
 		{
 			System.out.printf("%d번째 제품 품질 입력 (1.합격/2.불합격) : ",i+1);
