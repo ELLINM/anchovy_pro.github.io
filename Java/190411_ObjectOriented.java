@@ -149,3 +149,125 @@ class Profile
 
 	}
 }
+
+
+//ex5
+
+//file 1
+
+class Student
+{
+	String name;
+	int score;
+}
+
+
+//file 2
+
+import java.util.Scanner;
+
+class Manage
+{
+	public static void main(String[] args) 
+	{
+		Student manage = new Student();
+		Scanner sc = new Scanner(System.in);
+		String [] student = new String [5];
+		int choice,counter = 0;
+		double avg;
+
+		boolean flag = true;
+
+		while (flag)
+		{
+		System.out.println("=====================");
+		System.out.println("1. 이름 등록");
+		System.out.println("2. 점수 등록");
+		System.out.println("3. 평균 출력");
+		System.out.println("=====================");
+		choice = sc.nextInt();
+
+		switch (choice)
+		{
+		case 1:
+			System.out.println("이름을 입력하세요 : ");
+			manage.name += sc.nextLine();
+			student[counter++] = manage.name;
+			sc.next();
+
+			break;
+		case 2:
+			System.out.println("점수를 입력하세요 : ");
+			manage.score += sc.nextInt();
+			break;
+		case 3:
+			avg = manage.score/counter;
+			System.out.println("평균 점수 : " + avg);
+			break;	
+		}
+		}
+	}
+}
+
+
+//ex6
+
+//file1
+
+class Rectangle2
+{
+	int height;
+	int horizontal;
+	int vertical;
+}
+
+
+//file2
+
+
+import java.util.Scanner;
+
+class Total
+{
+	public static void main(String[] args) 
+	{
+		Rectangle2 total = new Rectangle2();
+		Scanner sc = new Scanner(System.in);
+
+		int choice;
+
+		while (true)
+		{
+
+		System.out.println("=================");
+		System.out.println("1. 가로 등록");
+		System.out.println("2. 세로 등록");
+		System.out.println("3. 높이 등록");
+		System.out.println("4. 부피 출력");
+		System.out.println("=================");
+
+		choice = sc.nextInt();
+
+		switch (choice)
+		{
+		case 1:
+			System.out.println("가로 길이 입력 : ");
+			total.horizontal = sc.nextInt();
+			break;
+		case 2:
+			System.out.println("세로 길이 입력 : ");
+			total.horizontal = sc.nextInt();
+			break;
+		case 3:
+			System.out.println("높이 입력 : ");
+			total.height = sc.nextInt();
+			break;
+		case 4: // 변수 하나가지고 두개 값을 어떻게 입력받지..?
+			total.vertical = total.horizontal*total.horizontal*total.height;
+			System.out.printf("부피 : %d입니다.\n",total.vertical);
+			break;		
+		}
+
+		}
+	}
+}
