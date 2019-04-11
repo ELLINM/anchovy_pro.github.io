@@ -85,3 +85,67 @@ class ObjectTest
 	}
 }
 
+
+//ex4
+
+//file1
+
+class Human 
+{
+	String name ,address;
+	int age;
+}
+
+//file2
+
+import java.util.Scanner;
+
+class Profile
+{
+	public static void main(String[] args) 
+	{
+		int choice;
+		Human me = new Human();
+		Scanner sc = new Scanner(System.in);
+		Scanner sc2 = new Scanner(System.in);
+		boolean flag = true;
+
+		while (flag)
+		{
+
+		System.out.println("=====나의 프로필=====");
+		System.out.println("1. 이름 입력");
+		System.out.println("2. 나이 입력");
+		System.out.println("3. 주소 입력");
+		System.out.println("4. 정보 출력");
+		System.out.println("=====================");
+		choice = sc.nextInt();
+
+		switch (choice)
+		{
+		case 1:
+			System.out.println("이름 입력 : ");
+			me.name = sc.next();
+			break;
+		case 2:
+			System.out.println("나이 입력 : ");
+			me.age = sc.nextInt();
+			break;
+		case 3:
+			System.out.println("주소 입력 : ");
+			me.address = sc2.nextLine(); //Scanner를 하나만 가지고 사용할경우 입력은 되지만 앞 첫 음절이 사라짐
+				/*ex)sc.next();
+			me.address = sc.nextLine(); 으로 입력한 경우 서울 영등포구 입력시 서울이 사라짐 따라서 새로 Scanner를 만들어줌*/ 
+			break;
+		case 4:
+			System.out.println("정보 출력");
+			System.out.println("이름 : " + me.name);
+			System.out.println("나이 : " + me.age);
+			System.out.println("주소 : " + me.address);
+			flag = false;
+			break;
+		}
+		}
+
+	}
+}
