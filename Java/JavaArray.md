@@ -83,7 +83,7 @@ Arrays of Objects Initialization(객체 배열의 초기화)
 
 
 MultidimensionalArray (다차원 배열)
-==================
+-------------
 
 + Multidimensional Array (다차원 배열)은 2차원 3차원으로 확장된 배열을 말한다.
 + 다차원 배열을 선언
