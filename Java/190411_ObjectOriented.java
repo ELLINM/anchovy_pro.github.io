@@ -256,15 +256,15 @@ class Total
 			break;
 		case 2:
 			System.out.println("세로 길이 입력 : ");
-			total.horizontal = sc.nextInt();
+			total.vertical = sc.nextInt();
 			break;
 		case 3:
 			System.out.println("높이 입력 : ");
 			total.height = sc.nextInt();
 			break;
-		case 4: // 변수 하나가지고 두개 값을 어떻게 입력받지..?
-			total.vertical = total.horizontal*total.horizontal*total.height;
-			System.out.printf("부피 : %d입니다.\n",total.vertical);
+		case 4:
+			int total2 = total.horizontal*total.vertical*total.height;
+			System.out.printf("부피 : %d입니다.\n",total2);
 			break;		
 		}
 
