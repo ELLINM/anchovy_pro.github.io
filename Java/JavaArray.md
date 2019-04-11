@@ -80,3 +80,11 @@ Arrays of Objects Initialization(객체 배열의 초기화)
 ![Data Type Default Value](https://i.stack.imgur.com/T4h0h.png)
 
 + Arrays of Objects도 Length 속성을 이용하여 생성한 Array의 개수를 참조하여 사용할 수 있다.
+
+
+MultidimensionalArray (다차원 배열)
+==================
+
++ Multidimensional Array (다차원 배열)은 2차원 3차원으로 확장된 배열을 말한다.
++ 다차원 배열을 선언
+<pre>String [] s [] = new String[5][]</pre>
