@@ -220,3 +220,127 @@ class Drive
 }
 
 
+//ex3 
+
+//file 1
+
+class Member2
+{
+	String name;
+	String gender;
+	int weight;
+	int height;
+}
+
+
+//file 2
+
+import java.util.Scanner;
+
+class Bmi 
+{
+	public static void main(String[] args) 
+	{
+		Member2 [] array = new Member2[100];
+		String name, gender;
+		int weight = 0, height = 0, choice, counter = 0;
+		Scanner sc = new Scanner(System.in);
+		double bmi = 0;
+		bmi = (weight/((height*0.01)*(height*0.01)));
+
+		while (true)
+		{
+				
+		System.out.println("==================");
+		System.out.println("1. 멤버 등록");
+		System.out.println("2. BMI 출력");
+		System.out.println("3. 전체 출력");
+		System.out.println("==================");
+		System.out.print("선택 : ");
+		choice = sc.nextInt();
+
+			switch (choice)
+			{
+			case 1:
+				System.out.print("이름 입력 : ");
+				name = sc.next();
+
+				System.out.print("성별 입력 : ");
+				gender = sc.next();
+
+				System.out.print("키 입력 : ");
+				height = sc.nextInt();
+
+				System.out.print("몸무게 입력 : ");
+				weight = sc.nextInt();
+
+				Member2 m = new Member2();
+				m.name = name;
+				m.gender = gender;
+				m.height = height;
+				m.weight = weight;
+				array[counter++] = m;
+				break;
+			case 2:
+				bmi = (weight/((height*0.01)*(height*0.01)));
+				if (bmi >= 30)
+				{
+					System.out.printf("당신의 bmi는 %.2f이며 고도비만입니다.\n", bmi);
+				}
+				else if (bmi >= 25)
+				{
+					System.out.printf("당신의 bmi는 %.2f이며 비만입니다.\n", bmi);
+				}
+				else if (bmi >= 23)
+				{
+					System.out.printf("당신의 bmi는 %.2f이며 과체중입니다.\n", bmi);
+				}
+				else if (bmi >= 18.5)
+				{
+					System.out.printf("당신의 bmi는 %.2f이며 정상입니다.\n", bmi);
+				}
+				else
+				{
+					System.out.printf("당신의 bmi는 %.2f이며 저체중입니다.\n", bmi);
+				}
+				break;
+			case 3:
+				for (int i = 0; i < array.length; i++)
+				{
+					if (array[i] != null)
+					{
+						System.out.println("이름 : " + array[i].name);
+						System.out.println("성별 : " + array[i].gender);
+						System.out.println("키 : " + array[i].height);
+						System.out.println("몸무게 : " + array[i].weight);
+						bmi = array[i].weight/((array[i].height*0.01)*(array[i].height*0.01));
+						if (bmi >= 30)
+						{
+							System.out.printf("당신의 bmi는 %.2f이며 고도비만입니다.\n", bmi);
+						}
+						else if (bmi >= 25)
+						{
+							System.out.printf("당신의 bmi는 %.2f이며 비만입니다.\n", bmi);
+						}
+						else if (bmi >= 23)
+						{
+							System.out.printf("당신의 bmi는 %.2f이며 과체중입니다.\n", bmi);
+						}
+						else if (bmi >= 18.5)
+						{
+							System.out.printf("당신의 bmi는 %.2f이며 정상입니다.\n", bmi);
+						}
+						else
+						{
+							System.out.printf("당신의 bmi는 %.2f이며 저체중입니다.\n", bmi);
+						}
+					}
+				}
+
+				break;
+			}
+		}
+
+	}
+}
+
