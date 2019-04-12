@@ -60,3 +60,66 @@ class ObjectTest2
 		}
 	}
 }
+
+
+//ex2
+
+//file 1
+
+class Person2
+{
+	String name;
+	String phone;
+	int price;
+}
+
+
+
+//file 2
+
+import java.util.Scanner;
+
+class Theater
+{
+	public static void main(String[] args) 
+	{
+		Person2 [] array = new Person2[10];
+		String name, phone;
+		int price, choice, counter = 0;
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("=================");
+		System.out.println("1. 예약 하기");
+		System.out.println("2. 예약 전체보기");
+		System.out.println("=================");
+		choice = sc.nextInt();
+
+		switch (choice)
+		{
+		case 1:
+			System.out.println("이름을 입력 : ");
+			name = sc.next();
+			System.out.println("전화번호를 입력 : ");
+			phone = sc.next();
+			System.out.println("가격을 입력 : ");
+			price = sc.nextInt();
+
+			Person2 p = new Person2();
+			p.name = name; //name은 입력받는 변수 h.name은 자료를 받게되는 변수
+			p.phone = phone;
+			p.price = price;
+
+			array[counter++] = p; //0부터 늘어나기 때문에 후위 증가
+
+			break;
+		case 2:
+			for (int i = 0; i < counter; i++)
+			{
+			System.out.println("**"+array[i].name+" "+array[i].phone+" "+array[i].price);
+			}
+			break;
+		
+		}
+
+	}
+}
