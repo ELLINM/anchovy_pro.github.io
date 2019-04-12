@@ -191,7 +191,7 @@ class Drive
 				{
 					if (reserve[i].phone.equals(phone)) //배열안에서 차례대로 순회하며 i번째에 있는 같은 번호를 찾음
 						{
-						flag = false; //한명이라도 같은 사람이 있으면
+						flag = false; //같은 사람을 찾게되면 false로 
 							System.out.println("==================");
 							System.out.println("이름 : " + reserve[i].name);
 							System.out.println("전화번호 :" + reserve[i].phone);
