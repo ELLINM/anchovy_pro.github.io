@@ -2,7 +2,7 @@
 
 //file 1
 
-class Human 
+class Human //객체 선언
 {
 	String name;
 	String id;
@@ -17,9 +17,9 @@ class ObjectTest2
 {
 	public static void main(String[] args) 
 	{
-		Human [] array = new Human[5];
-		String id, pw, name;
-		int counter = 0;
+		Human [] array = new Human[5]; //Human 객체를 배열로 지정
+		String id, pw, name; //현재 Class에서 입력을 받을 변수 지정
+		int counter = 0; // 연산, 출력에 필요한 누적 갯수를 입력한 변수
 		int choice;
 		Scanner sc = new Scanner(System.in);
 
@@ -29,7 +29,7 @@ class ObjectTest2
 		System.out.println("==============");
 		choice = sc.nextInt();
 
-		switch (choice)
+		switch (choice) 
 		{
 		case 1:
 			System.out.println("ID 입력 : ");
@@ -39,17 +39,17 @@ class ObjectTest2
 			System.out.println("이름 입력 : ");
 			name = sc.next();
 
-			Human h = new Human();
+			Human h = new Human(); //Human Class Type의 Reference Variable인 h를 선언
 			h.id = id;
 			h.pw = pw;
 			h.name = name;
-			array[counter++] = h;
+			array[counter++] = h; // 그리고 h에 입력값이 1Cycle 적립되면 counter의 갯수를 늘림
 
 			break;
 		case 2:
-			for (int i = 0; i < array.length; i++)
+			for (int i = 0; i < array.length; i++) // 입력된 배열의 순서
 			{
-				if (array[i] != null)
+				if (array[i] != null)//i번째 배열이 null이 아니라면 입력된 값이 있는것이기 때문에 출력
 				{
 					System.out.println("ID : " + array[i].id);
 					System.out.println("PW : " + array[i].pw);
@@ -189,7 +189,7 @@ class Drive
 				phone = sc.next();
 				for (int i = 0; i < counter; i++)
 				{
-					if (reserve[i].phone.equals(phone))
+					if (reserve[i].phone.equals(phone)) //배열안에서 차례대로 순회하며 i번째에 있는 같은 번호를 찾음
 						{
 						flag = false; //한명이라도 같은 사람이 있으면
 							System.out.println("==================");
