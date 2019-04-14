@@ -8,7 +8,7 @@ public class Method1
     int hap = addHap(1 ,2);  //addHap2( )Method를 한번더 실행하고 난뒤 이번엔 addHap( )Method를 호출
 
     System.out.println(hap);
-	}
+  }
 
     int  addHap (int a, int b) //int a와 int b를 인수로 받으며 int형의 반환값
     {
