@@ -51,3 +51,39 @@ public class Method1
 따라서 입력으로 전달받은 myTest 객체의 객체변수 a의 값이 증가하게 되는 것이다.
 Method의 입력항목이 값인지 객체인지를 구별하는 기준은 입력항목의 자료형이 primitive 자료형인지 아닌지에 따라 나뉜다. 
 int 자료형과 같은 primitive 자료형인 경우 값이 전달되는 것이고 그 이외의 경우(reference 자료형)는 객체가 전달된다.*/
+
+
+//ex3 들어오는 값이 있고 나가는 값이 있는 Method
+
+//file 1
+class Method1 
+{
+	public int plusFour(int num) //나가는 값의 Data Type
+	{
+		int result = num + 4;//Method의 몸통
+
+		return result; //결과를 반환
+	}
+}
+
+//file 2
+import java.util.Scanner;
+
+class Method2
+{
+	public static void main(String[] args) 
+	{
+		Method1 me = new Method1(); //Scanner를 통하여 입력 받을 수있음
+		Scanner sc = new Scanner(System.in);
+		
+		int input = sc.nextInt();
+		
+		int numResult = me.plusFour(input);
+		//반듯이 괄호를 열고 닫아줘야함 호출한다.
+		//출력방법은 담아줄 변수를 설정하는 법과, 직접 출력하는법
+		System.out.println(numResult);
+	}
+}
+
+
+//ex4 
