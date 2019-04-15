@@ -376,4 +376,89 @@ class Todo2
 
 //file 1
 
+class Student2
+{
+	private String name;
+	private int score;
 
+	public String getName()
+	{
+		return name;
+	}
+	public void setName(String newName)
+	{
+		name = newName;
+	}
+	public int score()
+	{
+		return score;
+	}
+	public void setScore(int newScore)
+	{
+		score = newScore;
+	}
+	public void print()
+	{
+		System.out.println("이름 : " + name + " 점수 : " + score);
+	}
+}
+
+//file 2
+
+import java.util.Scanner;
+
+class Student3
+{
+	public static void main(String[] args) 
+	{
+		String name;
+		int score, choice, counter = 0, sum = 0;
+		double avg;
+		Scanner sc = new Scanner(System.in);
+
+		Student2 [] array = new Student2 [50];
+
+		while (true)
+		{
+			System.out.println("==================");
+			System.out.println("1. 학생 등록");
+			System.out.println("2. 전체 출력");
+			System.out.println("3. 학생 평균 출력");
+			System.out.println("==================");
+			choice = sc.nextInt();
+
+			switch (choice)
+			{
+			case 1:
+				System.out.println("이름 입력 : ");
+				name = sc.next();
+
+				System.out.println("점수 입력 : ");
+				score = sc.nextInt();
+
+				Student2 s = new Student2();
+
+				s.setName(name);
+				s.setScore(score);
+
+				array[counter++] = s;
+				break;
+			case 2:
+				for (int i = 0; i < counter; i++)
+				{
+				array[i].print();
+				}
+				break;
+			case 3:
+				for (int i = 0; i < array.length; i++)
+				{
+					sum += array[score];			
+				}
+					avg = (double)sum/array.length;
+					System.out.printf("학급평균 점수는 %.2f 점 입니다.\n",avg);
+				break;
+			}
+		}
+
+	}
+}
