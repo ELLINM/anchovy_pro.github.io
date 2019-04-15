@@ -20,13 +20,21 @@ Method의 선언 형식
   }</pre>
 > public : 접근지정자. 외부, 내부로부터의 접근제어를 나타낸다.
 
-> void : 반환형(Return Type). Method가 종료되었을 때 Method 를 호출한 곳으로 반환하는 Data Type.
+> void : 반환형(Return Type). Method가 종료되었을 때 Method 를 호출한 곳으로 반환하는 Data Type. void가 아닐경우 Data Type으로 작성한다.
 
 > setPage : Method Name. 관례상 소문자로 시작하고 다음구분 단어의 첫 글자 마다 대문자로 표현한다.
 
 > (int n) : Method의 매개변수 목록(Arguments). Method가 Method를 호출한 곳으로부터 전달받는 데이터들을 나열한다.
 
 > int max_page = 500; : Method의 몸체. 중괄호 안에 들어있는 문장들. Method의 기능을 구현하는 문장들이 들어간다.
+
+
+Method의 분류
+---------------
++ 입력과 출력이 모두 있는 메소드
++ 입력과 출력이 모두 없는 메소드
++ 입력은 없고 출력은 있는 메소드
++ 입력은 있고 출력은 없는 메소드
 
 
 Mehtod의 매개변수
