@@ -363,7 +363,8 @@ class Todo2
 			case 3:
 				for (int i = 0; i < array.length; i++)
 				{
-				array[i] = null;
+				array[i] = null; 
+		//배열에 null을 대입하게되면 내용이 Todo클래스가 아니게됨 때문에 그냥 null이되고 프린트를 하면 에러가 발생
 				}
 				break;			
 			}
