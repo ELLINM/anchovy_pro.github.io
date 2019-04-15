@@ -186,3 +186,99 @@ class Person4
 
 	}
 }
+
+
+//ex6
+
+
+//file 1
+
+class Animal 
+{
+	private String name;
+	private String kind;
+	private int age;
+
+	public String getName()
+	{
+		return name;
+	}
+	public void setName(String newName)
+	{
+		name = newName;
+	}
+	public String getKind()
+	{
+		return kind;
+	}
+	public void setKind(String newKind)
+	{
+		kind = newKind;
+	}
+	public int getAge()
+	{
+		return age;
+	}
+	public void setAge(int newAge)
+	{
+		age = newAge;
+	}
+	public void print()
+	{
+		System.out.println("이름 : " + name + " 종류 : " + kind + " 나이 : " +  age);
+	}
+}
+
+//file 2
+
+import java.util.Scanner;
+
+class Animal2 
+{
+	public static void main(String[] args) 
+	{
+		Animal [] array = new Animal [100];
+		
+		int age2, choice;
+		int counter = 0;
+		String name2, kind2;
+		Scanner sc = new Scanner(System.in);
+
+		while (true)
+		{
+			System.out.println("============");
+			System.out.println("1. 등록");
+			System.out.println("2. 출력");
+			System.out.println("============");
+			choice = sc.nextInt();
+
+			switch (choice)
+			{
+			case 1:
+				System.out.println("이름 입력 : ");
+				name2 = sc.next();
+
+				System.out.println("종류 입력 : ");
+				kind2 = sc.next();
+
+				System.out.println("나이 입력 : ");
+				age2 = sc.nextInt();
+
+				Animal ani = new Animal();
+
+				ani.setName(name2);
+				ani.setKind(kind2);
+				ani.setAge(age2);
+				
+				array[counter++] = ani;
+				break;
+			case 2:
+				for (int i = 0; i < counter; i++)
+				{
+				array[i].print();
+				}
+				break;
+			}
+		}
+	}
+}
