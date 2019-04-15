@@ -282,3 +282,98 @@ class Animal2
 		}
 	}
 }
+
+
+//ex7
+
+//file 1
+
+class Todo 
+{
+	private String title;
+	private String todo;
+
+	public String getTitle()
+	{
+		return title;
+	}
+	public void setTitle(String newTitle)
+	{
+		title = newTitle;
+	}
+	public String getTodo()
+	{
+		return todo;
+	}
+	public void setTodo(String newTodo)
+	{
+		todo = newTodo;
+	}
+	public void print()
+	{
+		System.out.println("제목 : " + title + " 내용 : " + todo);
+	}
+
+}
+
+//file 2
+
+import java.util.Scanner;
+
+class Todo2 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		int choice, counter = 0;
+		String title, todo;
+		Todo [] array = new Todo [10];
+
+		while (true)
+		{
+			System.out.println("============");
+			System.out.println("1. 할일 등록");
+			System.out.println("2. 출력");
+			System.out.println("3. 초기화");
+			System.out.println("============");
+			choice = sc.nextInt();
+
+			switch (choice)
+			{
+			case 1:
+				System.out.println("제목 : ");
+				title = sc.next();
+
+				System.out.println("할일 : ");
+				todo = sc.next();
+
+				Todo t = new Todo();
+
+				t.setTitle(title);
+				t.setTodo(todo);
+
+				array[counter++] = t;
+				break;
+			case 2:
+				for (int i = 0; i < counter; i++)
+				{
+				array[i].print();
+				}
+				break;
+			case 3:
+				for (int i = 0; i < array.length; i++)
+				{
+				array[i] = null;
+				}
+				break;			
+			}
+		}
+	}
+}
+
+
+//ex8
+
+//file 1
+
+
