@@ -87,3 +87,102 @@ class Method2
 
 
 //ex4 
+
+//file 1
+class Person3
+{
+	private String name;
+	private int age;
+	// 속성이 2개이기 때문에 최소 4개의 Method가 필요
+	//getter와 setter 각각 2개씩
+
+	public String getName()//get은 getter만 사용
+	{
+		return name;
+	}
+
+	public void setName(String newName)//void는 return값이 없다.
+	{
+		name = newName;
+	}
+	
+	public int getAge()
+	{
+		return age;
+	}
+
+	public void setAge(int newAge)
+	{
+		age = newAge;
+	}
+}
+
+//file 2
+import java.util.Scanner;
+
+class Person4
+{
+	public static void main(String[] args) 
+	{
+		Person3 p = new Person3();
+
+		p.setName("홍길동"); //Person3에있는  setName에 String을 대입한다.
+		String name = p.getName(); //name을 getName에서 갖고온다.
+		System.out.println(name); //name을 출력
+		
+		p.setAge(45);
+		int age = p.getAge();
+		System.out.println(age);
+	}
+}
+
+
+//ex5
+
+
+class Person3
+{
+	private String name;
+	private int age;
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String newName)
+	{
+		name = newName;
+	}
+
+	public int getAge()
+	{
+		return age;
+	}
+
+	public void setAge(int newAge)
+	{
+		age = newAge;
+	}
+
+	public void print()
+	{
+		System.out.println("이름 : " + name + " 나이 : " + age);
+	} //출력만 하는 Method 
+}
+
+//file 2
+import java.util.Scanner;
+
+class Person4
+{
+	public static void main(String[] args) 
+	{
+		Person3 p = new Person3();
+
+		p.setName("홍길동");
+		p.setAge(45);
+		p.print();
+
+	}
+}
