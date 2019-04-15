@@ -440,6 +440,8 @@ class Student3
 
 				s.setName(name);
 				s.setScore(score);
+					
+				sum += score;
 
 				array[counter++] = s;
 				break;
@@ -450,12 +452,8 @@ class Student3
 				}
 				break;
 			case 3:
-				for (int i = 0; i < array.length; i++)
-				{
-					sum += array[score];			
-				}
-					avg = (double)sum/array.length;
-					System.out.printf("학급평균 점수는 %.2f 점 입니다.\n",avg);
+				avg = (double)sum/counter;
+				System.out.printf("학급평균 점수는 %.2f 점 입니다.\n",avg);
 				break;
 			}
 		}
