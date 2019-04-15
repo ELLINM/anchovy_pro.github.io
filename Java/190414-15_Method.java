@@ -90,7 +90,7 @@ class Method2
 
 //file 1
 class Person3
-{
+{ // 필드는 가장위에 작성
 	private String name;
 	private int age;
 	// 속성이 2개이기 때문에 최소 4개의 Method가 필요
