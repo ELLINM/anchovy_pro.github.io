@@ -104,12 +104,8 @@ class Bank
 
 				bm.withdrawl(accNo,balance);
 				break;
-
 			}
-
 		}
-
-
 	}
 }
 
@@ -141,7 +137,6 @@ class BankManager
 			{
 				ba[i].setBalance(ba[i].getBalance()+balance);
 			}
-
 		}	
 	}
 
@@ -152,7 +147,6 @@ class BankManager
 			{
 				ba[i].setBalance(ba[i].getBalance()-balance);
 			}
-
 		}	
 	}
 }
