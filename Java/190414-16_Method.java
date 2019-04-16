@@ -475,3 +475,119 @@ class Student3
 
 	}
 }
+
+
+//ex9
+
+//file 1
+
+class Account
+{
+	private String owner;
+	private String accNo;
+	private int balance;
+
+	public Account (String owner, String accNo, int balance)
+	{
+		this.owner = owner;
+		this.accNo = accNo;
+		this.balance = balance;
+	}
+	public void setOwner(String owner)
+	{
+		this.owner = owner;
+	}
+	public void setAccno(String accNo)
+	{
+		this.accNo = accNo;
+	}
+	private void setBalance(int balance)
+	{
+		this.balance = balance;
+	}
+	public void print()
+	{
+		System.out.print("예금주명 : " + owner + " 계좌 번호 : " + accNo + " 잔액 : " + balance);
+	}
+}
+
+//file 2
+
+import java.util.Scanner;
+
+class Account2 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		String owner, accNo, accNo2;
+		int choice, balance, money, total, counter = 0;
+
+		Account [] array = new Account [100];
+
+		while (true)
+		{
+			System.out.println("==============");
+			System.out.println("1. 계좌 등록");
+			System.out.println("2. 전체 출력");
+			System.out.println("3. 입금");
+			System.out.println("4. 출금");
+			System.out.println("==============");
+			choice = sc.nextInt();
+
+			switch (choice)
+			{
+			case 1:
+				System.out.println("예금주 명을 입력 하세요");
+				owner = sc.next();
+
+				System.out.println("계좌번호를 입력 하세요");
+				accNo = sc.next();
+
+				System.out.println("금액을 입력 하세요");
+				balance = sc.nextInt();
+
+				Account acc = new Account(owner, accNo, balance);
+
+				array[counter++] = acc;
+				break;
+			case 2:
+				for (int i = 0; i < counter; i++)
+				{
+				array[i].print();
+				}
+				break;
+			case 3:
+				System.out.println("계좌번호 입력");
+				accNo2 = sc.next();
+				for (int i = 0; i < counter; i++)
+				{
+					if (accNo2.equals(array[i]))
+					{
+					System.out.println("입금할 금액을 입력 하세요");
+					money = sc.nextInt();
+
+					total = balance + money;
+					System.out.println("잔액 : " + total);
+					}
+				}
+				break;
+			case 4:
+				System.out.println("계좌번호 입력");
+				accNo2 = sc.next();
+				for (int i = 0; i < counter; i++)
+				{
+					if (accNo2.equals(array[i]))
+					{
+					System.out.println("출금할 금액을 입력 하세요");
+					money = sc.nextInt();
+
+					total = balance - money;
+					System.out.println("잔액 : " + total);
+					}
+				}
+				break;
+			}
+		}
+	}
+}
