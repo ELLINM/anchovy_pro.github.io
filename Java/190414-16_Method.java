@@ -491,7 +491,7 @@ class Account
 
 	public Account (String owner, String accNo, int balance)
 	{
-		this.owner = owner;
+		this.owner = owner; // 필드 및 매개변수 설정
 		this.accNo = accNo;
 		this.balance = balance;
 	}
@@ -535,7 +535,7 @@ class Account2
 	{
 		Scanner sc = new Scanner(System.in);
 		String owner, accNo;
-		int choice, balance, money, total, counter = 0;
+		int choice, balance, counter = 0;
 
 		Account [] array = new Account [10000];
 
@@ -562,6 +562,7 @@ class Account2
 				balance = sc.nextInt();
 
 				array[counter++] = new Account(owner, accNo, balance);
+				// Account class의 각 필드와 변수를 대입
 				break;
 			case 2:
 				for (int i = 0; i < counter; i++)
@@ -578,10 +579,10 @@ class Account2
 
 				for (int i = 0; i < counter; i++)
 				{
-					if (array[i].getAccNo().equals(accNo))
-					{
+					if (array[i].getAccNo().equals(accNo)) 
+					{//계좌를 비교하기 위해서 getter내에 항목과 비교
 						array[i].setBalance(array[i].getBalance()+balance);
-					}
+					}// getBalance에서 return하여 setBalance로 대입
 				}
 				break;
 			case 4:
