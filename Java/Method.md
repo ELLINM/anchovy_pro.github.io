@@ -66,3 +66,6 @@ Constructor(생성자)
   Constructor Body
 }</pre>
 
++ 매개 변수의 순서는 같게 한다.
++ **기본 생성자는 사용을 안하더라도 적을것**
++ vo는 data중심의 object
