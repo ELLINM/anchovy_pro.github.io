@@ -57,11 +57,8 @@ class BookService
 		int choice, counter = 0;
 		BookManager bm = new BookManager();
 
-		Book [] book = new Book [1000];
-
 		while (true)
 		{
-
 		System.out.println("=================");
 		System.out.println("1. 책등록");
 		System.out.println("2. 전체 출력");
@@ -89,24 +86,25 @@ class BookService
 			bm.printAll();
 			break;
 		case 3:
-			System.out.println(bm[i].bookpublisher);
+			bm.publisherprint();
 			break;
 		case 4:
 			System.out.println("도서 번호를 입력해주세요");
 			isbn = sc.next();
-			
+
 			for (int i = 0; i < counter; i++)
 			{
 				if (book[i].getIsbn().equals(isbn))
-					{
-						System.out.println("책제목 : " + book[i].setTitle(book[i].getTitle()) + "출판사 : " + book[i].setPublisher(book[i].getPublisher()));
-					}
+				{
+					bm.isbntest();
+				}
 			}
 			break;
 		}
 		}
 	}
 }
+
 
 //file 3
 
@@ -126,11 +124,18 @@ class BookManager
 			book[i].print();
 		}
 	}
-	public void bookpublisher()
+	public void publisherprint()
 	{
 		for (int i = 0; i < counter; i++)
 		{
-			book[i].setPublisher(book[i].getPublisher());
+			book[i].print2();
 		}
+	}
+	public void isbntest()
+	{
+		for (int i = 0; i < counter; i++)
+			{
+				book[i].print3();
+			}
 	}
 }
