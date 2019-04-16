@@ -52,3 +52,17 @@ Return Type
 + 반환하고자 하는 값이 없을 경우 Method 선언시 void 라는 키워드를 사용하고 몸체 안에서 return키워드를 사용하지 않는다.
 + return type을 void로 선언한 Method 안에서 단독으로 return이라는 키워드를 사용할 경우 Method는 종료된다.
 
+
+Constructor(생성자)
+-----------------
++ 객체가 생성될 때 단 **한번** 생성되는 Method
++ 초기값을 setting할때 사용, Member Variable의 초기화에 사용됨.
++ Constructor Name은 반드시 Class Name과 같아야 하며 Return Type은 존재하지 않는다.
++ Constructor -> Call Constructor -> Make Object
++ 기본 구조 Default Constructor
+
+<pre>[접근 지정자] [Class Name] (Parameter)
+{
+  Constructor Body
+}</pre>
+
