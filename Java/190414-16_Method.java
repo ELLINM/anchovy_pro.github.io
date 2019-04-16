@@ -487,21 +487,35 @@ class Account
 	private String accNo;
 	private int balance;
 
+	public Account(){}
+
 	public Account (String owner, String accNo, int balance)
 	{
 		this.owner = owner;
 		this.accNo = accNo;
 		this.balance = balance;
 	}
+	public String getOwner()
+	{
+		return owner;
+	}
 	public void setOwner(String owner)
 	{
 		this.owner = owner;
 	}
-	public void setAccno(String accNo)
+	public String getAccNo()
+	{
+		return accNo;
+	}
+	public void setAccNo(String accNo)
 	{
 		this.accNo = accNo;
 	}
-	private void setBalance(int balance)
+	public int getBalance()
+	{
+		return balance;
+	}
+	public void setBalance(int balance)
 	{
 		this.balance = balance;
 	}
@@ -520,10 +534,10 @@ class Account2
 	public static void main(String[] args) 
 	{
 		Scanner sc = new Scanner(System.in);
-		String owner, accNo, accNo2;
+		String owner, accNo;
 		int choice, balance, money, total, counter = 0;
 
-		Account [] array = new Account [100];
+		Account [] array = new Account [10000];
 
 		while (true)
 		{
@@ -547,9 +561,7 @@ class Account2
 				System.out.println("금액을 입력 하세요");
 				balance = sc.nextInt();
 
-				Account acc = new Account(owner, accNo, balance);
-
-				array[counter++] = acc;
+				array[counter++] = new Account(owner, accNo, balance);
 				break;
 			case 2:
 				for (int i = 0; i < counter; i++)
@@ -559,31 +571,31 @@ class Account2
 				break;
 			case 3:
 				System.out.println("계좌번호 입력");
-				accNo2 = sc.next();
+				accNo = sc.next();
+
+				System.out.println("금액입력 입력");
+				balance = sc.nextInt();
+
 				for (int i = 0; i < counter; i++)
 				{
-					if (accNo2.equals(array[i]))
+					if (array[i].getAccNo().equals(accNo))
 					{
-					System.out.println("입금할 금액을 입력 하세요");
-					money = sc.nextInt();
-
-					total = balance + money;
-					System.out.println("잔액 : " + total);
+						array[i].setBalance(array[i].getBalance()+balance);
 					}
 				}
 				break;
 			case 4:
 				System.out.println("계좌번호 입력");
-				accNo2 = sc.next();
+				accNo = sc.next();
+
+				System.out.println("금액입력 입력");
+				balance = sc.nextInt();
+
 				for (int i = 0; i < counter; i++)
 				{
-					if (accNo2.equals(array[i]))
+					if (array[i].getAccNo().equals(accNo))
 					{
-					System.out.println("출금할 금액을 입력 하세요");
-					money = sc.nextInt();
-
-					total = balance - money;
-					System.out.println("잔액 : " + total);
+						array[i].setBalance(array[i].getBalance()-balance);
 					}
 				}
 				break;
@@ -591,3 +603,4 @@ class Account2
 		}
 	}
 }
+
