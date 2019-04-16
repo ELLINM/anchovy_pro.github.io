@@ -385,6 +385,13 @@ class Student2
 {
 	private String name;
 	private int score;
+	/*
+	public Student (String name, int score)
+	{
+		this.name = name;
+		this.score = score;
+	}
+	*/
 
 	public String getName()
 	{
@@ -443,6 +450,7 @@ class Student3
 				score = sc.nextInt();
 
 				Student2 s = new Student2();
+				//Student2 s = new Student2(name, score); 굳이 setter를 만들어줄 
 
 				s.setName(name);
 				s.setScore(score);
