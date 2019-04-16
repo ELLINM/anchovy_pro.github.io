@@ -3,45 +3,45 @@
 public class Book
 {
 	private String isbn;//도서번호
-    private String title;//책 제목
-    private String publisher;//출판사
+	private String title;//책 제목
+	private String publisher;//출판사
 
 	public Book(){}
 
 	public Book(String isbn, String title, String publisher)
 	{
-		this.isbn = isbn;
+	this.isbn = isbn;
         this.title = title;
         this.publisher = publisher;
-    }
+    	}
 	public String getIsbn() 
 	{
         return isbn;
-    }
+  	}
 	public void setIsbn(String isbn) 
 	{
         this.isbn = isbn;
-    }
+    	}
 	public String getTitle() 
 	{
         return title;
-    }
+    	}
 	public void setTitle(String title) 
 	{
         this.title = title;
-    }
+    	}
 	public String getPublisher() 
 	{
         return publisher;
-    }
+    	}
 	public void setPublisher(String publisher) 
 	{
         this.publisher = publisher;
-    }
+    	}
 	public void print() 
 	{
         System.out.println("번호: " + isbn + " 제목: " + title + " 출판사: " + publisher);
-    }
+   	}
 }
 
 //file 2
