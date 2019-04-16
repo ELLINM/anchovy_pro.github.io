@@ -361,9 +361,15 @@ class Todo2
 				}
 				break;
 			case 3:
-				counter = 0;
-				/*array[i] = null; 
-		배열에 null을 대입하게되면 내용이 Todo클래스가 아니게됨 때문에 그냥 null이되고 프린트를 하면 에러가 발생*/
+				for (int i = 0; i <  array.length; i++)
+				{
+					if (array[i] != null)
+						{
+						array[i] = null;
+						counter = 0;
+						}
+		//배열에 null을 대입하게되면 내용이 Todo클래스가 아니게됨 때문에 그냥 null이되고 프린트를 하면 에러가 발생
+				}
 				break;			
 			}
 		}
@@ -385,8 +391,9 @@ class Student2
 		return name;
 	}
 	public void setName(String newName)
-	{
+	{ //public void setName(String name)
 		name = newName;
+		//this.name = name;
 	}
 	public int score()
 	{
