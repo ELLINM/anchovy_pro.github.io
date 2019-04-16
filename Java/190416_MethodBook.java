@@ -3,45 +3,53 @@
 public class Book
 {
 	private String isbn;//도서번호
-	private String title;//책 제목
-	private String publisher;//출판사
+    private String title;//책 제목
+    private String publisher;//출판사
 
 	public Book(){}
 
 	public Book(String isbn, String title, String publisher)
 	{
-	this.isbn = isbn;
+		this.isbn = isbn;
         this.title = title;
         this.publisher = publisher;
-    	}
+    }
 	public String getIsbn() 
 	{
         return isbn;
-  	}
+    }
 	public void setIsbn(String isbn) 
 	{
         this.isbn = isbn;
-    	}
+    }
 	public String getTitle() 
 	{
         return title;
-    	}
+    }
 	public void setTitle(String title) 
 	{
         this.title = title;
-    	}
+    }
 	public String getPublisher() 
 	{
         return publisher;
-    	}
+    }
 	public void setPublisher(String publisher) 
 	{
         this.publisher = publisher;
-    	}
+    }
 	public void print() 
 	{
         System.out.println("번호: " + isbn + " 제목: " + title + " 출판사: " + publisher);
-   	}
+    }
+	public void print2()
+	{
+		System.out.println("출판사 : " + publisher);
+	}
+	public void print3()
+	{
+		System.out.println("책제목 : " + title + " 출판사 : " + publisher);
+	}
 }
 
 //file 2
@@ -89,16 +97,7 @@ class BookService
 			bm.publisherprint();
 			break;
 		case 4:
-			System.out.println("도서 번호를 입력해주세요");
-			isbn = sc.next();
-
-			for (int i = 0; i < counter; i++)
-			{
-				if (book[i].getIsbn().equals(isbn))
-				{
-					bm.isbntest();
-				}
-			}
+			bm.isbntest();
 			break;
 		}
 		}
@@ -134,8 +133,8 @@ class BookManager
 	public void isbntest()
 	{
 		for (int i = 0; i < counter; i++)
-			{
-				book[i].print3();
-			}
+		{
+			book[i].print3();
+		}
 	}
 }
