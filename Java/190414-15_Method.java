@@ -450,7 +450,8 @@ class Student3
 				score = sc.nextInt();
 
 				Student2 s = new Student2();
-				//Student2 s = new Student2(name, score); 굳이 setter를 만들어줄 
+				/*Student2 s = new Student2(name, score); 굳이 setter를 만들어줄 필요가 없음
+				Data Type의 순서를 맞춰줄것*/ 
 
 				s.setName(name);
 				s.setScore(score);
