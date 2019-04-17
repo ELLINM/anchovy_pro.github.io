@@ -45,9 +45,3 @@ VO (Value Object)
 -------------------
 + data중심의 Object (DTO라고 부르기도함 네트워크관련)
 
-
-Link
------------
-Link: [Study]: https://docs.google.com/drawings/d/1IRd3-o_JwqXrtL_Vwr7yGhzy13qOA1x4ju1GBFc_XTs/edit "Object Oriented Image"
-
-
