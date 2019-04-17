@@ -28,20 +28,20 @@ Types of Variables
 + VAriable의 범위라는 것은 Variable의 활동영역 또는 생명주기와 같다.
 
 * Member Variable
-+ Field, Instance Variable이라고도 한다.
-+ Class안에서 선언된 Variable
-+ 생명주기는 Object의 생명주기와도 같다. => Object가 생성되는 시점에 초기화가 이루어지고 Object가 소멸되는 시점에서 사라짐.
+  + Field, Instance Variable이라고도 한다.
+  + Class안에서 선언된 Variable
+  + 생명주기는 Object의 생명주기와도 같다. => Object가 생성되는 시점에 초기화가 이루어지고 Object가 소멸되는 시점에서 사라짐.
 
 * Local Variable
-+ Automatic, Stack Variable라고도 한다.
-+ Method 안에서 선언된 Variable 때문에 Method와 생명주기를 같이한다.
-+ 사용하기 전에 반드시 초기화를 해주어야 한다.
+  + Automatic, Stack Variable라고도 한다.
+  + Method 안에서 선언된 Variable 때문에 Method와 생명주기를 같이한다.
+  + 사용하기 전에 반드시 초기화를 해주어야 한다.
 
 * Class Variable
-+ Member Variable 앞에 static이라는 예약어가 붙으면 Class Variable이된다.
-+ 생명주기는 Class와 함께한다. 
-+ Class가 로딩되는 시점에 초기화가 이루어진다.
-+ Object의 참조 없이 Class 이름만으로 참조할 수 있다.
+  + Member Variable 앞에 static이라는 예약어가 붙으면 Class Variable이된다.
+  + 생명주기는 Class와 함께한다. 
+  + Class가 로딩되는 시점에 초기화가 이루어진다.
+  + Object의 참조 없이 Class 이름만으로 참조할 수 있다.
 
 
 VO (Value Object)
