@@ -75,6 +75,7 @@ class Canteen
 			System.out.println("2.주문전체출력");
 			System.out.println("3.현재까지매출출력");
 			System.out.println("4.주문초기화");
+			System.out.println("5.주문삭제");
 			System.out.println("===================");
 			choice=sc.nextInt();
 
@@ -109,6 +110,21 @@ class Canteen
 			case 4:
 				counter=0;
 				break;
+			case 5:
+				System.out.println("삭제하려는 주문의 번호를 입력하세요");
+				foodNo = sc.nextInt();
+					
+				for (int i = 0; i < counter; i++)
+				{
+					if (foodNo == fArray[i].getFoodno())
+					{
+						for (int j = 0; j < counter-1; j++)
+						{//그래서 counter를 -1을 
+							fArray[j] = fArray[j+1]; //counter가 다 차게되면 array index out of bound가 일어남
+						}
+						counter--;
+					}
+				}					
 			default:
 				System.out.println("다시 입력해주세요.");
 			}
