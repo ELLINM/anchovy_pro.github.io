@@ -69,3 +69,6 @@ Constructor(생성자)
 + 매개 변수의 순서는 같게 한다.
 + **기본 생성자는 사용을 안하더라도 적을것**
 + vo는 data중심의 object
+
+
+![Method Image](https://drive.google.com/file/d/1LZb-menxZpmkJDD_UrJiMZSF2CIZJOUr/view?usp=sharing)
