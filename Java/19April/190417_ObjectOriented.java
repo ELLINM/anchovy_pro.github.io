@@ -2,22 +2,22 @@
 
 class Human
 {
-	private String name;
+	private String name;//vo생성
 	private String ssn;
 
-	public Human()
+	public Human()//기본 생성자
 	{
 	}
 
-	public Human(String name, String ssn)
+	public Human(String name, String ssn) //Method 선언
 	{
-		this.name = name;
+		this.name = name; //Instance Field임을 선언
 		this.ssn = ssn;
 	}
 
-	public String getName()
+	public String getName() //name에 입력받을 변수 생성
 	{
-		return name;
+		return name;//name 값을 반환함
 	}
 
 	public String getSsn()
@@ -25,7 +25,7 @@ class Human
 		return ssn;
 	}
 
-	public void setName(String name)
+	public void setName(String name) //name 값을 받고 반환하지 않음
 	{
 		this.name = name;
 	}
@@ -68,7 +68,7 @@ class HumanUI
 	{
 		while (flag)
 		{
-			mainMenu();
+			mainMenu(); //하단에 생성한 mainMenu를 불러옴
 			choice = sc.nextInt();
 
 			switch (choice)
@@ -80,7 +80,7 @@ class HumanUI
 				System.out.println("주민번호 입력 : ");
 				ssn = sc.next();
 
-				Human h = new Human(name,ssn);
+				Human h = new Human(name, ssn); // Human Class의 name과 ssn을 h로 생성
 				
 				hm.insertHuman(h); //입력갑을 Manager의 배열에 넘겨줌
 				break;
@@ -108,7 +108,7 @@ class HumanUI
 
 class HumanManager 
 {
-	private Human [] hArray = new Human[10000];
+	private Human [] hArray = new Human[10000]; //Human Class를 배열로 생성함
 	private int counter = 0;
 		//void의 위치는 return
 	public void insertHuman(Human h) //등록 : 배열에 대입
