@@ -131,3 +131,7 @@ class Canteen
 		}
 	}
 }
+
+/*Delete Algorithm
+ 사실살 삭제라기보다 값을 null로 만들고 뒤의 값을 앞으로 땡겨온후 counter를 줄인다.
+ 바깥 for문으로 삭제하고 싶은 부분을 찾아 삭제하고 안족 for문으로 값을 땡겨온다.*/
