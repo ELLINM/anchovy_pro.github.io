@@ -48,4 +48,5 @@ VO (Value Object)
 
 Link
 -----------
-+ https://docs.google.com/drawings/d/1IRd3-o_JwqXrtL_Vwr7yGhzy13qOA1x4ju1GBFc_XTs/edit
+Link: [Google][googlelink] 
+[googlelink]: https://docs.google.com/drawings/d/1IRd3-o_JwqXrtL_Vwr7yGhzy13qOA1x4ju1GBFc_XTs/edit "Object Oriented Image"
