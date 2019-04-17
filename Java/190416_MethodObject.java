@@ -85,7 +85,7 @@ class Bank
 				
 				break;
 			case 2:
-				bm.printAll();
+				bm.printAll(); //()를 표시해야 Method에접근 ()가없을 경우 속성을 뜻한다.
 				break; // 출력구문도 BM에서 갖고온다.
 			case 3:
 				System.out.println("계좌입력 : ");
