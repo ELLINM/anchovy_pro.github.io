@@ -2,46 +2,55 @@
 
 public class Food 
 {
-    private int foodNo;//주문번호
-    private String foodName;//음식이름
-    private int price;//가격
+	private int foodNo;//주문번호
+	private String foodName;//음식이름
+	private int price;//가격
+	
+	public Food() 
+	{
+	}
+	
+	public Food(int foodNo, String foodName, int price) 
+	{
+		this.foodNo = foodNo;
+        	this.foodName = foodName;
+        	this.price = price;
+    	}
 
-    public Food() {
-    }
+    	public int getFoodNo() 
+	{
+        	return foodNo;
+    	}
+	
+	public void setFoodNo(int foodNo) 
+	{
+        	this.foodNo = foodNo;
+    	}
+	
+	public String getFoodName() 
+	{
+        	return foodName;
+    	}
 
-    public Food(int foodNo, String foodName, int price) {
-        this.foodNo = foodNo;
-        this.foodName = foodName;
-        this.price = price;
-    }
+    	public void setFoodName(String foodName) 
+	{
+        	this.foodName = foodName;
+    	}
 
-    public int getFoodNo() {
-        return foodNo;
-    }
+    	public int getPrice() 
+	{
+        	return price;
+    	}
 
-    public void setFoodNo(int foodNo) {
-        this.foodNo = foodNo;
-    }
+    	public void setPrice(int price) 
+	{
+       		this.price = price;
+    	}
 
-    public String getFoodName() {
-        return foodName;
-    }
-
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public void print() {
-        System.out.println(foodNo + ". " + foodName +", " + price);
-    }
+    	public void print() 
+	{
+        	System.out.println(foodNo + ". " + foodName +", " + price);
+    	}
 }
 
 
@@ -59,7 +68,8 @@ class Canteen
 		Food [] fArray=new Food [10000];
 
 
-		while(true){
+		while(true)
+		{
 			System.out.println("===================");
 			System.out.println("1.음식주문");
 			System.out.println("2.주문전체출력");
@@ -68,7 +78,8 @@ class Canteen
 			System.out.println("===================");
 			choice=sc.nextInt();
 
-			switch(choice){
+			switch(choice)
+			{
 			case 1:
 				System.out.println("주문번호입력 : ");
 				foodNo=sc.nextInt();
@@ -82,14 +93,15 @@ class Canteen
 				break;
 			case 2:
 
-				for(int i=0;i<counter;i++){
+				for(int i=0;i<counter;i++)
+				{
 					fArray[i].print();
 				}
-
 				break;
 			case 3:
 				total=0;
-				for(int i=0;i<counter;i++){
+				for(int i=0;i<counter;i++)
+				{
 					total+=fArray[i].getPrice();
 				}
 				System.out.println("현재까지 매출 : "+total);
@@ -100,9 +112,6 @@ class Canteen
 			default:
 				System.out.println("다시 입력해주세요.");
 			}
-
 		}
-	
-
 	}
 }
