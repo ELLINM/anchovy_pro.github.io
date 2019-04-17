@@ -16,7 +16,7 @@ class BankAccount
 		this.balance=balance;
 	}
 
-	public String getName()
+	public String getName() //getter => 연산에 
 	{
 		return name;
 
