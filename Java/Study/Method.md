@@ -71,4 +71,32 @@ Constructor(생성자)
 + vo는 data중심의 object
 
 
-![Method Image](https://drive.google.com/file/d/1LZb-menxZpmkJDD_UrJiMZSF2CIZJOUr/view?usp=sharing)
+Method Overloading
+---------------------
++ Class안에서 같은 이름을 가진 Method가 두개 이상 존재하게끔 만드는 작업
++ 몇가지 규칙이 있다.
+ 1. Method 이름이 같다.
+ 2. argument list가 다르다.(개수, 타입, 순서)
+ 3. 반환되는 데이터 타입은 관계 없다.
+ 4. 상속과 관련이 없다.
+
++위 규칙을 따라서 같은 이름을 가지고 2개 이상의 Method를 만들어 낼때 Overload됐다고한다.
+
+
+Access Modifier
+---------------
++ Member Variable, Member Method의 호출 범위를 제한할 수 있다.
++ private, public, protected 3가지의 종류가 있음 Access Modifier를 사용하지 않을 경우 default Access Modifier라고 한다.
+
+![Area Access Modifier](https://codepumpkin.com/wp-content/uploads/2017/09/accessModifier.png)
+
+![Kind Access Modifier](https://thejavabook.files.wordpress.com/2016/10/java-access-modifiers.png?w=1400&h=9999)
+
+
+Varargs Method
+-------------
++ Method에 전달할 인수의 개수가 정확하지 않을 경우 가변인자를 사용한다.
++ 매개변수의 뒤에 ...을 사용한다.
+
+
+![Method Image](http://www.shareshard.com/resources/images/ckeditor/20190417101538/20190417101538objectM.png)
