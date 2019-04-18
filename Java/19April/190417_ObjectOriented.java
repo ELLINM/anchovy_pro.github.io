@@ -111,7 +111,7 @@ class HumanManager
 	private Human [] hArray = new Human[10000]; //Human Class를 배열로 생성함
 	private int counter = 0;
 		//void의 위치는 return
-	public void insertHuman(Human h) //등록 : 배열에 대입
+	public void insertHuman(Human h) //등록 : UI의 값을 전달받아 배열에 대입
 	{ //Human h로 받아들임
 		hArray[counter++] = h;
 	} //입력을 어떻게 받을지 결정해야함
