@@ -1,0 +1,170 @@
+//Client
+
+class Client 
+{
+	private String name;
+	private String csn;
+	private double height;
+	private double weight;
+
+	public Client()
+	{
+	}
+	public Client (String name, String csn, double height, double weight)
+	{
+		this.name = name;
+		this.csn = csn;
+		this.height = height;
+		this.weight = weight;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public String getCsn()
+	{
+		return csn;
+	}
+	public double getHeight()
+	{
+		return height;
+	}
+	public double getWeight()
+	{
+		return weight;
+	}
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	public void setCsn(String csn)
+	{
+		this.csn = csn;
+	}
+	public void setHeight(double height)
+	{
+		this.height = height;
+	}
+	public void setWeight(double weight)
+	{
+		this.weight = weight;
+	}
+	public void print()
+	{
+		System.out.println("\n이름 : " + name + "\n등록번호 : " + csn + "\n키 : " + height + "\n몸무게 : " + weight);
+	}
+}
+
+//Client Main
+
+class ClientMain 
+{
+	public static void main(String [] args)
+	{
+		new ClientUI();
+	}
+}
+
+//Client UI
+
+import java.util.Scanner;
+
+class ClientUI 
+{
+	private String name, csn;
+	private double weight, height;
+	Scanner sc = new Scanner(System.in);
+	private ClientManager cm = new ClientManager();
+	int choice;
+
+	public ClientUI()
+	{
+		while (true)
+		{
+			mainMenu();
+			choice = sc.nextInt();
+
+			switch (choice)
+			{
+			case 1:
+				System.out.println("이름 입력 : ");
+				name = sc.next();
+				
+				System.out.println("등록번호 입력 : ");
+				csn = sc.next();
+
+				System.out.println("키 입력 : ");
+				height = sc.nextDouble();
+
+				System.out.println("몸무게 입력 : ");
+				weight = sc.nextDouble();
+
+				Client c = new Client(name, csn, height, weight);
+
+				cm.insertClient(c);
+				break;
+			case 2:
+				cm.printAll();
+				break;
+			case 3:
+				System.out.println(cm.clientBmi());
+				break;
+			case 4:
+				break;
+			}
+		}
+	}
+	public void mainMenu()
+	{
+		System.out.println("===================");
+		System.out.println("1. 등록");
+		System.out.println("2. 전체 출력");
+		System.out.println("3. 고객별 BMI출력");
+		System.out.println("4. 삭제");
+		System.out.println("===================");
+	}
+}
+
+//Client Manager
+
+class ClientManager 
+{
+	private Client [] cArray = new Client[1000];
+	private int count = 0;
+	private double bmi;
+
+	public void insertClient(Client c)
+	{
+		boolean flag = true;
+		// 입력받아 배열에 넣기만 하면 되기 때문에 void사용
+		for (int i = 0; i < count; i++)
+		{//입력받은 값을 Client Vo값과 비교
+			if (cArray[i].getCsn().equals(c.getCsn()))
+			{
+				flag = false; //같은 값이 있다면 false로 처리
+			}
+		}
+		if (flag)
+		{
+			cArray[count++] = c; //같은 값이 없다면 
+		}
+	}
+	public void printAll()
+	{
+		for (int i = 0; i <count; i++)
+		{
+			cArray[i].print();
+		}
+	}
+	public String clientBmi()
+	{// String으로 반환해주기 때문에 String으로 생성
+		String result=""; //result 변수 생성과 초기화
+		for (int i = 0; i < count; i++)
+		{
+			bmi = cArray[i].getWeight()/((cArray[i].getHeight()*0.01)*(cArray[i].getHeight()*0.01));
+			//cArray[i]를 통해 Client Class에서 필요한 데이터를 갖고옴
+			result+="이름 : "+cArray[i].getName()+" BMI : "+bmi+" \n";
+		}
+		return result; //UI로 반환해줄 result값
+	}
+}
