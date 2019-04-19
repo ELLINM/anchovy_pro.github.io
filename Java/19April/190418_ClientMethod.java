@@ -110,6 +110,20 @@ class ClientUI
 				System.out.println(cm.clientBmi());
 				break;
 			case 4:
+				System.out.println("등록번호 입력 : ");
+				csn = sc.next();
+
+				boolean f = cm.deleteClient(csn);
+				// boolean 값으로 성공인지 아닌지 
+
+				if (f)
+				{
+					System.out.println("삭제 성공");
+				}
+				else
+				{
+					System.out.println("삭제 실패 : 일치하는 회원 없음");
+				}
 				break;
 			}
 		}
@@ -135,7 +149,7 @@ class ClientManager
 
 	public void insertClient(Client c)
 	{
-		boolean flag = true;
+		boolean flag = true; //등록 성공 실패 여부
 		// 입력받아 배열에 넣기만 하면 되기 때문에 void사용
 		for (int i = 0; i < count; i++)
 		{//입력받은 값을 Client Vo값과 비교
@@ -166,5 +180,23 @@ class ClientManager
 			result+="이름 : "+cArray[i].getName()+" BMI : "+bmi+" \n";
 		}
 		return result; //UI로 반환해줄 result값
+	}
+	public boolean deleteClient(String csn) //UI에서 받아오는 입력값
+	{
+		boolean flag = false;
+		
+		for (int i = 0; i < count; i++)
+		{
+			if (cArray[i].getCsn().equals(csn))
+			{
+				for (int j = i; j < count-1; j++)
+				{
+					cArray[j] = cArray[j+1];
+				}
+				count--;
+				flag = true;
+			}
+		}
+		return flag;
 	}
 }
