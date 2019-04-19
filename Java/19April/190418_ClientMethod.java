@@ -185,18 +185,18 @@ class ClientManager
 	{
 		boolean flag = false;
 		
-		for (int i = 0; i < count; i++)
+		for (int i = 0; i < count; i++)//i만큼 반복하며 확인
 		{
-			if (cArray[i].getCsn().equals(csn))
+			if (cArray[i].getCsn().equals(csn)) // 입력받은 csn값을 기존 등록 정보와 비교하여 같은 값이 있다면
 			{
-				for (int j = i; j < count-1; j++)
-				{
+				for (int j = i; j < count-1; j++) 
+				{// 해당 정보를 삭제하고 원래 값의 다음 입력되어있던 배열값으로 채워줌
 					cArray[j] = cArray[j+1];
 				}
-				count--;
-				flag = true;
+				count--; //한개의 정보가 삭제되었기 때문에 전체 갯수를 하나 줄여준다.
+				flag = true; //이 과정이 진행되었다면 true로 판정
 			}
 		}
-		return flag;
+		return flag; //UI에 반환해 
 	}
 }
