@@ -10,6 +10,10 @@ public class Bread {
 	public Bread() {}
 	public Bread(String name, String bsn, String maker, int price) {
 		// TODO Auto-generated constructor stub
+		this.name = name;
+		this.bsn = bsn;
+		this.maker = maker;
+		this.price = price;
 	}
 	public String getName() {
 		return name;
