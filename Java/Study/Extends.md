@@ -6,7 +6,7 @@ Extends(상속)
 
 
 기본구조
-<pre>class Cat exteands Animals{
+<pre>class Cat extends Animals{
 }</pre>
 
 
