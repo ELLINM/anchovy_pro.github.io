@@ -40,9 +40,9 @@ public class Person {
 
 package VO;
 
-public class Student extends Person {
+public class Student extends Person { //Student Class 를 Person Class에 상속
 
-	private String stNo;
+	private String stNo; //상속 받으면서 필요한 Variable만 추가적으로 
 
 	public Student(String name, int age, String stNo) {
 		super(name, age);
@@ -118,7 +118,7 @@ package UI;
 import java.util.Scanner;
 
 import Service.SchoolService;
-import VO.Student;
+import VO.Student; // 상속을 받은 두개의 Class만 입력
 import VO.Teacher;
 
 public class SchoolUI {
@@ -142,7 +142,7 @@ public class SchoolUI {
 				name=sc.next();
 				System.out.println("나이 입력 : ");
 				age=sc.nextInt();
-				
+				//공통적으로 들어가는 두개의 Variable은 한번에 처리
 				switch(choice) {
 				case 1://학생등록하기
 					System.out.println("학번 입력 : ");
@@ -151,7 +151,7 @@ public class SchoolUI {
 					Student st=new Student(name,age,stNo);
 					ss.insertPerson(st);
 					
-					
+					//학생과 교사를 구분해주는 Variable을 가지고 나눠서 입력
 					break;
 				case 2://교사등록하기
 					System.out.println("교번 입력 : ");
@@ -213,3 +213,5 @@ public class SchoolService {
 
 }
 
+
+//출력하게되면 학생은 학생으로 교사는 교사로 나오게 되는데 이는 switch에서 선택과 더불어 상속 Class에서 변환시킨 값대로 출력하게된다.
