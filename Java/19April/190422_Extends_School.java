@@ -34,7 +34,6 @@ public class Person {
 	public void print() {
 		System.out.println("이름 : "+name+" 나이 : "+ age);
 	}
-
 }
 
 
@@ -63,7 +62,6 @@ public class Student extends Person { //Student Class 를 Person Class에 상속
 	public void print() {
 		System.out.println("이름 : " + super.getName() + " 나이 : " + super.getAge() + "학번 : " + stNo);
 	}
-
 }
 
 
@@ -92,7 +90,6 @@ public class Teacher extends Person {
 	public void print() {
 		System.out.println("이름 : " + super.getName() + " 나이 : " + super.getAge() + "교번 : " + tNo);
 	}
-
 }
 
 
@@ -108,7 +105,6 @@ public class SchoolMain {
 		// TODO Auto-generated method stub
 			new SchoolUI();
 	}
-
 }
 
 //UI
@@ -143,6 +139,7 @@ public class SchoolUI {
 				System.out.println("나이 입력 : ");
 				age=sc.nextInt();
 				//공통적으로 들어가는 두개의 Variable은 한번에 처리
+					
 				switch(choice) {
 				case 1://학생등록하기
 					System.out.println("학번 입력 : ");
@@ -150,7 +147,6 @@ public class SchoolUI {
 					
 					Student st=new Student(name,age,stNo);
 					ss.insertPerson(st);
-					
 					//학생과 교사를 구분해주는 Variable을 가지고 나눠서 입력
 					break;
 				case 2://교사등록하기
@@ -159,20 +155,15 @@ public class SchoolUI {
 					
 					Teacher t=new Teacher(name,age,tNo);
 					ss.insertPerson(t);
-					
 					break;
 				}
 				
-				
 				break;
 			case 2:
-				
 				ss.printAll();
-				
 				break;
 			}
 		}
-		
 	}
 	
 	public void menu() {
@@ -210,7 +201,6 @@ public class SchoolService {
 			pArray[i].print();
 		}
 	}
-
 }
 
 
