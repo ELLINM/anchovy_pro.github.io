@@ -14,6 +14,6 @@ Extends(상속)
 + Parent Class가 상속받은 Source도 Children Class가 사용 가능
 
 
-![Extends]http://tcpschool.com/lectures/img_java_inheritance_diagram.png
+![Extends](http://tcpschool.com/lectures/img_java_inheritance_diagram.png)
 
-![Extends2]https://t1.daumcdn.net/cfile/tistory/27056749594D0B2F09
+![Extends2](https://t1.daumcdn.net/cfile/tistory/27056749594D0B2F09)
