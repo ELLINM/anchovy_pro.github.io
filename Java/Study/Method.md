@@ -100,3 +100,8 @@ Varargs Method
 
 
 ![Method Image](http://www.shareshard.com/resources/images/ckeditor/20190417101538/20190417101538objectM.png)
+
+
+toString
+----------------
++ Object 클래스에서는 toString 메서드를 제공하여 해당 클래스 혹은 개체를 대표하는 문자열을 반환할 수 있게 함.
