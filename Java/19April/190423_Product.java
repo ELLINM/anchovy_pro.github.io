@@ -71,7 +71,7 @@ public class Note extends Product {
 
 	@Override
 	public String toString() {
-		return super.toString() + "페이지 = " + noPage;
+		return super.toString() + ", 페이지 = " + noPage;
 	}	
 }
 
@@ -183,6 +183,7 @@ public class ProductUI {
 				System.out.println("제품번호 입력 : ");
 				pCode = sc.next();
 				
+				ps.checkProduct(pCode);
 				break;
 			}
 		}
@@ -223,5 +224,15 @@ public class ProductServicce {
 		for (int i = 0; i < cnt; i++) {
 			System.out.println(pArray[i]);
 		}
+	}
+	public boolean checkProduct(String pCode) {
+		boolean flag = false;
+		for (int i = 0; i < cnt; i++) {
+			if (pArray[i].getpCode().equals(pCode)) {
+				flag = true;
+				System.out.println(pArray[i]);
+			}
+		}
+		return flag;
 	}
 }
