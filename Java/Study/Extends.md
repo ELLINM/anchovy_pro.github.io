@@ -10,6 +10,8 @@ Extends(상속)
 }</pre>
 
 
+Rule
+------------
 + Parent Class 와 Children Class는 자바 지정예약어 extends에 의하여 지정
 + 하나의 Parent Class는 여러개의 Children Class을 가짐
 + 반대로 하나의 Class는 여러개의 Class로부터 상속을 받을수는 없음
@@ -19,6 +21,12 @@ Extends(상속)
 + Children Class는 Parent Class로부터 물려받은 자원을 override 하여 수정해서 사용 할 수 있음
 + Parent Class가 상속받은 Source도 Children Class가 사용 가능
 + Parent Class 가진 Method를 Children Class가 변환하여 사용함 => override
+
+
+Weekness
+----------
++ Object간 결합도가 올라감
+> ex)Parents Class가 없어지면 Children Class가 쓸모가 없어짐
 
 
 ![Extends](http://tcpschool.com/lectures/img_java_inheritance_diagram.png)
