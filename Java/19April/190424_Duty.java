@@ -3,7 +3,7 @@
 package VO;
 
 public class Staff {
-	private String name;
+	private String name; //변수 선언
 	private String ssn;
 	private String position;
 	
@@ -11,18 +11,18 @@ public class Staff {
 		super();
 	}
 
-	public Staff(String name, String ssn, String position) {
+	public Staff(String name, String ssn, String position) { //입력값을 받아줄 변수
 		super();
 		this.name = name;
 		this.ssn = ssn;
 		this.position = position;
 	}
 
-	public String getName() {
+	public String getName() { //getter생성
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name) { //setter생성
 		this.name = name;
 	}
 
@@ -43,7 +43,7 @@ public class Staff {
 	}
 
 	@Override
-	public String toString() {
+	public String toString() { //toString으로 정보값을 출력
 		return "이름 = " + name + "\n주민번호 = " + ssn + "\n직급 = " + position;
 	}	
 }
@@ -51,8 +51,8 @@ public class Staff {
 //Teacher
 package VO;
 
-public class Teacher extends Staff {
-	private String tsn;
+public class Teacher extends Staff { //Teacher Class를 Staff Class로 상속시킴 Teacher Class는 Staff Class의 변수를 소유
+	private String tsn; //Teacher Class에 필요한 tsn변수만을 선언
 
 	public Teacher() {
 		super();
@@ -72,7 +72,7 @@ public class Teacher extends Staff {
 	}
 
 	@Override
-	public String toString() {
+	public String toString() { //override로 toString을 받아 Teacher Class에 맞에 변환, 
 		return toString() + "\n교번 = " + tsn;
 	}
 	
