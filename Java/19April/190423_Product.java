@@ -186,6 +186,10 @@ public class ProductUI {
 				
 				ps.checkProduct(pCode);
 				break;
+			case 4: // UI가 Service에게 줘야할 값음 없음
+				print = ps.printNote();
+				System.out.println(print);				
+				break;
 			}
 		}
 	}
@@ -194,6 +198,8 @@ public class ProductUI {
 		System.out.println("===============");
 		System.out.println("1. 등록");
 		System.out.println("2. 전체 출력");
+		System.out.println("3. 제품 검색");
+		System.out.println("4. 노트 정보 출력");
 		System.out.println("===============");
 	}
 	
@@ -238,5 +244,16 @@ public class ProductServicce {
 			}
 		}
 		return flag;
+	}
+	public String printNote() { //배열안에서 검색하여 넘겨 주기만 하면됨
+		String result = "";
+		
+		for (int i = 0; i < cnt; i++) {
+			if (pArray[i] instanceof Note) {//Data Type을 묻는 명령어 True or False값을 뱉음
+				result += pArray[i].toString();
+			}
+				// Note가 Product인지 물으면 True를 반환
+		}
+		return result;
 	}
 }
