@@ -177,7 +177,8 @@ public class ProductUI {
 				}
 				break;
 			case 2:
-				ps.print();
+				String print = ps.printAll(); //SErvice에서 return값을 받아 프린트 변수에 입력
+				System.out.println(print); //출력을 담당하기 위해 print값을 받아 
 				break;
 			case 3:
 				System.out.println("제품번호 입력 : ");
@@ -220,11 +221,14 @@ public class ProductServicce {
 	public void insertProduct(Product p) {
 		pArray[cnt++] = p;
 	}
-	public void print() {
+	public String printAll() {
+		String result = "";
+		
 		for (int i = 0; i < cnt; i++) {
-			System.out.println(pArray[i]);
+			result += pArray[i].toString() + "\n";
 		}
-	}
+		return result;
+	} //출력은 UI에서 담당하도록 return값을 만들어 
 	public boolean checkProduct(String pCode) {
 		boolean flag = false;
 		for (int i = 0; i < cnt; i++) {
