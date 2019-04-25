@@ -202,7 +202,7 @@ public class BakeryService {
 	private Bread [] bArray = new Bread[10000];
 	private int cnt = 0;
 	
-	public void insertBread(Bread b) {//부보로 형변화되어 자동으로 전부받을수 있음
+	public void insertBread(Bread b) {//부로 형변화되어 자동으로 전부받을수 있음
 		bArray[cnt++] = b;
 	}
 	public void print() {
