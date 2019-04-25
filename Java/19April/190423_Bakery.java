@@ -195,20 +195,25 @@ public class BakeryUI {
 
 package Service;
 
+import java.util.ArrayList;
+
 import VO.Bread;
 
 public class BakeryService {
 	
-	private Bread [] bArray = new Bread[10000];
-	private int cnt = 0;
+	private ArrayList<Bread> bList = new ArrayList<>();
 	
-	public void insertBread(Bread b) {//부로 형변화되어 자동으로 전부받을수 있음
-		bArray[cnt++] = b;
+	public void insertBread(Bread b) {//부보로 형변화되어 자동으로 전부받을수 있음
+		bList.add(b);
 	}
 	public void print() {
-		for (int i = 0; i < cnt; i++) {
-			System.out.println(bArray[i]);
-		}//toString을 정의하여 주소값을 적지 않아도 출력 가능
+		for (Bread bread:bList) {
+			System.out.println(bread);
+		}
+		/*for (int i = 0; i < bList.size(); i++){
+		 System.out.println(bList.grt(i));
+		 }*/
 	}
 
 }
+
