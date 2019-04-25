@@ -24,7 +24,7 @@ public class ArrayListTest {
 			System.out.println(str);
 		}*/
 		
-		sList.remove(2); //다 삭데
+		sList.remove(2); //다 삭
 		sList.remove(2); //라 삭제
 		
 		sList.set(2, "마");//수정
