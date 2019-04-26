@@ -73,7 +73,7 @@ public class Teacher extends Staff { //Teacher Class를 Staff Class로 상속시
 
 	@Override
 	public String toString() { //override로 toString을 받아 Teacher Class에 맞에 변환, 
-		return toString() + "\n교번 = " + tsn;
+		return super.toString() + "\n교번 = " + tsn;
 	}
 	
 }
@@ -103,7 +103,7 @@ public class Cleaner extends Staff{
 
 	@Override
 	public String toString() {
-		return toString() + "\n비법 = " + offDay;
+		return super.toString() + "\n비법 = " + offDay;
 	}
 }
 
