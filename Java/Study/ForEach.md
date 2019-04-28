@@ -17,6 +17,7 @@ ForEach
 
 + for( String Nm : name )
 > String Nm = name 배열의 각 요소 값을 순차적으로 Nm에 전달 한다.
+
 > name = iterator 즉 배열이나 컨테이너등 여러 데이터가 담겨져 있는 변수다.
 
 
