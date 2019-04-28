@@ -189,11 +189,12 @@ public class ConUI {
 		while (flag) {
 			menu();
 			choice = sc.nextInt();
-			switch (choice) {
+			switch (choice) { //온전히 입출력만을 보여주는 method
 			case 1:
 				subMenu();
 				choice = sc.nextInt();
 				Product made = insertProduct(choice);
+				//Product Calss를 made라 정하고  insertProduct Mehthod의 choice값을 넣는다.
 				cs.insertProduct(made);
 				break;
 			case 2:
@@ -207,7 +208,7 @@ public class ConUI {
 			case 4:
 				System.out.println("삭제할 제품코드 입력 : ");
 				pCode = sc2.nextLine();
-				boolean result = deleteProduct(pCode);
+				boolean result = deleteProduct(pCode); //return받은 값의 true Or false를 통해 
 				if (result) {
 					System.out.println("삭제성공");
 				} else {
@@ -300,7 +301,8 @@ public class ConUI {
 	/*
 	이 메서드가 받는 값 :사용자가 서브메뉴에서 선택한 값 1:일반제품, 2:식품, 3:약품
 	이 메서드가 주는 값 :사용자가 입력한 정보로 만들어진 완성된 객체*/
-	public Product insertProduct(int choice) {
+	//아래부터 Service Class에서 받은 값으로 어떻게 출력할지 결정하고 입출력 문으로 보냄
+	public Product insertProduct(int choice) { //menu를 상단 switch문에서 만들지 않고 menu만 입력할 수 있도록 가독성이 좋도록 함
 
 		System.out.println("제품명 입력 : ");
 		name = sc2.nextLine();
@@ -311,23 +313,23 @@ public class ConUI {
 		System.out.println("가격 입력 : ");
 		price = sc.nextInt();
 
-		switch (choice) {
+		switch (choice) { //Method에서 선택된 값을 상단에서 Product Class에 대입
 		case 1:
-			return new Product(name, pCode, number, price);
+			return new Product(name, pCode, number, price); //VO Product Class에 parameter값을 입력 저장
 		case 2:
 			System.out.println("칼로리 입력 : ");
 			calorie = sc.nextInt();
 			System.out.println("유통기한 입력 : ");
 			dueDate = sc2.nextLine();
-			return new Food(name, pCode, number, price, calorie, dueDate);
+			return new Food(name, pCode, number, price, calorie, dueDate);//VO Food Class에 parameter값을 입력 저장
 		case 3:
 			System.out.println("약품종류 입력 : ");
 			kind = sc2.nextLine();
 			System.out.println("유효기한 입력 : ");
 			shelfLife = sc2.nextLine();
-			return new Medicine(name, pCode, number, price, kind, shelfLife);
+			return new Medicine(name, pCode, number, price, kind, shelfLife);//VO Medicine Class에 parameter값을 입력 저장
 		}
-		return null;
+		return null;// 각 case에서 return 값을 주기 때문에 switch문 전체에서는 return값이 없음
 	}
 
 
@@ -345,7 +347,7 @@ public class ConUI {
 	이 메서드가 주는 값 :삭제 성공 여부, Service에서 받아온다.*/
 	public boolean deleteProduct(String pCode) {
 		boolean result = cs.deleteProduct(pCode);
-		return result;
+		return result; // Service Clss에서 return값을 받아서 상단의 UI항목에 
 	}
 
 	/*
@@ -395,7 +397,7 @@ public class ConService {
 	이 메서드가 받는 값 :없음
 	이 메서드가 주는 값 :등록된 객체의 전체 정보 누적한 String (toString()으로 가져옴) */ 
 	public String printAll() {
-		String result = "";
+		String result = ""; //result variable에 공백을 넣대입하여 초기화
 
 		for (Product pro : pList) {
 			result += pro + "\n";
@@ -429,10 +431,11 @@ public class ConService {
 	/*
 	이 메서드가 받는 값 :제품코드
 	이 메서드가 주는 값 :삭제성공 여부 boolean */
-	public boolean deleteProduct(String pCode) {
-		boolean result = true;
+	public boolean deleteProduct(String pCode) { //제품의 code를 받아옴
+		//boolean값으로 보냄
+		boolean result = true; //return해줄 result값을 만듬
 		int index = searchIndex(pCode);
-		if (index != -1) {
+		if (index != -1) { //-1이 아닐때 제품이 존재한다고 판단
 			pList.remove(index);
 		} else {
 			result = false;// 삭제실패
