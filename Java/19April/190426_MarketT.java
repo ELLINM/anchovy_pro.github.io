@@ -266,10 +266,8 @@ public class ConUI {
 				System.out.println("**SYSTEM - 종료합니다.");
 				flag=false;
 				break;
-
 			}
 		}
-
 	}
 
 	public void menu() {//메인메뉴 출력
@@ -397,12 +395,11 @@ public class ConService {
 	이 메서드가 받는 값 :없음
 	이 메서드가 주는 값 :등록된 객체의 전체 정보 누적한 String (toString()으로 가져옴) */ 
 	public String printAll() {
-		String result = ""; //result variable에 공백을 넣대입하여 초기화
+		String result = ""; //result variable에 공백을 대입하여 초기화
 
-		for (Product pro : pList) {
+		for (Product pro : pList) { //pList만큼 반복하여 result 에 pro값을 입력
 			result += pro + "\n";
 		}
-
 		return result;
 	}
 
@@ -440,7 +437,6 @@ public class ConService {
 		} else {
 			result = false;// 삭제실패
 		}
-
 		return result;
 	}
 	
@@ -454,19 +450,18 @@ public class ConService {
 		if (index != -1) {//객체가 리스트안에 있다면..
 
 			if (pList.get(index).getNumber() < amount) {
-				result = false;
+				//index안의 제품의 수량이 구매하려는 수량다 적다면
+				result = false; //값을 false로 주어 구매 할 수 없도록함
 				return result;
 			} else {
 				totalSold += pList.get(index).getNumber() * amount;//누적변수에 판매 금약을 누적한다.
 				pList.get(index).setNumber(pList.get(index).getNumber() - amount);//원래수량에 구매 수량 만큰 뺀다.
-				return result;
+				return result; //그렇지않고 수량보다 많거나 같을경우 setNumber에 수정한 getNumber값을 입력한다.
 			}
-
 		} else {//리스트 안에 없다면..
 			result = false;
 			return result;
 		}
-
 	}
 	/*
 	이 메서드가 받는 값 :유통기한
@@ -481,7 +476,6 @@ public class ConService {
 			}
 		}
 		return result;
-
 	}
 
 	/*
@@ -497,7 +491,6 @@ public class ConService {
 			}
 		}
 		return result;
-
 	}
 	/*
 	이 메서드가 받는 값 :없음
@@ -535,7 +528,6 @@ public class ConService {
 		for (int i = 0; i < pList.size(); i++) {
 			if (!(pList.get(i) instanceof Medicine)&&!(pList.get(i) instanceof Food)) {
 				result += pList.get(i) + "\n";
-
 			}
 		}
 		return result;
@@ -549,7 +541,6 @@ public class ConService {
 		for (int i = 0; i < pList.size(); i++) {
 			if (pList.get(i).getNumber()==0) {
 				result += pList.get(i) + "\n";
-
 			}
 		}
 		return result;
@@ -561,5 +552,4 @@ public class ConService {
 	public int getTotalSold() {
 		return totalSold;
 	}
-
 }
