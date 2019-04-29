@@ -240,7 +240,7 @@ public class MovieUI {
 					System.out.println("검색할 영화 제목을 입력하세요");
 					title = sc.next();
 					
-					System.out.println(ms.searchMovie(title));
+					System.out.println(ms.searchMovie(title)); //입력 해주는 String argument를 넣어줄것
 					break;
 				}	
 			}
@@ -301,18 +301,20 @@ public class MovieService {
 		return result;
 	}
 	public void madeDvd(String rackNum, String title, String madeDate) {
-		Movie temp=new Movie();
+		Movie temp=new Movie(); //Movie를 담아줄 temp를 마련
 		for (Movie i : moList) {
-			if (i.getTitle().equals(title)) {
-				temp=i;
+			if (i.getTitle().equals(title)) { //입력한 title과 비교
+				temp=i; //temp에 검사한 i값을 넣어줌
 			}
 			Dvd d = new Dvd(rackNum, temp, madeDate);
+			// parameter와 함께 temp를 Dvd Vo로 넣어줌
 		}
 	}
 	public void madeUsb(String rackNum, int number, String title) {
 		
 		Usb usb = new Usb(rackNum, );
 	}
+	// usb는 입력받은 rackNum으로 Device Vo로 들어가고 Usb안에는 Movie를 ArrayList 형식으로 포함하게 된다.	 
 	public String searchMovie(String title) {
 		String total = "";
 		for (Movie i : moList) {
