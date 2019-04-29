@@ -24,4 +24,4 @@ Exception Handling
 -------------------
 + 예측하고 방지하는 측면에서 사용됨
 
-![ExceptionClass](https://www.ntu.edu.sg/home/ehchua/programming/java/images/Exception_Classes.png)
+![ExceptionClass](http://www.soen.kr/lecture/library/java/5-1.files/image002.png)
