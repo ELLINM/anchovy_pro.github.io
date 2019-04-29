@@ -23,4 +23,5 @@ RuntimeException 이외의 Exception
 Exception Handling
 -------------------
 + 예측하고 방지하는 측면에서 사용됨
-+
+
+![ExceptionClass](https://www.ntu.edu.sg/home/ehchua/programming/java/images/Exception_Classes.png)
