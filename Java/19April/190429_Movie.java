@@ -168,8 +168,161 @@ public class MovieMain {
 
 //UI
 
+package UI;
+
+import java.util.Scanner;
+
+import Service.MovieService;
+import VO.Dvd;
+import VO.Movie;
+
+public class MovieUI {
+	
+	private Scanner sc = new Scanner(System.in);
+	private Scanner sc2 = new Scanner(System.in);
+	private String title, playtime, genre, rackNum, madeDate;
+	private int price, choice, number = 0;	
+	private MovieService ms = new MovieService();
+	private boolean flag = true;
+	
+	public MovieUI() {
+		try {
+			while(flag) {
+				menu();
+				choice = sc.nextInt();
+			
+				switch (choice) {
+				case 1:
+					System.out.println("영화 제목 입력");
+					title = sc.next();
+				
+					System.out.println("장르 입력");
+					genre = sc.next();
+				
+					System.out.println("상영시간 입력");
+					playtime = sc.next();
+				
+					System.out.println("가격 입력");
+					price = sc2.nextInt();
+				
+					Movie m = new Movie(title, genre, playtime, price);
+					ms.insertMovie(m);
+					break;
+				case 2:
+					String result = ms.printAll();
+					System.out.println(result);
+					break;
+				case 3:
+					System.out.println("보관함 번호 입력");
+					rackNum = sc.next();
+					
+					System.out.println("영화 제목 입력");
+					title = sc.next();
+					
+					System.out.println("제조 일자 입력");
+					madeDate = sc.next();
+					
+					ms.madeDvd(rackNum, title, madeDate);
+					break;
+				case 4:
+					System.out.println("보관함 번호 입력");
+					rackNum = sc.next();
+					
+					System.out.println("몇개의 영화를 넣으시겠습니까");
+					number = sc2.nextInt();
+					
+					System.out.println("제목입력");
+					title = sc.next();
+					
+					ms.madeUsb(rackNum, number, title);				
+					break;
+				case 5:
+					System.out.println("검색할 영화 제목을 입력하세요");
+					title = sc.next();
+					
+					System.out.println(ms.searchMovie(title));
+					break;
+				}	
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void menu() {
+		System.out.println("================");
+		System.out.println("1. 영화 등록");
+		System.out.println("2. 보유 영화 목록 보기");
+		System.out.println("3. DVD제조");
+		System.out.println("4. USB제조");
+		System.out.println("5. 영화 검색");
+		System.out.println("================");
+	}
+	public void dvdMenu() {
+		System.out.println("================");
+		System.out.println("1. 보관함 번호");
+		System.out.println("2. 영화 제목 입력");
+		System.out.println("3. 제조 일자 입력");
+		System.out.println("================");
+	}
+	public void usbMenu() {
+		System.out.println("================");
+		System.out.println("1. 보관함 번호");
+		System.out.println("2. 영화를 몇개를 넣으시겠습니까");
+		System.out.println("3. 제목입력");
+		System.out.println("================");
+	}
+	
+}
+
 
 //Service
+
+package Service;
+
+import java.util.ArrayList;
+
+import VO.Dvd;
+import VO.Movie;
+import VO.Usb;
+
+public class MovieService {
+	ArrayList <Movie> moList = new ArrayList<>();
+	
+	public void insertMovie(Movie m) {
+			
+			moList.add(m);
+			
+	}
+	public String printAll() {
+		String result = "";
+		for (Movie m : moList) {
+			result += m + "\n";
+		}
+		return result;
+	}
+	public void madeDvd(String rackNum, String title, String madeDate) {
+		Movie temp=new Movie();
+		for (Movie i : moList) {
+			if (i.getTitle().equals(title)) {
+				temp=i;
+			}
+			Dvd d = new Dvd(rackNum, temp, madeDate);
+		}
+	}
+	public void madeUsb(String rackNum, int number, String title) {
+		
+		Usb usb = new Usb(rackNum, );
+	}
+	public String searchMovie(String title) {
+		String total = "";
+		for (Movie i : moList) {
+			if (i.getTitle().equals(title)) {
+				total += i.toString();
+			}
+		}
+		return total;
+	}
+}
 
 
 /*3번 메뉴 선택시,
