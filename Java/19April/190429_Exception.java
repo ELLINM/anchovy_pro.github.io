@@ -17,7 +17,10 @@ public class TestMain {
 		// 입력하는 순간 대입이 되는데 오류를 입력하게되면 대입을 하지않고 초기값을 가지고옴
 		System.out.println("입력성공");
 	}catch(InputMismatchException exc) {
-		//catch(Exception exc) 을 사용하여 모든 Exception을 처리 할 수 
+		//catch(Exception exc) 을 사용하여 모든 Exception을 처리 할 수 있음
+	/*catch(Exception e) {
+		e.printStackTrace();
+	}를 통하여 프로그램을 정상 종료 시키고 오류를 확인 할 수 있음*/
 		num = 99;
 		System.out.println("입력오류");
 		//초기값을 설정해줄 수 있음
