@@ -200,7 +200,11 @@ public class MovieUI {
 					System.out.println(ms.printAll());
 					break;
 				case 3:					
-					ms.makeDvd(makeDvd(), title);
+					if(ms.makeDvd(makeDvd(), title)) {
+						System.out.println("등록성공");
+					}else {
+						System.out.println("등록실패");
+					}
 					/*먼저 return된 makeDvd가 처리
 					하단의 make Dvd에서는 title값을 만들지 않더라도
 					후처리로 사용이 됨
