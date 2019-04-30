@@ -286,23 +286,22 @@ import VO.Movie;
 import VO.Usb;
 
 public class MovieService {
-	ArrayList <Movie> moList = new ArrayList<>();
+	private ArrayList <Movie> mList = new ArrayList<>();
+	private ArrayList <Device> dList = new ArrayList<>();
 	
 	public void insertMovie(Movie m) {
-			
 			moList.add(m);
-			
 	}
-	public String printAll() {
-		String result = "";
-		for (Movie m : moList) {
-			result += m + "\n";
+	public String printAll() { //void로 하면 method안에서 출력 String으로 하면 돌려줄 문자열 값을 생성
+		String result = ""; //result = null로 생성할경우 null도 함께 출력됨
+		for (Movie m : mList) {
+			result += m + "\n"; //object가 생성한 toString으로 출력되며 toString이없을 경우 주소값으로 출력됨
 		}
 		return result;
 	}
 	public void madeDvd(String rackNum, String title, String madeDate) {
 		Movie temp=new Movie(); //Movie를 담아줄 temp를 마련
-		for (Movie i : moList) {
+		for (Movie i : mList) {
 			if (i.getTitle().equals(title)) { //입력한 title과 비교
 				temp=i; //temp에 검사한 i값을 넣어줌
 			}
@@ -310,14 +309,24 @@ public class MovieService {
 			// parameter와 함께 temp를 Dvd Vo로 넣어줌
 		}
 	}
+	public boolean makeDvd(Dvd d, String title) {
+	 	boolean result = false;
+	 	for (Movie m : mList){
+	 	if (m.getTitle().equals(title)){
+	 		d.setMovie(m);
+	 		dList.add(d);
+	 		result = true;
+	 		break;
+	 	}
+	 	return result;
+	 }
 	public void madeUsb(String rackNum, int number, String title) {
-		
 		Usb usb = new Usb(rackNum, );
 	}
 	// usb는 입력받은 rackNum으로 Device Vo로 들어가고 Usb안에는 Movie를 ArrayList 형식으로 포함하게 된다.	 
 	public String searchMovie(String title) {
 		String total = "";
-		for (Movie i : moList) {
+		for (Movie i : mList) {
 			if (i.getTitle().equals(title)) {
 				total += i.toString();
 			}
