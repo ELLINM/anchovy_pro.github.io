@@ -193,54 +193,31 @@ public class MovieUI {
 			
 				switch (choice) {
 				case 1:
-					System.out.println("영화 제목 입력");
-					title = sc.next();
-				
-					System.out.println("장르 입력");
-					genre = sc.next();
-				
-					System.out.println("상영시간 입력");
-					playtime = sc.next();
-				
-					System.out.println("가격 입력");
-					price = sc2.nextInt();
-				
-					Movie m = new Movie(title, genre, playtime, price);
+					Movie m = makeMovie();
 					ms.insertMovie(m);
 					break;
 				case 2:
-					String result = ms.printAll();
-					System.out.println(result);
+					System.out.println(ms.printAll());
 					break;
-				case 3:
-					System.out.println("보관함 번호 입력");
-					rackNum = sc.next();
-					
+				case 3:					
+					ms.makeDvd(makeDvd(), title);
+					/*먼저 return된 makeDvd가 처리
+					하단의 make Dvd에서는 title값을 만들지 않더라도
+					후처리로 사용이 됨
+					title이 전역번슈기 때문에 처리됨*/
+					break;
+				case 4:
+					Usb u = makeUsb();
+					ms.insertUsb(u, titleList);
+					break;
+				case 5:
 					System.out.println("영화 제목 입력");
 					title = sc.next();
 					
-					System.out.println("제조 일자 입력");
-					madeDate = sc.next();
-					
-					ms.madeDvd(rackNum, title, madeDate);
+					System.out.println(ms.searchTitle(title));
 					break;
-				case 4:
-					System.out.println("보관함 번호 입력");
-					rackNum = sc.next();
-					
-					System.out.println("몇개의 영화를 넣으시겠습니까");
-					number = sc2.nextInt();
-					
-					System.out.println("제목입력");
-					title = sc.next();
-					
-					ms.madeUsb(rackNum, number, title);				
-					break;
-				case 5:
-					System.out.println("검색할 영화 제목을 입력하세요");
-					title = sc.next();
-					
-					System.out.println(ms.searchMovie(title)); //입력 해주는 String argument를 넣어줄것
+				case 6:
+					flag = false;
 					break;
 				}	
 			}
@@ -248,30 +225,56 @@ public class MovieUI {
 			e.printStackTrace();
 		}
 	}
-	public void menu() {
-		System.out.println("================");
-		System.out.println("1. 영화 등록");
-		System.out.println("2. 보유 영화 목록 보기");
-		System.out.println("3. DVD제조");
-		System.out.println("4. USB제조");
-		System.out.println("5. 영화 검색");
-		System.out.println("================");
-	}
-	public void dvdMenu() {
-		System.out.println("================");
-		System.out.println("1. 보관함 번호");
-		System.out.println("2. 영화 제목 입력");
-		System.out.println("3. 제조 일자 입력");
-		System.out.println("================");
-	}
-	public void usbMenu() {
-		System.out.println("================");
-		System.out.println("1. 보관함 번호");
-		System.out.println("2. 영화를 몇개를 넣으시겠습니까");
-		System.out.println("3. 제목입력");
-		System.out.println("================");
-	}
+	public Movie makeMovie() {
+		System.out.println("영화 제목 입력");
+		title = sc.next();
 	
+		System.out.println("장르 입력");
+		genre = sc.next();
+	
+		System.out.println("상영시간 입력");
+		playTime = sc.next();
+	
+		System.out.println("가격 입력");
+		price = sc2.nextInt();
+		
+		Movie m = new Movie(title, genre, playTime, price)
+		
+		return m;
+	}
+	public Dvd makeDvd() {
+		System.out.println("보관함 번호 입력");
+		rackNum = sc.next();
+		
+		System.out.println("영화 제목 입력");
+		title = sc.next();
+		
+		System.out.println("제조 일자 입력");
+		madeDate = sc.next();
+		
+		Dvd d = new Dvd();
+		d.setRackNum(rackNum);
+		d.setMadeDate(madeDate);
+		return d;
+	}
+	public Usb makeUsb() {
+		titleList = new ArrayList<>();
+		System.out.println("보관함 번호 입력");
+		rackNum = sc.next();
+		
+		System.out.println("몇개의 영화를 넣으시겠습니까");
+		number = sc2.nextInt();
+		
+		for (int i = 0; i < number; i++) {
+			System.out.println("제목입력");
+			String title = sc.next();
+			//title을 새로 선언해줌 
+			titleList.add(title);
+		}
+		Usb u = new Usb();
+		u.setRackNum(rackNum);
+		return u;
+	}
 }
 
 
@@ -299,16 +302,16 @@ public class MovieService {
 		}
 		return result;
 	}
-	public void madeDvd(String rackNum, String title, String madeDate) {
+	/*public void madeDvd(String rackNum, String title, String madeDate) { // Device를 생성하여 Device안에 넣어줘야함
 		Movie temp=new Movie(); //Movie를 담아줄 temp를 마련
 		for (Movie i : mList) {
 			if (i.getTitle().equals(title)) { //입력한 title과 비교
 				temp=i; //temp에 검사한 i값을 넣어줌
 			}
-			Dvd d = new Dvd(rackNum, temp, madeDate);
-			// parameter와 함께 temp를 Dvd Vo로 넣어줌
 		}
-	}
+		Dvd d = new Dvd(rackNum, temp, madeDate);
+		// parameter와 함께 temp를 Dvd Vo로 넣어줌
+	}*/
 	public boolean makeDvd(Dvd d, String title) {
 	 	boolean result = false;
 	 	for (Movie m : mList){
@@ -319,8 +322,9 @@ public class MovieService {
 	 		break;
 	 	}
 	 	return result;
+		}
 	 }
-	public void madeUsb(String rackNum, int number, String title) {
+	/*public void madeUsb(String rackNum, int number, String title) {
 		Usb usb = new Usb(rackNum, );
 	}
 	// usb는 입력받은 rackNum으로 Device Vo로 들어가고 Usb안에는 Movie를 ArrayList 형식으로 포함하게 된다.	 
@@ -332,6 +336,46 @@ public class MovieService {
 			}
 		}
 		return total;
+	}*/
+	public boolean insertUsb(Usb u, ArrayList <String> sList) {
+	 아직 영화의 배열이 들어가지 않은 Usb를 받고 여러 영화의 제목을 받을 배열을 생성
+	 	boolean flag = false;
+	 	for(Movie m : mList) { 
+	 		for(String title : sList) {
+	 			if (m.getTitle().equals(title)) {
+	 				u.getmList().add(m);
+	 				flag = true;
+	 등록된 영화 리스트와 사용자가 입력한 리스트를 대조하여 같은것이 있으면 등록
+	 			}
+	 		}
+	 	}
+	 	if (flag) {
+	 		dList.add(u);
+	 	}
+	 	return flag;
+	 }
+	public String searchTitle(String title) {
+		String toPrint = "";
+		
+		for (Device device : dList) { 
+			//영화는 device안에 들어있지 않기 때문에 형변환이 필요
+			if (device instanceof Dvd) {
+				//Dvd안에 들어있는지 찾아봄
+				if(((Dvd) device).getMovie().getTitle().equals(title)) {
+					//안에 들어있다면 Dvd안의 영화 title과 입력받은 title을 해줌
+					toPrint += device + "\n";
+				}
+			}else if(device instanceof Usb){
+				for (int i = 0; i < ((Usb)device).getmList().size(); i++) {
+				//Usb는 ArrayList로 들어가있기 때문에 형변환을 하고 ArrayList를 갖고와서 비교를함
+					if (((Usb)device).getmList().get(i).getTitle().equals(title)) {
+						//Movie의 ArrayList.Movie.title
+						toPrint += device + "\n";
+					}
+				}
+			}
+		}
+		return toPrint;
 	}
 }
 
