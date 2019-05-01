@@ -363,9 +363,37 @@ public class BoardUI {
 		}
 		
 	}
-	public void repairBoard() {
+	public void repairBoard() { //안되는거 아는데 뭐라도 하는중....
+		
+		System.out.println("1. 게시물수정");
+		System.out.println("2. 이미지수정");
+		System.out.println("3. 파일수정");
+		choice = sc2.nextInt();
+		
 		System.out.println("수정할 게시물 번호를 입력하세요");
 		seq = sc2.next();
+		
+		switch(choice) {
+		case 1:
+			bm.deleteBoard(seq);
+			Board b = new Board();
+			insertBoard();
+			bm.insertBoard(b);
+			break;
+		case 2:
+			bm.deleteImage(seq);
+			ImageBoard i = new ImageBoard();
+			insertImage();
+			bm.insertImage(i);
+			break;
+		case 3:
+			bm.deleteFile(seq);
+			FileBoard f = new FileBoard();
+			insertFile();
+			bm.insertFile(f);
+			break;
+		}
+		
 	}
 
 }
@@ -526,16 +554,6 @@ public class BoardManager {
 					result +=fList.toString()+"\n";
 					break;
 				}
-			}
-		}
-		return result;
-	}
-	public boolean repairBoard(String seq) {
-		boolean result = false;
-		for (int i = 0; i < bList.size(); i++) {
-			if(bList.get(i).getSeq().equals(seq)) {
-				bList.remove(i);
-				result = true;
 			}
 		}
 		return result;
