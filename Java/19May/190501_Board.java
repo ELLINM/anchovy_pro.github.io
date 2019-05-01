@@ -167,80 +167,83 @@ public class BoardUI {
 	private BoardManager bm = new BoardManager();
 	
 	public BoardUI() {
-		
-		while(flag) {
+		try {
+			while(flag) {
 			
-			menu();
-			choice = sc.nextInt();
+				menu();
+				choice = sc.nextInt();
 			
-			switch(choice) {
-			case 1:
-				Board b = insertBoard();
-				bm.insertBoard(b);
-				break;
-			case 2:
-				ImageBoard ib = insertImage();
-				bm.insertImage(ib);
-				break;
-			case 3:
-				FileBoard fb = insertFile();
-				bm.insertFile(fb);
-				break;
-			case 4:
-				System.out.println("검색할 게시물 번호를 입력하세요");
-				seq = sc.next();
+				switch(choice) {
+				case 1:
+					Board b = insertBoard();
+					bm.insertBoard(b);
+					break;
+				case 2:
+					ImageBoard ib = insertImage();
+					bm.insertImage(ib);
+					break;
+				case 3:
+					FileBoard fb = insertFile();
+					bm.insertFile(fb);
+					break;
+				case 4:
+					System.out.println("검색할 게시물 번호를 입력하세요");
+					seq = sc.next();
 				
-				System.out.println(bm.searchSeq(seq));
-				break;
-			case 5:
-				System.out.println("검색할 게시물 재목 입력하세요");
-				title = sc.next();
+					System.out.println(bm.searchSeq(seq));
+					break;
+				case 5:
+					System.out.println("검색할 게시물 재목 입력하세요");
+					title = sc.next();
 				
-				System.out.println(bm.searchTitle(title));
-				break;
-			case 6:
-				System.out.println(bm.printAll());
-				break;
-			case 7:
-				System.out.println("이미지 경로 입력");
-				url = sc.next();
+					System.out.println(bm.searchTitle(title));
+					break;
+				case 6:
+					System.out.println(bm.printAll());
+					break;
+				case 7:
+					System.out.println("이미지 경로 입력");
+					url = sc.next();
 				
-				System.out.println(bm.searchImage(url));
-				break;
-			case 8:
-				System.out.println("파일명 입력");
-				name = sc.next();
+					System.out.println(bm.searchImage(url));
+					break;
+				case 8:
+					System.out.println("파일명 입력");
+					name = sc.next();
 				
-				System.out.println(bm.searchFile(name));
-				break;
-			case 9:
-				deleteMenu();				
-				break;
-			case 10:
-				repairBoard();
-				if (bm.repairBoard(seq) == true) {
-					System.out.println("게시번호 입력");
-					seq = sc2.next();
+					System.out.println(bm.searchFile(name));
+					break;
+				case 9:
+					deleteMenu();				
+					break;
+				case 10:
+					repairBoard();
+					if (bm.repairBoard(seq) == true) {
+						System.out.println("게시번호 입력");
+						seq = sc2.next();
 
-					System.out.println("글 제목 입력");
-					title = sc2.next();
+						System.out.println("글 제목 입력");
+						title = sc2.next();
+						
+						System.out.println("글 내용 입력");
+						content = sc2.next();
 					
-					System.out.println("글 내용 입력");
-					content = sc2.next();
+						System.out.println("등록일 입력");
+						indate = sc2.next();
 					
-					System.out.println("등록일 입력");
-					indate = sc2.next();
+						System.out.println("게시자 입력");
+						id = sc2.next();
 					
-					System.out.println("게시자 입력");
-					id = sc2.next();
-					
-					b = new Board(seq, title, content, indate, id);
-				}
-				break;
-			case 11:
-				flag = false;
-				break;	
-			}			
+						b = new Board(seq, title, content, indate, id);
+					}
+					break;
+				case 11:
+					flag = false;
+					break;	
+				}			
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 	public void menu() {
