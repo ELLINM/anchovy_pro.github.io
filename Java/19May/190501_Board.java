@@ -217,25 +217,7 @@ public class BoardUI {
 					deleteMenu();				
 					break;
 				case 10:
-					repairBoard();
-					if (bm.repairBoard(seq) == true) {
-						System.out.println("게시번호 입력");
-						seq = sc2.next();
-
-						System.out.println("글 제목 입력");
-						title = sc2.next();
-						
-						System.out.println("글 내용 입력");
-						content = sc2.next();
-					
-						System.out.println("등록일 입력");
-						indate = sc2.next();
-					
-						System.out.println("게시자 입력");
-						id = sc2.next();
-					
-						b = new Board(seq, title, content, indate, id);
-					}
+					repairBoard();	
 					break;
 				case 11:
 					flag = false;
@@ -247,157 +229,180 @@ public class BoardUI {
 		}
 	}
 	public void menu() {
-		System.out.println("====================");
-		System.out.println("1. 일반게시글 등록");
-		System.out.println("2. 이미지게시글 등록");
-		System.out.println("3. 파일게시글 등록");
-		System.out.println("4. 게시글 검색(일련번호로)");
-		System.out.println("5. 게시글 검색(제목으로)");
-		System.out.println("6. 게시글 전체출력");
-		System.out.println("7. 이미지경로 검색");
-		System.out.println("8. 파일명 검색");
-		System.out.println("9. 게시글 삭제");
-		System.out.println("10. 게시글 수정(일련번호입력)");
-		System.out.println("11. 프로그램 종료");
-		System.out.println("====================");
+		try {
+			System.out.println("====================");
+			System.out.println("1. 일반게시글 등록");
+			System.out.println("2. 이미지게시글 등록");
+			System.out.println("3. 파일게시글 등록");
+			System.out.println("4. 게시글 검색(일련번호로)");
+			System.out.println("5. 게시글 검색(제목으로)");
+			System.out.println("6. 게시글 전체출력");
+			System.out.println("7. 이미지경로 검색");
+			System.out.println("8. 파일명 검색");
+			System.out.println("9. 게시글 삭제");
+			System.out.println("10. 게시글 수정(일련번호입력)");
+			System.out.println("11. 프로그램 종료");
+			System.out.println("====================");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public Board insertBoard() {
-		System.out.println("게시번호 입력");
-		seq = sc2.next();
+		try {
+			System.out.println("게시번호 입력");
+			seq = sc2.next();
 
-		System.out.println("글 제목 입력");
-		title = sc2.next();
+			System.out.println("글 제목 입력");
+			title = sc2.next();
 		
-		System.out.println("글 내용 입력");
-		content = sc2.next();
+			System.out.println("글 내용 입력");
+			content = sc2.next();
 		
-		System.out.println("등록일 입력");
-		indate = sc2.next();
+			System.out.println("등록일 입력");
+			indate = sc2.next();
 		
-		System.out.println("게시자 입력");
-		id = sc2.next();
+			System.out.println("게시자 입력");
+			id = sc2.next();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		Board b = new Board(seq, title, content, indate, id);
 		return b;
+		
 	}
 	public ImageBoard insertImage() {
-		System.out.println("게시번호 입력");
-		seq = sc2.next();
+		try {
+			System.out.println("게시번호 입력");
+			seq = sc2.next();
 
-		System.out.println("글 제목 입력");
-		title = sc2.next();
+			System.out.println("글 제목 입력");
+			title = sc2.next();
 		
-		System.out.println("글 내용 입력");
-		content = sc2.next();
+			System.out.println("글 내용 입력");
+			content = sc2.next();
 		
-		System.out.println("등록일 입력");
-		indate = sc2.next();
+			System.out.println("등록일 입력");
+			indate = sc2.next();
 		
-		System.out.println("게시자 입력");
-		id = sc2.next();
+			System.out.println("게시자 입력");
+			id = sc2.next();
 		
-		System.out.println("이미지를 몇개 등록하시겠습니까");
-		num = sc.nextInt();
+			System.out.println("이미지를 몇개 등록하시겠습니까");
+			num = sc.nextInt();
 	
-		for (int i = 0; i < num; i++) {
-			System.out.println("이미지 경로 입력");
-			url = sc2.next();
-			imageUrl.add(url);
+			for (int i = 0; i < num; i++) {
+				System.out.println("이미지 경로 입력");
+				url = sc2.next();
+				imageUrl.add(url);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 		
 		ImageBoard im = new ImageBoard(seq, title, content, indate, id, imageUrl);
 		return im;
 	}
 	public FileBoard insertFile() {
-		System.out.println("게시번호 입력");
-		seq = sc2.next();
+		try {
+			System.out.println("게시번호 입력");
+			seq = sc2.next();
 
-		System.out.println("글 제목 입력");
-		title = sc2.next();
+			System.out.println("글 제목 입력");
+			title = sc2.next();
 		
-		System.out.println("글 내용 입력");
-		content = sc2.next();
+			System.out.println("글 내용 입력");
+			content = sc2.next();
 		
-		System.out.println("등록일 입력");
-		indate = sc2.next();
+			System.out.println("등록일 입력");
+			indate = sc2.next();
 		
-		System.out.println("게시자 입력");
-		id = sc2.next();
+			System.out.println("게시자 입력");
+			id = sc2.next();
 		
-		System.out.println("파일을 몇개 등록 하시겠습니까");
-		num = sc.nextInt();
+			System.out.println("파일을 몇개 등록 하시겠습니까");
+			num = sc.nextInt();
 		
-		for (int i = 0; i < num; i++) {
-			System.out.println("파일 이름 입력");
-			name = sc2.next();
-			fileName.add(name);
-		}
+			for (int i = 0; i < num; i++) {
+				System.out.println("파일 이름 입력");
+				name = sc2.next();
+				fileName.add(name);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			}
 		
-		FileBoard fi = new FileBoard(seq, title, content, indate, id, fileName);
-		return fi;
+			FileBoard fi = new FileBoard(seq, title, content, indate, id, fileName);
+			return fi;
 	}
 	
 	public void deleteMenu() {
-		System.out.println("1. 일반게시물삭제");
-		System.out.println("2. 이미지게시물삭제");
-		System.out.println("3. 파일게시물삭제");
-		choice = sc.nextInt();
+		try {
+			System.out.println("1. 일반게시물삭제");
+			System.out.println("2. 이미지게시물삭제");
+			System.out.println("3. 파일게시물삭제");
+			choice = sc.nextInt();
 		
-		switch(choice) {
-		case 1:
-			System.out.println("게시 번호를 입력하셍요");
-			seq = sc.next();
-			bm.deleteBoard(seq);
-			break;
-		case 2:
-			System.out.println("게시 번호를 입력하셍요");
-			seq = sc.next();
-			bm.deleteImage(seq);
-			break;
-		case 3:
-			System.out.println("게시 번호를 입력하셍요");
-			seq = sc.next();
-			bm.deleteFile(seq);
-			break;
-		}
-		
+			switch(choice) {
+			case 1:
+				System.out.println("게시 번호를 입력하셍요");
+				seq = sc.next();
+				bm.deleteBoard(seq);
+				break;
+			case 2:
+				System.out.println("게시 번호를 입력하셍요");
+				seq = sc.next();
+				bm.deleteImage(seq);
+				break;
+			case 3:
+				System.out.println("게시 번호를 입력하셍요");
+				seq = sc.next();
+				bm.deleteFile(seq);
+				break;
+			}
+			}catch(Exception e) {
+				e.printStackTrace();
+		}		
 	}
-	public void repairBoard() { //안되는거 아는데 뭐라도 하는중....
+	public void repairBoard() {
+		try {
+			
+			System.out.println("1. 게시물수정");
+			System.out.println("2. 이미지수정");
+			System.out.println("3. 파일수정");
+			choice = sc2.nextInt();
 		
-		System.out.println("1. 게시물수정");
-		System.out.println("2. 이미지수정");
-		System.out.println("3. 파일수정");
-		choice = sc2.nextInt();
+			System.out.println("수정할 게시물 번호를 입력하세요");
+			seq = sc2.next();
 		
-		System.out.println("수정할 게시물 번호를 입력하세요");
-		seq = sc2.next();
-		
-		switch(choice) {
-		case 1:
-			bm.deleteBoard(seq);
-			Board b = new Board();
-			insertBoard();
-			bm.insertBoard(b);
-			break;
-		case 2:
-			bm.deleteImage(seq);
-			ImageBoard i = new ImageBoard();
-			insertImage();
-			bm.insertImage(i);
-			break;
-		case 3:
-			bm.deleteFile(seq);
-			FileBoard f = new FileBoard();
-			insertFile();
-			bm.insertFile(f);
-			break;
+			switch(choice) {
+			case 1:
+				bm.deleteBoard(seq);
+				Board b = new Board();
+				insertBoard();
+				bm.insertBoard(b);
+				break;
+			case 2:
+				bm.deleteImage(seq);
+				ImageBoard i = new ImageBoard();
+				insertImage();
+				bm.insertImage(i);
+				break;
+			case 3:
+				bm.deleteFile(seq);
+				FileBoard f = new FileBoard();
+				insertFile();
+				bm.insertFile(f);
+				break;
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
 		}
 		
 	}
 
 }
-
 
 //Service
 
