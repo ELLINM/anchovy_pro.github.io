@@ -384,13 +384,40 @@ public class BoardManager {
 	private ArrayList <FileBoard> fList = new ArrayList<>();
 
 	public void insertBoard(Board b) {
-		bList.add(b);
+		boolean flag = true;
+		for(int i=0;i<bList.size();i++) {
+			if(bList.get(i).getSeq().equals(b.getSeq())) {
+				System.out.println("중복된 값입니다");
+				flag = false;
+			}
+		}
+		if(flag) {
+			bList.add(b);
+		}
 	}
 	public void insertImage(ImageBoard ib) {
-		iList.add(ib);
+		boolean flag = true;
+		for(int i=0;i<iList.size();i++) {
+			if(iList.get(i).getSeq().equals(ib.getSeq())) {
+				System.out.println("중복된 값입니다");
+				flag = false;
+			}
+		}
+		if(flag) {
+			iList.add(ib);
+		}
 	}
 	public void insertFile(FileBoard fb) {
-		fList.add(fb);
+		boolean flag = true;
+		for(int i=0;i<fList.size();i++) {
+			if(fList.get(i).getSeq().equals(fb.getSeq())) {
+				System.out.println("중복된 값입니다");
+				flag = false;
+			}
+		}
+		if(flag) {
+			fList.add(fb);
+		}
 	}
 	public String searchSeq(String seq) {
 		String result = "";
