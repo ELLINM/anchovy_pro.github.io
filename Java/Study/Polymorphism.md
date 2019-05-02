@@ -7,4 +7,4 @@ Polymorphism
 
 
 
-![Polymorphism](/https://i1.wp.com/www.brightdevelopers.com/wp-content/uploads/2017/08/polymorphism-big.png?fit=562%2C382&ssl=1)
+![Polymorphism](https://i1.wp.com/www.brightdevelopers.com/wp-content/uploads/2017/08/polymorphism-big.png?fit=562%2C382&ssl=1)
