@@ -5,4 +5,4 @@ Polymorphism
 + 다른 상황에서 다르게 작동한다. => Class의 내용에 따라 다르게 구현될 수 있음
 
 
-![Polymorphism](<img width="360" height="240"></img>https://i1.wp.com/www.brightdevelopers.com/wp-content/uploads/2017/08/polymorphism-big.png?fit=562%2C382&ssl=1)
+![Polymorphism](<img width="360" height="240"></https://i1.wp.com/www.brightdevelopers.com/wp-content/uploads/2017/08/polymorphism-big.png?fit=562%2C382&ssl=1>)
