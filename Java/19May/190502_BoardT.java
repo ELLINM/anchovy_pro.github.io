@@ -67,7 +67,6 @@ public class Board {
 	public String toString() {
 		return "일련번호=" + seq + ", 제목=" + title + ", 내용=" + content + ", 등록일=" + indate + ", 게시자=" + id;
 	}
-
 }
 
 //FileBoard
@@ -100,7 +99,6 @@ public class FileBoard extends Board {
 	public String toString() {
 		return super.toString()+", 파일경로=" + fileName;
 	}
-
 }
 
 //ImageBoard
@@ -133,10 +131,7 @@ public class ImageBoard extends Board{
 	public String toString() {
 		return super.toString()+", 이미지경로=" + imgUrl;
 	}
-	
-	
 }
-
 
 
 //Main
@@ -150,7 +145,6 @@ public class BoardMain {
 		// TODO Auto-generated method stub
 		new BoardUI();
 	}
-
 }
 
 
@@ -166,7 +160,6 @@ public interface ServiceInterface {
 	public int searchIndex(String seq);//index 검색
 	public String searchBoard(int index);//종류검색
 	public void updBoard(Board b);//수정
-	
 }
 
 
@@ -197,7 +190,7 @@ public class BoardUI {
 			menu();
 			choice = sc.nextInt();
 			switch (choice) {
-			case 1:
+			case 1: //break를 없앰으로 1, 2, 3번중 어느것을 선택하던 같은 메뉴로 
 			case 2:
 			case 3:
 				bs.insertBoard(makeBoard(choice));
@@ -236,7 +229,6 @@ public class BoardUI {
 				break;
 			}
 		}
-
 	}
 
 	public void menu() {
@@ -251,7 +243,7 @@ public class BoardUI {
 		System.out.println("==============");
 	}
 
-	public Board makeBoard(int choice) {
+	public Board makeBoard(int choice) {//Board값으로 return함
 		System.out.println("일련번호 입력 : ");
 		seq = sc.next();
 		System.out.println("글 제목 입력 : ");
@@ -265,18 +257,19 @@ public class BoardUI {
 
 		switch (choice) {
 		case 1:
-			return new Board(seq, title, content, indate, id);
+			return new Board(seq, title, content, indate, id); //위에 입력받은 parameter만을 Board로 return
 		case 2:
-			iList = new ArrayList<>();
+			iList = new ArrayList<>(); //ImageBoard에 들어갈 iList를 선언
 			System.out.println("이미지를 몇개 등록할까요");
 			int num = sc.nextInt();
 
-			for (int i = 0; i < num; i++) {
+			for (int i = 0; i < num; i++) { //입력한 갯수만큼 for문으로 질문과 parameter를 생성
 				System.out.println("경로 입력 : ");
-				iList.add(sc.next());
+				iList.add(sc.next());//하나씩 배열에 추가
 			}
 
 			return new ImageBoard(seq, title, content, indate, id, iList);
+			//입력받은 입력값과 배열값을 ImageBoard로 return
 		case 3:
 			fList = new ArrayList<>();
 			System.out.println("파일를 몇개 등록할까요");
@@ -286,11 +279,9 @@ public class BoardUI {
 				System.out.println("경로 입력 : ");
 				fList.add(sc.next());
 			}
-
+			//ImageBoard와 마찬가지로 FileBoard로 return
 			return new FileBoard(seq, title, content, indate, id, fList);
-
 		}
-
 		return null;
 	}
 	
@@ -329,9 +320,7 @@ public class BoardUI {
 			}
 
 			return new FileBoard(seq, title, content, indate, id, fList);
-
 		}
-
 		return null;
 	}
 }
@@ -417,5 +406,4 @@ public class BoardService implements ServiceInterface {
 		// TODO Auto-generated method stub
 		bList.set(searchIndex(b.getSeq()), b);
 	}
-
 }
