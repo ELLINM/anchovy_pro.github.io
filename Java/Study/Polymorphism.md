@@ -17,4 +17,7 @@ Polymorphism
 동물은 다리를 사용한다는 method 가 있을때 물고기로 method가 상속되면 헤엄을 친다로 정의된다.
 
 
++ 처음 보는 사용자라면 모든 로직을 이해해야 되기 때문에 자주 사용되지 
+
+
 ![Polymorphism](https://i1.wp.com/www.brightdevelopers.com/wp-content/uploads/2017/08/polymorphism-big.png?fit=562%2C382&ssl=1)
