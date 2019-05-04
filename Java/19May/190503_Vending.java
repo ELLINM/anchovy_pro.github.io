@@ -263,10 +263,10 @@ public class VendingUI {
 						vs.setProduct(pCode, amount);
 						break;
 					case 2:
-						vs.amountZeroList();
-						System.out.println(vs.amountZeroList());
+						showAmountZeroList();
 						break;
 					case 3:
+						soldListStatistics();
 						break;
 						
 					}
@@ -314,6 +314,25 @@ public class VendingUI {
 		System.out.println("=======================");
 		
 	}
+	
+	public void showAmountZeroList() {
+		System.out.println(vs.amountZeroList());
+	}
+	public void soldListStatistics() {
+		
+		String result = "";
+		ArrayList<Product> sellingList = vs.soldListStatistics();
+		
+		for (Product nowProduct : sellingList) {
+			result += nowProduct + "\n";
+		}
+		
+		if (result.equals("")) {
+			result = "판매된 제품이 없습니다. (^^;;)\n";
+		}
+		
+		System.out.println(result);
+	}
 }
 
 
@@ -344,9 +363,9 @@ public class VendingService implements ServiceInterface{
 		sellingList.add(new Snack("초코감자칩", "001", 1500, 100, "100g"));	//버튼 1번
 		sellingList.add(new Snack("츄러츄러스", "002", 1800, 100, "120g"));	//버튼 2번
 		sellingList.add(new Snack("촉촉오징어", "003", 2100, 100, "200g"));	//버튼 3번
-		sellingList.add(new Snack("하늘보리칩", "004", 1600, 8, "140g"));	//버튼 4번
+		sellingList.add(new Snack("하늘보리칩", "004", 1600, 100, "140g"));	//버튼 4번
 		sellingList.add(new Snack("정브라우니", "005", 1800, 100, "110g"));	//버튼 5번
-		sellingList.add(new Snack("히말라야츄", "006", 1500, 1, "90g"));		//버튼 6번
+		sellingList.add(new Snack("히말라야츄", "006", 1500, 100, "90g"));		//버튼 6번
 		sellingList.add(new Drink("밀크소다", "007", 1000, 100, "150ml"));	//버튼 7번
 		sellingList.add(new Drink("비암강장제", "008", 1800, 100, "150ml"));	//버튼 8번
 		sellingList.add(new Drink("핵사이다", "009", 1500, 100, "250ml"));	//버튼 9번
@@ -401,6 +420,7 @@ public class VendingService implements ServiceInterface{
 		for (int i = 0; i < sellingList.size(); i++) {
 			result += i + ". "+ sellingList.get(i).getName() + " " + sellingList.get(i).getPrice() + "\n";
 		}
+		
 		return result;
 	}
 
@@ -408,11 +428,13 @@ public class VendingService implements ServiceInterface{
 	public String amountZeroList() {//관리자가 사용하는 재고가 10개 미만인 상품리스트 출력 관리자용 메서드
 		// TODO Auto-generated method stub
 		String result = "";
-		for(int i = 0; i < sellingList.size(); i++) {
-			if (sellingList.get(i).getAmount()<10) {
-			soldList.add(sellingList.get(i));
-			result += soldList.get(i) + "\n";
+		for(Product p : sellingList) {
+			if(p.getAmount() < 10) {
+				result += p + "\n";
 			}
+		}
+		if (result.equals("")) {
+			result = "모든 제품이 재고가 충분합니다. (^^)\n";
 		}
 		return result;
 	}
@@ -421,15 +443,20 @@ public class VendingService implements ServiceInterface{
 	public boolean setProduct(String pCode, int amount) {//부족한 재고를 채워넣는 관리자용 메서드
 		// TODO Auto-generated method stub
 		boolean flag = true;
-		
-		
+		for (Product p : sellingList) {
+			if(p.getpCode().equals(pCode)) {
+				if (p.getAmount()<10) {
+					p.setAmount(p.getAmount() + amount);
+				}
+			}
+		}
 		return flag;
 	}
 
 	@Override
 	public ArrayList<Product> soldListStatistics() {//판매 리스트를 확인하는 관리자용 메서드
 		// TODO Auto-generated method stub
-		return null;
+		return soldList;
 	}
 
 	@Override
@@ -445,6 +472,5 @@ public class VendingService implements ServiceInterface{
 		}
 		return flag;
 	}
-
 }
 
