@@ -66,7 +66,7 @@ public class FileUI {
 
 //Service
 
-package Service;
+package service;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -74,53 +74,49 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 
 public class FileService {
-	
+
 	private FileInputStream fis;
 	private FileOutputStream fos;
-	
 	private InputStreamReader isr;
 	private OutputStreamWriter osw;
 	
-	public FileService() {
-		
+	public void writeString(String str) {// 글쓰기
 		try {
-			fis = new FileInputStream("C:/test/test.txt");
-			fos = new FileOutputStream("C:/test/test.txt");
-			isr = new InputStreamReader(fis, "MS949");
+			fos = new FileOutputStream("C:/test/text.txt");
 			osw = new OutputStreamWriter(fos, "MS949");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	
-	public void writeString(String str) {
-		
-		try {
+			
 			osw.write(str);
 			osw.flush();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
-	
-	public String readString() {
-		
+
+	public String readString() {// 글읽기
+
+		try {
+			
+			fis = new FileInputStream("C:/test/text.txt");
+			isr = new InputStreamReader(fis, "MS949");
+			
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		String str = "";
-		
 		int a = 0;
 		
-		while(a != -1) {
+		while (a != -1) {
 			try {
+				
 				a = isr.read();
-				if (a != -1);
-				str += (char)a;
-			} catch (Exception e) {
+				if (a != -1)
+					str += (char) a;
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return str;
@@ -128,18 +124,17 @@ public class FileService {
 		}
 		return str;
 	}
-	
+
 	public void closeStream() {
-		
-		if (isr != null&& osw != null) {
+
+		if (isr != null && osw != null) {
 			try {
 				isr.close();
 				osw.close();
-			} catch (Exception e) {
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
 }
-
