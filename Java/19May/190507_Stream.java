@@ -47,6 +47,15 @@ public class FileTest {
 				System.out.print((char)a);
 			}
 			
+			FileOutputStream fis = new FileOutputStream("C:/test/text.txt");
+			OutputStreamWriter osw = new OutputStreamWriter(fis,"MS949");
+			System.out.println("입력 : ");
+			Scanner sc = new Scanner(System.in);
+			String str = sc.nextLine();
+			
+			osw.write(str);
+			osw.flush(); //write를 끝내주는 시점 입력이 끝남을 알려줌
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
