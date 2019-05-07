@@ -36,9 +36,21 @@ public class FileTest {
 				fos.write(str.charAt(i));
 			}
 			
+			FileInputStream fis = new FileInputStream("C:/test/text.txt");
+			InputStreamReader isr = new InputStreamReader(fis,"MS949");
+			//메모장은 MS949 한글도 출력할 수 있음
+			int a = 0;
+			
+			while (a != -1) {
+				a = isr.read();
+				if(a != -1)
+				System.out.print((char)a);
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 }
+//파일이 존재하지 않을때 OutputStream은 파일을 생성해서 입력하지만 InputStream은 입력자체가안된다.
