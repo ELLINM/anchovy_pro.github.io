@@ -56,6 +56,8 @@ public class FileTest {
 			osw.write(str);
 			osw.flush(); //write를 끝내주는 시점 입력이 끝남을 알려줌
 			
+			fos.close(); //close시켜 주지 않은면 계속해서 메모리 누수가 일어난다.
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
