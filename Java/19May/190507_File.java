@@ -124,6 +124,18 @@ public class FileService {
 		}
 		return str;
 	}
+	
+	public void relayWrite(String str) {
+		try {
+			fos = new FileWriter("C:/test/test.txt", true);
+			/*파일이 이미 존재한다면, 파일의 마지막부터 이어서 쓰는 방법도 있다.
+			FileWriter 의 선언 부분에 두번째 인자로 boolean 타입의 true를 같이 보내면 된다.
+			아주 간단한 방법으로 파일 이어쓰기 기능을 제공*/
+			osw.write(str);
+			osw.close();
+		} catch (Exception e) {
+		} // 캐치 생략
+	}
 
 	public void closeStream() {
 
