@@ -114,7 +114,7 @@ public class FileService {
 			try {
 				
 				a = isr.read();
-				if (a != -1)
+				if (a == -1)
 					str += (char) a;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
