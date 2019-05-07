@@ -27,6 +27,15 @@ public class FileTest {
 				System.out.print((char)a);
 				}
 			}
+			
+			FileOutputStream fos = new FileOutputStream("C:/test/text.txt");
+			Scanner sc = new Scanner(System.in);
+			String str = sc.nextLine();
+			
+			for (int i = 0; i < str.length(); i++) {
+				fos.write(str.charAt(i));
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
