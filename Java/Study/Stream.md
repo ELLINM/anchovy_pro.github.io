@@ -5,7 +5,7 @@ Stream
 + 단반향으로 진행된다.
 
 
-![Alt text](/path/to/Data-streams-in-java.jpg)
+![Alt text](D:\user\Desktop\Data-streams-in-java.jpg)
 
 In&Out put Stream
 -------------
