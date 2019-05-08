@@ -25,3 +25,6 @@ In&Out put Stream
 
 + 스트림은 작업을 내부 반복으로 처리한다.
 > 스트림을 이용한 작업이 간결할 수 있는 비결중의 하나가 바로 '내부 반복'이다. 내부 반복이라는 것은 반복문을 메서드의 내부에 숨길 수 있다는 것을 의미
+
+
+![byte stream](https://t1.daumcdn.net/cfile/tistory/99DEDB385AA5299E0F)
