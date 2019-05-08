@@ -28,4 +28,4 @@ public class ObjecTest {
 	}
 }
 // 순서 filestream -> objectstream -> 생성하고자 하는 객체 -> writeobject
-// print : ы t I am your father
+// print : ы t I am your father : String으로 입력해서 보이는것 정상
