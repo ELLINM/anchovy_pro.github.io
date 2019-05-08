@@ -49,13 +49,14 @@ public class ObjecTest {
 		
 		File file = new File("C:/test/Object.txt");
 		//경로에 있는 파일을 불러옴
+		if (file.exists()) {
+			FileInputStream fis = new FileInputStream(file);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			
+			String str = (String)ois.readObject();
+			//빨간줄이 생기는 이유는 무엇을 갖고 와야 할지 모르기 때문 강제 형변환 해줘야함
 		
-		FileInputStream fis = new FileInputStream(file);
-		ObjectInputStream ois = new ObjectInputStream(fis);
-		
-		String str = (String)ois.readObject();
-		//빨간줄이 생기는 이유는 무엇을 갖고 와야 할지 모르기 때문 강제 형변환 해줘야함
-		
-		System.out.println(str);
+			System.out.println(str);
+		}
 	}
 }
