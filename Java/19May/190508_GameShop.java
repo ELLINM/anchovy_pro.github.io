@@ -247,28 +247,35 @@ public class GameUI {
 					System.out.println("게임 코드를 입력하세요");
 					pCode = sc2.next();
 				
-					System.out.println(gs.searchGame(pCode));
+					System.out.println(gs.printGame(pCode));
 					break;
 				case 4:
-					sellGame();
+					System.out.println("판매할 게임 코드 입력");
+					pCode = sc2.next();
+					boolean result = deleteGame(pCode);
+					if (result) {
+						System.out.println("판매 완료");
+					}else {
+						System.out.println("다시 입력해 주세요");
+					}
 					break;
 				case 5:
 					System.out.println("다운로드 코드를 입력하세요");
 					internetCode = sc2.next();
 				
-					System.out.println(gs.searchPcGame(internetCode));
+					System.out.println(gs.internetCodeSearch(internetCode));
 					break;
 				case 6:
 					System.out.println("타이틀 등록번호 입력하세요");
 					psRegNum = sc2.next();
 				
-					System.out.println(gs.searchPsGame(psRegNum));
+					System.out.println(gs.psRegNumSearch(psRegNum));
 					break;
 				case 7:
 					System.out.println("Xbox Id를 입력하세요");
 					xboxId = sc2.next();
 				
-					System.out.println(gs.searchXboxGame(xboxId));
+					System.out.println(gs.xboxIdSearch(xboxId));
 					break;
 				case 8:
 					break;
@@ -279,7 +286,7 @@ public class GameUI {
 				case 11:
 					System.out.println("삭제할 게임 코드 입력");
 					pCode = sc2.next();
-					boolean result = deleteGame(pCode);
+					result = deleteGame(pCode);
 					if (result) {
 						System.out.println("삭제 성공");
 					}else {
@@ -390,6 +397,10 @@ public class GameUI {
 		boolean result = gs.deleteGame(pCode);
 		return result;
 	}
+	public boolean sellGame(String pCode) {
+		boolean result = gs.sellGame(pCode);
+		return result;
+	}
 }
 
 
@@ -430,71 +441,6 @@ public class GameService implements GameInterface{
 		return result;
 	}
 	
-	public String printAll() {
-		String result = "";
-		
-		for (Game g : gList) {
-			result += g + "\n";
-		}
-		return result;
-	}
-	
-	public String searchGame(String pCode) {
-		String result = "";
-		
-		for (Game g : gList) {
-			if (pCode.equals(g.getpCode())) {
-				result += g + "\n";
-			}
-		}
-		return result;
-	}
-	
-	public boolean sellGame(String pCode) {
-		boolean flag = true;
-		
-		for(Game g : gList) {
-			if (pCode.equals(g.getpCode())) {
-				
-			}
-		}
-		
-		return flag;
-	}
-	
-	public String searchPcGame(String internetCode) {
-		String result = "";
-		
-		for (int i = 0; i < gList.size(); i++) {
-			if (gList.get(i).getpCode().equals(internetCode)) {
-				result += gList.get(i).toString();
-			}
-		}
-		return result;
-	}
-	
-	public String searchPsGame(String psRegNum) {
-		String result = "";
-		
-		for (int i = 0; i < gList.size(); i++) {
-			if (gList.get(i).getpCode().equals(psRegNum)) {
-				result += gList.get(i).toString();
-			}
-		}
-		return result;
-	}
-	
-	public String searchXboxGame(String xboxId) {
-		String result = "";
-		
-		for (int i = 0; i < gList.size(); i++) {
-			if (gList.get(i).getpCode().equals(xboxId)) {
-				result += gList.get(i).toString();
-			}
-		}
-		return result;
-	}
-	
 	public boolean deleteGame(String pCode) {
 		boolean flag = true;
 		
@@ -505,6 +451,107 @@ public class GameService implements GameInterface{
 			flag = false;
 		}
 		return flag;
+	}
+
+	@Override
+	public String printGame(String pCode) {
+		String result = "";
+		
+		for (Game g : gList) {
+			if (pCode.equals(g.getpCode())) {
+				result += g + "\n";
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public boolean updateGame(String pCode, Game g) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String xboxIdSearch(String id) {
+		String result = "";
+		
+		for (int i = 0; i < gList.size(); i++) {
+			if (gList.get(i).getpCode().equals(id)) {
+				result += gList.get(i).toString();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public String psRegNumSearch(String psRegNum) {
+		String result = "";
+		
+		for (int i = 0; i < gList.size(); i++) {
+			if (gList.get(i).getpCode().equals(psRegNum)) {
+				result += gList.get(i).toString();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public String internetCodeSearch(String internetCode) {
+		String result = "";
+		
+		for (int i = 0; i < gList.size(); i++) {
+			if (gList.get(i).getpCode().equals(internetCode)) {
+				result += gList.get(i).toString();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public void saveData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void loadData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void printInfoFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String printAll() {
+		String result = "";
+		
+		for (Game g : gList) {
+			result += g + "\n";
+		}
+		return result;
+	}
+
+	@Override
+	public boolean sellGame(String pCode) {
+		boolean flag = true;
+		int index = searchIndex(pCode);
+		if (index != -1) {
+			
+			if (gList.get(index).getAmount() < 1) {
+				flag = false; 
+				return flag;
+			} else {
+				gList.get(index).setAmount(gList.get(index).getAmount() - 1);
+				return flag; 
+			}
+		} else {
+			flag = false;
+			return flag;
+		}
 	}
 }
 
