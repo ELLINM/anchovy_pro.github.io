@@ -34,3 +34,19 @@ public class MapMain {
 		}
 	}
 }
+
+
+public static void main(String [] args) {
+	
+		Set<String> sSet = new HashSet<>();
+		
+		sSet.add("가");
+		sSet.add("나");
+		sSet.add("다");
+		sSet.add("라");
+		sSet.add("마");
+		//중복 값이 생기면 덮어 쓴다.
+		for(String value : sSet) {
+			System.out.println(value);
+		}
+	}
