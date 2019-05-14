@@ -1,5 +1,4 @@
 //Server
-
 package Server;
 
 import java.io.DataInputStream;
@@ -28,11 +27,11 @@ public class Server {
 			// Client로 data를 보냄
 			Scanner sc = new Scanner(System.in);
 			
+			ServerRvc rvc = new ServerRvc(dis);
+			//rvc.run(); 으로  작동 불가능
+			rvc.start();
 			
 			while(true) {
-				String message = dis.readUTF();
-				//data가 오지않으면 기다림
-				System.out.println("클라이언트 : " + message);
 			
 				System.out.println("내용 입력 : ");
 				dos.writeUTF(sc.nextLine());
@@ -41,6 +40,34 @@ public class Server {
 			
 		}catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+}
+
+
+//ServerRvc
+package Server;
+
+import java.io.DataInputStream;
+
+public class ServerRvc extends Thread{
+
+	private  DataInputStream dis;
+	
+	public ServerRvc(DataInputStream dis) {
+		this.dis = dis;
+	}
+	
+	@Override
+	public void run() { //동시진행을 도와주는 method
+		
+		while(true) {
+			try {
+				String message = dis.readUTF();
+				System.out.println("Client : " + message);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
@@ -71,18 +98,44 @@ public class Client {
 			
 			Scanner sc = new Scanner(System.in);
 			
+			ClientRvc crvc = new ClientRvc(dis);
+			crvc.start();
+			
 			while(true) {
 				
 				System.out.println("내용 입력 : ");
 				dos.writeUTF(sc.nextLine());
-				
-				String message = dis.readUTF();
-				//data가 오지않으면 기다림
-				System.out.println("서버 : " + message);
 			}
-			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}	
 	}
 }
+
+
+//ClientRvc
+package Client;
+
+import java.io.DataInputStream;
+
+public class ClientRvc extends Thread{
+private  DataInputStream dis;
+	
+	public ClientRvc(DataInputStream dis) {
+		this.dis = dis;
+	}
+	
+	@Override
+	public void run() { //동시진행을 도와주는 method
+		
+		while(true) {
+			try {
+				String message = dis.readUTF();
+				System.out.println("Server : " + message);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
