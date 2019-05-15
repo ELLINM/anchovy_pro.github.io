@@ -158,6 +158,7 @@ public class SheriffService implements ServiceInterface{
 				result = true;
 				pList.add(p);
 			}
+// if 문으로 처음 p가 Sheriff에 포함되는지 확인 포함된다면 ssn과 officernum이 null값인지 아닌지 확인하여 null이라면 true로 리턴
 		} else if (p instanceof Criminal) {
 
 			if (searchPersonBySsn(p.getSsn()) == null
@@ -165,6 +166,7 @@ public class SheriffService implements ServiceInterface{
 				result = true;
 				pList.add(p);
 			}
+//else if 문에서 p가 Criminal에 포함되는지 확인 포함된다면 ssn과 criminalnum이 null값인지 아닌지 확인하여 null이라면 true로 리턴
 		}
 
 		return result;
@@ -230,8 +232,11 @@ public class SheriffService implements ServiceInterface{
 		Sheriff s = searchSheriffByOfficerNum(officerNum);
 		Criminal c = searchCriminalByCriminalNum(criminalNum);
 		if (s != null && c != null) {
+		// Sheriff 와 Criminal의 search Method에서 null값이 return된다면
 			s.getcList().add(c);
+		// Sheriff vo의 cList에 검색된 c를 추가해준다.
 			pList.remove(c);
+		// 그리고 pList에서 c에대한 정보를 삭제
 		}
 		return s != null && c != null;
 	}
@@ -246,6 +251,7 @@ public class SheriffService implements ServiceInterface{
 				sList.add((Sheriff) p);
 			}
 		}
+		//Sheriff를 sList로 선언한 ArrayList에 대입하기 위하여 instanceof를 실행
 
 		for (int i = 0; i < sList.size(); i++) {
 			for (int j = i; j < sList.size(); j++) {
@@ -253,6 +259,7 @@ public class SheriffService implements ServiceInterface{
 					temp = sList.get(i);
 					sList.set(i, sList.get(j));
 					sList.set(j, temp);
+		// Sheriff가 등록된 sList를 for문을 사용하여 각 위치의 Sheriff의 길이를 구하여 길이가 긴 Sheriff를 정렬 시킨다.
 				}
 			}
 		}
@@ -266,24 +273,36 @@ public class SheriffService implements ServiceInterface{
 
 	public String orderCriminalByHighBounty() {
 		ArrayList<Criminal> criList = new ArrayList<>();
+		//bounty비교를 위해 Criminal을 대입할 ArrayList를 선언
 		Criminal temp = null;
+		// 비교연산에 필요한 Criminal형의 temp를 선언
 		String result = "";
+		// result -> 출력에 필요한 String 변수 선언
 
 		for (Person p : pList) {
 			if (p instanceof Criminal) {
+			//Person형의 p가 Criminal에 포함되는지 확인
 				criList.add((Criminal) p);
+				//포함된p를 Criminal형으로 criList에 저장
 			} else if (p instanceof Sheriff) {
+			//체포되어있을 경우를 판단하여 p가 Sheriff에 포함되는지 확인 
 				for (int j = 0; j < ((Sheriff) p).getcList().size(); j++) {
+				//포함되어 있다면 p의 bounty를 알기 위해서 for문으로 검색
 					criList.add(((Sheriff) p).getcList().get(j));
+					//마찬가지로 criList에 저장
 				}
 			}
 		}
 
 		for (int i = 0; i < criList.size(); i++) {
+			//p를 저장한 criList를 for문으로 검색
 			for (int j = i; j < criList.size(); j++) {
 				if (criList.get(i).getBounty() < criList.get(j).getBounty()) {
+				//i 와 j문으로 검색하여 각각 bounty값을 비교해 준다.
 					temp = criList.get(i);
+					//비교 값중에 작은 값을 마련된 temp에 저장
 					criList.set(i, criList.get(j));
+					//저장하고 남은 criList(i)값에서 set변수를 가져와 j를
 					criList.set(j, temp);
 				}
 			}
