@@ -196,22 +196,28 @@ public class ToyManagerUI {
 				switch(mNum) {
 				case 1:
 					insertToy();
+				//하단 insretToy Method 호출
 					break;
 				case 2:
 					searchToy();
+				//하단 searchToy Method 호출
 					break;
 				case 3:
 					deleteToy();
+				//하단 deleteToy Method 호출
 					break;
 				case 4:
 					searchForPrice();
+				//하단 searchToy Method 호출
 					break;
 				case 5:
 					printToyInfo();
+				//하단 printToy Method 호출
 					break;
 				case 9:		// 저장 후 끝냄
 					System.out.println("데이터 저장 후 프로그램 종료합니다.");
 					manager.saveFile();
+				//OutputStream을 통해 저장
 					return;
 				default : 
 					System.out.println("오류 >>>>> 메뉴 선택을 다시해 주세요.");
@@ -254,15 +260,18 @@ public class ToyManagerUI {
 
 				if(iNum == 9) {
 					return;
+				//전단계 메뉴로 돌아감
 				}
 			} catch(Exception e) {
 				System.out.println("오류 >>>>> 다시 선택해 주세요.\n");
 				input.nextLine();
+				//선택지 외의 키를 누르면 오류로 다시 선택하도록 함
 				continue;
 			}
 
 			Toy toy = makeToy(iNum);
 			manager.insertToy(toy);
+			//장난감 분류를 선택하고 manager Class의 insertToy로 toy형의 자료를 보냄
 		}
 	}
 
@@ -285,6 +294,7 @@ public class ToyManagerUI {
 	 */
 	public Toy makeToy(int toyType) {
 		Toy toy = null;
+		//toy형의 자료 구조 선언
 		String name, serialNum;
 		int price = 0;
 		
@@ -294,8 +304,9 @@ public class ToyManagerUI {
 				serialNum = input.next();
 				
 				Toy sToy = manager.searchToy(serialNum);
-
+				//manager의 searchToy로 고유번호르 보내서 등록된 제품인지 아닌지 확인하고 받아옴
 				if(sToy != null) {
+					//판별여부에 따라서 null값이 아니라면 즉 고유번호 값이 저장되어 있다면 오류로 반환
 					System.out.println("중복 오류 >>>>> 입력하신 고유번호의 장난감이 존재합니다.\n");
 					continue;
 				}
@@ -309,6 +320,7 @@ public class ToyManagerUI {
 				switch(toyType) {
 				case 1:
 					String type = null;
+					//switch 문에 따라서 저장될 자전거의 종류 변수 선언
 
 					System.out.print("> 자전거 종류(1. 도로용, 2. 산악용) => ");
 					int tNum = input.nextInt();
@@ -328,6 +340,9 @@ public class ToyManagerUI {
 					
 					break;
 				case 2:
+					int wingCount = 0;
+					//마찬가지로 새 저장될 변수 선언
+					int wingCount = 0;
 					int wingCount = 0;
 					System.out.print("> 날개 갯수 : ");
 					wingCount = input.nextInt();
@@ -372,9 +387,12 @@ public class ToyManagerUI {
 			System.out.print("\n> 장난감 고유번호: ");
 			String serialNum = input.next();
 			Toy sToy = manager.searchToy(serialNum);
+			//manager Class searxhToy로 serialNum을 보내고 받은 return값을 sToy에 저장
 
 			if(sToy != null) {
+			//Data를 전달받은 sToy값이 null값이 아니라면 serialNum과 일치하는 값이 들어있는것이기 때문에
 				System.out.println(sToy.toString());
+				//해당하는 값을 출려해 준다.
 			}
 			else {
 				System.out.println("검색 실패 >>>>> 입력하신 고유번호의 장난감이 존재하지 않습니다.\n");
@@ -406,16 +424,16 @@ public class ToyManagerUI {
 		System.out.println("\n===== 가격 검색 메뉴 =====");
 		System.out.print("> 최소가격: ");
 		int minPrice = input.nextInt();
-		
+		//최소 가격 지정
 		System.out.print("> 최대가격: ");
 		int maxPrice = input.nextInt();
-		
+		//최대 가격 지정
 		int count = 0;
 		
 		List<Toy> tList = manager.toyListForPrice(minPrice, maxPrice);
 		if(tList != null) {
 			System.out.println("[ " + minPrice + "원 ~ " + maxPrice + "원 사이의 제품 검색 결과 ] ");
-			
+		//Toy형의 tList에 manager Class의 method return값을 받아온다 또한 그 값이 null아니라면 전부 출력해준다.
 			for(Toy t : tList) {
 				System.out.println(t);
 				count++;
@@ -436,7 +454,7 @@ public class ToyManagerUI {
 			printMenu();
 			int pNum = input.nextInt();
 			String msg = null;
-
+			//String 변수를 마련해주고 pNum에 따라서 들어갈 문구를 넣어준다.
 			switch(pNum) {
 			case 1:
 				msg = "총 장난감 개수: [";
@@ -454,7 +472,9 @@ public class ToyManagerUI {
 				return;
 			}
 			List<Toy> tList = manager.printToyInfo(pNum);
+			//manager Class의 printToy의 return 값을 tList에 넣어준다.
 			if(tList != null) {
+				//tList가 null값이 아니라면 tList의 사이즈르 통하여 등록된 목록을 출력한다.
 				for(int i = 0, len = tList.size(); i < len; i++) {
 					System.out.println(tList.get(i).toString());
 				}
@@ -629,12 +649,13 @@ public class ToyManagerMgr implements ToyManager {
 	public List<Toy> toyListForPrice(int minPrice, int maxPrice) {
 		List<Toy> pList = new ArrayList<>();
 		for(int i = 0, len = toyList.size(); i < len; i++) {
+		//저장되어 있는 toyList를 for문으로 검색한다.
 			int toyPrice = toyList.get(i).getPrice();
 			if(toyPrice >= minPrice && toyPrice <= maxPrice) {
+			//검색된 목록들중에 가격대 안에 들어가느 목록을 pList에 저장하고 반납한다.
 				pList.add(toyList.get(i));
 			}
 		}
-		
 		return pList;
 	}
 
@@ -647,7 +668,7 @@ public class ToyManagerMgr implements ToyManager {
 	public List<Toy> printToyInfo(int type) {
 		List<Toy> toys = new ArrayList<>();
 		Toy toy = null;
-
+		//instanceof 검색
 		switch(type) {
 		case 1: // all
 			for(int i = 0 ; i < toyList.size(); i++) {
