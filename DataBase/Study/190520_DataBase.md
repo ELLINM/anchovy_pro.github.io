@@ -89,6 +89,31 @@ LAMP
 + PHP
 
 
+Data Integrity
+--------
++ NOT NULL 제약 조건
+> NULL : 아직 할당 받지 않은 값, 아직 무엇인지 모르는 값
+  테이블의 지역명(LOC)칼럼에 정해지지않은 값을 의미하는 NULL값을 할당
+  테이블 내에 반드시 입력해야 하는 필수 입력 칼럼에 NULL값을 저장하지 못하도록 NOT NULL제약 조건이 필요
+  NOT NULL조건이 된 칼럼은 NULL값이 아닌 확실한 정보가 저장되어야 하기 때문에 필수적으로 입력되어야 하는 칼럼이 됩니다.
+
++ 기본 키 제약 조건
+> 한 테이블 내에서 칼럼이 동일한 값을 가질 수 없게 제약 조건을 지정하는것
+
++ 외래 키 제약 조건
+> 서로 다른 테이블을 연결하여 사용할때 필요한 정보를 추가, 수정할 때 필요한 키를 참조 하도록 제약을 걸어 두는 것
+
+
 SQL
 --------
-+ IOS 인증으로 꾸준히 사용되는 언어
++ 질의어 (DQL : Data Query Language), SELECT(데이터 검색)
+
++ 데이터 조작어 (DML : Data Manipulation Language) ,INSERT(데이터 입력), UPDATE(데이터 수정), DELETE(데이터 삭제)
+
++ 데이터 정의어 (DDL : Data Definition Language), CREATE(데이터베이스 객체 생성), ALTER(데이터베이스 객체 변경), 
+  DROP(데이터베이스 객체 삭제), RENAME(데이터베이스 객체 이름 변경), TRUNCATE(데이터 및 저장 공간 삭제)
+  
++ 트랜잭션 처리어 (TCL : Transaction Control Language), COMMIT(트랜잭션의 정상적인 종료 처리), 
+  ROLLBACK(트랜잭션 취소), SAVEPOINT(트랜잭션 내에 임시 저장점 설정)
+
++ 데이터 제어어 (DCL : Data Control Language), GRANT(데이터배이스 객체에 대한 접근 권한 부여), REVOKE(데이터베이스 객체에 대한 접근 권한 )
