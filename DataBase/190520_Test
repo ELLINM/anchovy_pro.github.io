@@ -1,0 +1,102 @@
+C:\>mkdir 37_SCIT
+C:\>cd 37_SCIT
+C:\37_SCIT>sqlplus "/as sysdba"
+SQL*Plus : RElease 11.2.0.2.0 Production on blahblah
+Copyright <c> blahblah
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+
+SQL> show user
+USER is "SYS"
+SQL> alter user hr identified by hr;
+
+User altered.
+
+SQL> alter user hr account unlock;
+
+User altered.
+
+SQL> alter user hr dentidied by hr;
+
+SQL> conn hr/hr
+Connected.
+SQL> show user
+USER is "HR"
+SQL> desc tab
+SQL*Plus: Release 11.2.0.2.0 Production on 월 5월 20 11:53:09 2019
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+
+SQL> show user
+USER is "SYS"
+SQL> ^C
+C:\37_SCIT>show user
+'show'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+배치 파일이 아닙니다.
+
+C:\37_SCIT> show user
+'show'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+배치 파일이 아닙니다.
+
+C:\37_SCIT>sqlplus "/as sysdba"
+
+SQL*Plus: Release 11.2.0.2.0 Production on 월 5월 20 11:55:26 2019
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+
+SQL> show user
+USER is "SYS"
+SQL> alter user hr identified by hr;
+
+User altered.
+
+SQL> alter user hr account unlock;
+
+User altered.
+
+SQL> alter user hr dentidied by hr;
+alter user hr dentidied by hr
+              *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> conn hr/hr
+Connected.
+SQL> show user
+USER is "HR"
+SQL> desc tab
+
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ---------------------------
+
+ TNAME                                     NOT NULL VARCHAR2(30)
+ TABTYPE                                            VARCHAR2(7)
+ CLUSTERID                                          NUMBER
+
+
+SQL> select tname from tab;
+
+TNAME
+------------------------------------------------------------
+COUNTRIES
+DEPARTMENTS
+EMPLOYEES
+EMP_DETAILS_VIEW
+JOBS
+JOB_HISTORY
+LOCATIONS
+REGIONS
+
+8 rows selected.
+
+SQL>
