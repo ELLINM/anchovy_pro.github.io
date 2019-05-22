@@ -1,0 +1,32 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation. All rights reserved.
+
+C:\Users\user>sqlplus "/as sysdba"
+
+SQL*Plus: Release 11.2.0.2.0 Production on 수 5월 22 11:40:24 2019
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+
+SQL> sho user
+USER is "SYS"
+SQL> create user c_class
+  2  identified by ccc
+  3  default tablespace users
+  4  temporary tablespace temp
+  5  password expire;
+
+User created.
+
+SQL> grant connect to c_class;
+
+Grant succeeded.
+
+SQL> grant resource to c_class;
+
+Grant succeeded.
+
+SQL>
