@@ -347,20 +347,20 @@ order by job;</pre>
 + DECODE로 부서이름 출력하기
 <pre>select ename, dno,
     DECODE(dno, 10, 'ACCOUNTING',
-            20, 'RESEARCH',
-            30, 'SALES',
-            40, 'OPERATIONS',
-            'DEFAULT') AS DNAME
+                20, 'RESEARCH',
+                30, 'SALES',
+                40, 'OPERATIONS',
+                'DEFAULT') AS DNAME
 from employee
 order by dno;</pre>
 
 + CASE로 부서이름 출력하기
 <pre>select ename, dno,
     CASE WHEN dno=10 THEN 'ACCOUNTING'
-        WHEN dno=20 THEN 'RESEARCH'
-        WHEN dno=30 THEN 'SALES'
-        WHEN dno=40 THEN 'OPERATIONS'
-        ELSE 'DEFAULT'
+         WHEN dno=20 THEN 'RESEARCH'
+         WHEN dno=30 THEN 'SALES'
+         WHEN dno=40 THEN 'OPERATIONS'
+         ELSE 'DEFAULT'
     ELSE AS DNAME
 from employee
 order by dno;</pre>
