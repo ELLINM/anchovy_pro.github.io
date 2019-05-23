@@ -327,7 +327,7 @@ NVL(job,'MANAGER')</pre>
         NVL(commission, 0),
         salary*12+NVL(commission,0)
 from employee
-order by job;
+order by job;</pre>
 
 + NVL2로 NULL값 처리하기
 <pre>select ename, salary, commission,
