@@ -1,0 +1,207 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation. All rights reserved.
+
+C:\Users\user>sqlplus "/as sysdba"
+
+SQL*Plus: Release 11.2.0.2.0 Production on 금 5월 24 09:17:58 2019
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production
+
+SQL> conn hr/hr
+Connected.
+SQL> select
+  2  'grant select on'
+  3  ||tname
+  4  ||'to c_sim;'
+  5  from tab;
+
+'GRANTSELECTON'||TNAME||'TOC_SIM;'
+--------------------------------------------------------------------------------
+
+grant select onCOUNTRIESto c_sim;
+grant select onDEPARTMENTSto c_sim;
+grant select onEMPLOYEESto c_sim;
+grant select onEMP_DETAILS_VIEWto c_sim;
+grant select onJOBSto c_sim;
+grant select onJOB_HISTORYto c_sim;
+grant select onLOCATIONSto c_sim;
+grant select onREGIONSto c_sim;
+
+8 rows selected.
+
+SQL> CASE expr
+SP2-0042: unknown command "CASE expr" - rest of line ignored.
+SQL> case expr
+SP2-0042: unknown command "case expr" - rest of line ignored.
+SQL> select c_sim
+  2  CASE WHEN viewtype = @view
+  3  CASE WHEN tabletype = @tabletype
+  4  from tab;
+CASE WHEN viewtype = @view
+     *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select
+  2  'grant select on'
+  3  ||tname
+  4  ||'to c_sim;'
+  5  from tab;
+
+'GRANTSELECTON'||TNAME||'TOC_SIM;'
+--------------------------------------------------------------------------------
+
+grant select onCOUNTRIESto c_sim;
+grant select onDEPARTMENTSto c_sim;
+grant select onEMPLOYEESto c_sim;
+grant select onEMP_DETAILS_VIEWto c_sim;
+grant select onJOBSto c_sim;
+grant select onJOB_HISTORYto c_sim;
+grant select onLOCATIONSto c_sim;
+grant select onREGIONSto c_sim;
+
+8 rows selected.
+
+SQL> conn hr/hr
+Connected.
+SQL> desc tab
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+
+ TNAME                                     NOT NULL VARCHAR2(30)
+ TABTYPE                                            VARCHAR2(7)
+ CLUSTERID                                          NUMBER
+
+SQL> desc tabtype
+ERROR:
+ORA-04043: object tabtype does not exist
+
+
+SQL> select * from tabtype;
+select * from tabtype
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> desc tab
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+
+ TNAME                                     NOT NULL VARCHAR2(30)
+ TABTYPE                                            VARCHAR2(7)
+ CLUSTERID                                          NUMBER
+
+SQL> desc table
+ERROR:
+ORA-00931: missing identifier
+
+
+SQL> desc tname
+ERROR:
+ORA-04043: object tname does not exist
+
+
+SQL> select * from tab;
+
+TNAME                                                        TABTYPE
+------------------------------------------------------------ --------------
+ CLUSTERID
+----------
+COUNTRIES                                                    TABLE
+
+
+DEPARTMENTS                                                  TABLE
+
+
+EMPLOYEES                                                    TABLE
+
+
+
+TNAME                                                        TABTYPE
+------------------------------------------------------------ --------------
+ CLUSTERID
+----------
+EMP_DETAILS_VIEW                                             VIEW
+
+
+JOBS                                                         TABLE
+
+
+JOB_HISTORY                                                  TABLE
+
+
+
+TNAME                                                        TABTYPE
+------------------------------------------------------------ --------------
+ CLUSTERID
+----------
+LOCATIONS                                                    TABLE
+
+
+REGIONS                                                      TABLE
+
+
+SQL> sho user
+USER is "C_SIM"
+SQL> desc session_privs
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+
+ PRIVILEGE                                 NOT NULL VARCHAR2(40)
+
+SQL> select PRIVILEGE from session_privs
+  2  ;
+
+PRIVILEGE
+--------------------------------------------------------------------------------
+
+CREATE SESSION
+UNLIMITED TABLESPACE
+CREATE TABLE
+CREATE CLUSTER
+CREATE SEQUENCE
+CREATE PROCEDURE
+CREATE TRIGGER
+CREATE TYPE
+CREATE OPERATOR
+CREATE INDEXTYPE
+
+10 rows selected.
+
+select desc all_objects
+select count(*) from all_objects
+
+select
+OWNER, OBJECT_NAME, OBJECT_TYPE
+from all_objects
+where owner='HR';
+
+select
+'create table;||OBJECT_NAME||
+'as select * from'||owner||
+'.'||OBJECT_NAME||'.'
+from all_objects
+where owner='HR'
+--ONWER, OBJECT_NAME, OBJECT_TYPE;
+
+
+select count(TABLE_NAME) from dict;
+
+select table_name
+from dict
+where table_name like '%PRIV%';
+
+desc dba_sys_privs
+
+select
+distinct PRIVILEGE
+from dba_sys_privs
+where PRIVILEGE like '%VIEW%';
+
+grant CREATE VIEW to c_sim;
