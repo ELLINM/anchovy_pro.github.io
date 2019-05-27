@@ -1,0 +1,25 @@
+select
+ e.department_id 부서번호, 
+ d.department_name 부서명, 
+ count(employee_id) 직원수,
+ sum(SALARY*12) 총연봉액
+from emp e, dept d
+where e.department_id = d.department_id
+group by e.department_id, d.department_name
+having sum(SALARY*12) >= 1000000
+/
+
+
+create table emp2
+(e_no, e_name, eh_date,
+ e_job, e_sal, e_manager,
+ e_dept_no)
+as
+select
+ employee_id,
+ first_name||' '||Last_name,
+ hire_date, job_id, salary,
+ manager_id, department_id
+from emp
+where rownum < 5
+/
