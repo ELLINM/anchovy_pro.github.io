@@ -1,0 +1,19 @@
+select rw "순위(직원수)", 부서번호,
+ 부서명, 직원수, 책임자명
+from
+(select 
+ rownum rw, 부서번호,
+ 부서명, 직원수, 책임자명
+from
+(select
+  d.department_id 부서번호,
+  d.department_name 부서명,
+  count(e.employee_id) 직원수,
+  e2.first_name 책임자명
+ from emp e, dept d, emp e2
+ where e.department_id = d.department_id
+  and e2.employee_id = d.manager_id
+ group by
+  d.department_id, d.department_name, e2.first_name
+ order by 직원수 desc))
+where rw between 2 and 4
