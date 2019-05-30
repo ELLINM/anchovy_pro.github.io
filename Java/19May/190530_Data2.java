@@ -81,6 +81,7 @@ public class PreparedStatementTest {
 			int age [] = {26, 26, 28};
 			String sql = "insert into member values (?, ?, ?, ?)";
 			PreparedStatement pstmt = con.prepareStatement(sql);
+			con.setAutoCommit(false);
 			for(int i = 0; i < 3; i++) {
 				pstmt.setString(1, ID[i]); 
 				pstmt.setString(2, password[i]);
@@ -89,8 +90,16 @@ public class PreparedStatementTest {
 				pstmt.executeUpdate();
 				
 			}
+			con.commit();
+			con.setAutoCommit(true);
 			
 		} catch (SQLException e) {
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		} finally {
 			try {
