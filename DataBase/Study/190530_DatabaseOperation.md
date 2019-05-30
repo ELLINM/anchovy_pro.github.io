@@ -81,4 +81,7 @@ getConnection
   -> getConnection을 호출하고 null이 아닌 사용자 이름이나 null이 아닌 암호를 제공
   -> setUser 및 setPassword로 설정된 사용자 이름과 암호 getConnection에 전달된 사용자 이름 및 암호로 대체
   
-  
+ + 참고 링크 
+   https://m.blog.naver.com/heartflow89/221003777591
+  https://docs.microsoft.com/ko-kr/sql/connect/jdbc/reference/getconnection-method-java-lang-string-java-lang-string?view=sql-server-2017
+  https://kyun2.tistory.com/23
