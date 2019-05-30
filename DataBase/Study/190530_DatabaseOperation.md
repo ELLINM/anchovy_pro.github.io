@@ -57,3 +57,28 @@ Class.forname()
   따라서 Class.forName() 메소드를 호출하면 인스턴스 생성과 초기화가 진행
   Class.forName()은 JDBC 4.0 이후로는 메소드를 호출하지 않아도 자동으로 드라이버를 초기화
   
+
+getConnection
+-----------------
+<pre>public java.sql.Connection getConnection(java.lang.String username,  
+                                         java.lang.String password)</pre>
+
+> 매개 변수 
+  username : 사용자 이름을 포함하는 문자열입니다.
+  password : 암호가 포함된 문자열입니다.
+
+> 반환 값
+  SQLServerConnection 개체입니다.
+
+> 예외
+  java.sql.SQLException
+
++ Remarks
+  getConnection 메서드는 javax.sql.DataSource 인터페이스의 getConnection 메서드에 의해 지정
+  Null이 아닌 사용자 이름이 나 암호를 사용 메서드 호출의 getConnection SQLServerConnection 개체를 초기화할 때 
+  SQLServerDataSource 클래스에 설정 된 사용자 이름 및 암호 속성을 대체
+  Ex) 호출자가 데이터 원본에 대해 setUser 및 setPassword를 호출한 
+  -> getConnection을 호출하고 null이 아닌 사용자 이름이나 null이 아닌 암호를 제공
+  -> setUser 및 setPassword로 설정된 사용자 이름과 암호 getConnection에 전달된 사용자 이름 및 암호로 대체
+  
+  
