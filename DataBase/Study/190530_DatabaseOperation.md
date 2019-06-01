@@ -241,8 +241,16 @@ public class PreparedStatementTest
   그러나 PreparedStatement 객체는 작은따옴표 문제를 쿼리 실행시 자동으로 처리하므로 신경쓸 필요가 없다는 장점이 있다.
 
 
++ Result Set
+----------
++ select쿼리 실행 시 executeQuery() 메서드를 사용하며, 실행 결과로 java.sql.ResultSet형으로 리턴한다.
+> ResultSet에서 자주사용하는 메서드 
+  메서드 설명 next() 다음행으로 커스를 이동(다음행이 없으면 false리턴) getXxx(int columnIndex) columnIndex번째 컬럼의 값을 Xxx타입으로 가져온다
+  getXxx(String columnName) columnName 컬럼의 값을 Xxx타입으로 가져온다 close() ResultSet객체를 반환
+
 
  + 참고 링크 
+ 
  https://m.blog.naver.com/heartflow89/221003777591
  
  https://docs.microsoft.com/ko-kr/sql/connect/jdbc/reference/getconnection-method-java-lang-string-java-lang-string?view=sql-server-2017
@@ -250,3 +258,5 @@ public class PreparedStatementTest
  https://kyun2.tistory.com/23
  
  https://all-record.tistory.com/79
+
+https://coffee-mark.tumblr.com/post/62105165630/jdbc-resultset%EC%9C%BC%EB%A1%9C-select%EC%BF%BC%EB%A6%AC-%EA%B2%B0%EA%B3%BC%EA%B0%92-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0
