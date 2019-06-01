@@ -108,7 +108,7 @@ import java.sql.Statement
   동일한 SQL문을 특정 값만 바꾸어서 여러 번 실행해야 할 때, 인수가 많아서 SQL문을 정리해야 될 필요가 있을 때 사용하면 유용하다.
 
 
-+ Ex
+Ex
 -----------
 <pre>CREATE TABLE TEST 
 (
@@ -241,12 +241,30 @@ public class PreparedStatementTest
   그러나 PreparedStatement 객체는 작은따옴표 문제를 쿼리 실행시 자동으로 처리하므로 신경쓸 필요가 없다는 장점이 있다.
 
 
-+ Result Set
+Result Set
 ----------
 + select쿼리 실행 시 executeQuery() 메서드를 사용하며, 실행 결과로 java.sql.ResultSet형으로 리턴한다.
+
++ ExecuteQuery
+  1. 수행결과로 ResultSet 객체의 값을 반환
+  2. SELECT 구문을 수행할 때 사용되는 함수
+  3. ResultSet 객체에 결과값을 담을 수 있음
+
 > ResultSet에서 자주사용하는 메서드 
   메서드 설명 next() 다음행으로 커스를 이동(다음행이 없으면 false리턴) getXxx(int columnIndex) columnIndex번째 컬럼의 값을 Xxx타입으로 가져온다
   getXxx(String columnName) columnName 컬럼의 값을 Xxx타입으로 가져온다 close() ResultSet객체를 반환
+
+> RessultSet의 과정
+  Java에서 DB로 연결되는 통로를 열고, 그 통로로 명령을 보내고,
+  그 통로로 보낸 명령에 대해서 DB가 처리해서 값을 돌려보내주는 식으로 처리 됩니다
+  execteQuery로 명령하면 ResultSet이라는 객체를 반환
+  execteQuery : DB에 명령
+  ResultSet : 명령에 대한 반환값
+
++Ex
+  execteQuery("Select * from tableName"); 
+  tableName 라는 테이블에서 값(ResultSet)을 가져옴
+  간단히 DB에 명령 -> 명령에 따라서 디비가 작동 -> 작동한 결과 값을 반환
 
 
  + 참고 링크 
@@ -260,3 +278,5 @@ public class PreparedStatementTest
  https://all-record.tistory.com/79
 
 https://coffee-mark.tumblr.com/post/62105165630/jdbc-resultset%EC%9C%BC%EB%A1%9C-select%EC%BF%BC%EB%A6%AC-%EA%B2%B0%EA%B3%BC%EA%B0%92-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0
+
+https://whdvy777.tistory.com/entry/ResultSet-
