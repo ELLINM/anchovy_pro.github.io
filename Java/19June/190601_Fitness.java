@@ -323,6 +323,7 @@ public class FitnessDAO implements FitnessDAOImpl {
 		try {
 //			String driver = "com.mysql.cj.jdbc.Driver";
 			String driver = "oracle.jdbc.driver.OracleDriver";
+			// java를 이용하여 oracle을 이용하기 위해 연결하는 경로값 때문에 연결하고 try, catch로 잡아준다.
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -335,7 +336,9 @@ public class FitnessDAO implements FitnessDAOImpl {
 //		String user = "root";
 //		String password = "root";
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
+		// 연결한 경로값에서 본인의 오라클 주소에 해당하는 내용
 		String user = "hr";
+		//sql에서 table을 등록한 id와 pw입력
 		String password = "hr";
 		Connection con = null;
         
@@ -360,10 +363,14 @@ public class FitnessDAO implements FitnessDAOImpl {
 	public int insert(Fitness vo) {
 //		String sql = "insert into fitness (username, gender, height, weight, bmi, userresult) values (?,?,?,?,?,?)";
 		String sql = "insert into fitness values (?,?,?,?,?,?,?)";
+		/*문자열 함수인 sql안에 fitness에 들어가는 변수값들을 입력 해줄 수 있도록 함
+		각 위치마다 각 값이 들어가도록 아래서 설정*/
 		Connection con = getConnection();	
+		//Connection을 자료값로하는 con변수를 선언하고 위의 getConnection() method를 사용할 수 있도록함
 		int result = 0;
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
+			//PreparedStatement를 이용하여 데이터베이스와 연결된 sql변수에 각 vo의 값을 넣어 줄 수 있도록 함
 			pstmt.setInt(1, vo.getUserId());
 			pstmt.setString(2, vo.getUserName());
 			pstmt.setString(3, vo.getGender());
@@ -371,38 +378,41 @@ public class FitnessDAO implements FitnessDAOImpl {
 			pstmt.setDouble(5, vo.getWeight());
 			pstmt.setDouble(6, vo.getBmi());
 			pstmt.setString(7, vo.getUserResult());
+			// 각 자리마다 저장될 값의 위치를 지정
 			result = pstmt.executeUpdate();
+			//위 내용의 실행결과를 executrUpdate를 통해 Int형으로 반환함
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect(con);
 		}
-		
 		return result;
 	}
 
 	@Override
 	public int delete(int userId) {
 		String sql = "delete from fitness where userid = ?";
+		//sql문 안에서 userid의 위치를 찾아서 삭제함 ?에는 입력받은 userid가 들어감
 		int result = 0;
 		Connection con = getConnection();
-		
+		//데이터베이스와 연결
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, userId);
+			//userid는 입력된 각 자료들 중에서 1번에 위치해 있기 때문에 일치하는 값을 검색
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect(con);
 		}
-		
 		return result;
 	}
 
 	@Override
 	public int update(Fitness vo) {
 		String sql = "update fitness set userName = ?, gender = ?, height = ?, weight = ? where userId = ?";
+		//sql문을 통해서 수정을 함
 		int result = 0;
 		Connection con = getConnection();
 		
@@ -419,13 +429,13 @@ public class FitnessDAO implements FitnessDAOImpl {
 		} finally {
 			disconnect(con);
 		}
-		
 		return result;
 	}
 
 	@Override
 	public List<Fitness> getAllData() {
 		String sql = "select * from fitness";
+		//전체출력구문 
 		ArrayList<Fitness> allData = new ArrayList<>();
 		Connection con = null;
 		
@@ -433,6 +443,7 @@ public class FitnessDAO implements FitnessDAOImpl {
 			con = getConnection();
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
+			// ResultSet 객체에 결과값을 담아줌
 			while(rs.next()) {
 				int userId = rs.getInt(1);
 				String userName = rs.getString(2);
@@ -441,7 +452,9 @@ public class FitnessDAO implements FitnessDAOImpl {
 				double weight = rs.getDouble(5);
 				double bmi = rs.getDouble(6);
 				String userResult = rs.getString(7);
+				//각 변수값에 ResultSet에서 불러온 결과값을 저장해줌
 				Fitness vo = new Fitness(userId, userName, gender, height, weight, bmi, userResult);
+				//vo에 새롭게 값을 저장해주고 ArrayList에 저장
 				allData.add(vo);
 			}
 		} catch (SQLException e) {
@@ -449,19 +462,20 @@ public class FitnessDAO implements FitnessDAOImpl {
 		} finally {
 			disconnect(con);
 		}
-		
 		return allData;
 	}
 
 	@Override
 	public Fitness getData(int userId) {
 		String sql = "select * from fitness where userId = ?";
+		//sql문으로 입력받은 userid가 저장된 위치를 검색해서 갖고옴
 		Fitness result = null;
 		Connection con = getConnection();
 		
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, userId);
+			//PreparedStatement값에 입력받은 userid를 입력
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
 				String userName = rs.getString(2);
@@ -470,22 +484,22 @@ public class FitnessDAO implements FitnessDAOImpl {
 				double weight = rs.getDouble(5);
 				double bmi = rs.getDouble(6);
 				String userResult = rs.getString(7);
+				//userid는 입력과 동시에 저장하고 userid에 상응하는 값에 대해서 뽑아야함
 				result = new Fitness(userId, userName, gender, height, weight, bmi, userResult);
+				//result값에 저장하여 반환
 			}
-				
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect(con);
 		}
-		
-		
 		return result;
 	}
 
 	@Override
 	public int getAllDataCount() {
 		String sql = "select count(userId) from fitness";
+		//등록되어 있는 userid의 갯수를 검색
 		int count = 0;
 		Connection con = getConnection();
 		
@@ -493,7 +507,9 @@ public class FitnessDAO implements FitnessDAOImpl {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next())
+				//re.next()로 전체 자료의 갯수를 확인
 				count = rs.getInt(1);
+			//count에 1번 자리 즉 userid 수를 하나씩 넣어 갯수를 측정
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -504,6 +520,7 @@ public class FitnessDAO implements FitnessDAOImpl {
 	
 	public int getNextUserId() {
 		String sql = "select fitness_seq.nextval from dual";
+		//userid는 순차적으로 등록됨으로 다음으로 쓰일 id의 번호를 예측한다.
 		int result = 0;
 		Connection con = getConnection();
 		
@@ -511,6 +528,7 @@ public class FitnessDAO implements FitnessDAOImpl {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next())
+				//위의 전체 갯수를 검색하는것과 비슷함 결국 모든 회원의 수를 알아야 다음 번호를 예측
 				result = rs.getInt(1);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -521,5 +539,4 @@ public class FitnessDAO implements FitnessDAOImpl {
 		return result;
 	}
 }
-
 
