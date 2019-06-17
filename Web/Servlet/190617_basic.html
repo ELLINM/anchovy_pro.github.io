@@ -1,0 +1,44 @@
+<!--index-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="insertmember" method="post">
+ID : <input type="text" name="userId"><br>
+PW : <input type="password" name="userPw"><br>
+<input type="submit" value="SUBMIT">
+
+</form>
+
+
+</body>
+</html>
+
+<!--web.xml-->
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>ServletA</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>Test</servlet-name> <!--마음대로 지정가능-->
+  	<servlet-class>Servlet.TestServlet</servlet-class> 
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Test</servlet-name>
+  	<url-pattern>/insertmember</url-pattern> <!--여러번 사용가능-->
+  </servlet-mapping>
+  
+</web-app>
