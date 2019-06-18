@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//@WebServlet("");을 통해서 web.xml을 설정 하지않고 진행 할 수 
 public class TestServlet extends HttpServlet{
 
 	@Override
