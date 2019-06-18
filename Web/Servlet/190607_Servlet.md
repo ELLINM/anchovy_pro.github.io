@@ -173,3 +173,13 @@ Request / Response
   서버에서 클라이언트로 응답 할 때 필요한 데이터  
   예를 들어, 응답 결과 상태 코드, 클라이언트가 요청한 HTML 문서 같은 것들이 존재  
 
+
+JAVA문의 활용
+-------------
+<pre>
+<c:forEach items="s{sList}" var="word">
+
+<h4>%{word}</h4>
+
+</c:forEach>
+</pre>
