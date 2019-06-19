@@ -118,7 +118,7 @@ import javax.servlet.http.HttpServletResponse;
 import Service.BoardService;
 import Vo.Member;
 
-@WebServlet("/frontAction")
+@WebServlet("/frontAction") //jsp - frontAction과 연결
 public class BoardServlet extends HttpServlet{
 	
 	private BoardService bs = new BoardService();
@@ -132,10 +132,10 @@ public class BoardServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id=req.getParameter("userId");
+		String id=req.getParameter("userId"); //연결된 jsp에서 입력받는 값들을 String parameter값으로 받음
 		String pw=req.getParameter("userPw");
 		
-		if(id!=null&&pw!=null) {
+		if(id!=null&&pw!=null) { //if문을 통하여 입력받은 값들의 조건을 
 			if(!id.equals("")&&!pw.equals("")) {
 				Member mem = new Member(id,pw);
 				boolean result = bs.insertMember(mem);
@@ -253,7 +253,7 @@ public class BoardDAO {
 		
 		Connection con = conn.getConnection();
 		
-		
+		//sql insert문을 통해 입력받은 값을 데이터 베이스에 
 		String sql="INSERT INTO BOARDMEMBER VALUES(";
 		sql+="?,";
 		sql+="?";
