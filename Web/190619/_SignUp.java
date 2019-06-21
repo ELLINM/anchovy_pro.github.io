@@ -114,11 +114,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Service.BoardService;
 import Vo.Member;
 
-@WebServlet("/frontAction") //jsp - frontAction과 연결
+@WebServlet("/frontAction")
 public class BoardServlet extends HttpServlet{
 	
 	private BoardService bs = new BoardService();
@@ -126,30 +127,91 @@ public class BoardServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doGet(req, resp);
+		String action = req.getParameter("action");
+				
+		if(action.equals("login")) {
+			
+			String id=req.getParameter("userId");
+			String pw=req.getParameter("userPw");
+			
+			Member mem = new Member(id,pw);
+			
+			Member result = bs.selectMember(mem);
+			
+			if(result==null) {
+				
+				System.out.println((String)req.getAttribute("message"));
+				
+				req.setAttribute("userId", id);
+				req.setAttribute("userPw", pw);
+				req.setAttribute("message", "로그인 실패");
+
+				RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
+				rd.forward(req, resp);
+				
+			}else {
+				HttpSession session=req.getSession();
+				session.setAttribute("loginId", id);
+				
+				resp.sendRedirect("index.jsp");
+			}
+		}else if(action.equals("logout")){
+			
+			HttpSession session=req.getSession();
+			
+			session.setAttribute("loginId", null);
+			
+			resp.sendRedirect("index.jsp");
+		}
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id=req.getParameter("userId"); //연결된 jsp에서 입력받는 값들을 String parameter값으로 받음
-		String pw=req.getParameter("userPw");
 		
-		if(id!=null&&pw!=null) { //if문을 통하여 입력받은 값들의 조건을 
-			if(!id.equals("")&&!pw.equals("")) {
-				Member mem = new Member(id,pw);
-				boolean result = bs.insertMember(mem);
-				
-				if(result) { //가입 성공시
-					resp.sendRedirect("index.jsp");
-				}else { //가입 실패시
-					req.setAttribute("userId", id);
-					req.setAttribute("userPw", pw);
-					req.setAttribute("message", "아이디가 중복되었습니다");
+		String action=req.getParameter("action");
+		
+		if(action.equals("signup")) {
+			
+			String id=req.getParameter("userId");
+			String pw=req.getParameter("userPw");
+			
+			if(id!=null&&pw!=null) {
+				if(!id.equals("")&&!pw.equals("")) {
+					Member mem = new Member(id,pw);
+					boolean result = bs.insertMember(mem);
 					
-					RequestDispatcher rd=req.getRequestDispatcher("");
-					rd.forward(req, resp);
-				}
+					if(result) { //가입 성공시
+						resp.sendRedirect("index.jsp");
+					}else { //가입 실패시
+						req.setAttribute("userId", id);
+						req.setAttribute("userPw", pw);
+						req.setAttribute("message", "아이디가 중복되었습니다");
+						
+						RequestDispatcher rd=req.getRequestDispatcher("signup.jsp");
+						rd.forward(req, resp);
+					}
+				}	
+			}
+		}else if(action.equals("delete")) {
+			
+			HttpSession session = req.getSession();
+			String id = (String)session.getAttribute("loginId");
+			String pw = req.getParameter("userPw");
+			
+			Member mem = new Member(id, pw);
+			
+			boolean result = bs.deleteMember(mem);
+			
+			if(result) { //탈퇴 성공시
+				req.getSession().invalidate();
+				resp.sendRedirect("index.jsp");
+			}else { //탈퇴 실패시
+				req.setAttribute("userPw", pw);
+				req.setAttribute("message", "비밀번호가 일치 하지 않습니다");
+				
+				RequestDispatcher rd=req.getRequestDispatcher("delete.jsp");
+				rd.forward(req, resp);
 			}
 		}
 	}
@@ -174,7 +236,22 @@ public class BoardService {
 			
 			return flag;
 		}
-	
+		
+		public Member selectMember(Member mem) {
+			Member result = null;
+			
+			result=dao.selectMember(mem);
+			
+			return result;
+		}
+		
+		public boolean deleteMember(Member mem) {
+			boolean flag = true;
+			
+			flag=dao.deleteMember(mem);
+			
+			return flag;
+		}
 }
 
 
@@ -240,6 +317,7 @@ package Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Vo.Member;
@@ -253,7 +331,6 @@ public class BoardDAO {
 		
 		Connection con = conn.getConnection();
 		
-		//sql insert문을 통해 입력받은 값을 데이터 베이스에 
 		String sql="INSERT INTO BOARDMEMBER VALUES(";
 		sql+="?,";
 		sql+="?";
@@ -274,5 +351,74 @@ public class BoardDAO {
 		}
 		return flag;
 	}
+	
+	public Member selectMember(Member mem) {
+		Member result=null;
+		
+		Connection con = conn.getConnection();
+		
+		
+		String sql="SELECT ID,PW FROM BOARDMEMBER WHERE ";
+		sql+="ID=?";
+		sql+=" AND ";
+		sql+="PW=?";
+		
+		try {
+			PreparedStatement ptst = con.prepareStatement(sql);
+			ptst.setString(1, mem.getId());
+			ptst.setString(2, mem.getPw());
+			
+			ResultSet rs = ptst.executeQuery();
+			
+			String resultId=null;
+			String resultPw=null;
+			
+			while(rs.next()) {
+				resultId = rs.getString(1);
+				resultPw = rs.getString(2);
+			}
+			
+			if(resultId!=null&&resultPw!=null) {
+				result = new Member(resultId, resultPw);
+			}else {
+				return null;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public boolean deleteMember(Member mem) {
+		boolean flag = true;
+		
+		Connection con = conn.getConnection();
+		
+		String sql="DELETE BOARDMEMBER WHERE ";
+		sql+="ID=?";
+		sql+=" AND ";
+		sql+="PW=?";
+		
+		try {
+			PreparedStatement ptst = con.prepareStatement(sql);
+			ptst.setString(1, mem.getId());
+			ptst.setString(2, mem.getPw());
+			
+			int result = ptst.executeUpdate();
+			
+			if(result==1) {
+				return true;
+			}else {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			flag = false;
+			return flag;
+		}
+	}
 }
-
