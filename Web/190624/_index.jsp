@@ -382,3 +382,99 @@ form {
 	
 </body>
 </html>
+
+
+<!--board-->
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Board</title>
+</head>
+<body>
+
+	<form action="boardAction" method="get">
+		<input type="hidden" value="boardWrite" name="action">
+		<button>글등록</button>
+	</form>
+
+	<table>
+		<c:forEach items="${bList}" var="board">
+			<tr>
+				<td>${board.boardSeq}</td>
+				<td><a
+					href="boardAction?action=detail&boardSeq=${board.boardSeq}">${board.title}</a></td>
+				<td>${board.indate}</td>
+				<td>${board.id}</td>
+			</tr>
+		</c:forEach>
+	</table>
+
+</body>
+</html>
+
+
+<!--boardWrite-->
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Make Board</title>
+</head>
+<body>
+
+	<form action="boardAction" method="post">
+		<input type="hidden" name="action" value="write">
+		제목 : <input type="text" name="title"><br>
+		내용 : <br><textarea rows="10" cols="30" name="content"></textarea>
+		<!-- textarea는 사이의 공간을 남겨두면 안됨 -->
+		<br><input type="submit" value="글등록">
+	</form>
+
+</body>
+</html>
+
+
+<!--boardDetail-->
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>게시글</title>
+</head>
+<body>
+
+	<c:if test="${sessionScope.loginId==board.id}">
+	
+	<form action="boardAction" method="post">
+	<input type="hidden" name="action" value="delete">
+	<input type="hidden" name="boardSeq" value="${boardSeq}">
+	<button>삭제하기</button>
+	</form>
+	
+	</c:if>
+
+	<h1>제목 : ${board.title}</h1>
+	<br>
+	<br>
+	<h4>게시자 : ${board.id}</h4>
+	<br>
+	<br>
+	<h4>등록일 : ${board.indate}</h4>
+	<br>
+	<br> 내용 : ${board.content}
+	<br>
+	
+	<a href="boardAction?action=board">목록</a>
+	
+</body>
+</html>
