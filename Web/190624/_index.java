@@ -222,36 +222,58 @@ public class BoardServlet extends HttpServlet{
 //BoardService
 package Service;
 
+import java.util.ArrayList;
+
 import Dao.BoardDAO;
+import Vo.Board;
 import Vo.Member;
 
 public class BoardService {
-	
+
 	private BoardDAO dao = new BoardDAO();
-	
-		public boolean insertMember(Member mem) {
-			boolean flag = true;
-			
-			flag=dao.insertMember(mem);
-			
-			return flag;
-		}
-		
-		public Member selectMember(Member mem) {
-			Member result = null;
-			
-			result=dao.selectMember(mem);
-			
-			return result;
-		}
-		
-		public boolean deleteMember(Member mem) {
-			boolean flag = true;
-			
-			flag=dao.deleteMember(mem);
-			
-			return flag;
-		}
+
+	public boolean insertMember(Member mem) {
+		boolean flag = true;
+
+		flag = dao.insertMember(mem);
+
+		return flag;
+	}
+
+	public Member selectMember(Member mem) {
+		Member result = null;
+
+		result = dao.selectMember(mem);
+
+		return result;
+	}
+
+	public boolean deleteMember(Member mem) {
+		boolean flag = true;
+
+		flag = dao.deleteMember(mem);
+
+		return flag;
+	}
+
+	public boolean insertBoard(Board b) {
+		boolean flag = true;
+
+		flag = dao.insertBoard(b);
+
+		return flag;
+	}
+
+	public ArrayList<Board> selectAllBoard() {
+
+		return dao.selectAllBoard();
+	}
+
+	public Board selectBoard(String boardSeq) {
+
+		return dao.selectlBoard(boardSeq);
+	}
+
 }
 
 
@@ -319,30 +341,32 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import Vo.Board;
 import Vo.Member;
 
 public class BoardDAO {
-	
+
 	ConnectionManager conn;
-	
+
 	public boolean insertMember(Member mem) {
 		boolean flag = true;
-		
+
 		Connection con = conn.getConnection();
-		
-		String sql="INSERT INTO BOARDMEMBER VALUES(";
-		sql+="?,";
-		sql+="?";
-		sql+=")";
-		
+
+		String sql = "INSERT INTO BOARDMEMBER VALUES(";
+		sql += "?,";
+		sql += "?";
+		sql += ")";
+
 		try {
 			PreparedStatement ptst = con.prepareStatement(sql);
 			ptst.setString(1, mem.getId());
 			ptst.setString(2, mem.getPw());
-			
+
 			ptst.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -351,74 +375,247 @@ public class BoardDAO {
 		}
 		return flag;
 	}
-	
+
 	public Member selectMember(Member mem) {
-		Member result=null;
-		
+		Member result = null;
+
 		Connection con = conn.getConnection();
-		
-		
-		String sql="SELECT ID,PW FROM BOARDMEMBER WHERE ";
-		sql+="ID=?";
-		sql+=" AND ";
-		sql+="PW=?";
-		
+
+		String sql = "SELECT ID,PW FROM BOARDMEMBER WHERE ";
+		sql += "ID=?";
+		sql += " AND ";
+		sql += "PW=?";
+
 		try {
 			PreparedStatement ptst = con.prepareStatement(sql);
 			ptst.setString(1, mem.getId());
 			ptst.setString(2, mem.getPw());
-			
+
 			ResultSet rs = ptst.executeQuery();
-			
-			String resultId=null;
-			String resultPw=null;
-			
-			while(rs.next()) {
+
+			String resultId = null;
+			String resultPw = null;
+
+			while (rs.next()) {
 				resultId = rs.getString(1);
 				resultPw = rs.getString(2);
 			}
-			
-			if(resultId!=null&&resultPw!=null) {
+
+			if (resultId != null && resultPw != null) {
 				result = new Member(resultId, resultPw);
-			}else {
+			} else {
 				return null;
 			}
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
+
 	public boolean deleteMember(Member mem) {
 		boolean flag = true;
-		
+
 		Connection con = conn.getConnection();
-		
-		String sql="DELETE BOARDMEMBER WHERE ";
-		sql+="ID=?";
-		sql+=" AND ";
-		sql+="PW=?";
-		
+
+		String sql = "DELETE BOARDMEMBER WHERE ";
+		sql += "ID=?";
+		sql += " AND ";
+		sql += "PW=?";
+
 		try {
 			PreparedStatement ptst = con.prepareStatement(sql);
 			ptst.setString(1, mem.getId());
 			ptst.setString(2, mem.getPw());
-			
+
 			int result = ptst.executeUpdate();
-			
-			if(result==1) {
+
+			if (result == 1) {
 				return true;
-			}else {
+			} else {
 				return false;
 			}
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			flag = false;
 			return flag;
+		}
+	}
+
+	public boolean insertBoard(Board b) {
+		boolean flag = true;
+
+		Connection conn = ConnectionManager.getConnection();
+		String sql = "INSERT INTO BOARD ";
+		sql += " (BOARDSEQ,TITLE,ID,CONTENT,INDATE) ";
+		sql += " VALUES ";
+		sql += " (BOARDSEQ.NEXTVAL,?,?,?,SYSDATE) ";
+
+		try {
+			PreparedStatement ptst = conn.prepareStatement(sql);
+
+			ptst.setString(1, b.getTitle());
+			ptst.setString(2, b.getId());
+			ptst.setString(3, b.getContent());
+
+			ptst.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		return flag;
+	}
+
+	public ArrayList<Board> selectAllBoard() {
+		ArrayList<Board> boardList = new ArrayList<>();
+
+		Connection conn = ConnectionManager.getConnection();
+
+		String sql = " SELECT BOARDSEQ,TITLE,ID,CONTENT,INDATE FROM BOARD ORDER BY INDATE DESC";
+
+		try {
+			PreparedStatement ptst = conn.prepareStatement(sql);
+
+			ResultSet rs = ptst.executeQuery();
+
+			while (rs.next()) {
+				String boardseq = rs.getString(1);
+				String title = rs.getString(2);
+				String id = rs.getString(3);
+				String content = rs.getString(4);
+				String indate = rs.getString(5);
+
+				boardList.add(new Board(boardseq, id, title, content, indate));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return boardList;
+	}
+
+	public Board selectlBoard(String boardSeq) {
+		Board board = null;
+
+		Connection conn = ConnectionManager.getConnection();
+
+		String sql = " SELECT BOARDSEQ,TITLE,ID,CONTENT,INDATE FROM BOARD";
+		sql += " WHERE BOARDSEQ=? ";
+
+		try {
+			PreparedStatement ptst = conn.prepareStatement(sql);
+
+			ptst.setString(1, boardSeq);
+
+			ResultSet rs = ptst.executeQuery();
+
+			while (rs.next()) {
+				String boardseq = rs.getString(1);
+				String title = rs.getString(2);
+				String id = rs.getString(3);
+				String content = rs.getString(4);
+				String indate = rs.getString(5);
+
+				board = new Board(boardseq, id, title, content, indate);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return board;
+	}
+}
+
+
+//mainServlet
+package Servlet;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import Service.BoardService;
+import Vo.Board;
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
+
+@WebServlet("/boardAction")
+public class MainServlet extends HttpServlet {
+
+	private BoardService bs = new BoardService();
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String action = req.getParameter("action");
+
+		if (action.equals("board")) {
+
+			checkLogin(req, resp);
+
+			req.setAttribute("bList", bs.selectAllBoard());
+
+			RequestDispatcher rd = req.getRequestDispatcher("board.jsp");
+			rd.forward(req, resp);
+
+		} else if (action.equals("boardWrite")) {
+			checkLogin(req, resp);
+			resp.sendRedirect("boardWrite.jsp");
+
+		} else if (action.equals("detail")) {
+
+			String boardSeq = req.getParameter("boardSeq");
+
+			Board board = bs.selectBoard(boardSeq);
+
+			req.setAttribute("board", board);
+
+			RequestDispatcher rd = req.getRequestDispatcher("boardDetail.jsp");
+			rd.forward(req, resp);
+
+		}
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String action = req.getParameter("action");
+
+		if (action.equals("write")) {
+			String title = req.getParameter("title");
+			String contents = req.getParameter("content");
+			String id = (String) req.getSession().getAttribute("loginId");
+
+			Board board = new Board(null, id, title, contents, null);
+
+			bs.insertBoard(board);
+
+			resp.sendRedirect("boardAction?action=board");
+			// get으로 보내서 게시물을 select해옴
+		}
+	}
+
+	public void checkLogin(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		String loginId = (String) session.getAttribute("loginId");
+
+		if (loginId == null) { // 로그인X
+			try {
+				resp.sendRedirect("Login.jsp");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }
