@@ -430,11 +430,29 @@ form {
 <body>
 
 	<form action="boardAction" method="post">
-		<input type="hidden" name="action" value="write">
-		제목 : <input type="text" name="title"><br>
-		내용 : <br><textarea rows="10" cols="30" name="content"></textarea>
+		<c:if test="${board.boardSeq!=null}">
+
+			<input type="hidden" name="action" value="write">
+		</c:if>
+
+		<c:if test="${board.boardSeq!=null}">
+			<input type="hidden" name="boardSeq" value="${board.boardSeq}">
+			<input type="hidden" name="action" value="update">
+		</c:if>
+
+		<input type="hidden" name="action" value="write"> 제목 : <input
+			type="text" name="title" value="${board.title}"><br> 내용
+		: <br>
+		<textarea rows="10" cols="30" name="content">${board.content}</textarea>
 		<!-- textarea는 사이의 공간을 남겨두면 안됨 -->
-		<br><input type="submit" value="글등록">
+		<c:if test="${board.boardSeq!=null}">
+			<br>
+			<input type="submit" value="글등록">
+		</c:if>
+		<c:if test="${board.boardSeq!=null}">
+			<br>
+			<input type="submit" value="글수정">
+		</c:if>
 	</form>
 
 </body>
@@ -454,13 +472,19 @@ form {
 <body>
 
 	<c:if test="${sessionScope.loginId==board.id}">
-	
-	<form action="boardAction" method="post">
-	<input type="hidden" name="action" value="delete">
-	<input type="hidden" name="boardSeq" value="${boardSeq}">
-	<button>삭제하기</button>
-	</form>
-	
+
+		<form action="boardAction" method="post">
+			<input type="hidden" name="action" value="delete"> <input
+				type="hidden" name="boardSeq" value="${board.boardSeq}">
+			<button>삭제하기</button>
+		</form>
+
+		<form action="boardAction" method="get">
+			<input type="hidden" name="action" value="goUpdate"> <input
+				type="hidden" name="boardSeq" value="${board.boardSeq}">
+			<button>수정하기</button>
+		</form>
+
 	</c:if>
 
 	<h1>제목 : ${board.title}</h1>
@@ -473,8 +497,8 @@ form {
 	<br>
 	<br> 내용 : ${board.content}
 	<br>
-	
+
 	<a href="boardAction?action=board">목록</a>
-	
+
 </body>
 </html>
