@@ -273,8 +273,17 @@ public class BoardService {
 
 		return dao.selectlBoard(boardSeq);
 	}
+	
+	public void deleteBoard(String boardSeq) {
+		dao.deleteBoard(boardSeq);
+	}
+	
+	public void updateBoard(Board board) {
+		dao.updateBoard(board);
+	}
 
 }
+
 
 
 //Dao
@@ -529,6 +538,45 @@ public class BoardDAO {
 		}
 		return board;
 	}
+	
+	public void deleteBoard(String boardSeq) {
+		
+		Connection conn = ConnectionManager.getConnection();
+		
+		String sql = "DELETE BOARD WHERE BOARDSEQ=? ";
+		
+		try {
+			PreparedStatement ptst = conn.prepareStatement(sql);
+			ptst.setString(1, boardSeq);
+			ptst.executeUpdate();			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+public void updateBoard(Board board) {
+		
+		Connection conn = ConnectionManager.getConnection();
+		
+		String sql = "UPDATE BOARD SET "
+				+ " TITLE=?, "
+				+ " CONTENT=? "
+				+ " WHERE"
+				+ " BOARDSEQ=? ";
+		
+		try {
+			PreparedStatement ptst = conn.prepareStatement(sql);
+			ptst.setString(1, board.getTitle());
+			ptst.setString(2, board.getContent());
+			ptst.setString(3, board.getBoardSeq());
+			
+			ptst.executeUpdate();			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
 
 
@@ -583,7 +631,20 @@ public class MainServlet extends HttpServlet {
 			RequestDispatcher rd = req.getRequestDispatcher("boardDetail.jsp");
 			rd.forward(req, resp);
 
+		} else if(action.equals("goUpdate")) {
+			
+			
+			String boardSeq=req.getParameter("boardSeq");
+			
+			Board board=bs.selectBoard(boardSeq);
+			
+			req.setAttribute("board", board);	
+
+			RequestDispatcher rd=req.getRequestDispatcher("boardWrite.jsp");
+			rd.forward(req, resp);
+			
 		}
+
 	}
 
 	@Override
@@ -602,6 +663,20 @@ public class MainServlet extends HttpServlet {
 
 			resp.sendRedirect("boardAction?action=board");
 			// get으로 보내서 게시물을 select해옴
+		} else if (action.equals("delete")) {
+			String boardSeq = req.getParameter("boardSeq");
+
+			bs.deleteBoard(boardSeq);
+			resp.sendRedirect("boardAction?action=board");
+		}else if (action.equals("update")) {
+
+			String boardSeq = req.getParameter("boardSeq");
+			String title = req.getParameter("title");
+			String content = req.getParameter("content");
+
+			bs.updateBoard(new Board(boardSeq, null, title, content, null));
+			
+			resp.sendRedirect("boardAction?action=detail&boardSeq="+boardSeq);
 		}
 	}
 
