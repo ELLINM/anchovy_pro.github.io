@@ -27,7 +27,7 @@ public class AdminServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String action = req.getParameter("action");
 
-		if (action == null) {// �뼱�뱶誘� �솃二쇱냼
+		if (action == null) {// 어드민 홈주소
 			resp.sendRedirect("/Shop/Admin/index.jsp");
 
 		} else if (action.equals("goLogin")) {
@@ -70,14 +70,14 @@ public class AdminServlet extends HttpServlet {
 
 		req.setCharacterEncoding("utf-8");
 
-		if (action.equals("login")) {// 濡쒓릿
+		if (action.equals("login")) {// 로긴
 			String adminId = req.getParameter("adminId");
 			String adminPw = req.getParameter("adminPw");
 
 			Admin a = as.selectAdmin(new Admin(adminId, adminPw));
 
 			if (a == null) {
-				req.setAttribute("message", "�옒紐삳맂 怨꾩젙�젙蹂댁엯�땲�떎.");
+				req.setAttribute("message", "잘못된 계정정보입니다.");
 				req.setAttribute("adminId", adminId);
 				req.setAttribute("adminPw", adminPw);
 
