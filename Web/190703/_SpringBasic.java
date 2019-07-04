@@ -1,3 +1,5 @@
+//HomeController
+
 package com.sesoc.web.controller;
 
 import java.text.DateFormat;
@@ -72,47 +74,13 @@ public class HomeController {
 
 		return "index";
 	}
-}
-
-
-//TestVO
-
-package com.sesoc.web.vo;
-
-public class TestVO {
 	
-	private String a;
-	private int b;
-	
-	public TestVO() {
-	}
+	@RequestMapping(value = "send5", method = RequestMethod.GET)
+	public String send5(Model model) {
+		
+		model.addAttribute("data", "테스트테스트");
+		model.addAttribute("vo", new TestVO("aaa", 2222));
 
-	public TestVO(String a, int b) {
-		super();
-		this.a = a;
-		this.b = b;
+		return "index";
 	}
-
-	public String getA() {
-		return a;
-	}
-
-	public void setA(String a) {
-		this.a = a;
-	}
-
-	public int getB() {
-		return b;
-	}
-
-	public void setB(int b) {
-		this.b = b;
-	}
-
-	@Override
-	public String toString() {
-		return "TestVO [a=" + a + ", b=" + b + "]";
-	}
-	
-	
 }
