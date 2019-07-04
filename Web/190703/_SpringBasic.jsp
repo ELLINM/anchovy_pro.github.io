@@ -1,5 +1,4 @@
 <!--index-->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core"  %>
@@ -10,9 +9,25 @@
 <title>Parameter 전송</title>
 </head>
 <body>
-	<img src = "resources/satomi2.jpg" />
-	<img src = "/web/resources/satomi2.jpg" />
-	<img src = "<c:url value ='resources/satomi2.jpg' />"/>
+
+	<a href="send5">model practice</a>
+	<br>
+
+	<c:if test="${data != null && vo != null}">
+	
+	data : ${data}<br>
+	vo.a : ${vo.a}<br>
+	vo.b : ${vo.b}<br>
+	
+	requestScope.date : ${requestScope.data}<br>
+	requestScope.vo.a : ${requestScope.vo.a}<br>
+	requestScope.vo.b : ${requestScope.vo.b}<br>
+
+	</c:if>
+
+	<img src = "resources/panda.jpg" />
+	<img src = "/web/resources/panda.jpg" />
+	<img src = "<c:url value ='resources/panda.jpg' />" />
 	<ul>
 		<li>
 			<h2>
