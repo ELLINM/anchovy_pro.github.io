@@ -11,8 +11,10 @@
 	<a href="signupForm?a=a">회원가입</a>
 	<a href="login?a=a.jsp">로그인</a>
 	
+	<!--href의 name은 갖고 오고자 하는 페이지의 method와 같은 이름으로 설정-->
+	
 	<br>
-	<c:if test="${vo!=null}">
+	<c:if test="${vo!=null}"> <!--EL문의 경우 원하고자 하는 조건을 등록하여 -->
 	ID : ${vo.userid}<br>
 	PW : ${vo.userpwd}<br>
 	NAME : ${vo.username}<br>
@@ -37,6 +39,7 @@
 <body>
 <div class="wrapper">
 	<form action="signupaction" method="post">
+<!--action을 통하여 controller에서 사용하려는 action을 구분함 같은 페이지 안에 여러 action이 있다하더라고 action name으로 구분하기 때문에 -->
 	<table border="1">
 		<caption>회원가입 양식</caption>
 		<tr>
