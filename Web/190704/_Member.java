@@ -129,6 +129,7 @@ public class MemberController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+//value의 "/"은 가장 처음 보여지는 곳이기때문에 한개만 존재 원하는 프로젝트를 Run을 하게되면 첫요청으로 "/"를 호출하여 return값을 첫 화면으로 보임
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -139,13 +140,13 @@ public class MemberController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		return "home";
+		return "home"; //프로젝트 실행시 home이 가장 먼저 보이게됨
 	}
 	
 	@RequestMapping(value = "signupForm", method = RequestMethod.GET)
 	public String signupForm(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-
+//jsp에서 회원가입을 눌렀을때 회원 가입 페이지를 return해줄 method가 필요하기 때문에 method를 생성해준다.
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
@@ -153,16 +154,16 @@ public class MemberController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		return "signupForm";
+		return "signupForm"; //return 값으로 
 	}
 	
 	@RequestMapping(value = "signupaction", method = RequestMethod.POST)
 	public String signupaction(MemberVO vo, Model model) {
-		
+	//입력받을 vo를 정하고 생성된 데이터를 view에 지정된 경로로 보내줄 model을 함께 생성한다.	
 		System.out.println(vo);
-		
+		//vo를 출력해주고	
 		model.addAttribute("vo", vo);
-		
+		//model을 통해서 보내고자하는 값을 view의 페이지로 
 		return "home";
 	}
 }
