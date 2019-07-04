@@ -15,6 +15,7 @@
 	
 	<br>
 	<c:if test="${vo!=null}"> <!--EL문의 경우 원하고자 하는 조건을 등록하여 -->
+	<!--model이 보내온 값을 vo로 받아서 출력한다.-->
 	ID : ${vo.userid}<br>
 	PW : ${vo.userpwd}<br>
 	NAME : ${vo.username}<br>
