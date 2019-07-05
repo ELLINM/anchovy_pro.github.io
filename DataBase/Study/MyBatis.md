@@ -33,7 +33,8 @@ public interface TestMapper {
 }</pre>
 
 > src/main/resources안에 mybatis-config.xml 생성
-<pre><?xml version="1.0" encoding="UTF-8" ?>
+~~~
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
@@ -44,11 +45,14 @@ public interface TestMapper {
 	<mappers>
 		<mapper resource="mapper/testMapper.xml" />
 	</mappers>
-</configuration></pre>   
+</configuration>
+~~~~
 
 > root-context에 sqlSession 입력
-<pre><bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+~~~~
+<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean></pre>
+	</bean>
+~~~~
   
 > DAO안에 sql명령문 입력
