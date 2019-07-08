@@ -1,3 +1,5 @@
+//TestService
+
 package com.test.web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ public class TestService {
 }
 
 
+//MemberService
 package com.test.web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
