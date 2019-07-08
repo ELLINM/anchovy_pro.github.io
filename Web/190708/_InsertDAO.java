@@ -1,3 +1,4 @@
+//MemberDAO
 package com.test.web.dao;
 
 import org.apache.ibatis.session.SqlSession;
@@ -20,7 +21,7 @@ public class MemberDAO {
 }
 
 
-
+//MamberMapper
 package com.test.web.dao;
 
 import com.test.web.vo.MemberVO;
@@ -53,6 +54,7 @@ public class TestDAO {
 
 
 
+//TestMapper
 package com.test.web.dao;
 
 import com.test.web.vo.TestVO;
