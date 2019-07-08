@@ -7,9 +7,13 @@
 <title>메인 화면</title>
 </head>
 <body>
+	<h1><a href="/web/test/testSession1">세션 저장</a></h1>
+	<h1><a href="/web/test/testSession2">세션 삭제</a></h1>
 	<h1><a href="/web/test/testInsert?a=가나다라&b=1234">testInsert</a></h1>
 	<h1><a href="/web/member/signupForm">회원가입</a></h1>
 	<h1><a href="#">로그인</a></h1>
+	
+	sessionScope.test : ${sessionScope.test}<br>
 	
 	<c:if test="${result == true}">
 		<h3>가입 성공</h3>
