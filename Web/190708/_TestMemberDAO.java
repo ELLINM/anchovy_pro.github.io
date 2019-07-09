@@ -18,7 +18,15 @@ public class MemberDAO {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 		return mapper.signup(vo);
 	}
+	
+	//로그인 처리
+	public MemberVO login(MemberVO vo) {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		System.out.println(vo);
+		return mapper.login(vo);
+	}
 }
+
 
 
 //MamberMapper
@@ -28,6 +36,8 @@ import com.test.web.vo.MemberVO;
 
 public interface MemberMapper {
 	public int signup(MemberVO vo);
+	public MemberVO login(MemberVO vo);
+	//mapper에있는 입력값이랑 같은 값을 받아온다
 }
 
 
@@ -52,13 +62,3 @@ public class TestDAO {
 	}
 }
 
-
-
-//TestMapper
-package com.test.web.dao;
-
-import com.test.web.vo.TestVO;
-
-public interface TestMapper {
-	public int testInsert(TestVO vo);
-}
