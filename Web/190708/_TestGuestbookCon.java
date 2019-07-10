@@ -29,5 +29,18 @@ public class GuestbookController {
 		model.addAttribute("list", list);
 		return "/guestbook/guestbookList";
 	}
+	
+	@RequestMapping(value = "write", method = RequestMethod.POST)
+	public String write(GuestbookVO vo) {
+		service.write(vo);
+		return "redirect:/guestbook/guestbookList";
+	}
+	
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public String delete(GuestbookVO vo) {
+		service.delete(vo);
+		return "redirect:/guestbook/guestbookList";
+	}
 
 }
+
