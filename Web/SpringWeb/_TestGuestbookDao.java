@@ -8,8 +8,10 @@ import com.test.web.vo.GuestbookVO;
 
 public interface GuestbookMapper {
 	public ArrayList<GuestbookVO> guestbookList();
-	
+	public void write(GuestbookVO vo);
+	public void delete(GuestbookVO vo);
 }
+
 
 
 //GuestbookDao
@@ -31,10 +33,20 @@ public class GuestbookDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	// 회원가입 처리
 	public ArrayList<GuestbookVO> guestbookList() {
 		GuestbookMapper mapper = sqlSession.getMapper(GuestbookMapper.class);
 		return mapper.guestbookList();
 	}
 	
+	public void write(GuestbookVO vo){
+		GuestbookMapper mapper = sqlSession.getMapper(GuestbookMapper.class);
+		mapper.write(vo);
+	
+	}
+	
+	public void delete(GuestbookVO vo){
+		GuestbookMapper mapper = sqlSession.getMapper(GuestbookMapper.class);
+		mapper.delete(vo);
+	
+	}
 }
