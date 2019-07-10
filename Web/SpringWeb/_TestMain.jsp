@@ -10,8 +10,18 @@
 	<h1><a href="/web/test/testSession1">세션 저장</a></h1>
 	<h1><a href="/web/test/testSession2">세션 삭제</a></h1>
 	<h1><a href="/web/test/testInsert?a=가나다라&b=1234">testInsert</a></h1>
+	
+	<h1><a href="/web/guestbook/guestbookList">방명록</a></h1>
+	<c:if test="${session.Scope.userid == null}">
 	<h1><a href="/web/member/signupForm">회원가입</a></h1>
-	<h1><a href="#">로그인</a></h1>
+	<h1><a href="/web/member/loginForm">로그인</a></h1>
+	</c:if>
+
+	<c:if test="${session.Scope.userid != null}">
+		${userid}님 반갑습니다.
+		<h1><a href="/web/board/boardList">방명록</a></h1>
+		<h1><a href="/web/member/logout">로그아웃</a></h1>
+	</c:if>
 	
 	sessionScope.test : ${sessionScope.test}<br>
 	
