@@ -5,26 +5,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
-
 <mapper namespace="com.test.web.dao.GuestbookMapper">
-
-	<delete id="delete" parameterType="GuestbookVO">
-	DELETE
-		guestbook
-	WHERE
-		seq = #{seq} 
-		AND pwd = #{pwd}
-	</delete>
+	
 	<select id="guestbookList" resultType="GuestbookVO">
-	SELECT * 
-	FROM 
-		guestbook
+		SELECT *
+		FROM
+			guestbook
+		ORDER BY
+			seq DESC
 	</select>
+	
 	<insert id="write" parameterType="GuestbookVO">
 		INSERT INTO
 			guestbook
-		VALUES(
+		VALUES (
 			guestbook_seq.nextval
 			,#{name}
 			,#{pwd}
@@ -32,4 +26,13 @@
 			,sysdate
 		)
 	</insert>
+	
+	<delete id="delete" parameterType="GuestbookVO">
+		DELETE
+			guestbook
+		WHERE
+			seq = #{seq}
+			AND pwd = #{pwd}
+	</delete>
 </mapper>
+
