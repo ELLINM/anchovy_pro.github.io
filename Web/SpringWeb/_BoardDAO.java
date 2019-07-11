@@ -1,17 +1,5 @@
-//BoadMapper
-package com.test.web.dao;
-
-import java.util.ArrayList;
-
-import com.test.web.vo.BoardVO;
-
-
-public interface BoardMapper {
-	public ArrayList<BoardVO> boardList();
-}
-
-
 //BoardDAO
+
 package com.test.web.dao;
 
 import java.util.ArrayList;
@@ -33,4 +21,14 @@ public class BoardDAO {
 		return mapper.boardList();
 	}
 	
+	public BoardVO boardRead(int boardNum) {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		mapper.hitCount(boardNum);
+		return mapper.boardRead(boardNum);
+	}
+	
+	public void boardDelete(BoardVO vo) {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		mapper.boardDelete(vo);
+	}
 }
