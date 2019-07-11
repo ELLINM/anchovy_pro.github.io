@@ -1,14 +1,43 @@
+<!--BoardMapper-->
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.test.web.dao.boardMapper">
+<mapper namespace="com.test.web.dao.BoardMapper">
+	
 	<select id="boardList" resultType="BoardVO">
-	SELEC *
-	FROM
-		board
-		oder by
+		SELECT *
+		FROM
+			board
+		ORDER BY
+			boardnum DESC
 	</select>
+	
+	<select id="boardRead" parameterType="int" resultType="BoardVO">
+		SELECT *
+		FROM
+			board
+		WHERE
+			boardnum = #{boardNum}
+	</select>
+	
+	<update id="hitCount" parameterType="int">
+		UPDATE
+			board
+		SET
+			hit = hit + 1
+		WHERE
+			boardnum = #{boardNum}
+	</update>
+	
+	<delete id="boardDelete" parameterType="BoardVO">
+		DELETE
+			board
+		WHERE
+			boardnum = #{boardNum}
+			AND userid = #{userid}
+	</delete>
 </mapper>
 
