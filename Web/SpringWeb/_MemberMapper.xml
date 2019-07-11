@@ -6,19 +6,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.test.web.dao.MemberMapper">
-	<select id="login" parameterType="MemberVO" resultType="MemberVO">
-	SELECT * 
-	FROM
-		member
-	WHERE
-		userid = #{userid}, 
-		userpwd = #{userpwd}
-		<!-- 두객체를 받아서 비교함 -->
-	</select>
 	<insert id="signup" parameterType="MemberVO">
-		insert into
+		INSERT INTO
 			member
-		values (
+		VALUES (
 			#{userid}
 			, #{userpwd}
 			, #{username}
@@ -28,5 +19,14 @@
 			, #{marital}
 			, #{joinpath} )
 	</insert>
+	
+	<select id="login" parameterType="MemberVO" resultType="MemberVO">
+		SELECT *
+		FROM
+			member
+		WHERE
+			userid = #{userid}
+			AND userpwd = #{userpwd}
+	</select>
 </mapper>
 
