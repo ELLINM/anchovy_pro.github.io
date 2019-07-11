@@ -21,14 +21,12 @@ public class MemberController {
 	private MemberService service;
 	
 	// 회원가입 화면 이동
-	// @RequestMapping(value = "/member/signupForm", method = RequestMethod.GET)
 	@RequestMapping(value = "signupForm", method = RequestMethod.GET)
 	public String signupForm() {
 		return "/member/signupForm";
 	}
 	
 	// 회원가입 처리
-	// @RequestMapping(value = "/member/signup", method = RequestMethod.POST)
 	@RequestMapping(value = "signup", method = RequestMethod.POST)
 	public String signup(MemberVO vo, Model model) {
 		boolean result = service.signup(vo);
@@ -38,7 +36,13 @@ public class MemberController {
 		return "main";
 	}
 	
-	//로그인 처리
+	// 로그인 화면 이동
+	@RequestMapping(value = "loginForm", method = RequestMethod.GET)
+	public String loginForm() {
+		return "/member/loginForm";
+	}
+	
+	// 로그인 처리
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(MemberVO vo, HttpSession session, Model model) {
 		boolean result = service.login(vo, session);
@@ -47,13 +51,7 @@ public class MemberController {
 		return "/member/loginForm";
 	}
 	
-	//로그인 화면으로 이동
-	@RequestMapping(value = "loginForm", method = RequestMethod.GET)
-	public String loginForm() {
-		return "/member/loginForm";
-	}
-	
-	//로그아웃 처리
+	// 로그아웃 처리
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		service.logout(session);
