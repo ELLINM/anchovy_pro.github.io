@@ -1,14 +1,5 @@
-//TestMapper
-package com.test.web.dao;
+//TestDAO
 
-import com.test.web.vo.TestVO;
-
-public interface TestMapper {
-	public int testInsert(TestVO vo);
-}
-
-
-//TestDao
 package com.test.web.dao;
 
 import org.apache.ibatis.session.SqlSession;
