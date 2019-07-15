@@ -34,6 +34,7 @@
 				<input type="button" value="삭제" onclick="boardDelete()">
 			</c:if>
 			<a href="/web/board/boardList"><input type="button" value="목록"></a>
+			<!--이전 글 목록으로 돌아 가도록 -->
 		</td>
 	</tr>
 	<tr>
@@ -65,6 +66,7 @@
 		<th>내용</th>
 		<td><textarea readonly="readonly">${vo.content}</textarea></td>
 	</tr>
+	<!--각항목은 EL태그로 저장된 내용을 불러올 수 있도록함 또한 content의 경우 읽을 수 만 있도록 함-->
 </table>
 </body>
 </html>
