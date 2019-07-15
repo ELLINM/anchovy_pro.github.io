@@ -3,6 +3,7 @@
 package com.test.web.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +18,18 @@ public class GuestbookDAO {
 	private SqlSession sqlSession;
 	
 	// 방명록 리스트
-	public ArrayList<GuestbookVO> guestbookList() {
+	public ArrayList<GuestbookVO> guestbookList(HashMap<String, String> map) {
 		GuestbookMapper mapper = sqlSession.getMapper(GuestbookMapper.class);
-		return mapper.guestbookList();
+		return mapper.guestbookList(map);
 	}
 	
-	public void write(GuestbookVO vo) {
+	public int write(GuestbookVO vo) {
 		GuestbookMapper mapper = sqlSession.getMapper(GuestbookMapper.class);
-		mapper.write(vo);
+		return mapper.write(vo);
 	}
 	
-	public void delete(GuestbookVO vo) {
+	public int delete(GuestbookVO vo) {
 		GuestbookMapper mapper = sqlSession.getMapper(GuestbookMapper.class);
-		mapper.delete(vo);
+		return mapper.delete(vo);
 	}
 }
