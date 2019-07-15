@@ -7,18 +7,31 @@
 <head>
 <meta charset="UTF-8">
 <title>${vo.title}</title>
-
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/default.css" />" />
+	<script>
+		function boardDelete() {
+			if(confirm("삭제 하시겠습니까?")) {
+				location.href="/web/board/boardDelete?boardNum=${vo.boardNum}";
+			}
+		}
+	</script>
 </head>
 <body>
-
+	<c:choose>
+		<c:when test="${updateResult == true}">
+			<script>alert("수정 완료");</script>
+		</c:when>
+		<c:when test="${updateResult == false}">
+			<script>alert("수정 실패")</script>
+		</c:when>
+	</c:choose>
 <h1>[ 글 읽기 ]</h1>
 <table>
 	<tr>
 		<td class="right" colspan="2">
 			<c:if test="${sessionScope.userid == vo.userid}">
-				<a href="#"><input type="button" value="수정"></a>
-				<a href="/web/board/boardDelete?boardNum=${vo.boardNum}"><input type="button" value="삭제"></a>
+				<a href="/web/board/boardUpdateForm?boardNum=${vo.boardNum}"><input type="button" value="수정"></a>
+				<input type="button" value="삭제" onclick="boardDelete()">
 			</c:if>
 			<a href="/web/board/boardList"><input type="button" value="목록"></a>
 		</td>
