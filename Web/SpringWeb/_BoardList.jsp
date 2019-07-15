@@ -11,11 +11,25 @@
 
 </head>
 <body>
+<c:choose>
+	<c:when test="${deleteResult == true}">
+		<script>alert("삭제 완료");</script>
+	</c:when>
+	<c:when test="${deleteResult == false}">
+		<script>alert("삭제 실패");</script>
+	</c:when>
+	<c:when test="${writeResult == true}">
+		<script>alert("등록 완료");</script>
+	</c:when>
+	<c:when test="${writeResult == false}">
+		<script>alert("등록 실패");</script>
+	</c:when>
+</c:choose>
 	<h1>[ 게시판 ]</h1>
 	<table>
 		<tr>
 			<td class="right" colspan="5">
-				<a href="#"><img src="<c:url value="/img/write_64.png"/>"></a>
+				<a href="/web/board/boardWriteForm"><img src="<c:url value="/img/write_64.png"/>"></a>
 			</td>
 		</tr>
 		<tr>
