@@ -20,3 +20,20 @@ ex)
 + name : 사용자를 구분하는 값  
 + type : input에 사용되는 데이터 종류의 구분   
 > submit, date, email, file, number 등 다양하게 있지만 브라우저마다 호환이 달라서 사용하지 않고 text로 받아서 자바로 유효성검사를 함  
+
+
+textarea
+------
+|tag|use|contents|
+|----|----|----|
+|cols|숫자|텍스트 영역이 보이는 너비 기본값 : 20|
+|rows|숫자|텍스트 영역에서 보이는 줄의 개수 기본값 : 2|
+|disabled|disabled|텍스트 영역이 비활성화|
+|name|text|텍스트 영역의 이름|
+|readonly|readonly|텍스트 영역이 읽기만 가능함|
+|autofocus|autofocus|텍스트 영역이 자동으로 포커스됨|
+|form|form_id|<textarea>요소가 속한 form 요소를 지정 속성값은 <form>요소의 id속성이 되어야함|
+|maxlenght|숫자|텍스트 영역에서 허락된 문자의 최대 숫자|
+|placeholder|text|텍스츠 영역의 예상값을 설명하는 짧은 힌트 영역이 비면 나타나고, 영역이 포커스 되면 사라짐|
+|required|required|텍스트 입력이 필수임을 나타냄|
+|wrap|hard/soft|텍스트 줄바꿈 지정 기본값 : 줄바꿈 되지 않음, 줄바꿈 됨 p.s : hard를 사용하려면 cols속성이 지정되어야함|
