@@ -34,5 +34,13 @@
 			seq = #{seq}
 			AND pwd = #{pwd}
 	</delete>
+	
+	<select id="guestbookList" parameterType="map" resultType="GuestbookList">
+		SELECT *
+		FROM
+			guestbook
+		WHERE
+			${searchItem} LIKE '%'||#{searchKeyword}'%'
+	</select>
 </mapper>
 
