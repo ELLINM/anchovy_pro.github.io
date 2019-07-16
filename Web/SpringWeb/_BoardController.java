@@ -11,10 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.test.web.service.BoardService;
 import com.test.web.vo.BoardVO;
+import com.test.web.vo.ReplyVO;
 
 @Controller
 @RequestMapping("/board")
@@ -23,9 +25,13 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	
-	@RequestMapping(value = "boardList", method = {RequestMethod.GET, RequestMethod.POST})
-	public String boardList(Model model) {
-		ArrayList<BoardVO> list = service.boardList();
+	@RequestMapping(value = "boardList", method = RequestMethod.GET)
+	public String boardList(
+			Model model,
+			@RequestParam(value="searchItem", defaultValue="title") String searchItem,
+			@RequestParam(value="searchKeyword", defaultValue="") String searchKeyword
+			) {
+		ArrayList<BoardVO> list = service.boardList(searchItem, searchKeyword);
 		model.addAttribute("list", list);
 		return "/board/boardList";
 	}
@@ -33,8 +39,23 @@ public class BoardController {
 	@RequestMapping(value = "boardRead", method = RequestMethod.GET)
 	public String boardRead(int boardNum, Model model) {
 		BoardVO vo = service.boardRead(boardNum);
+		ArrayList<ReplyVO> replyList = service.replyList(boardNum);
 		model.addAttribute("vo", vo);
+		model.addAttribute("replyList", replyList);
 		return "/board/boardRead";
+	}
+	
+	@RequestMapping(value = "replyWrite", method = RequestMethod.POST)
+	public String replyWrite(ReplyVO vo, HttpSession session, RedirectAttributes rttr) {
+		service.replyWrite(vo, session);
+		rttr.addAttribute("boardNum", vo.getBoardNum());
+		return "redirect:/board/boardRead";
+	}
+	
+	@RequestMapping(value = "replyUpdate", method = RequestMethod.GET)
+	public String replyUpdate(ReplyVO vo, HttpSession session) {
+		service.replyUpdate(vo, session);
+		return "redirect:/board/boardRead?boardNum="+vo.getBoardNum();
 	}
 	
 	@RequestMapping(value = "boardDelete", method = RequestMethod.GET)
@@ -49,13 +70,11 @@ public class BoardController {
 		boolean result = service.boardUpadte(vo, session);
 		rttr.addFlashAttribute("updateResult", result);
 		return "redirect:/board/boardRead?boardNum=" + vo.getBoardNum();
-		//boardRead로 넘어갈때 boardNum을 갖고가지 않기 때문에 같이 넘겨줘야 한다.
 	}
 	
 	@RequestMapping(value = "boardUpdateForm", method = RequestMethod.GET)
 	public String boardUpdateForm(int boardNum, Model model) {
 		BoardVO vo = service.boardRead(boardNum);
-		//특정글에 대한 정보를 가져오면 되기 대문에 boardRead를 불러온다.
 		model.addAttribute("vo", vo);
 		return "/board/boardUpdateForm";
 	}
