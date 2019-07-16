@@ -19,6 +19,7 @@ public class MemberService {
 	// 회원가입 처리
 	public boolean signup(MemberVO vo) {
 		if(dao.signup(vo) != 1) return false;
+		//Controller에서 넘어온 값을 받아서 dao로 넘기고 return값으로 true, false를 
 		return true;
 	}
 	
