@@ -15,6 +15,7 @@ import com.test.web.vo.MemberVO;
 
 @Controller
 @RequestMapping("/member")
+//jsp에서 "/web/memeber/"로 오는 Parameter값을 받아줌
 public class MemberController {
 	
 	@Autowired
@@ -28,8 +29,10 @@ public class MemberController {
 	
 	// 회원가입 처리
 	@RequestMapping(value = "signup", method = RequestMethod.POST)
+	//signupForm.jsp에서 Parameter를 받아서 처리해줌
 	public String signup(MemberVO vo, Model model) {
 		boolean result = service.signup(vo);
+		//입력 받은 값을 service로 
 		System.out.println(vo);
 		model.addAttribute("memberVO", vo);
 		model.addAttribute("result", result);
