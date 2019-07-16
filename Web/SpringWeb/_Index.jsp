@@ -25,6 +25,7 @@
 	<img src="abcdef/write_64.png" />
 	<ul>
 		<li><h2><a href="send1?a=테스트&b=2222">a 태그로 전송</a></h2></li>
+		<!--HomeController의 RequestMapping으로 send1을 받는곳으로 Parameter값을 전송-->		
 		<li>
 			<h2>form 태그로 전송(get)</h2>
 			<form action="send2" method="get">
@@ -32,6 +33,7 @@
 				b <input type="text" name="b"><br>
 				<input type="submit" value="전송!">
 			</form>
+		<!--HomeController의 RequestMapping으로 send2를 받는곳으로 Parameter값을 전송-->
 		</li>
 		<li>
 			<h2>form 태그로 전송(post)</h2>
@@ -39,6 +41,7 @@
 				a <input type="text" name="a"><br>
 				b <input type="text" name="b"><br>
 				<input type="submit" value="전송!">
+		<!--HomeController의 RequestMapping으로 send3를 받는곳으로 Parameter값을 전송-->
 			</form>
 		</li>
 		<li>
@@ -50,6 +53,7 @@
 				a <input type="text" name="a"><br>
 				b <input type="text" name="b"><br>
 				<input type="submit" value="전송!">
+		<!--HomeController의 RequestMapping으로 send4를 받는곳으로 Parameter값을 전송-->
 			</form>
 		</li>
 		<li>
@@ -58,6 +62,7 @@
 				a <input type="text" name="a"><br>
 				b <input type="text" name="b"><br>
 				<input type="submit" value="전송!">
+		<!--HomeController의 RequestMapping으로 send4를 받는곳으로 Parameter값을 전송-->
 			</form>
 		</li>
 	</ul>
