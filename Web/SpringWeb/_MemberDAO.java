@@ -19,6 +19,7 @@ public class MemberDAO {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 		//MemberMapper.class는 MemberMapper.java의 MemberMapper interface를 불러온다.
 		return mapper.signup(vo);
+		//service를 통해서 mapper에 있는 method로 값을 넘기고 
 	}
 	
 	// 로그인 처리
