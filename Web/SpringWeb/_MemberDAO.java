@@ -17,6 +17,7 @@ public class MemberDAO {
 	// 회원가입 처리
 	public int signup(MemberVO vo) {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		//MemberMapper.class는 MemberMapper.java의 MemberMapper interface를 불러온다.
 		return mapper.signup(vo);
 	}
 	
