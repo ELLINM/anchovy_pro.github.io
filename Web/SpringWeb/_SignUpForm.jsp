@@ -10,6 +10,8 @@
 <body>
 <div class="wrapper">
 	<form action="/web/member/signup" method="post">
+		<!--"/web/member/signup"는 web안에 있는 /member를 먼저 찾고 /signup을 찾아서 연결한다.
+		MemberController.java에서 @RequestMapping에서/member를 찾고 찾으면 value값으로 /signup을 찾는다.-->
 	<table border="1">
 		<caption>회원가입 양식</caption>
 		<tr>
