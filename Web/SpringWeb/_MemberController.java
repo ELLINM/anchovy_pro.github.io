@@ -32,7 +32,7 @@ public class MemberController {
 	//signupForm.jsp에서 Parameter를 받아서 처리해줌
 	public String signup(MemberVO vo, Model model) {
 		boolean result = service.signup(vo);
-		//입력 받은 값을 service로 
+		//입력 받은 값을 service로 전달하고 return값을 받아서 처리함 그에 대한 참거짓을 result에 저장하고 main.jsp로 
 		System.out.println(vo);
 		model.addAttribute("memberVO", vo);
 		model.addAttribute("result", result);
