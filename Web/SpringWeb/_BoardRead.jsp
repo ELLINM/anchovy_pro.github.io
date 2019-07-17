@@ -2,6 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +35,12 @@
 				location.href="/web/board/replyUpdate?replyNum=" + replynum + "&boardNum=" + "${vo.boardNum}&replytext=" + updatetext;
 			}
 		}
+		
+		function replyDelete(replynum){
+			if(confirm("댓글을 삭제하시겠습니까?")){
+				 location.href="/web/board/replyDelete?replyNum=" + replynum + "&boardNum=" + ${vo.boardNum};
+			}
+		}
 	</script>
 </head>
 <body>
@@ -43,6 +50,12 @@
 		</c:when>
 		<c:when test="${updateResult == false}">
 			<script>alert("수정 실패")</script>
+		</c:when>
+		<c:when test="${deleteResult == true}">
+			<script>alert("삭제 완료");</script>
+		</c:when>
+		<c:when test="${deleteResult == false}">
+			<script>alert("삭제 실패")</script>
 		</c:when>
 	</c:choose>
 <h1>[ 글 읽기 ]</h1>
@@ -65,8 +78,13 @@
 		<td>${vo.userid}</td>
 	</tr>
 	<tr>
-		<th>작성일</th>
-		<td>${vo.inputdate}</td>
+		<th>
+		작성일
+		</th>
+		<td>
+			<fmt:parseDate value="${vo.inputdate}" var="parsedRegdate" pattern="yyyy-MM-dd HH:mm:ss" /> 
+			<fmt:formatDate	value="${parsedRegdate}" pattern="yyyy년MM월dd일" />
+			</td>
 	</tr>
 	<tr>
 		<th>조회</th>
@@ -109,7 +127,7 @@
 				<td>
 				<c:if test="${sessionScope.userid == reply.userid}">
 					<input type="button" value="수정" onclick="replyModify('${reply.replyNum}','${reply.replytext}')">
-					<input type="button" value="삭제">
+					<input type="button" value="삭제" onclick="replyDelete('${reply.replyNum}')">
 				</c:if>
 				</td>
 			</tr>
