@@ -37,11 +37,18 @@
 	</delete>
 	
 	<select id="guestbookList" parameterType="map" resultType="GuestbookList">
+		<!--DAO 로부터 전달받은 HashMap 객체를 parameterType 으로 지정-->
 		SELECT *
 		FROM
 			guestbook
 		WHERE
-			${searchItem} LIKE '%'||#{searchKeyword}'%'
+			${searchItem} 
+	<!--HashMap 객체에 저장된 요소중, key 값이 searchItem 인 요소의 value 를 가져옴( 「#」이 아닌 「$」를 사용한 것에 주의) 
+	# 을 사용하면 대입시키려는 데이터가 문자열 “abcd” 일 경우, 자동으로 「’」를 붙여서 ‘abcd’ 가 대입됨 
+	/ $ 는 자동으로 「’」를 붙여주지 않으므로 abcd 가 대입됨
+	SELECT * FROM guestbook WHERE ‘abcd’ LIKE ~~~~    / SELECT * FROM guestbook WHERE abcd LIKE ~~~~ -->
+		LIKE '%'||#{searchKeyword}'%'
+		<!--mybatis 에서 LIKE 검색을 하기 위한 표기법-->
 	</select>
 </mapper>
 
