@@ -28,11 +28,15 @@
 		
 		function replyModify(replynum, replytext){
 			document.getElementById("replytext").value = replytext;
+	//id 가 replytext 인 태그(댓글 입력상자)의 value 속성값에 인자값으로 전달받은 text 를 대입 -> 댓글 입력창에 수정할 댓글 텍스트가 입력됨
 			document.getElementById("replysubmit").value = '댓글 수정';
-			
+	//id 가 replysubmit 인 태그의 value 속성값에 “댓글 수정” 을 대입 -> 「댓글 입력」버튼이 「댓글 수정」으로 변경됨		
 			document.getElementById("replysubmit").onclick = function(){
+			//id 가 replysubmit 인 태그의 onclick 속성에 직접 자바스크립트 메서드를 정의
 				var updatetext = document.getElementById("replytext").value;
+		//id 가 replysubmit 인 태그를 클릭시, id 가 replytext 인 태그의 value 속성값(댓글 입력상자의 텍스트)을 updatetext 변수에 대입
 				location.href="/web/board/replyUpdate?replyNum=" + replynum + "&boardNum=" + "${vo.boardNum}&replytext=" + updatetext;
+				//서버에 /web/board/replyUpdate 로 요청을 보내면서 replynum 과 boardNum, replytext 를 파라미터로 보냄
 			}
 		}
 		
@@ -64,6 +68,7 @@
 		<td class="right" colspan="2">
 			<c:if test="${sessionScope.userid == vo.userid}">
 				<a href="/web/board/boardUpdateForm?boardNum=${vo.boardNum}"><input type="button" value="수정"></a>
+			<!--수정 버튼을 클릭하면 자바스크립트의 replyModify 메서드를 호출하면서 replynum 과 replytext 를 인자값으로 전달-->
 				<input type="button" value="삭제" onclick="boardDelete()">
 			</c:if>
 			<a href="/web/board/boardList"><input type="button" value="목록"></a>
