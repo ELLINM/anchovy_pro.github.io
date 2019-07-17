@@ -28,6 +28,7 @@ public class GuestbookController {
 			, @RequestParam(value="searchKeyword", defaultValue="") String searchKeyword, Model model) {
 		ArrayList<GuestbookVO> list = service.guestbookList(searchItem, searchKeyword);
 		model.addAttribute("list", list);
+		//model에 저장된 list는 jsp로 return하여 출력
 		return "/guestbook/guestbookList";
 	}
 	
