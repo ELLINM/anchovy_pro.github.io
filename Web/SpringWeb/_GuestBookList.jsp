@@ -54,6 +54,7 @@
 	
 	<form action="web/guestbook/guestbookList" method="get">
 		<input type="hidden" name="searchItem" value="name">
+		<!--searchItem은 입력받는 값인 searchKeyword가 vo객체에 저장되어있는지 확인하기 위하여 hidden으로 생성-->
 		작성자<input type="text" name="searchKeyword">
 		<input type="submit" value="검색">
 	</form>
