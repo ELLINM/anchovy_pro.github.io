@@ -20,6 +20,7 @@ public class GuestbookDAO {
 	// 방명록 리스트
 	public ArrayList<GuestbookVO> guestbookList(HashMap<String, String> map) {
 		GuestbookMapper mapper = sqlSession.getMapper(GuestbookMapper.class);
+		//mapper를 통해 sql문을 실행하고 데이터 값을 받아서 return
 		return mapper.guestbookList(map);
 	}
 	
