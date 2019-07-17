@@ -35,5 +35,12 @@
 			userid = #{userid}
 			AND replynum = #{replyNum}	
 	</update>
+	<delete id="replyDelete" parameterType="ReplyVO">
+		DELETE
+			reply
+		WHERE
+			replynum = #{replyNum}
+			AND userid = #{userid}
+	</delete>
 </mapper>
 
