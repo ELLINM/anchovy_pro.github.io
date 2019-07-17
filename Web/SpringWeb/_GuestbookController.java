@@ -23,6 +23,7 @@ public class GuestbookController {
 	
 	// 방명록 리스트 화면 이동
 	@RequestMapping(value = "guestbookList", method = {RequestMethod.GET, RequestMethod.POST})
+	//guestbookList -> localhost8989/web/guestbook/guestbookList 즉, value = "write"에서 return한 주소값으로 연결된다.
 	public String guestbookList(
 			@RequestParam(value="searchItem", defaultValue="name") String searchItem
 			, @RequestParam(value="searchKeyword", defaultValue="") String searchKeyword, Model model) {
