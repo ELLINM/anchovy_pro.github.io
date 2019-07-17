@@ -26,6 +26,8 @@ public class GuestbookController {
 	//guestbookList -> localhost8989/web/guestbook/guestbookList 즉, value = "write"에서 return한 주소값으로 연결된다.
 	public String guestbookList(
 			@RequestParam(value="searchItem", defaultValue="name") String searchItem
+		//GuestbookList.jsp에서 searchItem , searchKeyword 라는 이름의 파라미터가 전달되지 않을 경우
+		//String 변수 searchItem 에 “name” , String 변수 searchKeyword 에 “” 를 대입함
 			, @RequestParam(value="searchKeyword", defaultValue="") String searchKeyword, Model model) {
 		ArrayList<GuestbookVO> list = service.guestbookList(searchItem, searchKeyword);
 		model.addAttribute("list", list);
