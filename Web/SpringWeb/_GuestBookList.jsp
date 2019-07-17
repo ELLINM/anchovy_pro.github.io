@@ -60,8 +60,10 @@
 	
 	<!-- 방명록 리스트 출력 -->
 	<c:forEach items="${list}" var="guestbook">
+		<!--${list}는 Controller에서 받아옴-->
 		<fieldset>
 			<legend>#${guestbook.seq}</legend>
+			<!--${guestbook.seq}의 guestbook은 var에서 갖고옴-->
 			<p>작성자 : ${guestbook.name}</p>
 			<p>작성일 : ${guestbook.regdate}</p>
 			<pre>${guestbook.content }</pre>
