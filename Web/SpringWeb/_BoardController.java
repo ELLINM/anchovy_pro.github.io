@@ -58,6 +58,13 @@ public class BoardController {
 		return "redirect:/board/boardRead?boardNum="+vo.getBoardNum();
 	}
 	
+	@RequestMapping(value = "replyDelete", method = RequestMethod.GET)
+	public String replyDelete(ReplyVO vo, HttpSession session, RedirectAttributes rttr) {
+		boolean result = service.replyDelete(vo, session);
+		rttr.addFlashAttribute("deleteResult", result);
+		return "redirect:/board/boardRead?boardNum=" + vo.getBoardNum();
+	}
+	
 	@RequestMapping(value = "boardDelete", method = RequestMethod.GET)
 	public String boardDelete(BoardVO vo, HttpSession session, RedirectAttributes rttr) {
 		boolean result = service.boardDelete(vo, session);
