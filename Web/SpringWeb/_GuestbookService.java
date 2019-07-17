@@ -26,7 +26,9 @@ public class GuestbookService {
 	public ArrayList<GuestbookVO> guestbookList(String searchItem, String searchKeyword) {
 		HashMap<String, String> map = new HashMap<>();
 		map.put("searchItem", searchItem);
+		//HashMap 객체에 Controller 로부터 전달받은 searchItem 과 searchKeyword 를 대입
 		map.put("searchKeyword", searchKeyword);
+		//HashMap 객체를 sql query 의 파라미터로 전달
 		return dao.guestbookList(map);
 	}
 	
