@@ -67,4 +67,11 @@ public class BoardService {
 		vo.setUserid(userid);
 		dao.replyUpdate(vo); 
 	}
+
+	public boolean replyDelete(ReplyVO vo, HttpSession session) {
+		String userid = (String)session.getAttribute("userid");
+		vo.setUserid(userid);
+		if(dao.replyDelete(vo) != 1) return false;
+		return true;
+	}
 }
