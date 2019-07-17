@@ -9,5 +9,6 @@ public interface ReplyMapper {
 
 	public void replyWrite(ReplyVO vo);
 	public ArrayList<ReplyVO> replyList(int boardNum);
-	public void replyUpdate(ReplyVO vo);
+	public int replyUpdate(ReplyVO vo);
+	public int replyDelete(ReplyVO vo);
 }
