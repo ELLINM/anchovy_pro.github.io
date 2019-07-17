@@ -14,7 +14,8 @@
 		ORDER BY
 			seq DESC
 	</select>
-	
+	<!-- 방명록 삽입 
+	GuestbookVO를 Parameter로 받아서 Database에 -->
 	<insert id="write" parameterType="GuestbookVO">
 		INSERT INTO
 			guestbook
