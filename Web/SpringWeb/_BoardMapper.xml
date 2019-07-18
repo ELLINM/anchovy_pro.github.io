@@ -62,5 +62,14 @@
 			boardnum = #{boardNum}
 			AND userid = #{userid}
 	</delete>
+	
+	<select id="getTotal" parameterType="map" resultType="int">
+		SELECT
+			COUNT (*)
+		FROM
+			board
+		WHERE
+			${searchItem} LIKE '%'||#{searchKeyword}||'%'
+	</select>
 </mapper>
 
