@@ -18,9 +18,10 @@ public class BoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public ArrayList<BoardVO> boardList(HashMap<String, String> map) {
+	public ArrayList<BoardVO> boardList(HashMap<String, String> map, int startRecord, int countPerPage) {
 		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
-		return mapper.boardList(map);
+		RowBounds rb = new RowBounds(startRecord, countPerPage);
+		return mapper.boardList(map, rb);
 	}
 	
 	public BoardVO boardRead(int boardNum) {
@@ -57,5 +58,10 @@ public class BoardDAO {
 	public void replyUpdate(ReplyVO vo) {
 		ReplyMapper mapper = sqlSession.getMapper(ReplyMapper.class);
 		mapper.replyUpdate(vo);
+	}
+	
+	public int getTotal(HashMap<String, String> map) {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		return mapper.getTotal(map);
 	}
 }
