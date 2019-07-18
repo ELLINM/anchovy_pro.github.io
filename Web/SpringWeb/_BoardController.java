@@ -28,11 +28,16 @@ public class BoardController {
 	@RequestMapping(value = "boardList", method = RequestMethod.GET)
 	public String boardList(
 			Model model,
+			@RequestParam(value="currentPage", defaultValue="1") int currentPage,
 			@RequestParam(value="searchItem", defaultValue="title") String searchItem,
 			@RequestParam(value="searchKeyword", defaultValue="") String searchKeyword
 			) {
-		ArrayList<BoardVO> list = service.boardList(searchItem, searchKeyword);
+		PageNavigator navi = service.getNavi(currentPage, searchItem, searchKeyword);
+		ArrayList<BoardVO> list = service.boardList(searchItem, searchKeyword, navi);
 		model.addAttribute("list", list);
+		model.addAttribute("navi", navi);
+		model.addAttribute("searchItem", searchItem);
+		model.addAttribute("searchKeyword", searchKeyword);
 		return "/board/boardList";
 	}
 	
