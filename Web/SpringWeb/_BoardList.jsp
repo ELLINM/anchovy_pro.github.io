@@ -8,7 +8,11 @@
 <meta charset="UTF-8">
 <title>게시판</title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/default.css"/>" />
-
+<script>
+	function pageProc(currentPage, searchItem, searchKeyword) {
+		location.href="/web/board/boardList?currentPage=" + currentPage + "&searchItem=" + searchItem + "&searchKeyword=" + searchKeyword;
+	}
+</script>
 </head>
 <body>
 <c:choose>
@@ -48,6 +52,28 @@
 				<td id="inputdate">${boardVO.inputdate}</td>
 			</tr>
 		</c:forEach>
+		<tr>
+			<td id="navigator" colspan="5">
+				<a href="javascript:pageProc(${navi.currentPage - navi.pagePerGroup}, '${searchItem}', '${searchKeyword}')">◁◁</a> 
+					&nbsp;&nbsp; 
+				<a href="javascript:pageProc(${navi.currentPage - 1}, '${searchItem}', '${searchKeyword}')">◀</a>
+					&nbsp;&nbsp; 
+				<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
+					<c:if test="${counter == navi.currentPage}">
+					<b>
+				</c:if>
+				<a href="javascript:pageProc(${counter}, '${searchItem}', '${searchKeyword}')">${counter}</a>
+					&nbsp;
+					<c:if test="${counter == navi.currentPage}">
+					</b>
+					</c:if>
+				</c:forEach> 
+					&nbsp;&nbsp; 
+				<a href="javascript:pageProc(${navi.currentPage + 1}, '${searchItem}', '${searchKeyword}')">▶</a>
+					&nbsp;&nbsp; 
+				<a href="javascript:pageProc(${navi.currentPage + navi.pagePerGroup}, '${searchItem}', '${searchKeyword}')">▷▷</a>
+			</td>
+		</tr>
 	</table>
 </body>
 </html>
