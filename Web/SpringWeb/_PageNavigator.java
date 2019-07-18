@@ -7,10 +7,10 @@ import lombok.Data;
 @Data
 public class PageNavigator {
 	
-	private int countPerPage;		//페이지당 글목록 수
-	private int pagePerGroup;		//그룹당 페이지 수 
+	private int countPerPage;		//페이지당 글목록 수 1개의 페이지에 게시물을 몇개를 출력할지 결정
+	private int pagePerGroup;		//그룹당 페이지 수 게시판 하단에 몇개의 페이지를 나타낼것인가
 	private int currentPage;		//현재 페이지 (최근 글이 1부터 시작)
-	private int totalRecordsCount;	//전체 글 수
+	private int totalRecordsCount;		//전체 글 수 : DB에 저장된 글 수 
 	private int totalPageCount;		//전체 페이지 수
 	private int currentGroup;		//현재 그룹 (최근 그룹이 0부터 시작)
 	private int startPageGroup;		//현재 그룹의 첫 페이지
@@ -29,7 +29,7 @@ public class PageNavigator {
 		//전체 페이지 수
 		totalPageCount = (totalRecordsCount + countPerPage - 1) / countPerPage;
 
-		//전달된 현재 페이지가 1보다 작으면 현재페이지를 1페이지로 지정
+		//전달된 현재 페이지가 1보다 작으면 현재페이지를 1페이지로 지정 0페이지 존재X
 		if (currentPage < 1)	currentPage = 1;
 		//전달된 현재 페이지가 마지막 페이지보다 크면 현재페이지를 마지막 페이지로 지정
 		if (currentPage > totalPageCount)	currentPage = totalPageCount;
@@ -38,6 +38,7 @@ public class PageNavigator {
 
 		//현재 그룹
 		currentGroup = (currentPage - 1) / pagePerGroup;
+		//표시하게된 페이지의 그룹을 나타냄 0번째 그룹의 첫번째 페이지는 1페이지 1번째 그룹의 첫번째 페이지는 6페이지
 		
 		//현재 그룹의 첫 페이지
 		startPageGroup = currentGroup * pagePerGroup + 1;
