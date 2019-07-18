@@ -20,11 +20,11 @@ public class BoardService {
 	@Autowired
 	private BoardDAO dao;
 	
-	public ArrayList<BoardVO> boardList(String searchItem, String searchKeyword) {
+	public ArrayList<BoardVO> boardList(String searchItem, String searchKeyword, PageNavigator navi) {
 		HashMap<String, String> map = new HashMap<>();
 		map.put("searchItem", searchItem);
 		map.put("searchKeyword", searchKeyword);
-		return dao.boardList(map);
+		return dao.boardList(map, navi.getStartRecord(), navi.getCountPerPage());
 	}
 	
 	public BoardVO boardRead(int boardNum) {
