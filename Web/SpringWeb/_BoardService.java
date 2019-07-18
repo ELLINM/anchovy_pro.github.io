@@ -74,4 +74,13 @@ public class BoardService {
 		if(dao.replyDelete(vo) != 1) return false;
 		return true;
 	}
+	
+	public PageNavigator getNavi(int currentPage, String searchItem, String searchKeyword) {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("searchKeyword", searchKeyword);
+		map.put("searchItem", searchItem);
+		int totalRecordsCount = dao.getTotal(map);
+		PageNavigator Navi = new PageNavigator(countPerPage, pagePerGroup, currentPage, totalRecordsCount);
+		return Navi;
+	}
 }
