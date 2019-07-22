@@ -12,4 +12,6 @@ public class GuestbookVO {
 	private String pwd;
 	private String content;
 	private String regdate;
+	private String originalFilename;
+	private String savedFilename;
 }
