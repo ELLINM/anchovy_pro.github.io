@@ -51,12 +51,20 @@ public class BoardService {
 		return true;
 	}
 	
-	public boolean boardWrite(BoardVO vo, HttpSession session) {
-		String userid = (String)session.getAttribute("userid");
-		vo.setUserid(userid);
-		if(dao.boardWrite(vo) != 1) return false;
-		return true;
-	}
+	public boolean boardWrite(BoardVO vo, HttpSession session, MultipartFile uploadFile) {
+		if(!uploadFile.isEmpty()){
+			String savedFilename = UUID.randomUUID().toString();
+			String originalFilename = uploadFile.getOriginalFilename();
+			vo.setOriginalFilename(originalFilename);
+			vo.setSavedFilename(savedFilename);
+			
+			try {
+				uploadFile.transferTo(new File("C:/test/" + savedFilename));
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	
 	public ArrayList<ReplyVO> replyList(int boardNum){
 		return dao.replyList(boardNum);
