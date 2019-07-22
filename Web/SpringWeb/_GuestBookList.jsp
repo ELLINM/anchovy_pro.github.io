@@ -39,7 +39,7 @@
 </c:choose>
 
 <h1>[ 방명록 ]</h1>
-	<form action="/web/guestbook/write" id="writeForm" method="post">
+	<form action="/web/guestbook/write" id="writeForm" method="post" enctype="multipart/form-data">
 		<fieldset>
 		<legend>
 			<input type="button" value="글쓰기" onclick="guestbookWrite()"/>
@@ -47,6 +47,7 @@
 		</legend>
 			<p>작성자<input type="text" name="name"></p>
 			내용<textarea rows="3" name="content"></textarea><br>
+			첨부파일<input type="file" name="uploadFile"><br>
 			비밀번호<input type="password" name="pwd" />
 		</fieldset>
 	</form>
