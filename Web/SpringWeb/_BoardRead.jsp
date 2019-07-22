@@ -101,7 +101,7 @@
 	</tr>
 	<tr>
 		<th>첨부파일</th>
-		<td>
+		<td><a href="#">${vo.originalFilename}</a>
 		</td>
 	</tr>
 	<tr>
