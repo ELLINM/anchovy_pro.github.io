@@ -13,7 +13,7 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private String inputdate;
-	private String originalFileName;
-	private String savedFileName;
+	private String originalFilename;
+	private String savedFilename;
 	private int hit;
 }
