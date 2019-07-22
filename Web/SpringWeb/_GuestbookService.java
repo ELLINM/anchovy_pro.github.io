@@ -17,7 +17,22 @@ public class GuestbookService {
 	@Autowired
 	private GuestbookDAO dao;
 	
-	public boolean write(GuestbookVO vo) {
+	public boolean write(GuestbookVO vo, MultipartFile uploadFile) {
+		if(!uploadFile.isEmpty()){
+			//첨부파일을 보냈는지 안보냈는지 판단 여부
+			String savedFilename = UUID.randomUUID().toString();
+			//randomUUID()는 숫자, 영어, 하이픈을 조합하여 36자의 랜덤값을 반환 
+			String originalFilename = uploadFile.getOriginalFilename();
+			vo.setOriginalFilename(originalFilename);
+			vo.setSavedFilename(savedFilename);
+			
+			try {
+				uploadFile.transferTo(new File("C:/test/" + savedFilename));
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		if(dao.write(vo) != 1) return false;
 		return true;
 	}
