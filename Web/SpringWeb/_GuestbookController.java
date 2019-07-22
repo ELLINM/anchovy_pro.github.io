@@ -36,8 +36,8 @@ public class GuestbookController {
 	}
 	
 	@RequestMapping(value = "write", method = RequestMethod.POST)
-	public String write(GuestbookVO vo, Model model) {
-		boolean result = service.write(vo);
+	public String write(GuestbookVO vo, Model model, MultipartFile uploadFile) {
+		boolean result = service.write(vo, uploadFile);
 		model.addAttribute("writeResult", result);
 		return "forward:/guestbook/guestbookList";
 	}
