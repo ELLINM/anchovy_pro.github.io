@@ -176,10 +176,10 @@ Request / Response
 
 JAVA문의 활용
 -------------
-<pre>
+~~~
 <c:forEach items="s{sList}" var="word">
 
 <h4>%{word}</h4>
 
 </c:forEach>
-</pre>
+~~~
