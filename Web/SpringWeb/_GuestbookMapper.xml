@@ -25,6 +25,14 @@
 			,#{pwd}
 			,#{content}
 			,sysdate
+			<choose>
+				<when test="originalFilename != null and savedFilename != null">
+					,#{originalFilename} ,#{savedFilename}
+				</when>
+				<otherwise>
+					,null ,null
+				</otherwise>
+			</choose>
 		)
 	</insert>
 	
