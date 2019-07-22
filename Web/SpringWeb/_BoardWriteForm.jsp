@@ -20,7 +20,7 @@
 </script>
 
 <h1>[ 글쓰기 ]</h1>
-<form action="/web/board/boardWrite" id="writeForm" method="post">
+<form action="/web/board/boardWrite" id="writeForm" method="post" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<th>작성자</th>
@@ -32,7 +32,7 @@
 		</tr>
 		<tr>
 			<th>첨부 파일</th>
-			<td></td>
+			<td><input type="file" name="uploadFile"></td>
 		</tr>
 		<tr>
 			<th>내용</th>
