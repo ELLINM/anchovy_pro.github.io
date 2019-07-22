@@ -97,8 +97,8 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "boardWrite", method = RequestMethod.POST)
-	public String boardWriteForm(BoardVO vo, HttpSession session, RedirectAttributes rttr) {
-		boolean result = service.boardWrite(vo, session);
+	public String boardWriteForm(BoardVO vo, HttpSession session, RedirectAttributes rttr, MultipartFile uploadFile) {
+		boolean result = service.boardWrite(vo, session, uploadFile);
 		rttr.addFlashAttribute("writeResult", result);
 		return "redirect:/board/boardList";
 	}
