@@ -33,4 +33,9 @@ public class GuestbookDAO {
 		GuestbookMapper mapper = sqlSession.getMapper(GuestbookMapper.class);
 		return mapper.delete(vo);
 	}
+	
+	public GuestbookVO read(int seq) {
+		GuestbookMapper mapper = sqlSession.getMapper(GuestbookMapper.class);
+		return mapper.read(seq);
+	}
 }
