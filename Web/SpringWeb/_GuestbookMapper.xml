@@ -44,6 +44,14 @@
 			AND pwd = #{pwd}
 	</delete>
 	
+	<select id="read" parameterType="int" resultType="GuestbookVO">
+	SELECT *
+	FROM
+		guestbook
+	WHERE
+		seq = #{seq}	
+	</select>
+	
 	<select id="guestbookList" parameterType="map" resultType="GuestbookList">
 		<!--DAO 로부터 전달받은 HashMap 객체를 parameterType 으로 지정-->
 		SELECT *
