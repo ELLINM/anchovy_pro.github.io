@@ -11,4 +11,5 @@ public interface GuestbookMapper {
 	public ArrayList<GuestbookVO> guestbookList(HashMap<String, String> map);
 	public int write(GuestbookVO vo);
 	public int delete(GuestbookVO vo);
+	public GuestbookVO read(int seq);
 }
