@@ -37,3 +37,19 @@ textarea
 |placeholder|text|텍스츠 영역의 예상값을 설명하는 짧은 힌트 영역이 비면 나타나고, 영역이 포커스 되면 사라짐|
 |required|required|텍스트 입력이 필수임을 나타냄|
 |wrap|hard/soft|텍스트 줄바꿈 지정 기본값 : 줄바꿈 되지 않음, 줄바꿈 됨 p.s : hard를 사용하려면 cols속성이 지정되어야함|
+
+form Tag
+------
++ method, action, enctype 등은 입력받은 데이터를 어떻게 처리할 것인지 세부적으로 설정
++ method는 전송 방식
++ action은 전송 목적지
++ enctype은 전송되는 데이터 형식을 설정
+ 
+
+enctype
+------
+|Type|Content|
+|----|-----|
+|application/www-form-urlencoded|디폴트값 enctype을 따로 설정하지 않으면 이 값이 설정 FormData는 서버로 전송되기 전에 URL-Encode 됨|
+|multipart/form-data|파일이나 이미지를 서버로 전송할 경우 이 방식을 사용|
+|text/plain|이 형식은 인코딩을 하지 않은 문자 상태로 전송|
