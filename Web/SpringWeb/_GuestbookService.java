@@ -47,9 +47,30 @@ public class GuestbookService {
 		return dao.guestbookList(map);
 	}
 	
-	
 	public boolean delete(GuestbookVO vo) {
 		if(dao.delete(vo) != 1) return false;
 		return true;
+	}
+	
+	public void download(GuestbookVO vo, HttpServletResponse response) {
+		File file = new File("C:/test/" + vo.getSavedFilename());
+		String originalFilename = vo.getOriginalFilename();
+		
+		try {
+			response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(originalFilename, "UTF-8"));
+			/*response : client에 응답  header : 정보를 답고 있음 Content-Disposition : 응답의 정보
+			attachment : 다운 로드받을것이 파일이다 ;filename= : 다운로드 파일명
+			URLEncoder.encode(originalFilename, "UTF-8" : 파일명과 파일명이 한글일때 깨지지 않게하는 UTF-8*/
+			response.setContentLength((int)file.length());
+			//다운로드 받는 파일의 크기를 세팅
+			FileCopyUtils.copy(new FileInputStream(file), response.getOutputStream());
+			//FileCopyUtils.copy : method호출 response.getOutputStream() :  링크를 클릭했을때 다운로드를 하는 통로 역할
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public GuestbookVO read(int seq) {
+		return dao.read(seq);
 	}
 }
