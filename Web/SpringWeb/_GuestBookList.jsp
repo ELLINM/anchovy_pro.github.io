@@ -62,12 +62,16 @@
 	
 	<!-- 방명록 리스트 출력 -->
 	<c:forEach items="${list}" var="guestbook">
-		<!--${list}는 Controller에서 받아옴-->
 		<fieldset>
 			<legend>#${guestbook.seq}</legend>
-			<!--${guestbook.seq}의 guestbook은 var에서 갖고옴-->
 			<p>작성자 : ${guestbook.name}</p>
-			<p>작성일 : ${guestbook.regdate}</p>
+			<p>작성일 : 
+			<fmt:parseDate value="${guestbook.regdate}" var="parsedRegdate" pattern="yyyy-MM-dd HH:mm:ss" />
+			<fmt:formatDate value="${parsedRegdate}" pattern="yyyy-MM-dd"/>
+			</p>
+			<p>
+				첨부파일 : <a href="/web/guestbook/download?seq=${guestbook.seq}">${guestbook.originalFilename }</a>
+			</p>
 			<pre>${guestbook.content }</pre>
 		<form action="/web/guestbook/delete" id="deleteForm" method="post">
 			비밀번호 <input type="password" name="pwd" />
