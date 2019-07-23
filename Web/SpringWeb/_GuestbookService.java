@@ -48,7 +48,10 @@ public class GuestbookService {
 	}
 	
 	public boolean delete(GuestbookVO vo) {
+		String savedFilename = dao.read(vo.getSeq()).getSavedFilename();
 		if(dao.delete(vo) != 1) return false;
+		File file = new File("C:/test/" + savedFilename);
+		if(file.exists()) file.delete();
 		return true;
 	}
 	
