@@ -47,5 +47,11 @@ public class GuestbookController {
 		boolean result = service.delete(vo);
 		model.addAttribute("deleteResult", result);
 		return "forward:/guestbook/guestbookList";
-	}	
+	}
+	
+	@RequestMapping(value = "download", method = RequestMethod.GET)
+	public void download(int seq, HttpServletResponse response) {
+		GuestbookVO vo = service.read(seq);
+		service.download(vo,response);
+	}
 }
