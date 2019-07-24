@@ -10,7 +10,7 @@ create table com_product(
 --판매 정보 테이블 생성
 create table com_sales(
     num number primary key not null,
-    inputdate date,
+    inputdate date default sysdate,
     code not null REFERENCES com_product(code),
     quantity number not null
 );
