@@ -25,6 +25,7 @@
 		<h1><a href="/web/member/logout">로그아웃</a></h1>
 	</c:if>
 	<h1><a href="/web/guestbook/guestbookList">방명록</a></h1>
+	<a href="/web/guestbook/nullException">nullException 발생</a>
 <%-- 	<c:if test="${result == true}"> --%>
 <!-- 		<h3>가입 성공</h3> -->
 <%-- 	</c:if> --%>
