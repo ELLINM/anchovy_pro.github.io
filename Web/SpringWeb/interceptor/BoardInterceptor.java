@@ -23,9 +23,12 @@ public class BoardInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
+		//request를 통해 getSession을 갖고온다
 		Object obj = session.getAttribute("userid");
+		//Service에서 입력한 userid가 존재하는지 판단
 		if(obj == null){
 			response.sendRedirect("/web/member/loginForm");
+			//화면 전환을 위한 method
 			return false;
 		}
 		return true;
