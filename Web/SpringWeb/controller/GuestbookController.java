@@ -21,6 +21,12 @@ public class GuestbookController {
 	@Autowired
 	private GuestbookService service;
 	
+	//NullPointException Error 
+	@RequestMapping(value = "nullException", method = RequestMethod.GET)
+	public String nullException() {
+		throw new NullPointerException();
+	}
+	
 	// 방명록 리스트 화면 이동
 	@RequestMapping(value = "guestbookList", method = {RequestMethod.GET, RequestMethod.POST})
 	//guestbookList -> localhost8989/web/guestbook/guestbookList 즉, value = "write"에서 return한 주소값으로 연결된다.
