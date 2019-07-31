@@ -15,6 +15,7 @@ Window
 
 BOM (Browser Object Model)
 -----------
++ 브라우저를 제어하는 객체들의 집합
 + screen, location, navigator, history, frame
 
 + screen : 브라우저가 아닌 운영체제 화면에 관련된 객체
@@ -31,7 +32,7 @@ DOM (Document Object Model)
 + document
 
 
-전역객체
+Global object(전역객체)
 ---------
 + window 객체를 뜻함, global object 모든 객체가 전역 객체에 속해있음(property라는 뜻, 상속과는 다름)
 + 객체를 명시하지 않으면 암시적으로 window 의 property 로 지정됨
