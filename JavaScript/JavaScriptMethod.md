@@ -3,7 +3,10 @@
   html, xml 등의 마크업 언어를 제어하는 것이 dom 이라는 문서 객체
   이 세 가지를 모두 포함하는 것이 window 객체로 웹 브라우저에 내장되어 있음
 
+
 ![Window](https://raw.githubusercontent.com/ELLINM/coding_tutorial/master/Image/%EA%B7%B8%EB%A6%BC1.png)
+
+
 Window
 =======
 + 웹 브라우저의 최상위 객체
