@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Child</title>
+<script>
+	function setParentText() {
+		opener.document.getElementById("pInput").value = document.getElementById("cInput").value
+	}
+
+	function getParentText() {
+		document.getElementById("cInput").value = opener.document.getElementById("pInput").value;
+	}
+</script>
+
+</head>
+<body>
+	<input type="text" id="cInput">
+	<br>
+	<input type="button" value="전달하기" onclick="setParentText()">
+	<input type="button" value="가져오기" onclick="getParentText()">
+</body>
+</html>
