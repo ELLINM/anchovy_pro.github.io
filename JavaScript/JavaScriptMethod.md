@@ -3,7 +3,7 @@
   html, xml 등의 마크업 언어를 제어하는 것이 dom 이라는 문서 객체
   이 세 가지를 모두 포함하는 것이 window 객체로 웹 브라우저에 내장되어 있음
 
-
+![Window](https://raw.githubusercontent.com/ELLINM/coding_tutorial/master/Image/%EA%B7%B8%EB%A6%BC1.png)
 Window
 =======
 + 웹 브라우저의 최상위 객체
@@ -15,6 +15,10 @@ BOM (Browser Object Model)
 + screen, location, navigator, history, frame
 
 + screen : 브라우저가 아닌 운영체제 화면에 관련된 객체
+> 운영체제 화면의 속성을 갖는 객체
+  width : 화면의 너비
+  height : 화면의 높이
+
 + navigator	: 브라우저와 관련된 객체(주로 브라우저 종류를 구분하기위해 사용)
 + location : 주소와 관련된 객체
 + history : 브라우저의 주소 이력과 관련된 객체
