@@ -39,8 +39,8 @@ Method
 > 주소를 입력하거나 문자열을 입력
 
 + name
-> _blank
-  _parent
+> _blank   
+  _parent   
   _self
 
 + moveBy(x, y) : 창의 위치를 x, y 픽셀 만큼 이동
