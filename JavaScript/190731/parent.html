@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Parent</title>
+<script>
+
+	var openWin
+	
+	function openChild() {
+		window.name = "parentForm";
+		openWin = window.open("child.html", "childForm",
+				"height=300, width=300, top=300, left=300")
+	}
+	
+	function setChildText(){
+		openWin.document.getElementById("cInput").value = document.getElementById("pInput").value;
+	}
+	
+	function getChildText(){
+		document.getElementById("pInput").value = openWin.document.getElementById("cInput").value;
+	}
+	
+</script>
+</head>
+<body>
+	<input type="button" value="OpenChild" onclick="openChild()">
+	<br>
+	<input type="text" id="pInput">
+	<input type="button" value="전달" onclick="setChildText()">
+	<input type="button" value="가져오기" onclick="getChildText()">
+</body>
+</html>
+  
+
+
