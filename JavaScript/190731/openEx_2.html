@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Child</title>
+<script>
+	function closeFunc(){
+		if(confirm("창을 닫으시겠습니까?")){
+			close();
+			//굳이 window를 적어 주지 않아도 괜찮음
+		}
+	}
+	
+	function parentClosefunc(){
+		if(confirm("부모창을 닫으시겠습닜까?")){
+			opener.close();
+		}
+	}
+
+</script>
+
+</head>
+<body>
+	<input type="button" value="closeFunc" onclick="closeFunc()"><br>
+	<input type="button" value="parentClosefunc" onclick="parentClosefunc()"><br>
+</body>
+</html>
