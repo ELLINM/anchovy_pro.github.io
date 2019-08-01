@@ -59,6 +59,41 @@ Method
 + blur() : 창에서 포커스(초점)을 제거
 + close() : 창을 닫음
 + print() : 창의 내용을 인쇄
++ createElement(tagName) : tagName 에 해당하는 element node 를 생성
++ createTextNode(text) : element node 와 연결할 text node 를 생성
++ appendChild(node) : 문서 객체에 element node 또는 text node 를 연결
+> html 태그를 객체화한 각 문서 객체를 node 라고 표현함     
+  node에는 element node 와 text node 가 있음     
+  element node     
+  html 태그를 의미    
+  text node     
+  html 태그에 연결할 text 를 의미     
+  
+  Ex)
+  ~~~
+  <h1>텍스트</h1>
+  ~~~
+  에서 “텍스트”    
+
+> 생성한 element node 에 속성을 추가할 경우
+  노드명.속성명 = 속성값
+  Ex)
+  <pre>var temp = document.createElement(“input”);
+	temp.type= “text”;</pre>
+
++ innerHTML : 특정 문서 객체가 node 정보를 문자열로 갖고 있음
++ removeChild(node) : 문서 객체가 갖는 특정 node 를 삭제
+  특정 문서객체(node)를 삭제하기 위해서는 먼저, 삭제하려는 문서객체를 포함하고 있는
+  부모 문서객체에 접근하여 삭제해야 함
+
+  Ex)
+  ~~~
+  <form>
+	  <input type=”text”>
+	  <input type=”submit”>
+  </form>
+  ~~~
+> 위 태그에서 input type text 를 삭제하기 위해서는 부모인 form 태그에 접근하여 삭제해야함
 
 
 property
