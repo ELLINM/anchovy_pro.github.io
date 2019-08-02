@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+	function mOver(){
+		var box = document.getElementById("box");
+		box.checked = "checked";
+	}
+	
+	function keyUpFunc(){
+		var text = document.getElementById("text");
+		text.value = text.value.toUpperCase();
+	}
+
+	function changeFunc(){
+		var x = document.getElementById("mySelect").value;
+		
+		document.getElementById("here").style.backgroundColor = x;
+	}
+	
+	function myFunction(){
+		var x = document.getElementById("myInput").value;
+		var r = parseInt(Math.random()*255);
+		var y = parseInt(Math.random()*255);
+		var b = parseInt(Math.random()*255);
+		
+		document.getElementById("demo").innerHTML = x;
+		document.body.style.backgroundColor = "rgb(" + r + "," + y + "," + b + ")";
+	}
+</script>
+</head>
+<body>
+	<input type="checkbox" id="box" onmouseover="mOver()">Here
+	
+	<input type="text" id="text" onkeyup="keyUpFunc()"><br>
+	
+	<select id="mySelect" onchange="changeFunc()">
+		<option value="red">red</option>
+		<option value="yellow">yellow</option>
+		<option value="blue">blue</option>
+	</select>
+	<h1 id="here">Here Comes New Challenger</h1>
+	
+	<input type="text" id="myInput" oninput="myFunction()"><br>
+	<p id="demo"></p>
+</body>
+</html>
