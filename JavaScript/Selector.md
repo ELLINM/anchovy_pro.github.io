@@ -12,7 +12,7 @@ Selector
 + tag : tag 선택자
 + '#' : id 선택자
 + . : class 선택자
-+ > : 자손 선택자
++ '>' : 자손 선택자
 + 공백 : 후손 선택자
 
 
@@ -54,11 +54,11 @@ input type="text" class="en-us"
 each()
 ----
 + $.each(배열, function(index, item) ) { })
-- each 함수의 매개변수로 배열을 전달
-- javascript 의 일반 배열 처리 가능
+  each 함수의 매개변수로 배열을 전달
+  javascript 의 일반 배열 처리 가능
 + $(선택자).each(function(index, item) { })
-- JQuery 의 배열에서 each 함수를 호출
-- JQuery 의 배열에서 each 함수를 호출하고 있으므로
+  JQuery 의 배열에서 each 함수를 호출
+  JQuery 의 배열에서 each 함수를 호출하고 있으므로
   javascript 의 일반 배열 처리 불가
 
 > each 함수는 두 가지 형태로 사용됨
