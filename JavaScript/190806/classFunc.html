@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	.bgColor, .bgColor0 {
+		background-color: yellow;
+	}
+	
+	.bgColor1 {
+		background-color: aqua;
+	}
+	
+	.bgColor2 {
+		background-color: purple;
+	}
+	
+	.bgColor3 {
+		background-color: pink;
+	}
+	
+	.bgColor4 {
+		background-color: red;
+	}
+	
+	.bgColor5 {
+		background-color: orange;
+	}
+	
+</style>
+<script src="/JSproj/js/jquery-3.4.1.js"></script>
+<script>
+	function addCls1(){
+		$("div > *").addClass("bgColor");
+	}
+	//모든 body항목에 bgColor 삽입
+	
+	function addCls2(){
+		$("div > *").addClass(function(index, item){
+			//객체수만큼 index에 들어감
+			console.log(item);
+			return "bgColor" + index;
+		})
+	}
+	//index순서대로 정해진 bgColor삽입 1~5까지
+	
+	function removeCls1(){
+		$("div > *").removeClass("bgColor");
+	}
+	//전체에 삽입된 "bgColor" Class를 삭제
+	
+	function removeCls2(){
+		/*
+		$('div > *')
+			-> <h1 class=bgColor0'>가</h1>
+			-> <h1 class=bgColor1'>나</h1>
+			removeClass(function(index, item){ return item;})
+			-> index : 0
+			-> item : bgColor0
+			-> index : 1
+			-> item : bgColor1
+		*/
+		
+		$("div > *").removeClass(function(index, item){
+			return item;
+		});
+	}
+	//index순서대로 삽입된 bgColor1~5를 삭제
+	
+	function removeCls3(){
+		$("div > *").removeClass();
+	}
+	//전부 삭제 
+	
+	function toggleCls1(){
+		$("div > *").toggleClass("bgColor");
+	}
+	
+	function toggleCls2(){
+		$("div > *").toggleClass();
+	}
+</script>
+</head>
+<body>
+
+<div>
+	<h1>가</h1>
+	<h1>나</h1>
+	<h1>다</h1>
+	<h1>라</h1>
+	<h1>마</h1>
+	<h1>바</h1>
+</div>
+
+<input type="button" value="class 속성추가1" onclick="addCls1()"><br>
+<input type="button" value="class 속성추가2" onclick="addCls2()"><br>
+<input type="button" value="class 속성삭제1" onclick="removeCls1()"><br>
+<input type="button" value="class 속성삭제2" onclick="removeCls2()"><br>
+<input type="button" value="class 속성삭제3" onclick="removeCls3()"><br>
+<input type="button" value="class 속성토글1" onclick="toggleCls1()"><br>
+<input type="button" value="class 속성토글2" onclick="toggleCls2()"><br>
+
+</body>
+</html>
