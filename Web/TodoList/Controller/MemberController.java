@@ -17,6 +17,21 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
+	// 아이디 중복확인
+	@RequestMapping(value = "checkid", method = RequestMethod.POST)
+	public String idcheck(RedirectAttributes rttr, String userid) {
+		boolean result = service.checkid(userid);
+		rttr.addFlashAttribute("result", result);
+		rttr.addFlashAttribute("userid", userid);
+		return "redirect:/member/checkidForm";
+	}
+	
+	// 아이디 중복확인 화면 이동
+	@RequestMapping(value = "checkidForm", method = RequestMethod.GET)
+	public String idcheckForm() {
+		return "/member/checkidForm";
+	}
+	
 	// 회원가입 화면 이동
 	@RequestMapping(value = "signupForm", method = RequestMethod.GET)
 	public String signupForm() {
