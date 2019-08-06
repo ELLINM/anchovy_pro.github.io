@@ -7,4 +7,5 @@ public interface MemberMapper {
 	public void signup(MemberVO vo);
 	public int login(MemberVO vo);
 	public void withdraw(MemberVO vo);
+	public int checkid(String userid);
 }
