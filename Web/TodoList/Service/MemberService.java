@@ -28,10 +28,17 @@ public class MemberService {
 	public void logout(HttpSession session) {
 		session.invalidate();
 	}
-
+	
+	//탈퇴
 	public void withdraw(MemberVO vo, HttpSession session) {
 		String userid = (String)session.getAttribute("userid");
 		vo.setUserid(userid);
 		dao.withdraw(vo);
+	}
+	
+	//가입 id 중복 
+	public boolean checkid(String userid) {
+		if(dao.checkid(userid) == 1) return false;
+		return true;
 	}
 }
