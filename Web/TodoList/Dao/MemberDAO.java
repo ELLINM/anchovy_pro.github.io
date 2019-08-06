@@ -26,4 +26,9 @@ public class MemberDAO {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 		mapper.withdraw(vo);
 	}
+	
+	public int checkid(String userid) {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		return mapper.checkid(userid);
+	}
 }
