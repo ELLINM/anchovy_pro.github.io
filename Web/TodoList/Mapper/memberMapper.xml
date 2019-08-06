@@ -5,6 +5,16 @@
 
 <mapper namespace="com.todoList.web.dao.MemberMapper">
 	
+	<!-- 아이디 중복확인 -->
+	<select id="checkid" parameterType="string" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			TODOUSER
+		WHERE
+			userid = #{userid}
+	</select>
+	
 	<!-- 회원가입 -->
 	<insert id="signup" parameterType="MemberVO">
 		INSERT INTO
