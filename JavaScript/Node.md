@@ -49,3 +49,13 @@ html()
 + remove()     
   문서객체를 삭제
 
+
+event
+-----
++ event 연결 메서드
++ on(문자열, function() { })  
+  문서객체에 문자열과 일치하는 event 를 연결   
+  event 발생시, function 호출
++ click(function() {} ) / keyup(function() {} ) / focus(function() {} ) / …   
+  event 연결을 쉽게 하기 위한 메서드
+
