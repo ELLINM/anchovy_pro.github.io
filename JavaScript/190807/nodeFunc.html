@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/JSproj/js/jquery-3.4.1.js"></script>
+<script>
+	$(function() {
+		printHtml();
+	});
+	//printHtml() 함수 생성
+	
+	function printHtml(){
+		var elementNode = $('div#desc').html();
+		//elementNode에 div안의 desc라는 이름으로된 것들을 문자열형식으로 저장
+		$('pre').text(elementNode);
+		//pre라는 tag사이에 위에서 저장한 문자열을 넣는다 
+	}
+	
+	function appendFunc(){
+		$('div#here').append('<h1>append추가</h1>');
+		printHtml();
+	}
+	
+	function prependFunc(){
+		$('div#here').prepend('<h1>prepend추가</h1>');
+		printHtml();
+	}
+	
+	function afterFunc(){
+		$('div#here').after('<h1>after추가</h1>');
+		printHtml();
+	}
+	
+	function beforeFunc(){
+		$('div#here').before('<h1>before추가</h1>');
+		printHtml();
+	}
+	
+	function emptyFunc(){
+		$('div#here').empty();
+		printHtml();
+	}
+	
+	function removeFunc(){
+		$('div#here').remove();
+		printHtml();
+	}
+</script>
+</head>
+<body>
+
+	<div id="desc">
+		<div id="here">
+			<input type="text" value="test1"><br>
+			<input type="text" value="test2"><br>
+			<input type="text" value="test3"><br>
+			<h1>가</h1>
+			<h1>나</h1>
+			<h1>다</h1>
+		</div>
+	</div>
+	
+	<input type="button" value="$('div#here').append('<h1>append추가</h1>')" onclick="appendFunc()"><br>
+	<input type="button" value="$('div#here').prepend('<h1>prepend추가</h1>')" onclick="prependFunc()"><br>
+	<input type="button" value="$('div#here').after('<h1>after추가</h1>')" onclick="afterFunc()"><br>
+	<input type="button" value="$('div#here').before('<h1>before추가</h1>')" onclick="beforeFunc()"><br>
+	<input type="button" value="$('div#here').empty()" onclick="emptyFunc()"><br>
+	<input type="button" value="$('div#here').remove()" onclick="removeFunc()"><br>
+	
+<hr>
+<pre></pre>
+
+</body>
+</html>
