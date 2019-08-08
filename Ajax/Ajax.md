@@ -1,6 +1,13 @@
 AJAX
 ======
 + javascript 를 이용한 비동기 통신 방식, JavaScript와 XML (Asynchronous JavaScript And XML)
+  + 동기    
+    클라이언트가 서버에 요청을 보내고 기다리는것
+
+  + 비동기    
+    클라이언트가 서버에 요청을 보내고 기다리지않고 다른 무언가를 하는것
+
+
 + 서버와의 통신이 이루어지는 동안, 다른 작업이 가능 / 화면 전환 불필요
   통신하기 위해 XMLHttpRequest 객체를 사용
 + xml, text, json 등의 데이터를 이용하여 통신 가능
