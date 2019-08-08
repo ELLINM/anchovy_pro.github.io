@@ -40,6 +40,8 @@ public class HomeController {
 	@RequestMapping(value = "test3", method = RequestMethod.POST)
 	@ResponseBody
 	public void test3(@RequestBody TestVO vo) {
+	//post 방식으로 전송된 json 데이터를 받음
+	//・화면으로부터 값을 전달받는 매개변수에 @RequestBody 를 붙일 것
 		System.out.println(vo);
 	}
 	
@@ -58,6 +60,37 @@ public class HomeController {
 		list.add(new TestVO("아이디3", "이름3"));
 		list.add(new TestVO("아이디4", "이름4"));
 		
+		return list;
+	}
+	
+	@RequestMapping(value = "test6", method = RequestMethod.POST)
+	@ResponseBody
+	public void test6(@RequestBody ArrayList<String>list) {
+		//post 방식으로 전송된 json 데이터를 받음
+		System.out.println(list);
+	}
+	
+	@RequestMapping(value = "test7", method = RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, String> test7() {
+		HashMap<String, String> map = new HashMap<>(); 
+		map.put("id", "아이디");
+		map.put("name", "이름");
+		return map;
+	}
+	
+	@RequestMapping(value = "test8", method = RequestMethod.POST)
+	@ResponseBody
+	public ArrayList<HashMap<String, String>> test8() {
+		ArrayList<HashMap<String, String>> list = new ArrayList<>(); 
+		HashMap<String, String> map1 = new HashMap<>(); 
+		HashMap<String, String> map2 = new HashMap<>(); 
+		map1.put("id", "아이디1");
+		map1.put("name", "이름1");
+		map2.put("id", "아이디2");
+		map2.put("name", "이름2");
+		list.add(map1);
+		list.add(map2);
 		return list;
 	}
 }
