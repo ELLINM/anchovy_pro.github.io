@@ -129,6 +129,22 @@
 			error : function() {alert("Error")}
 		});
 	}
+	
+	function test9(){
+		var form = $('#uploadForm')[0];
+		//var form = document.getElementById(#'uploadForm');
+		var formData = new FormData(form);
+		
+		$.ajax({
+			url: "test9",
+			type: "post",
+			data: formData,
+			contentType: false,
+			processData: false,
+			success: function(){alert("Success")},
+			error : function() {alert("Error")}
+		});
+	}
 </script>
 </head>
 <body>
@@ -163,5 +179,12 @@
 			</tr>
 		</table>
 	</div>
+	<hr>
+	<form id="uploadForm">
+		ID<input type="text" name="id"><br>
+		NAME<input type="text" name="name"><br>
+		<input type="file" name="uploadFile"><br>
+		<input type="button" value="파일 전송" onclick="test9()">
+	</form>
 </body>
 </html>
