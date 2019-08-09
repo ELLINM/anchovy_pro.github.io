@@ -92,5 +92,17 @@ public class HomeController {
 		list.add(map1);
 		list.add(map2);
 		return list;
+	}@RequestMapping(value = "test9", method = RequestMethod.POST)
+	@ResponseBody
+	public void test9(TestVO vo, MultipartFile uploadFile) {
+		System.out.println(vo);
+		System.out.println(uploadFile.getOriginalFilename());
+	}
+	
+	@RequestMapping(value = "test9", method = RequestMethod.POST)
+	@ResponseBody
+	public void test9(TestVO vo, MultipartFile uploadFile) {
+		System.out.println(vo);
+		System.out.println(uploadFile.getOriginalFilename());
 	}
 }
