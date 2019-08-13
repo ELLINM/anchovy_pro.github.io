@@ -13,9 +13,17 @@ var bookno = '';
 
 $(function() {
 	init();
+	//초기화
+	
 	$("#bookRegist").on('click', bookregist);
+	//function bookregist() 정보등록, 수정 처리
+	
 	$(".del").on('click', bookdelete);
+	//책 정보 삭제 버튼은 output 함수에서 갖고 온다.
+	
 	$("#searchbtn").on('click', search);
+	//독서 노트 검색
+	
 	$("#cancel").on('click', function(){
 		$("#bookRegist").val("독서평 등록");
 	})
