@@ -6,7 +6,7 @@
 <meta charset="UTF_8">
 <title>Insert title here</title>
 	<script>
-		funciton check(){
+		function check(){
 		var userid=document.getElementById("userid");
 		var userpwd=document.getElementById("userpwd");
 
