@@ -39,6 +39,8 @@ function init() {
 	})
 }
 	
+	//각 url은 controller의 value값으로 들어간다.
+	
 // 독서노트 검색 
 function search() {
 	var shelfname = $("#myshelfname").val();
@@ -85,8 +87,9 @@ function output(resp) {
 //책 정보 수정
 function bookupdate(booknum) {
 	if($("#bookRegist").val() != '독서평 등록') return;
+	//bookRegist는 등록 수정 두가지에 사용되기 때문에 value값을 구분해 
 	var booknum = $(this).attr("data-value");
-	
+	//attr은 속성값 변경에 이용
 	var deltarget = $(this).parent().parent();
 	
 	$.ajax({
@@ -125,6 +128,7 @@ function bookdelete(booknum) {
 		, url : 'deletebook'
 		, data : "booknum="+booknum
 		, success : function(resp) {
+		//성공 여부를 판단하여 response 객체로 요청에 응답
 			if(resp == 'success') {
 				deltarget.remove();
 			} else {
@@ -150,6 +154,7 @@ function bookregist() {
 	}
 	
 	if(isNaN(price)) {
+	//isNaN은 매개 변수가 숫자인지 
 		alert("금액은 숫자로만 입력해 주세요");
 		$("#price").select();
 		return;
