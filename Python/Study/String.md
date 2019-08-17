@@ -20,9 +20,9 @@ Ex)
   replace()함수 인자에 기존 문자열과 바꿀 문자열을 전달하면 바뀐 문자열을 반환
   마찬가지로 string의 요소를 직접 변경하지 않았다는점
   
-  <pre>
-  >>> string = 'abcde'
+<pre>
+>>> string = 'abcde'
 >>> new_string = string.replace('c','x')
 >>> new_string
 'abxde'
-  </pre>
+</pre>
