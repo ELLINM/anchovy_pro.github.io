@@ -95,3 +95,54 @@ public interfae DisplayElement{
   public void display();
 }
 </pre>
+
+
+WeatherData의 Subject interface)
+<pre>
+public class WeatherData implements Subject{
+//WeatherData에서 Subject interface를 구현
+  private ArrayList observers;
+  private float temperature;
+  private float humidity;
+  private float pressure;
+  
+  public WeatherData(){
+    observers = new ArrayList();
+    //Observer 객체들을 저장하기 위해 ArrayList를 추가 그리고 생성자에서 그 객체를 생성
+  }
+  
+  public void registerObserver(Observer o){
+  //Observer가 등록을 하면 목록 맨 뒤에 추가하면 됨
+    observers.add(o);
+  }
+  
+  public void removerObserver(Observer o){
+  //Observer가 빠지면 목록에서 빼면됨
+    int i = observers.indexOf(o);
+    if (i >= 0){
+      observers.remove(i);
+    }
+  }
+  
+  public void notifyObservers(){
+  // 상태에 대해서 모든 Observer들에게 알려주는 부분
+  // Observer interface를 구현하는 update() Method가 있는 객체들
+    for(int i = 0; i < observers.size(); i++){
+      Observer observer = (Observer)observers.get(i);
+      observer.update(temperature, humidity, pressure);
+    }
+  }
+  
+  public void measurementsChanged(){
+  //Virtual Station으로 부터 갱신된 측저이를 받으면 Observer들에게 알림
+    notifyObservers();
+  }
+  
+  public void setMeasurements(float temperature,  float humidity, float pressure){
+    this.temperature = temperature;
+    this.humidity = humidity;
+    this.pressure = pressure;
+    measurementsChanged();
+  }
+}
+</pre>
