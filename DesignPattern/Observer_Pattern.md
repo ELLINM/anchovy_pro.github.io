@@ -30,6 +30,56 @@ Design Principle
   객체 가이의 상호 의존성을 최소화!
 
 
+> Java.tuil pakage에 들어있는 Observer Interface와 Observeable Class를 사용하여 Observer Pattern을 사용할 수 있음
+
+
+Java 내장 Observer Pattern 작동 방식
+-----------
++ 차이점 : WeatherData에서 Observable Class를 확장하면서 Method를 상속받음
++ Object Observer가 되는 방법은 같음 삭제도 마찬가지
++ java.util.Observable Super Class를 확장하여 Observable Class를 생성
+  -> setChanged() Method를 호출해서 Object의 상태가 바뀌었다는것을 전달
+  -> 다음에 notifyObservers() or notifyObservers(Object arg)를 호출
++ Observer가 전달을 받을때
+  <pre>
+  update(Observalbe o, Object arg)
+  // 연락을 보내는 Subject Object가 Observable 인자로 전달
+  //Object arg : notifyObservers() Method에서 인자로 전달된 Data Object. Data Object가 지정되지 않을 경우 null이됨
+  </pre>
+  
++ setChanged() Method : Observer들에게 전달하는 조건을 정해줄때 설정
+  <pre>
+  setChanged(){
+    changed = true
+  }
+  //setChanged() Method에서 changed flag의 값을 참으로 설정
+  
+  notifyObservers(Object arg){
+    if (changed){
+      목록에 있는 모든 Observer에 대해{
+        update(this, arg)
+      //notifyObservers()에서는 changed flag가 참인 경우에만 Observer들한테 전달
+       }
+     changed = false
+     //Observer들에게 전달을 하고나면 changed flag를 다시 거짓으로 바꿈
+     }
+   }
+  notidyObservers(){
+    notifyObservers(null)
+  }
+  </pre>
+
+
+> Observer는 전달되는 순서에 의존하면 안됨 "느슨한 결합(Loose Coupling)" 을 
+
+
+Java 내장 Observer Pattern의 단점
+------
++ Observable은 Class기 때문에 sub class를 만들어 줘야함 : 재사용성에 제약이 생김
++ Observable interface라는 것이 없기 때문에 Java네 내장된 Observer API하고 잘 맞는 class 구현이 불가능
++ Observable Class의 핵심 Method를 외부에서 호출 할 수 
+
+
 Ex)
 ----------------
 <pre>
@@ -55,15 +105,45 @@ measurementsChanged()
    
 Proto Type)
 <pre>
-public class WeatherData{
+import java.util.Observable;
+import java.util.Observer;
+
+public class WeatherData extends Obsservable{
 // 인스턴스 변수 선언
+  private float temperature;
+  private float humidity;
+  private float pressure;
+  
+  //Observer들을 직적 챙기고 등록/탈퇴 등을 직접 관리하지 않아도 됨(Super class에서 다해줌)
+  
+  public WeatherData(){ }
+    //생성자에서 Observer들을 저장하기 위한 자료구조를 만들 필요가 없음
+  
   public void measurementschanged(){
+    /*
+    
     float temp = getTemperature();
     float humidity = getHumidity();
     float pressure = getPressure();
-    //이미 구현되어 있는 WeatherData의 getter Method를 써서 최신 측정값을 갖고옴
+    //이미 구현되어 있는 WeatherData의 getter Method를 써서 최신 측정값을 갖고옴 
     
-    //Display 갱신
+    */
+    
+      setChanged();
+      notifyObservers();
+      //notifyObservers()를 호출할때 DataObject를 보내지 않음-> 풀 모델을 사용중이라는 뜻
+      //notifyObservers()를 호출하기 전에 setChanged()를 호출 해서 상태가 바뀌었다는것을 전달
+    }
+    
+    public void setMeasurementschanged(){
+      this.temperature = temperature;
+      this.humidity = humidity;
+      this.pressure = pressure;
+      measurementsChanged();
+    }
+    
+    /*
+    Display 갱신
     currentConditionsDisplay.update(temp, humidity, pressure);
     statisticsDisplay.update(temp, humidity, pressure);
     forecastDisplay.update(temp, humidity, pressure);
@@ -71,6 +151,21 @@ public class WeatherData{
     //하지만 지금의 Display부분은 캡슐화 해줘야함
     //구체적인 구현에 맞춰서 코딩했기 때문에 프로그램을 고치지 않고 다른 Display항목을 추가/제거 할 수 없음
     //공통된 Method인 update를 주목
+    */
+    
+    public float getTemperature() {
+      return temperature;
+    }
+    
+    public float getHumidity() {
+      return humidity;
+    }
+    
+    public float getPressure() {
+      return pressure;
+    }
+ }
+    
 </pre>
 
 
@@ -145,4 +240,75 @@ public class WeatherData implements Subject{
     measurementsChanged();
   }
 }
+</pre>
+
+
+Display)
+<pre>
+import java.util.Observable;
+import java.util.Observer;
+
+public class CurrentConditionsDisplay implements Observer, DisplayElement{
+//weatherData Object로 부터 변경사항을 받기 위해 Observer를 구현
+//API 구조상 모든 Display 항목에서 DisplayElment를 구현하기로 했기 때문에 이 Interface도 구현
+
+//java.util pakage에 들어있는 Observer interface를 구현
+  Observable observable;
+  private float temprature;
+  private float humidity;
+  //private Subject weatherData;
+
+  public CurrentConditionsDisplay(/* Subject weatherData*/ Oservable observable){
+  //Observable 인자를 받아들인 다음 그 reference를 써서 observer를 등록
+  /*
+  //생성자에 weatherData라는 Subject Object가 전달되며, Object를 사용해서 Display를 Observer로 등록
+    this.weatherData = weathweData;
+    weatherData.registerObserver(this); */
+    
+    this.observable = observable;
+    observable.addObserver(this);
+  }
+
+  public void update(/* float temperature, float humidity, float pressure*/Observable obs, Object arg) {
+  //Observable과 추가 Data인자를 모들 받아들임
+    /*
+    this.tempreture = tempreture;
+    this.humidity = humdity;
+    //update가 호출되면 기온과 습도를 저장하고 display()를 호출
+    */
+    
+    if (obs instanceof WeatherData){
+      WeatherData weatherData = (WeatherData)obs;
+      this.temprature = weatherData.getTempreture();
+      this.humidity = weatherData.getHumidity();
+      display();
+    }
+    //update() Method에서는 우선 Observabledl WeatherData 형식이지 확인한 다음 getter Method를 써서 기온과 습도를 갖고옴
+    // 그 다음 display() Method를 
+  }
+
+  public void display() {
+    System.out.println("Current conditions: " + tempreture + "F degrees and " + humidity + "% humidity");
+    //display() Method에서 가장 최근에 얻은 기온과 습도를 출력
+  }
+}
+</pre>
+
+
+WeatherStation)
+<pre>
+public class WeatherStation{
+  public static void main(String [] args) {
+    WeatherData weatherdata = new WeatherData();
+    //weatherdata Object를 생성
+    
+    CurrentConditionsDisplay currentDisplay =  new CurrentConditionsDisplay(weatherData);
+    StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
+    ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+    //세개의 Display를 생성 하면서 WeatherData 객체를 인자로 전달합니다.
+    
+    weatherData.setMeasurements(80, 65, 30.4f);
+    weatherData.setMeasurements(82, 70, 29.2f);
+    weatherData.setMeasurements(78, 90, 29.2f);
+    //새로운 기상 측정값이 들어온 것 처럼 
 </pre>
