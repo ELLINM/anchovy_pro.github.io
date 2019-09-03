@@ -9,7 +9,7 @@
 <script>
 	function registerUser(){
 		var registerForm = document.getElementById("registerForm");
-		var	userid = document.getElementById("userid");
+		var userid = document.getElementById("userid");
 		var userpwd = document.getElementById("userpwd");
 		var userpwd2 = document.getElementById("userpwd");
 		
