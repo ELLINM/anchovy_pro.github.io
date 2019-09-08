@@ -65,23 +65,5 @@ print(result.get('href))
 </pre>
 
 
-request module
------
-+ python 에서 HTTP 요청을 보내는 module
-
-<pre>
-import requests
-URL = 'address'
-response.status_code
-response.text
-</pre>
-
-+ 사용법
-  - GET 요청할 때 parameter 전달법
-    <pre>
-    params = {'param1' : 'value1', 'param2' : 'valew'}
-    res = reuests.get(URL, params=params)
-    </pre>
-
 
 
