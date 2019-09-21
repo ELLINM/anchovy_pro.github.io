@@ -1,6 +1,6 @@
  JAVA Link
 --------------
-+유용한 깃허브
++ 유용한 깃허브
 https://github.com/cheese10yun/dev-info
 
 + 블로그
