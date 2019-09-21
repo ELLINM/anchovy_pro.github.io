@@ -366,10 +366,3 @@ Encapsulation(캡슐화)
 + 외부에서 데이터에 접근하지 못하도록함
 + private을 사용 ex) private int XXX 멤버변수, 필드 라고 
 
-Link
---------------
-+유용한 깃허브
-> https://github.com/cheese10yun/dev-info
-
-+ 블로그
-> https://hyeonstorage.tistory.com/136
