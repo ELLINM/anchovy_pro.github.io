@@ -1,16 +1,16 @@
 import cx_Oracle
-import data1.crwalling
+import data1.crawling
 
 
-grade = data1.crwalling.select_grade
-director = data1.crwalling.select_director
-date = data1.crwalling.select_date
-actor1 = data1.crwalling.select_actor1
-actor2 = data1.crwalling.select_actor2
-actor3 = data1.crwalling.select_actor3
-country = data1.crwalling.select_country
-genre = data1.crwalling.select_genre
-time = data1.crwalling.select_runningtime
+grade = data1.crawling.select_grade
+director = data1.crawling.select_director
+date = data1.crawling.select_date
+actor1 = data1.crawling.select_actor1
+actor2 = data1.crawling.select_actor2
+actor3 = data1.crawling.select_actor3
+country = data1.crawling.select_country
+genre = data1.crawling.select_genre
+time = data1.crawling.select_runningtime
 
 conn = cx_Oracle.connect("hr/hr@localhost")
 cursor = conn.cursor()
