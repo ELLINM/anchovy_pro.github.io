@@ -28,21 +28,21 @@ MySql 설정
   데이터베이스에 대한 보안 위험이 될 수있는 위험한 기본 설정을 제거
   
 + sudo mysql_secure_installation 입력
-  첫 번째는 validate password 플러그인을 사용할 것인지 묻는 것 : 
+  + 첫 번째는 validate password 플러그인을 사용할 것인지 묻는 것 : 
     + 기본적으로 비밀번호 보안을 강화하는 데 사용
     + 암호를 설정하려고 할 때마다 암호의 특정 형식을 보안 형식으로 유지
     + mysql에 익숙하지 않으면 이것을 사용하는 것이 어려울 수 있음
     + WordPress와 같은 플러그인을 사용하거나 PHP를 설치하는 경우 특정 플러그인과 충돌 가능성이 있음
     + 강의에서는 no를 입력하고 진행
     
-  no를 입력한 후에 비밀번호 입력
+  + no를 입력한 후에 비밀번호 입력
     + 기본적으로 login없이 mysql을 이용할 수 있음
     + 이것은 테스트 용이며 설치를 좀 더 부드럽게하기위한 것
     + 프로덕션 환경으로 이동하기 전에 제거해야한다는 것을 제거
     + anonymous user를 제거하려면 yes를 선택
   
   
-  라우트 로그를 원격으로 허용하지 않고 로컬 호스트 만 루트로 로그인하도록 허용
+  + 라우트 로그를 원격으로 허용하지 않고 로컬 호스트 만 루트로 로그인하도록 허용
     + 보안에 대한 좋은 습관
     + 예를 선택하면 경로 로그인 허용 안 함을 선택하여 원격 사용자가 경로로 로그인 할 수 없음
   
@@ -68,22 +68,22 @@ MySql 설정
       
     + 비밀번호를 재설정 했지만 ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
       Error 발생 -> SHOW VARIABLES LIKE 'validate_password%' 입력 비밀번호 규칙을 확인하기
-       + validate_password_check_user_name은 패스워드에 user id가 들어갔는지 확인
-         -> 아이디와 패스워드가 모두 root인데 만약 on이 켜져있다면 이는 불가능
-         length는 길이 -> 8자 이상이어야 가능
-         mixed case count는 대소문자를 적어도 1회이상 사용
-         number count도 숫자를 적어도 1회 이상 사용
-         special char count는 특수문자를 적어도 1회 이상 사용
+       + validate_password_check_user_name은 패스워드에 user id가 들어갔는지 확인   
+         -> 아이디와 패스워드가 모두 root인데 만약 on이 켜져있다면 이는 불가능   
+         length는 길이 -> 8자 이상이어야 가능    
+         mixed case count는 대소문자를 적어도 1회이상 사용    
+         number count도 숫자를 적어도 1회 이상 사용     
+         special char count는 특수문자를 적어도 1회 이상 사용     
        
-       + policy정책 -> medium
-         medium은 위의 정책들이 활성화
-         정책을 끄고싶다면 이 파라메터가 low -> low로 해도 자릿수는 지켜야함
+       + policy정책 -> medium     
+         medium은 위의 정책들이 활성화     
+         정책을 끄고싶다면 이 파라메터가 low -> low로 해도 자릿수는 지켜야함     
          
-       + 정책 변경 방법 SET GLOBAL validate_password_policy=LOW; <- MEDIUM
-         길이 변경 SET GLOBAL validate_password_length = <원하는 길이>;
+       + 정책 변경 방법 SET GLOBAL validate_password_policy=LOW; <- MEDIUM     
+         길이 변경 SET GLOBAL validate_password_length = <원하는 길이>;     
          
      + flush privileges 명령을 실행 -> 서버가 grant 테이블을 다시로드하고 새 변경 사항을 적용하도록 지시
-       + SELECT user, authentication_string,plugin,host FROM mysql.user; 입력하면 root user의 정보가 바뀐걸 확인
-         라우트 사용자가 이제 mysql 기본 비밀번호로 인증하고 더 이상 작성자 소켓 플러그인으로 인증하지 않음을 확인
-         
+       + SELECT user, authentication_string,plugin,host FROM mysql.user; 입력하면 root user의 정보가 바뀐걸 확인     
+         라우트 사용자가 이제 mysql 기본 비밀번호로 인증하고 더 이상 작성자 소켓 플러그인으로 인증하지 않음을 확인    
+            
     
