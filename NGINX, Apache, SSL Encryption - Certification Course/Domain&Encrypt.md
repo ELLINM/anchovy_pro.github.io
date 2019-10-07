@@ -1,0 +1,24 @@
+Domain
+====
++ GoDaddy.com에서 domain을 얻기로 함
+
+
+
+Encrypt
+======
++ sudo add-apt-repository ppa:certbot/certbot
++ bots Apache pakage를 설치
+  + sudo apt install python-certbot-apache   
+    SSL을 자동으로 구성하려면 각 가상 호스트 파일에 대해 올바른 가상 호스트 파일을 찾을 수 있어야 함
+    가상 호스트 명령을 설정   
+    일반적으로 이미 도메인이 구성되어 있는 경우 모든 도메인에 대한 인증서를 등록할 수 있는 두 가지 방법이 있음
+  + sudo certbot --apache -d example.com -d www.example.com -d www.example2.com -d www.example2.com   
+    이러한 도메인을 갖고 있다면   
+    각 도메인 이름은 대시 D 플래그 앞에 있으므로 도메인이 5개 또는 10개인 경우   
+    시간을 절약하기 위해 한 번에 연결할 수 있지만 추가 등록을 할 때 대부분 인증서 기간을 추가
++ 첫번째 도메인 부터 시작
+  + sudo certbot --apache -d example.com -d www.example.com
+  + email 입력 : admin@example.com
+  
+  
+  
