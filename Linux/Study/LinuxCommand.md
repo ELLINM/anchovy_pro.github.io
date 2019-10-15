@@ -28,6 +28,10 @@ Command
 Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully</pre>
++ su - user1 : user 변경
+<pre># su - user</pre>
++ clear : 내용 지우기
+<pre># clear</pre>
 + pwd : 현재 디렉토리 위치
 <pre># pwd
 /</pre>
@@ -41,6 +45,7 @@ passwd: password updated successfully</pre>
 # pwd
 /etc</pre>
 + ls : 파일 목록 출력
+  + -a, -al, -ar 세가지 사용가능
 <pre># ls -al
 total 32
 drwxr-xr-x 4 root root 4096 Oct  3 09:51 .
