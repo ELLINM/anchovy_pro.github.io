@@ -34,6 +34,9 @@ CentOS & Ubuntu
 Linux의 구조
 -----
 + Linux는 Linux kernel + shell + compiler + 다양한 소프트웨어를 포함한 하나의 패키지를 지칭
+
+![LinuxStructure](/Image/LinuxStructure.png "LinuxStructure")
+
 + 다양한 소프트웨어가 Linux kernel이 관리하고 있는 시스템 자원을 마구 사용할 경우, 시스템 안정성에 심각한 문제가 초래됨
 + 운영체제가 시스템 자원을 관리하고, 다양한 소프트웨어는 Linux kernel이 제공하는 시스템 콜을 통해 시스템 자원 사용을 요청
 + 시스템 콜은 shell, 다양한 언어별 compiler, library를 통해 호출되게 됨
@@ -44,4 +47,4 @@ Linux의 구조
   + 디바이스 관리(Device Management)
   + 네트워크 관리(Network Management)
   
-  
+![LinuxStructure2](/Image/os_arch.png "LinuxStructure2")
