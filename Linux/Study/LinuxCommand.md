@@ -63,9 +63,42 @@ drwxr-xr-x 2 root root 4096 Oct  3 12:47 mysql.conf.d</pre>
 <pre># ls debi* -al
 + -rwxr-xr-x 1 root root 120 Jul 19 19:28 debian-start
 -rw------- 1 root root 317 Oct  3 09:47 debian.cnf</pre>
-+ cat : 파일 보기
-<pre># cat mysql.cnf
-mysql.cnf 파일 내용이 출력됨</pre>
++ cat : 단순히 파일의 내용을 출력할 수도 있고, 파일 여러개를 합쳐서 하나의 파일로 만들 수도 있음
+  그리고 기존 한 파일의 내용을 다른 파일에 덧붙일수도 있음, 새로운 파일을 만들때에도 사용
+<pre>
+$ ls
+file1  file2  file3
+
+$ cat file1
+1
+
+$ cat file2
+2
+
+$ cat file3
+3
+
+$ cat file1 file2 > file1_2
+$ ls
+file1  file1_2  file2  file3
+
+$ cat file1_2
+1
+2
+
+$ cat file1 >> file2
+$ cat file2
+2
+1
+
+$ cat > file4
+hello
+world
+(작성이 끝나면 ctrl +d 로 파일 저장)
+
+$ cat file4
+hello
+world</pre>
 + head/tail : head 는 파일 시작부분, tail 은 끝 부분을 보여줌
 <pre># head mysql.cnf
 mysql.cnf 파일 앞부분만 출력됨 (기본적으로 출력 라인 수가 10으로 정해져 있음)
