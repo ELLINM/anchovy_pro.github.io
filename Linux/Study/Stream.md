@@ -1,3 +1,12 @@
+Linux에서 프로그램이 구동시 프로그램과 실행환경 사이를 소통하기 위해서는 미리 연결된 data stream이 필요   
+프로그램에 기본적으로 표준입력, 표준출력, 표준에러 3가지의 data stream이 연결 됨   
+이 3가지의 I/O 커넥션을 standard streams 즉 STD라고 함   
+ 
+원래 I/O 는 물리적은 장치에 의해 발생 그러나 STD에서 이야기하는 I/O는 이것보다 좀 더 추상적   
+일반적으로 shell에서 명령어가 실행될 때 standard stream가 연결 -> pipe를 통해 standard stream은 서로 연결 되기도 함   
+또한 부모 프로세스에서 자식 프로세스로 standard stream이 상속    
+
+
 standard stream
 =====
 + command 로 실행되는 process 는 세 가지 스트림을 가지고 있음
