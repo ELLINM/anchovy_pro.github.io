@@ -45,3 +45,11 @@ Pipe
 + grep -i python files.txt -> files.txt 라는 파일에서 python 라는 문구를 대,소문자 구분 없이 검색해서 출력
 + grep -E "go|java|python" files.txt -> files.txt 라는 파일에서 go, java, 또는 python 이 있는 모든 행을 출력
 
+
+standard stream
+------
++ command 로 실행되는 process 는 세 가지 스트림을 가지고 있음
+  + 표준 입력 스트림 (standard input stream)
+  + 표준 출력 스트림 (standard output stream)
+  + 오류 출력 스트림 (standard error stream)
++ 모든 스트림은 일반적인 plain text로 console 에 출력하도록 되어 있음
