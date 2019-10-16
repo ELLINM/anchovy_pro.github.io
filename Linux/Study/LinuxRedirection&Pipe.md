@@ -29,14 +29,15 @@ Pipe
 <pre>grep [-option] [pattern] [file or directory name]</pre>
    
 + option   
-|command|contents|    
-|----|----|    
-| i | 영문의 대소문자를 구별하지 않음 |   
-| v | pattern을 포함하지 않는 라인을 출력 |    
-| n | 검색 결과의 각 행의 선두에 행 번호를 넣음(first line is 1) |    
-| l | 파일명만 출력 |    
-| c | 패턴과 일치하는 라인의 개수만 출력 |    
-| r | 하위 디렉토리까지 검색 |
+
+|<cecter>command</cecter>|<cecter>contents</cecter>|    
+|:-----:|:-----:|    
+| <cecter>-i</cecter> | <cecter>영문의 대소문자를 구별하지 않음</cecter> |   
+| <cecter>-v</cecter> | <cecter>pattern을 포함하지 않는 라인을 출력</cecter> |    
+| <cecter>-n</cecter>| <cecter>검색 결과의 각 행의 선두에 행 번호를 넣음(first line is 1)</cecter> |    
+| <cecter>-l</cecter> | <cecter>파일명만 출력</cecter> |    
+| <cecter>-c</cecter> | <cecter>패턴과 일치하는 라인의 개수만 출력</cecter> |    
+| <cecter>-r</cecter> | <cecter>하위 디렉토리까지 검색</cecter> |
 
 + grep python files.txt -> files.txt 라는 파일에서 python 라는 문구가 들어간 모든 행을 출력
 + grep -n python files.txt -> files.txt 라는 파일에서 python 라는 문구가 들어간 모든 행을 라인까지 출력
