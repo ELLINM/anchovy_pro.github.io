@@ -81,4 +81,10 @@ mysql.cnf 파일 내용이 출력됨</pre>
 + man : manual이라는 의미. man rm을 입력하면 메뉴얼이 나옴
 + --help : 도움말 내가 무엇을 섞어 쓸수 있는지 확인
 + man command : command에 대한 설명을 볼 수 있음 
-
++ mkdir : directory생성
++ .. : 현재 위치한 폴더의 상위 폴더로 이동
++ touch : 파일 생성
++ vi : 파일 수정
++ esc -> shift+z+z : 저장 후 종료
++ mv 파일명 바꿀파일명 : 파일이름 또는 장소 변경
++ find 위치 조건 : 파일 검색
