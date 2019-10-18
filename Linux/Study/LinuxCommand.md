@@ -121,3 +121,4 @@ mysql.cnf 파일 내용이 출력됨</pre>
 + esc -> shift+z+z : 저장 후 종료
 + mv 파일명 바꿀파일명 : 파일이름 또는 장소 변경
 + find 위치 조건 : 파일 검색
++ ip addr : IP 
