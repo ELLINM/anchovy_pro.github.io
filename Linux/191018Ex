@@ -1,0 +1,22 @@
+1. 사용자 홈 디렉토리에 workspace 라는 디렉토리 만들기
+2. 사용자 홈 디렉토리/workspace 에 HelloWorld.java 파일을 만들어 안에 HelloWorld 코드 작성하기
+3. 3번과 같은 위치에 readme.txt 파일 만들기
+4. 만든 readme.txt 파일을 사용자 홈 디렉토리 아래 memo 라는 디렉토리를 만들어 옮기기
+5. memo 디렉토리를 파일을 포함하여 삭제하기
+6. 3번에 만든 HelloWorld.java 파일을 HelloWorld2.java로 이름을 바꾸고, 안의 클래스명도 바꾸기
+
+#cd ~
+#mkdir workspace
+
+#touch HelloWorld.java
+#vi HelloWorld.java
+i -> 작성 -> esc + shift + z + z
+
+#touch readme.txt
+# cd ..
+#mkdir memo
+#mv ../workspace/readme.txt ./
+#cd ..
+#rm -r memo
+#mv HelloWorld.java HelloWorld2.java
+#vi HelloWorld2.java
