@@ -4,12 +4,12 @@ Static?
 
 Static
 ---------------
-+ 마법같은 단어 HeapMemry에 생성하지않고 사용할 수 있도록 해줌
++ 마법같은 단어 HeapMemory에 생성하지않고 사용할 수 있도록 해줌
 + 계속 사용하게 되면 Memory를 차지하게됨
 + 공유의 개념 = static 으로 설정하면 같은 곳의 메모리 주소만을 바라보기 때문에 static 변수의 값을 공유하게 되는 것
 
 
-static의 특징
+Static의 특징
 ------
 + Class를 설계할 때, 멤버변수 중 모든 instance에 공통적으로 사용해야하는 것에 static을 붙임
   instance를 생성하면, 각 instance들은 서로 독립적기 때문에 서로 다른 값을 유지   
