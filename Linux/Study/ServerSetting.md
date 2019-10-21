@@ -19,5 +19,5 @@ CentOS 톰캣 설치및 설정, 파일질라 설치 및 배포
 8. 파일질라 설치 및 연결 (포트 22)
   + yum -y install epel-release   
     yum -y install filezilla
-9.파일질라를 통해 파일 이동및 webapps으로 배포
+9. 파일질라를 통해 파일 이동및 webapps으로 배포
 
