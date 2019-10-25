@@ -42,5 +42,21 @@ Jenkins 설치
    -> http://서버아이피:지정한포트
 8. 관리자 비밀번호를 확인
    -> /var/lib/jenkins/secrets/initialAdminPassword
-   
-   
+
+
+Jenkins 배포
+------
+1. 먼저 STS프로젝트와 GITHUB 연결     
+   참고 : https://all-record.tistory.com/163
+2. jenkins -> Global Tool Configuration     
+   yum install java-devel 을 했다면 java path는 /usr/lib/jvm/java-1.8.0-openjdk (jdk1.8)     
+   yum install git 을 했다면 git path는 /usr/bin/git (git2)     
+   yum install maven 했다면 path는 /usr/share/maven (mvn3)     
+3. 프로젝트 -> freestlye 생성     
+   소스코드관리 -> git repo 주소입력     
+   Build -> Maven버전에 mvn3 -> Goals에 clean install     
+   빌드후조치 파일명 <pre>**/*.war , context path에 war 이름, containers에 crednetial</pre>과 톰캣 주소입력
+4. Tomcat Manager 설정     
+   tomcat-user.xml 에 username password 설정     
+   톰캣경로/webapps/manager/META-INF/context.xml 다른IP차단 설정 무효화     
+5. 배포
