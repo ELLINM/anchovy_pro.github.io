@@ -60,3 +60,30 @@ Jenkins 배포
    tomcat-user.xml 에 username password 설정     
    톰캣경로/webapps/manager/META-INF/context.xml 다른IP차단 설정 무효화     
 5. 배포
+
+
+<상세>
++ 글로벌 툴 설정후
++ free style로 생성
++ 소스코드 관리 -> git, git url
++ 빌드환경 -> 설정한 maven, clean install
++ 빌드 후 조치 -> deploy to container 재시작 없이 설치
++ 설치후 빌드 후 조치 -> deploy war to container
+  ?클릭하면 뭐 적으라고 나옴 따라서 적으면 됨
++ 톰캣을 켜서 들어가면 처음에는 acess denied가 뜸
++ 리눅스 톰캣 폴더 안의 웹앱 -> 매니저로 이동 -> META-INF 이동 -> context.xml 수정 -> <Context>안의 내용 주석처리    
+  -> 톰캣으로 다시 이동 -> conf로 이동 -> vi tomcat-users.xml
+<pre>
+ <role rolename="tomcat"/>
+  <role rolename="role1"/>
+  <user username="tomcat" password="<must-be-changed>" roles="tomcat"/>
+</pre>
+주석 내용을 복사해서 주석 밖으로 넣고 내용추가 
+
+ex)<role rolename="manager-script"/>
+  <role rolename="admin"/>
+  <role rolename="manager-gui"/>
+  <user username="admin" password="admin" roles="manager-script, admin, manager-gui"/>
+  
++ 톰캣 서버로 접속하면 로그인 하라고하고 ID, PW로 로그인 가능
++ 젠킨스에서 빌드업 하면 접속 
