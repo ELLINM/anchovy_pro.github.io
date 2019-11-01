@@ -1,4 +1,4 @@
-Extends(상속)
+Inheritance(상속)
 =============
 + Object Oriented Program의 특징 중 하나
 + 속성과 기능을 물려받는것
